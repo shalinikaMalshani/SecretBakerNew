@@ -8,7 +8,7 @@ public class OrderDetailDTO {
     private int foodItem;
     private int quantity;
     private int unitePrice;
-    private OrderNew resOrderId;
+
     private String name;
 
     public OrderDetailDTO(int foodItem, int quantity, int unitePrice) {
@@ -25,27 +25,7 @@ public class OrderDetailDTO {
         this.name = name;
     }
 
-    public OrderDetailDTO(int foodItem, int quantity, int unitePrice, OrderNew resOrderId, String name) {
-        this.foodItem = foodItem;
-        this.quantity = quantity;
-        this.unitePrice = unitePrice;
-        this.resOrderId = resOrderId;
-        this.name = name;
-    }
 
-    public OrderDetailDTO(int quantity, int unitePrice, OrderNew resOrderId) {
-        this.quantity = quantity;
-        this.unitePrice = unitePrice;
-        this.resOrderId = resOrderId;
-    }
-
-    public OrderNew getResOrderId() {
-        return resOrderId;
-    }
-
-    public void setResOrderId(OrderNew resOrderId) {
-        this.resOrderId = resOrderId;
-    }
 
     public OrderDetailDTO() {
     }

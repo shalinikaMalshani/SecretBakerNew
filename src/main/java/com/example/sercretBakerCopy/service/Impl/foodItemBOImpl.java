@@ -45,6 +45,7 @@ public class foodItemBOImpl implements foodItemBO {
     JavaMailSender javaMailSender;
 
 
+    //get  food item by id
     @Override
     public FoodItemDTO getFoodItemById(int id) {
         FoodItem foodItem = foodItemDAO.findOne(id);
@@ -58,6 +59,8 @@ public class foodItemBOImpl implements foodItemBO {
         return foodItemDTO;
     }
 
+
+    //get all food items
     @Override
     public List<FoodItemDTO> getAllFoodItems() {
         List<FoodItemDTO> foodItemDTOList = new ArrayList<>();
@@ -74,57 +77,8 @@ public class foodItemBOImpl implements foodItemBO {
         return foodItemDTOList;
     }
 
-    //find highest id to save
-//    @Override
-//    public OnlineOrderDTO findHighestId() {
-//        OnlineOrder order=null;
-//        try {
-//            order=orderDAO.findTopByOrderByOnlineOrderIdDesc();
-//        }catch(Exception e){
-//
-//        }
-//        return new OnlineOrderDTO(order.getOnlineOrderId());
-//    }
 
-//    @Override
-//    public OnlineOrderDTO findHighestId() {
-//        OnlineOrder order=null;
-//        try {
-//            order=orderDAO.findTopByOrderByOnlineOrderIdDesc();
-//        }catch(Exception e){
-//
-//        }
-//        return new OnlineOrderDTO(order.getOnlineOrderId());
-//    }
-
-//    @Override
-//    public OnlineOrderDTO findOrderById(int id) {
-//        OnlineOrder onlineOrder=orderDAO.findOne(id);
-//        return new OnlineOrderDTO(onlineOrder.getOnlineOrderId(),
-//                onlineOrder.getOrderFoodName(),
-//                onlineOrder.getImgSrc(),
-//                onlineOrder.getL_des(),
-//                onlineOrder.getFoodPrice(),
-//                onlineOrder.getQty());
-//    }
-
-//    @Override
-//    public List<OnlineOrderDTO> getAllOrders() {
-//        List<OnlineOrderDTO> list=new ArrayList<>();
-//        Iterable<OnlineOrder> onlineOrderList=orderDAO.findAll();
-//        for(OnlineOrder o:onlineOrderList) {
-//            list.add(new OnlineOrderDTO(o.getOnlineOrderId(),
-//                    o.getOrderFoodName(),
-//                    o.getImgSrc(),
-//                    o.getL_des(),
-//                    o.getFoodPrice(),
-//                    o.getQty()));
-//        }
-//        return list;
-//    }
-
-
-    //find highest id to save
+    //find highest order id to save
     @Override
     public OrderDTO findTopByOrderByRestIdDesc() {
 
@@ -140,7 +94,7 @@ public class foodItemBOImpl implements foodItemBO {
     }
 
 
-    //SAve Counter Order
+    //SAve  Order
     @Transactional
     @Override
     public void saveRestaurantOrder(OrderDTO restaurantCounterOrderDTO) {
@@ -189,6 +143,7 @@ public class foodItemBOImpl implements foodItemBO {
         }
     }
 
+
     @Override
     public FoodItemDTO findFoodItemById(int itemId) {
         FoodItem foodItem = foodItemDAO.findOne(itemId);
@@ -199,6 +154,7 @@ public class foodItemBOImpl implements foodItemBO {
         return menuDTO;
     }
 
+    //save customer
     @Override
     public void saveCustomer(CustomerDTO customerDTO) {
         customerDAO.save(new Customer(customerDTO.getOnlineCustomerId(),
@@ -209,6 +165,7 @@ public class foodItemBOImpl implements foodItemBO {
                 customerDTO.getPassword()));
     }
 
+    //get customer by id
     @Override
     public CustomerDTO getCustomerById(int id) {
         Customer customer = customerDAO.findOne(id);
@@ -219,6 +176,7 @@ public class foodItemBOImpl implements foodItemBO {
         return customerDTO;
     }
 
+    //find highest id to save
     @Override
     public CustomerDTO findHighestCustomerId() {
         Customer customer = null;
@@ -230,6 +188,7 @@ public class foodItemBOImpl implements foodItemBO {
         return new CustomerDTO(customer.getOnlineCustomerId());
     }
 
+    //send mail to customer
     @Override
     public void sendEmail(OrderDTO orderDTO) throws MessagingException {
 
@@ -281,6 +240,7 @@ public class foodItemBOImpl implements foodItemBO {
 
     }
 
+    //send mail to SB
     @Override
     public void sendEmailToSB(CustomerDTO customerDTO) throws MessagingException {
 
@@ -298,6 +258,7 @@ public class foodItemBOImpl implements foodItemBO {
         );
 
     }
+    //get customer
     @Override
     public CustomerDTO findOne(int onlineCustomerId) {
         Customer onlineCustomer = customerDAO.findOne(onlineCustomerId);
@@ -307,16 +268,5 @@ public class foodItemBOImpl implements foodItemBO {
         );
     }
 
-    @Override
-    public OrderDetailDTO findOneOrder(int orderId) {
-        OrderDetail orderNew = orderDetailDAO.findOne(orderId);
-        return new OrderDetailDTO(
-                orderNew.getQuantity(),
-                orderNew.getUnitePrice(),
-                orderNew.getRestaurantCounterOrder()
-
-
-        );
-    }
 
 }

@@ -7,7 +7,7 @@ import java.util.List;
 
 public class CustomerDTO {
     private int onlineCustomerId;
-    private int order;
+
     private String userName;
     private String address;
     private String email;
@@ -42,15 +42,6 @@ private String password;
         this.password = password;
     }
 
-    public CustomerDTO(int onlineCustomerId, int order, String userName, String address, String email, String number, String password) {
-        this.onlineCustomerId = onlineCustomerId;
-        this.order = order;
-        this.userName = userName;
-        this.address = address;
-        this.email = email;
-        this.number = number;
-        this.password = password;
-    }
 
     public CustomerDTO(int onlineCustomerId, String email, String password) {
         this.onlineCustomerId = onlineCustomerId;
@@ -65,13 +56,6 @@ private String password;
         this.userName = userName;
     }
 
-    public int getOrder() {
-        return order;
-    }
-
-    public void setOrder(int order) {
-        this.order = order;
-    }
 
     public CustomerDTO(String email, String password) {
         this.email = email;

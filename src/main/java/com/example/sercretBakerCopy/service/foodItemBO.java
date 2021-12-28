@@ -31,5 +31,5 @@ public interface foodItemBO {
     void sendEmailToSB(CustomerDTO customerDTO) throws MessagingException;
     CustomerDTO findByEmailAndPassword(String email, String password);
     CustomerDTO findOne(int onlineCustomerId);
-    OrderDetailDTO findOneOrder(int orderId);
+
 }
