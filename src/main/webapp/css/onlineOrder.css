@@ -1,0 +1,147 @@
+.product-order{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 1000px;
+    height: auto;
+    background-color: white;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+
+}
+.product-pic{
+    /*width: 50%;*/
+    /*height: auto;*/
+    float: left;
+    padding: 20px;
+    /*display: inline-block;*/
+    /*padding-left: 15px;*/
+    /*position: fixed;*/
+}
+
+.product-pic img{
+    /*width: 100%;*/
+    border: 1px solid black;
+    /*position: relative;*/
+    /*top: 50%;*/
+    /*transform: translate(0, -50%);*/
+    /*position: fixed;*/
+}
+
+/*form:input{*/
+
+
+.input-field {
+    border:0;outline:0;
+}
+input:focus {
+    outline:none!important;
+}
+
+textarea{
+    resize: none;
+}
+
+/*@media screen and (max-width: 1075px)  {*/
+/*   .product-order{*/
+/*       width: 900px;*/
+/*       height: auto;*/
+/*   }*/
+/*    .product-pic{*/
+/*        float: left;*/
+/*    }*/
+/*}*/
+
+@media screen and (max-width: 550px) {
+    .product-content{
+        flex-direction: column;
+    }
+}
+
+.card{
+    width:450px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+
+}
+
+/*.card-title{*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*    width: 8em;*/
+/*}*/
+/*.card-text{*/
+/*    position: relative;*/
+/*    left: 20%;*/
+/*}*/
+.add-cart{
+    font-weight: 500;
+    font-size: 14px;
+    padding: 3px;
+    background-color: red;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    color:white;
+}
+.add-cart:hover{
+    color:white;
+    text-decoration: none;
+}
+hr{
+    width: 37%;
+    border:1px solid black;
+}
+.cart-icon{
+    float:right;
+    background-color: red;
+    color:white;
+    border: none;
+
+}
+.cart-icon a{
+    text-decoration: none;
+    color:white;
+
+}
+@media screen and (max-width:475px ) {
+    .card{
+        width:400px;
+    }
+    textarea{
+        width:100%;
+        /*height: auto;*/
+    }
+}
+
+@media screen and (max-width:425px ) {
+    .card{
+        width:350px;
+    }
+    textarea{
+        width:100%;
+        height:100px;
+    }
+    hr{
+        width: 45%;
+    }
+}
+
+@media screen and (max-width:370px ) {
+    .card{
+        width:300px;
+    }
+    textarea{
+        width:100%;
+        height:100px;
+    }
+
+    hr{
+        width:55%;
+    }
+}

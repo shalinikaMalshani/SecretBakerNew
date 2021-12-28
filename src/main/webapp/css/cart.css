@@ -1,0 +1,277 @@
+.product-container{
+    max-width: 650px;
+    justify-content:space-around;
+    margin: 0 auto;
+    /*margin-top: 40px;*/
+    display: flex;
+    /*justify-content: center;*/
+    flex-wrap: wrap;
+}
+.product-container ion-icon{
+    font-size: 20px;
+    color: black;
+    margin-left: 15px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+.itemName{
+    padding-left: 20px;
+}
+.product-header{
+    width:100%;
+    display:flex;
+    justify-content:flex-start;
+    border-bottom: 4px solid lightgray;
+    margin: 0 auto;
+    max-width: 650px;
+}
+.product-title{
+    width:43%;
+
+}
+.pricee{
+    width: 15%;
+    display: flex;
+    align-items: center;
+
+}
+.p{
+    padding-left: 0;
+}
+.qtyy{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    padding: 30px;
+
+}
+.totall{
+    width:10%;
+    display: flex;
+    align-items: center;
+
+
+
+}
+
+.price{
+    width: 25%;
+    display: flex;
+    align-items: center;
+    /*border-bottom: 1px solid black;*/
+}
+.qty{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    /*border-bottom: 1px solid black;*/
+
+}
+.total{
+    width:10%;
+    display: flex;
+    align-items: center;
+    /*border-bottom: 1px solid black;*/
+}
+
+.product{
+    width:35%;
+    display: flex;
+    flex-wrap: wrap;
+    /*justify-content: space-between;*/
+    align-items: center;
+    padding:10px 0;
+
+}
+
+.products{
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.products img{
+    width: 80px;
+    /*justify-content: center;*/
+margin-left: 15px;
+}
+.basketTotalContainer{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 10px 0;
+}
+.basketTotalTitle{
+    width: 31%;
+}
+.basketTotal{
+    width: 15%;
+}
+
+form .item-content{
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid black;
+
+}
+.cart-empty{
+    transform: translate(-50%,-50%);
+    /*bottom:5%;*/
+    /*top:10%;*/
+    left:50%;
+    margin-top: 30%;
+    position: absolute;
+    background: red;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 3px;
+
+}
+
+.card {
+    background-color: white;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    width:50%;
+    height:auto;
+    transform: translate(-50%,-50%);
+    position: fixed;
+    left: 50%;
+    right: 50%;
+    top:40%;
+}
+.v-itemPrice, .v-itemQty, .v-itemTot{
+    visibility: hidden;
+}
+@media screen and (max-width:600px) {
+
+    .card{
+        width: 89%;
+        margin-top:40%;
+        position: fixed;
+
+    }
+    .v-itemPrice, .v-itemQty, .v-itemTot{
+        visibility: visible;
+
+    }
+    .product-header{
+        display: none;
+    }
+    .product{
+        display:inline;
+        border-bottom: none;
+
+    }
+
+    .pricee{
+        border-bottom: none;
+        width: 100%;
+        height:0;
+        padding-top: 10px;
+        display:flex;
+
+
+    }
+    .qtyy{
+        border-bottom: none;
+        width: 100%;
+        height:0;
+        margin-left:0;
+        padding-left: 0;
+
+    }
+
+    .totall{
+        border-bottom: none;
+        width: 100%;
+        height: 0;
+        margin-bottom: 15px;
+
+    }
+
+
+    .item-content{
+        display: block;
+        padding-bottom: 19px;
+        margin-top: 5px;
+    }
+.product-container{
+    margin-top: 25px;
+}
+    .products img{
+        width: 45px;
+        margin-left:0;
+
+    }
+
+    .product-container ion-icon{
+        font-size: 16px;
+        margin-left: 0;
+        margin-right: 0;
+
+    }
+.basketTotalTitle{
+    font-size: 14px;
+    width: 35%;
+}
+.basketTotal{
+    font-size:14px;
+    width:17% ;
+}
+
+}
+
+
+@media screen and (min-width: 600px) and (max-width: 1300px){
+
+    .card{
+        width: 95%;
+        margin-top: 35px;
+    }
+    .product-title{
+        width:50%;
+        font-size: 16px;
+    }
+
+    .price{
+        width: 15%;
+        font-size: 16px;
+
+    }
+    .qtyy{
+        width: 30%;
+    }
+    .qty{
+        width: 25%;
+        font-size: 16px;
+
+    }
+    .total{
+        width:5%;
+        font-size: 16px;
+
+    }
+    .product-container{
+        margin-top: 15px;
+    }
+    .products img{
+        width: 55px;
+
+
+    }
+
+    .product-container ion-icon{
+        font-size: 16px;
+        margin-left: 0;
+        margin-right: 0;
+
+    }
+    .basketTotalTitle{
+        font-size: 16px;
+
+    }
+
+
+}
