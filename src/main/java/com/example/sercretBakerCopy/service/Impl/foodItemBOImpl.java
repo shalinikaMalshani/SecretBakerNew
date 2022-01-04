@@ -24,7 +24,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.mail.*;
 import javax.mail.internet.MimeMessage;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 @Service
 public class foodItemBOImpl implements foodItemBO {
@@ -138,7 +143,9 @@ public class foodItemBOImpl implements foodItemBO {
                     restaurantCounterOrderDTO.getOrderId(),
                     orderDetail.getFoodItem(),
                     orderDetail.getQuantity(),
-                    orderDetail.getUnitePrice()));
+                    orderDetail.getUnitePrice(),
+                    customerDAO.findOne(restaurantCounterOrderDTO.getCustomer()
+                    )));
 
         }
     }
@@ -193,13 +200,12 @@ public class foodItemBOImpl implements foodItemBO {
     public void sendEmail(OrderDTO orderDTO) throws MessagingException {
 
         Customer s = customerDAO.findOne(orderDTO.getCustomer());
-        OrderDetail o=orderDetailDAO.findOne(orderDTO.getOrderId());
-
 
         java.util.List<OrderDetailDTO> list = new ArrayList<>();
         String arr = orderDTO.getDataValue();
 
         String yo[] = arr.split(" ");
+
         int count = 0;
         OrderDetailDTO itm = new OrderDetailDTO();
         for (String str : yo) {
@@ -218,23 +224,68 @@ public class foodItemBOImpl implements foodItemBO {
                 count = 0;
             }
         }
+            MimeMessage message = javaMailSender.createMimeMessage();
+                MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
-        MimeMessage message = javaMailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(message, true);
+                helper.setTo(s.getEmail());
+                helper.setFrom("webspring404@gmail.com");
+                helper.setSubject("Your secret baker order has been received!!");
+                boolean html = true;
 
-        helper.setTo(s.getEmail());
-        helper.setFrom("webspring404@gmail.com");
-        helper.setSubject("Your secret baker order has been received!!");
-        boolean html = true;
-        String content = "<h3>Thank you for your order</h3>" + "\n";
-        content+="We contact you soon for more details";
-        content+="Order price"+o.getUnitePrice();
-        content+="Order qty"+o.getQuantity();
+
+                        String content="<h3>Thank you for your order with Secret Baker</h3>" + "\n";
+                content+="<h4>We contact you soon for the further confirmation</h4>"+"\n";
+                content+="<p><b>Order SB"+orderDTO.getOrderId()+"</b>\t<b>"+orderDTO.getDate()+"</b></p>";
+         content+="<table width='100%' align='center' border='1' style='border-collapse:collapse;'>"
+                + "<tr align='center'>"
+                + "<td><b>Product Name <b></td>"
+                + "<td><b>Qty<b></td>"
+                 + "<td><b>Price<b></td>"
+                + "</tr>";
+
+         int total=0;
+        int sum=0;
+
+        for (OrderDetailDTO d : list) {
+
+            total=d.getQuantity()*d.getUnitePrice();
+            sum=sum+total;
+
+            FoodItemDTO f = findFoodItemById(d.getFoodItem());
+            d.setName(f.getFoodName());
+            content += "<tr align='center'>" + "<td>" + d.getName() + "</td>"
+                    + "<td>" + d.getQuantity() + "</td>"
+                    + "<td>Rs:" + total + ".00</td>"
+                    + "</tr>";
+        }
+          content+="<tr align='center' style='border-top-color:2px solid grey;padding:6px;font-size:20px;'>" +"<td><b>" + "Subtotal" + "</b></td>"
+                  + "<td>" +""+ "</td>"
+                    + "<td>Rs:" +sum+ ".00</td>"
+                    +"</tr>";
+
+          content+="<tr align='center'>" + "<td><b>" + "Shipping" + "</b></td>"
+                    +"<td style='border-left:hidden;'>" +""+ "</td>"
+                    + "<td>" + "Free delivery" + "</td>"
+                    +"</tr>";
+
+            content+="<tr align='center'>" +"<td><b>" + "Payment Method" + "</b></td>"
+                    +"<td>" +""+ "</td>"
+                    + "<td>" + "Cash on delivery" + "</td>"
+                    +"</tr>";
+
+            content+="<tr align='center'>"+"<td><b>"+ "Total" + "</b></td>"
+                    + "<td>" +""+ "</td>"
+                    + "<td>Rs:" + sum + ".00</td>"
+                    +"</tr>"
+          +"</table>";
+            content+="<h4>Billing Address</h4>"+"\n"+s.getAddress();
+
+
 
         helper.setText(content, html);
 
 
-        javaMailSender.send(message);
+            javaMailSender.send(message);
 
 
 
@@ -242,7 +293,97 @@ public class foodItemBOImpl implements foodItemBO {
 
     //send mail to SB
     @Override
-    public void sendEmailToSB(CustomerDTO customerDTO) throws MessagingException {
+    public void sendEmailToSB(OrderDTO orderDTO) throws MessagingException {
+
+        Customer cus = customerDAO.findOne(orderDTO.getCustomer());
+
+        java.util.List<OrderDetailDTO> list = new ArrayList<>();
+        String arr = orderDTO.getDataValue();
+
+        String yo[] = arr.split(" ");
+
+        int count = 0;
+        OrderDetailDTO itm = new OrderDetailDTO();
+        for (String str : yo) {
+            if (count == 0) {
+                itm = new OrderDetailDTO();
+                itm.setFoodItem(Integer.parseInt(str));
+                count++;
+
+            } else if (count == 1) {
+                itm.setUnitePrice(Integer.parseInt(str));
+                count++;
+
+            } else if (count == 2) {
+                itm.setQuantity(Integer.parseInt(str));
+                list.add(itm);
+                count = 0;
+            }
+        }
+        MimeMessage message = javaMailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message, true);
+
+        helper.setTo("webspring404@gmail.com");
+        helper.setFrom("webspring404@gmail.com");
+        helper.setSubject("Secret baker todays orders");
+        boolean html = true;
+
+
+        String content="<h3>Order details</h3>" + "\n";
+        content+="<p><b>Order SB"+orderDTO.getOrderId()+"</b>\t<b>"+orderDTO.getDate()+"</b></p>";
+        content+="<table width='100%' align='center' border='1' style='border-collapse:collapse;'>"
+                + "<tr align='center'>"
+                + "<td><b>Product Name <b></td>"
+                + "<td><b>Qty<b></td>"
+                + "<td><b>Price<b></td>"
+                + "</tr>";
+
+        int total=0;
+        int sum=0;
+
+        for (OrderDetailDTO d : list) {
+
+            total=d.getQuantity()*d.getUnitePrice();
+            sum=sum+total;
+            FoodItemDTO f = findFoodItemById(d.getFoodItem());
+            d.setName(f.getFoodName());
+            content += "<tr align='center'>" + "<td>" + d.getName() + "</td>"
+                    + "<td>" + d.getQuantity() + "</td>"
+                    + "<td>Rs:" + total + ".00</td>"
+                    + "</tr>";
+        }
+        content+="<tr align='center'>" +"<td><b>" + "Subtotal" + "</b></td>"
+                + "<td>" +""+ "</td>"
+                + "<td >Rs:" +sum+ ".00</td>"
+                +"</tr>";
+
+        content+="<tr align='center'>" +"<td><b>" + "Shipping" + "</b></td>"
+                +"<td>" +""+ "</td>"
+                + "<td>" + "Free delivery" + "</td>"
+                +"</tr>";
+
+        content+="<tr align='center'>" +"<td><b>" + "Payment Method" + "</b></td>"
+                +"<td>" +""+ "</td>"
+                + "<td>" + "Cash on delivery" + "</td>"
+                +"</tr>";
+
+        content+="<tr align='center'>"+"<td><b>"+ "Total" + "</b></td>"
+                + "<td>" +""+ "</td>"
+                + "<td>Rs:" + sum + ".00</td>"
+                +"</tr>"
+                +"</table>";
+        content+="<h4>Customer details</h4>"+"\n"
+                +"Customer name:"+cus.getUserName() +"\n"
+                +"Customer Address:"+cus.getAddress()+"\n"
+                +"Customer contact:"+cus.getNumber();
+
+
+
+        helper.setText(content, html);
+
+
+        javaMailSender.send(message);
+
 
 
     }
@@ -264,8 +405,40 @@ public class foodItemBOImpl implements foodItemBO {
         Customer onlineCustomer = customerDAO.findOne(onlineCustomerId);
         return new CustomerDTO(
                 onlineCustomer.getOnlineCustomerId(),
+                onlineCustomer.getUserName(),
+                onlineCustomer.getAddress(),
+                onlineCustomer.getEmail()
+        );
+    }
+
+    @Override
+    public Customer findOneCus(int onlineCustomerId) {
+        Customer onlineCustomer = customerDAO.findOne(onlineCustomerId);
+        return new Customer(
+                onlineCustomer.getOnlineCustomerId(),
                 onlineCustomer.getUserName()
         );
+    }
+
+    @Override
+    public OrderNew findOneOrder(int orderId) {
+        OrderNew orderNew = orderDAO.findOne(orderId);
+        return new OrderNew(
+                orderNew.getOrderId(),
+               orderNew.getOrderState(),
+                orderNew.getDate(),
+                orderNew.getOrderHolder()
+        );
+    }
+
+
+    @Override
+    public OrderDetailDTO getOrderDetailByCusId(OrderNew orderNew,Customer customer) {
+        OrderDetail orderDetail= orderDetailDAO.findByCustomerAndRestaurantCounterOrder(customer,orderNew);
+        return  new OrderDetailDTO(orderDetail.getFoodItem().getItemId(),
+                orderDetail.getQuantity(),
+                orderDetail.getUnitePrice(),
+                orderDetail.getFoodItem().getFoodName());
     }
 
 

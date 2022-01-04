@@ -1,15 +1,18 @@
 package com.example.sercretBakerCopy.dto;
 
 
+import com.example.sercretBakerCopy.entity.Customer;
 import com.example.sercretBakerCopy.entity.OrderNew;
 
 public class OrderDetailDTO {
+
 
     private int foodItem;
     private int quantity;
     private int unitePrice;
 
     private String name;
+    private int onlineCustomerId;
 
     public OrderDetailDTO(int foodItem, int quantity, int unitePrice) {
 
@@ -28,6 +31,14 @@ public class OrderDetailDTO {
 
 
     public OrderDetailDTO() {
+    }
+
+    public int getOnlineCustomerId() {
+        return onlineCustomerId;
+    }
+
+    public void setOnlineCustomerId(int onlineCustomerId) {
+        this.onlineCustomerId = onlineCustomerId;
     }
 
     public String getName() {

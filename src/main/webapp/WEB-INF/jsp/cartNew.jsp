@@ -19,7 +19,7 @@
 <body>
 <div class="container mt-3">
 
-    <p style="font-weight: bold; margin-right: 30px;">${loggerId.userName}</p>
+<%--    <p style="font-weight: bold; margin-right: 30px;">${loggerId.userName}</p>--%>
     <div class="row">
         <div class="col-xs-1">
             <button class="cart-icon"><a href="/shoppingCartNew">Cart</a><span style="padding-left: 3px;">0</span></button>
@@ -57,6 +57,16 @@
 
 
             </form>
+
+<%--            <form method="GET" action="signUpLogin">--%>
+<%--                <input  type="text" style="width: 100%;display: none" id="pay" name="dataValue">--%>
+                <%--                <input style="display: none" type="text" id="cId" value="0"  name="customerId">--%>
+
+<%--                <button type="submit" id="submitPay">Checkout</button>--%>
+
+
+            </form>
+
 
         </div>
 

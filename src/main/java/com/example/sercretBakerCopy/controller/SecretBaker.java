@@ -2,10 +2,14 @@ package com.example.sercretBakerCopy.controller;
 
 
 
+import com.example.sercretBakerCopy.dao.OrderDetailDAO;
 import com.example.sercretBakerCopy.dto.CustomerDTO;
 import com.example.sercretBakerCopy.dto.FoodItemDTO;
 import com.example.sercretBakerCopy.dto.OrderDTO;
 import com.example.sercretBakerCopy.dto.OrderDetailDTO;
+import com.example.sercretBakerCopy.entity.Customer;
+import com.example.sercretBakerCopy.entity.OrderDetail;
+import com.example.sercretBakerCopy.entity.OrderNew;
 import com.example.sercretBakerCopy.service.foodItemBO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,9 +20,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.mail.MessagingException;
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 @Controller
@@ -41,10 +47,18 @@ public class SecretBaker {
 
     @GetMapping("/shoppingCartNew")
     public String shoppingCartNew(HttpSession session,Model model) {
-
-        int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
-        model.addAttribute("loggerId", foodItemBO.findOne(onlineCustomerId));
+//        try {
+//            int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
+//            model.addAttribute("loggerId", foodItemBO.findOne(onlineCustomerId));
+//        }catch (NullPointerException e){
+//            return "SignUp";
+//        }
         return "cartNew";
+    }
+
+    @GetMapping("/signUpLogin")
+    public String signUpLogin() {
+        return "signUpLogin";
     }
 
 
@@ -69,6 +83,13 @@ public class SecretBaker {
         return "SBonlineMenus";
     }
 
+    @GetMapping("/foodItemsss")
+    public String displayAllFoodItems(Model model,HttpSession session) {
+//        int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
+//        model.addAttribute("loggerId", foodItemBO.findOne(onlineCustomerId));
+        model.addAttribute("AllFoodItems", foodItemBO.getAllFoodItems());
+        return "SBonlineMenus";
+    }
     @GetMapping("/foodItemsCakes")
     public String getAllFoodItemCakes(Model model) {
         model.addAttribute("AllFoodItems", foodItemBO.getAllFoodItems());
@@ -83,7 +104,20 @@ public class SecretBaker {
 
 
     @PostMapping("invoice")
-    public String loadInvoicePage(@ModelAttribute OrderDTO restaurantCounterOrderDTO, Model model,HttpSession session) {
+    public String loadInvoicePage(@ModelAttribute OrderDTO restaurantCounterOrderDTO,
+                                  Model model,HttpSession session) {
+
+        try {
+            int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
+
+//                Customer c=foodItemBO.findOneCus(onlineCustomerId);
+//            OrderNew o=foodItemBO.findOneOrder(restaurantCounterOrderDTO.getOrderId());
+
+            restaurantCounterOrderDTO.setCustomer(onlineCustomerId);
+        }catch(Exception ex){
+            return "signUpLogin";
+        }
+
 
         try { //
 //            restaurantCounterOrderDTO.setCustomerId(SuperController.idNo);
@@ -93,18 +127,32 @@ public class SecretBaker {
         } catch (NullPointerException e) {
             restaurantCounterOrderDTO.setOrderId((1));//Set Id as 1 when Initial Round
         }
-        try {
-                int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
-                System.out.print("Cus id:"+onlineCustomerId);
-                restaurantCounterOrderDTO.setCustomer(onlineCustomerId);
-                foodItemBO.saveRestaurantOrder(restaurantCounterOrderDTO);
-                foodItemBO.sendEmail(restaurantCounterOrderDTO);
 
+
+        try {
+//try {
+//    int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
+//
+////                Customer c=foodItemBO.findOneCus(onlineCustomerId);
+////            OrderNew o=foodItemBO.findOneOrder(restaurantCounterOrderDTO.getOrderId());
+//
+//    restaurantCounterOrderDTO.setCustomer(onlineCustomerId);
+//}catch(NullPointerException ex){
+//    return "signUpLogin";
+//}
+                foodItemBO.saveRestaurantOrder(restaurantCounterOrderDTO);
+
+                foodItemBO.sendEmail(restaurantCounterOrderDTO);
+            foodItemBO.sendEmailToSB(restaurantCounterOrderDTO);
 
             java.util.List<OrderDetailDTO> list = new ArrayList<>();
             String arr = restaurantCounterOrderDTO.getDataValue();
             System.out.print("arr" + arr);
+
+
             String yo[] = arr.split(" ");
+
+            System.out.print("yo" + Arrays.toString(yo));
             int count = 0;
             OrderDetailDTO itm = new OrderDetailDTO();
             for (String str : yo) {//Read String and add to list
@@ -127,16 +175,34 @@ public class SecretBaker {
             for (OrderDetailDTO d : list) {
                 FoodItemDTO f = foodItemBO.findFoodItemById(d.getFoodItem());
                 d.setName(f.getFoodName());
+                System.out.println("Item name:"+d.getName());
+                System.out.println("Food qty"+d.getQuantity());
+                System.out.println("Food price"+d.getUnitePrice());
             }
+
+//            try{
+//                OrderDetailDTO orderDetailDTO=foodItemBO.getOrderDetailByCusId(o,c);
+//                System.out.println("Item name:"+orderDetailDTO.getName());
+//                System.out.println("Food qty"+orderDetailDTO.getQuantity());
+//                System.out.println("Food price"+orderDetailDTO.getUnitePrice());
+//            }catch (Exception e){
+//                e.printStackTrace();
+//            }
 //            int r = list.size();
             System.out.println("list of items " + list);
             model.addAttribute("listCounterOrders", restaurantCounterOrderDTO.getOrderId());
             model.addAttribute("listCounterOrderDetails", list);//Load Data to Payment
             model.addAttribute("NoOfItems", list.size());
-//            foodItemBO.sendEmailToSB(list);
+            model.addAttribute("customer",foodItemBO.findOne(restaurantCounterOrderDTO.getCustomer()));
+
+
+
         } catch (NullPointerException | MessagingException e) {
             e.printStackTrace();
         }
+
+
+
 
         return "Checkout";
     }
@@ -176,7 +242,7 @@ public class SecretBaker {
 
         foodItemBO.saveCustomer(customerDTO);
 
-        return "redirect:/signUp";
+        return "redirect:/signUpLogin";
     }
 
     //customer sign in
@@ -188,7 +254,7 @@ public class SecretBaker {
             if (onlineCustomerDTO != null) {
                 //Show Logged User Name
                 request.getSession().setAttribute("userId", onlineCustomerDTO.getOnlineCustomerId());
-                return "redirect:/foodItemss";
+                return "redirect:/shoppingCartNew";
             } else {//If User name And Password is not match
                 return "redirect:/saveCustomer";
 

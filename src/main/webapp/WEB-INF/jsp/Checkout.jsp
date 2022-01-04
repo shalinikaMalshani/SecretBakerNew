@@ -18,68 +18,84 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 </head>
 <body>
-<div class="container">
+<div class="container mt-3">
     <div class="row">
         <div class="col 12">
-<h3>Your Order</h3>
-<%--            <form method="post" action="saveCustomer">--%>
-            <table class="table">
+<div class="top">
+    <div style="text-align: center;">
+    <h2>Thank you</h2>
+    <hr>
+    <p>Your order is successfully completed.<br>
+    You will receive an email with invoice.</p>
+    </div>
+</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col 12"><br><br>
+            <h4>CHECKOUT SUMMARY</h4>
+
+            <div class="row">
+                <div class="col-6">
+                    Customer:<p>${customer.userName}</p>
+                    <p>${customer.email}</p>
+                    <p>${customer.address}</p>
+                </div>
+                <div class="col-6">
+                    Shopping:<p>Secret Baker</p>
+                    <p>secretbaker@gamil.com</p>
+                    <p>No 30,Palliyawatta,Piliyandala</p>
+                </div>
+            </div><br><br>
+            <h5>Your Order</h5>
+            <table class="table" id="order">
                 <thead>
                 <tr>
-                    <th>Id</th>
                     <th>Item Name</th>
-                    <th>Item price</th>
                     <th>Qty</th>
+                    <th>Unit Price</th>
+                    <th>Amount</th>
                 </tr>
                 </thead>
                 <tbody>
 
             <c:forEach items="${listCounterOrderDetails}" var="list">
             <tr>
-                <td>${listCounterOrders}</td>
                <td>${list.name}</td>
-                <td>${list.unitePrice}</td>
                 <td>${list.quantity}</td>
+                <td>${list.unitePrice}</td>
+                <td>${list.quantity*list.unitePrice}</td>
             </tr>
+
             </c:forEach>
 
                 </tbody>
 
             </table>
+            <h4>Total:<span id="val"></span></h4>
         </div>
 
-<%--<form method="post" action="saveCustomer">--%>
-<%--&lt;%&ndash;    <input  type="text" style="width: 100%;display: none" id="pay" name="dataValue">&ndash;%&gt;--%>
-<%--    <input class="form-control" name="onlineCustomerId" value="0" id="onlineCustomerId" type="hidden" >--%>
 
-
-<%--    <div class="mb-3">--%>
-<%--        <label for="exampleFormControlInput1" class="form-label">Name</label>--%>
-<%--        <input type="text" class="form-control" id="exampleFormControlInput1" name="userName" placeholder="Enter your name">--%>
-<%--    </div>--%>
-
-<%--    <div class="mb-3">--%>
-<%--        <label for="exampleFormControlInput1" class="form-label">Email address</label>--%>
-<%--        <input type="email" class="form-control" id="exampleFormControlInput2" name="email" placeholder="name@example.com">--%>
-<%--    </div>--%>
-<%--    <div class="mb-3">--%>
-<%--        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>--%>
-<%--        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="address"></textarea>--%>
-<%--    </div>--%>
-
-
-<%--    <h3>Payment</h3>--%>
-<%--    <div class="form-check">--%>
-<%--        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">--%>
-<%--        <label class="form-check-label" for="flexRadioDefault1">--%>
-<%--            Cash On Delivery--%>
-<%--        </label>--%>
-<%--    </div>--%>
-<%--    <input type="submit" value="Confirm" onclick="getValue()">--%>
-<%--</form>--%>
         </div>
     </div>
 
-<script src="../../js/cartNew.js"></script>
+
+<script>
+
+    var table = document.getElementById('order');
+    var sumVal = 0;
+
+var c=table.rows.length;
+console.log("row count",c);
+     for (var i = 1; i < table.rows.length; i++) {
+         sumVal = sumVal + parseFloat(table.rows[i].cells[3].innerHTML) ;
+     }
+
+     document.getElementById("val").innerHTML = "Rs: " + sumVal;
+
+
+
+</script>
+
 </body>
 </html>

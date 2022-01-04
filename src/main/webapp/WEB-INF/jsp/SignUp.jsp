@@ -21,8 +21,8 @@
     <div class="col-12">
 <h1>Sign up</h1>
 <form method="post" action="saveCustomer">
-    <%--    <input  type="text" style="width: 100%;display: none" id="pay" name="dataValue">--%>
-    <input class="form-control" name="onlineCustomerId" value="0" id="onlineCustomerId" type="hidden" >
+<%--        <input  type="text" style="width: 100%;display: none" id="pay" name="dataValue">--%>
+    <input class="form-control" name="onlineCustomerId" value="0" id="onlineCustomerId" type="hidden">
 
 
     <div class="mb-3">
@@ -52,31 +52,9 @@
 
 <input type="submit" value="signUp">
 </form>
-        <div class="col-12">
-            <h1>Sign In</h1>
-        <form method="post" action="onlineSignInn">
-            <%--    <input  type="text" style="width: 100%;display: none" id="pay" name="dataValue">--%>
-            <input class="form-control" name="onlineCustomerId" value="0" id="onlineCustomerId" type="hidden" >
 
-
-
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleFormControlInput" name="email" placeholder="name@example.com">
-            </div>
-
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Password</label>
-                <input type="text" class="form-control" id="exampleFormControlInput5" name="password" placeholder="Enter your password">
-            </div>
-            <input type="submit" value="signIn">
-                <%
-                    session.setAttribute("userId", "usffff");
-                %>
-
-</form>
-        </div>
 </div>
 </div>
+<%--<script src="../../js/cartNew.js"></script>--%>
 </body>
 </html>

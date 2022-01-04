@@ -6,11 +6,11 @@ import com.example.sercretBakerCopy.dto.CustomerDTO;
 import com.example.sercretBakerCopy.dto.FoodItemDTO;
 import com.example.sercretBakerCopy.dto.OrderDTO;
 import com.example.sercretBakerCopy.dto.OrderDetailDTO;
+import com.example.sercretBakerCopy.entity.Customer;
+import com.example.sercretBakerCopy.entity.OrderNew;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import javax.mail.MessagingException;
-import javax.mail.Session;
 import java.util.List;
 
 @Service
@@ -28,8 +28,11 @@ public interface foodItemBO {
 //    OnlineOrderDTO findHighestId();
 //    OnlineOrderDTO findOrderById(int id);
     void sendEmail(OrderDTO orderDTO) throws MessagingException;
-    void sendEmailToSB(CustomerDTO customerDTO) throws MessagingException;
+    void sendEmailToSB(OrderDTO orderDTO) throws MessagingException;
     CustomerDTO findByEmailAndPassword(String email, String password);
     CustomerDTO findOne(int onlineCustomerId);
+OrderDetailDTO getOrderDetailByCusId(OrderNew orderNew,Customer customer);
+    Customer findOneCus(int onlineCustomerId);
+    OrderNew findOneOrder(int orderId);
 
 }

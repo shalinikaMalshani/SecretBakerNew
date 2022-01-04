@@ -18,6 +18,13 @@ let products=[
         price:2000,
         inCart:0
     },
+    {
+        id:3,
+        name:'Cupcake',
+        tag:'Cupcaketag',
+        price:3000,
+        inCart:0
+    },
     ];
 
 for (let i = 0; i <carts.length; i++) {
@@ -310,7 +317,7 @@ var processing="Processing...";
 
 }
 
-onLoadCartNumbers();
+ onLoadCartNumbers();
 loadCart();
 displayOne();
 //getValue();
