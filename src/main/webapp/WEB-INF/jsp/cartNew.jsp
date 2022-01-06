@@ -40,7 +40,9 @@
                     </tr>
                     </thead>
                     <tbody id="products">
-
+<tr class="cart-empty">
+    <td style="border-bottom: none;">Cart is Empty</td>
+</tr>
 
 
 
@@ -48,6 +50,7 @@
                 </table>
 
             </div>
+
             <form method="POST" action="invoice" name="invoiceRestaurantOrder">
                 <input  type="text" style="width: 100%;display: none" id="pay" name="dataValue">
 <%--                <input style="display: none" type="text" id="cId" value="0"  name="customerId">--%>

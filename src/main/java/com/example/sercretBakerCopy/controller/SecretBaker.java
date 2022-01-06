@@ -1,15 +1,8 @@
 package com.example.sercretBakerCopy.controller;
-
-
-
-import com.example.sercretBakerCopy.dao.OrderDetailDAO;
 import com.example.sercretBakerCopy.dto.CustomerDTO;
 import com.example.sercretBakerCopy.dto.FoodItemDTO;
 import com.example.sercretBakerCopy.dto.OrderDTO;
 import com.example.sercretBakerCopy.dto.OrderDetailDTO;
-import com.example.sercretBakerCopy.entity.Customer;
-import com.example.sercretBakerCopy.entity.OrderDetail;
-import com.example.sercretBakerCopy.entity.OrderNew;
 import com.example.sercretBakerCopy.service.foodItemBO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,8 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+
 import javax.mail.MessagingException;
-import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;

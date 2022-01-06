@@ -38,11 +38,11 @@ for (let i = 0; i <carts.length; i++) {
 //refreash the page cart no not change
 function onLoadCartNumbers(){
     let productNumbers=localStorage.getItem('cartNo');
+    console.log("Cart No",productNumbers);
 
     if (productNumbers) {
         document.querySelector('.cart-icon span').textContent= productNumbers;
     }
-
 }
 
 //increment no of items in cart
@@ -118,10 +118,7 @@ function loadCart(){
  <td><span class="p">${item.price}</span></td>
  <td><ion-icon name="caret-back-circle" class="dec-btn"></ion-icon><span class="qtyCart">${item.inCart}</span><ion-icon name="caret-forward-circle" class="inc-btn"></ion-icon></td>
  <td class="totall"><span class="t">Rs:${item.inCart * item.price}.00</span></td>
-
-
-
-              `
+`
         });
         proContainer.innerHTML +=
             `<div class="basketTotalContainer">
@@ -158,6 +155,10 @@ function  manageQuantity(){
             }
             console.log(value);
             value++;
+            let productNumbers=localStorage.getItem('cartNo');
+            productNumbers = parseInt(productNumbers);//convert productNumber string into int
+            localStorage.setItem('cartNo',productNumbers+1);
+
             document.querySelector('.cart-icon span').textContent=value;
             console.log("incremnet",value);
             increment[i].parentElement.querySelector('span.qtyCart').textContent = value;
@@ -188,6 +189,10 @@ function  manageQuantity(){
             }
 
             value--;
+            let productNumbers=localStorage.getItem('cartNo');
+            productNumbers = parseInt(productNumbers);//convert productNumber string into int
+            localStorage.setItem('cartNo',productNumbers-1);
+
             document.querySelector('.cart-icon span').textContent=value;
             decrement[i].parentElement.querySelector('span.qtyCart').textContent = value;
             let totalPrice = document.querySelector('.basketTotal .total').textContent;
@@ -235,21 +240,28 @@ function updateTotal() {
 
         console.log("total",total);
     }
-    // if(cartsItem.length == 0){
-    //     document.querySelector('.basketTotalContainer').innerHTML =`<p class="cart-empty">Cart is empty</p>`;
-    //
-    //
-    // }else {
+    let productNumbers=localStorage.getItem('cartNo');
+    productNumbers = parseInt(productNumbers);//convert productNumber string into int
+    if(cartsItem.length == 0){
+        document.querySelector('.basketTotalContainer').innerHTML =`<p></p>`;
+    }else {
         document.querySelector('.basketTotal .total').textContent ="Rs:"+total+".00";
-   // }
+   }
 
 }
-
+// function cartEmpty(){
+//
+//     let cartsItem = document.querySelectorAll('.qtyCart');
+//     if(cartsItem.length == 0){
+//         document.querySelector('.basketTotalContainer').innerHTML =`<p class="cart-empty">Cart is empty</p>`;
+//     }
+// }
 
 function removeItem() {
     let removeItem = document.getElementsByClassName('remove');
     console.log(removeItem)
-    for (let i = 0; i < removeItem.length; i++) {
+    let i;
+    for (i = 0; i < removeItem.length; i++) {
         let button = removeItem[i];
         button.addEventListener('click', function (event) {
             console.log('clicked',i);
@@ -258,8 +270,9 @@ function removeItem() {
             updateCart();
             updateTotal();
 
-
-
+    localStorage.removeItem('productsAllInCart');
+    localStorage.removeItem('cartNo');
+    localStorage.removeItem('totalItemCost');
         });
     }
 }
@@ -316,7 +329,7 @@ var processing="Processing...";
 
 
 }
-
+// cartEmpty();
  onLoadCartNumbers();
 loadCart();
 displayOne();
