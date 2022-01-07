@@ -327,6 +327,9 @@ var processing="Processing...";
   $("#pay").val(stre);
   $("#submitPay").text(processing);
 
+    localStorage.removeItem('productsAllInCart');
+    localStorage.removeItem('cartNo');
+    localStorage.removeItem('totalItemCost');
 
 }
 // cartEmpty();

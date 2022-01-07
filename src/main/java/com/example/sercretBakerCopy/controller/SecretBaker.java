@@ -135,8 +135,8 @@ public class SecretBaker {
 //}
                 foodItemBO.saveRestaurantOrder(restaurantCounterOrderDTO);
 
-                foodItemBO.sendEmail(restaurantCounterOrderDTO);
-            foodItemBO.sendEmailToSB(restaurantCounterOrderDTO);
+//                foodItemBO.sendEmail(restaurantCounterOrderDTO);
+//            foodItemBO.sendEmailToSB(restaurantCounterOrderDTO);
 
             java.util.List<OrderDetailDTO> list = new ArrayList<>();
             String arr = restaurantCounterOrderDTO.getDataValue();
@@ -190,7 +190,7 @@ public class SecretBaker {
 
 
 
-        } catch (NullPointerException | MessagingException e) {
+        } catch (NullPointerException e) {
             e.printStackTrace();
         }
 
