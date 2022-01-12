@@ -8,7 +8,7 @@ let products=[
         id:"1",
         name:'Lava',
         tag:'Lavatag',
-        price:"1000",
+        price:1000,
         inCart:"0"
     },
     {
@@ -27,14 +27,52 @@ let products=[
     },
     ];
 
+// var products = {
+// <c:forEach items="${AllFoodItems}" var="e" varStatus="loop">
+//     id: ${e.itemId}
+//     name:${e.foodName}
+//     price:${e.price}
+//     inCart:0
+//     ${!loop.last ? ',' : ''}
+// </c:forEach>
+// };
+
+
+
 for (let i = 0; i <carts.length; i++) {
     carts[i].addEventListener('click',()=>{
-         cartNumbers(products[i]);
+
+        document.getElementById('alert_info').innerHTML=`  
+ <div id="alert_infoo">
+    <span class="closebtn">&times;</span>
+        <strong>Info!</strong> Item added to cart.
+</div>
+`
+let el=document.getElementById('alert_info');
+        setTimeout(function () {
+
+            }
+        ,1000);
+
+        cartNumbers(products[i]);
          totalItemCost(products[i]);
+         close();
     })
 }
+function close() {
+    var close = document.getElementsByClassName("closebtn");
+    var i;
 
-
+    for (i = 0; i < close.length; i++) {
+        close[i].onclick = function () {
+            var div = this.parentElement;
+            div.style.opacity = "0";
+            setTimeout(function () {
+                div.style.display = "none";
+            }, 600);
+        }
+    }
+}
 //refreash the page cart no not change
 function onLoadCartNumbers(){
     let productNumbers=localStorage.getItem('cartNo');
@@ -240,22 +278,24 @@ function updateTotal() {
 
         console.log("total",total);
     }
-    let productNumbers=localStorage.getItem('cartNo');
-    productNumbers = parseInt(productNumbers);//convert productNumber string into int
+
     if(cartsItem.length == 0){
-        document.querySelector('.basketTotalContainer').innerHTML =`<p></p>`;
-    }else {
+        console.log("empty");
+        let empty=document.querySelector("#products");
+         console.log("called",empty);
+         empty.innerHTML='';
+        empty.innerHTML +=`
+
+ <td id="cart-empty">Cart is Empty</td>
+ 
+`
+
+         // document.querySelector('.basketTotal .total').innerHTML ='';
+     }else {
         document.querySelector('.basketTotal .total').textContent ="Rs:"+total+".00";
-   }
+    }
 
 }
-// function cartEmpty(){
-//
-//     let cartsItem = document.querySelectorAll('.qtyCart');
-//     if(cartsItem.length == 0){
-//         document.querySelector('.basketTotalContainer').innerHTML =`<p class="cart-empty">Cart is empty</p>`;
-//     }
-// }
 
 function removeItem() {
     let removeItem = document.getElementsByClassName('remove');
@@ -271,8 +311,8 @@ function removeItem() {
             updateTotal();
 
     localStorage.removeItem('productsAllInCart');
-    localStorage.removeItem('cartNo');
-    localStorage.removeItem('totalItemCost');
+     localStorage.removeItem('cartNo');
+     localStorage.removeItem('totalItemCost');
         });
     }
 }
@@ -332,10 +372,43 @@ var processing="Processing...";
     localStorage.removeItem('totalItemCost');
 
 }
-// cartEmpty();
+
+    // function tempAlert(duration)
+    // {
+    //     // let cartbktn=document.querySelectorAll(".add-cart");
+    //     for(let i=0;i<carts.length;i++) {
+    //     carts[i].addEventListener('click',()=> {
+    //     console.log("clicked cart",i);
+    //     var el = document.getElementById('alert_info');
+    //     console.log("alert",el);
+    //          console.log(document.querySelector('#alert_info').style.visibility = 'visible');
+    //
+    //     //     setTimeout(function () {
+    //     //         document.getElementById('alert_info').parentNode.removeChild(el);
+    //     //     }, duration);
+    //     //
+    // })
+    //
+    // }
+    //
+    // }
+
+
+// function  alertBox(){
+//     var txt;
+//     if (confirm("You need to login or signUp!")) {
+//         // txt = "You pressed OK!";
+//         window.location="signUpLogin.jsp";
+//
+//     } else {
+//         txt = "You pressed Cancel!";
+//     }
+// }
+ // cartEmpty();
  onLoadCartNumbers();
 loadCart();
 displayOne();
+// tempAlert(1000);
 //getValue();
 <!--<div class="item-content">-->
 

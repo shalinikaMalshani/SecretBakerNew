@@ -130,7 +130,7 @@ background: red;
 /*    border-bottom: 1px solid black;*/
 
 /*}*/
-.cart-empty{
+#cart-empty{
     background: red;
     /*width: 100%;*/
     color: white;

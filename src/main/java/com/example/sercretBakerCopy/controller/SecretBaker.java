@@ -100,17 +100,102 @@ public class SecretBaker {
     public String loadInvoicePage(@ModelAttribute OrderDTO restaurantCounterOrderDTO,
                                   Model model,HttpSession session) {
 
-        try {
-            int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
+//        try {
+//            System.out.print("Called first try");
+//
+//            int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
+//
+//            restaurantCounterOrderDTO.setCustomer(onlineCustomerId);
+//
+//            try { //
+//            restaurantCounterOrderDTO.setCustomerId(SuperController.idNo);
+//                OrderDTO top = foodItemBO.findTopByOrderByRestIdDesc();//find Highest Id to Save Order
+//                int x = (top.getOrderId()) + 1;
+//                restaurantCounterOrderDTO.setOrderId((x));
+//            } catch (NullPointerException e) {
+//                restaurantCounterOrderDTO.setOrderId((1));//Set Id as 1 when Initial Round
+//            }
+//
+//            try {
+//try {
+//    int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
+//
+////                Customer c=foodItemBO.findOneCus(onlineCustomerId);
+////            OrderNew o=foodItemBO.findOneOrder(restaurantCounterOrderDTO.getOrderId());
+//
+//    restaurantCounterOrderDTO.setCustomer(onlineCustomerId);
+//}catch(NullPointerException ex){
+//    return "signUpLogin";
+//}
+//                foodItemBO.saveRestaurantOrder(restaurantCounterOrderDTO);
+//
+//                foodItemBO.sendEmail(restaurantCounterOrderDTO);
+//                foodItemBO.sendEmailToSB(restaurantCounterOrderDTO);
+//
+//                java.util.List<OrderDetailDTO> list = new ArrayList<>();
+//                String arr = restaurantCounterOrderDTO.getDataValue();
+//                System.out.print("arr" + arr);
+//
+//
+//                String yo[] = arr.split(" ");
+//
+//                System.out.print("yo" + Arrays.toString(yo));
+//                int count = 0;
+//                OrderDetailDTO itm = new OrderDetailDTO();
+//                for (String str : yo) {//Read String and add to list
+//                    if (count == 0) {
+//                        itm = new OrderDetailDTO();
+//                        itm.setFoodItem(Integer.parseInt(str));
+//                        count++;
+//
+//                    } else if (count == 1) {
+//                        itm.setUnitePrice(Integer.parseInt(str));
+//                        count++;
+//
+//                    } else if (count == 2) {
+//                        itm.setQuantity(Integer.parseInt(str));
+//                        list.add(itm);
+//                        count = 0;
+//                    }
+//                }
+//                System.out.println("list of itms " + itm);
+//                for (OrderDetailDTO d : list) {
+//                    FoodItemDTO f = foodItemBO.findFoodItemById(d.getFoodItem());
+//                    d.setName(f.getFoodName());
+//                    System.out.println("Item name:"+d.getName());
+//                    System.out.println("Food qty"+d.getQuantity());
+//                    System.out.println("Food price"+d.getUnitePrice());
+//                }
 
-//                Customer c=foodItemBO.findOneCus(onlineCustomerId);
-//            OrderNew o=foodItemBO.findOneOrder(restaurantCounterOrderDTO.getOrderId());
-
-            restaurantCounterOrderDTO.setCustomer(onlineCustomerId);
-        }catch(Exception ex){
-            return "signUpLogin";
-        }
-
+//            try{
+//                OrderDetailDTO orderDetailDTO=foodItemBO.getOrderDetailByCusId(o,c);
+//                System.out.println("Item name:"+orderDetailDTO.getName());
+//                System.out.println("Food qty"+orderDetailDTO.getQuantity());
+//                System.out.println("Food price"+orderDetailDTO.getUnitePrice());
+//            }catch (Exception e){
+//                e.printStackTrace();
+//            }
+//            int r = list.size();
+//                System.out.println("list of items " + list);
+//                model.addAttribute("listCounterOrders", restaurantCounterOrderDTO.getOrderId());
+//                model.addAttribute("listCounterOrderDetails", list);//Load Data to Payment
+//                model.addAttribute("NoOfItems", list.size());
+//                model.addAttribute("customer",foodItemBO.findOne(restaurantCounterOrderDTO.getCustomer()));
+//
+//
+//
+//            } catch (NullPointerException | MessagingException e) {
+//                e.printStackTrace();
+//            }
+//
+//
+//
+//
+//        }catch(Exception ex){
+//            System.out.print("called exception");
+//            return "signUpLogin";
+//        }
+//
 
         try { //
 //            restaurantCounterOrderDTO.setCustomerId(SuperController.idNo);
@@ -124,19 +209,19 @@ public class SecretBaker {
 
         try {
 //try {
-//    int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
+    int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
 //
 ////                Customer c=foodItemBO.findOneCus(onlineCustomerId);
 ////            OrderNew o=foodItemBO.findOneOrder(restaurantCounterOrderDTO.getOrderId());
 //
-//    restaurantCounterOrderDTO.setCustomer(onlineCustomerId);
+    restaurantCounterOrderDTO.setCustomer(onlineCustomerId);
 //}catch(NullPointerException ex){
 //    return "signUpLogin";
 //}
                 foodItemBO.saveRestaurantOrder(restaurantCounterOrderDTO);
 
-//                foodItemBO.sendEmail(restaurantCounterOrderDTO);
-//            foodItemBO.sendEmailToSB(restaurantCounterOrderDTO);
+                foodItemBO.sendEmail(restaurantCounterOrderDTO);
+            foodItemBO.sendEmailToSB(restaurantCounterOrderDTO);
 
             java.util.List<OrderDetailDTO> list = new ArrayList<>();
             String arr = restaurantCounterOrderDTO.getDataValue();
@@ -190,7 +275,7 @@ public class SecretBaker {
 
 
 
-        } catch (NullPointerException e) {
+        } catch (NullPointerException | MessagingException e) {
             e.printStackTrace();
         }
 

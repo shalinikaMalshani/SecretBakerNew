@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <title>SB</title>
@@ -19,10 +20,12 @@
 <body>
 <div class="container mt-3">
 
-<%--    <p style="font-weight: bold; margin-right: 30px;">${loggerId.userName}</p>--%>
+    <p style="font-weight: bold;">${loggerId.userName}</p>
     <div class="row">
         <div class="col-xs-1">
+
             <button class="cart-icon"><a href="/shoppingCartNew">Cart</a><span style="padding-left: 3px;">0</span></button>
+
         </div>
     </div>
 
@@ -40,7 +43,7 @@
                     </tr>
                     </thead>
                     <tbody id="products">
-<tr class="cart-empty">
+<tr id="cart-empty">
     <td style="border-bottom: none;">Cart is Empty</td>
 </tr>
 
@@ -68,7 +71,7 @@
 <%--                <button type="submit" id="submitPay">Checkout</button>--%>
 
 
-            </form>
+<%--            </form>--%>
 
 
         </div>
@@ -79,6 +82,8 @@
 
 </div>
     <script src="../../js/cartNew.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<%--<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.1/dist/sweetalert2.all.min.js"></script>--%>
 <%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>--%>
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 <%--<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>--%>

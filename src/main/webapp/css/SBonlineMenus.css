@@ -220,6 +220,12 @@
     color:white;
 
 }
+
+#alert_infoo{
+    background-color: #2196F3;
+    padding: 10px;
+    color:white;
+}
 /*responsive styles*/
 
 @media screen and  (max-width:850px ){

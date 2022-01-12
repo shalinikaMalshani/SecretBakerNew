@@ -15,14 +15,85 @@
     <link rel="stylesheet" href="../../css/SBonlineMenus.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
+<%--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">--%>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 </head>
+<style>
+    /*.alert {*/
+    /*    padding: 20px;*/
+    /*    background-color: #f44336;*/
+    /*    color: white;*/
+    /*    opacity: 1;*/
+    /*    transition: opacity 0.6s;*/
+    /*    margin-bottom: 15px;*/
+    /*}*/
+
+
+    /*#alert_infoo {*/
+        /*background-color: #2196F3;*/
+        /*padding: 10px;*/
+        /*color:white;*/
+        /*!*visibility: hidden;*!*/
+    /*}*/
+
+
+    .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+
+    }
+
+    .closebtn:hover {
+        color: black;
+    }
+</style>
 <body>
+<p>${loggerId.userName}</p>
+<script>
+    localStorage.removeItem('productsAllInCart');
+    localStorage.removeItem('cartNo');
+</script>
 <div class="container"><%--    content start--%>
 
-    <p style="font-weight: bold; margin-right: 30px;">${loggerId.userName}</p>
+    <div id="alert_info">
 
-    <button class="cart-icon"><a href="/shoppingCartNew">Cart</a><span style="padding-left: 3px;">0</span></button>
+    </div>
 
+     <p style="font-weight: bold; margin-right: 30px;">${loggerId.userName}</p>
+
+    <button class="cart-icon" onclick="alertBox();return false"><a href="/shoppingCartNew">Cart</a><span style="padding-left: 3px;">0</span></button>
+    <script type="text/javascript">
+        function  alertBox() {
+            document.body.style.opacity=0.9;
+
+            swal({
+                title: "You need to login",
+                text: "If you dont't have an account, you can also get yourself registered. It's Free!",
+                showCloseButton: true,
+                button: "Login or SignUp"}).then(okay=>{
+                if(okay){
+                    window.location.href = '/signUpLogin';
+                }
+
+
+            })
+
+
+
+        }
+
+    </script>
     <div class="row"><%--    row start--%>
 
         <div class="col-12 col-lg-3" ><%--      right side of the content start--%>
@@ -57,11 +128,30 @@
                                             <h3 class="text-center"><a href="/foodItem/${e.itemId}" class="thum-title">${e.foodName}</a></h3>
                                             <h3 class="text-center"><span>${e.s_description}</span></h3>
                                             <h3 class="detail-price" style="text-align: center"><a href="/foodItem/${e.itemId}" class="det-price">Details and Price</a></h3>
-                                            <a  href="#" class="add-cart">Add To Cart</a>
+                                            <a  href="#" class="add-cart" >Add To Cart</a>
                                         </div>
                                     </div>
                                 </div><%--product card end--%>
+<%--                                <script>--%>
+<%--                                     function tempAlert(duration)--%>
+<%--                                     {--%>
+<%--                                        let cartbktn=document.querySelectorAll(".add-cart");--%>
+<%--                                        for(let i=0;i<cartbktn.length;i++) {--%>
+<%--                                            cartbktn[i].addEventListener('click',()=> {--%>
+<%--                                                console.log("clicked cart",i);--%>
+<%--                                                var el = document.getElementById('alert_info');--%>
+<%--                                                console.log("alert",el);--%>
+<%--                                            //     document.getElementById('alert_info').style.visibility = 'visible';--%>
+<%--                                            //     setTimeout(function () {--%>
+<%--                                            //         document.getElementById('alert_info').parentNode.removeChild(el);--%>
+<%--                                            //     }, duration);--%>
+<%--                                            //--%>
+<%--                                             })--%>
 
+<%--                                          }--%>
+
+<%--                                     }--%>
+<%--                                </script>--%>
 
                                 <div class="popup-view"><%--product popup start--%>
 
@@ -257,5 +347,6 @@
 
 <%--</script>--%>
 <script src="../../js/cartNew.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 </html>
