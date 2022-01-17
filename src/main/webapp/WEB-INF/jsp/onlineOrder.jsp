@@ -42,10 +42,12 @@
                 <input type="text" readonly value="${foodItem.s_description}" class="input-field" name="s_des" id="s_des" style="width: 60px;">
                 <input type="text" value="${foodItem.price}" readonly name="price" id="price" class="input-field">
                 <hr>
-                Qty:
-                <input type="number" name="qty" id="qty" style="border: 1px solid grey;width:50px;border-radius: 5px;"/>
 
-                <a  href="#" class="add-cart cart${foodItem.foodId}">Add To Cart</a>
+                <button><a href="/foodItemsss">Product</a></button>
+<%--                Qty:--%>
+<%--                <input type="number" name="qty" id="qty" style="border: 1px solid grey;width:50px;border-radius: 5px;"/>--%>
+
+<%--                <a  href="#" class="add-cart cart${foodItem.foodId}">Add To Cart</a>--%>
 
             </div>
         </div>

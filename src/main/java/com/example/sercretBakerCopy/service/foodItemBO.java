@@ -2,10 +2,7 @@ package com.example.sercretBakerCopy.service;
 
 
 
-import com.example.sercretBakerCopy.dto.CustomerDTO;
-import com.example.sercretBakerCopy.dto.FoodItemDTO;
-import com.example.sercretBakerCopy.dto.OrderDTO;
-import com.example.sercretBakerCopy.dto.OrderDetailDTO;
+import com.example.sercretBakerCopy.dto.*;
 import com.example.sercretBakerCopy.entity.Customer;
 import com.example.sercretBakerCopy.entity.OrderNew;
 import org.springframework.stereotype.Service;
@@ -35,4 +32,9 @@ OrderDetailDTO getOrderDetailByCusId(OrderNew orderNew,Customer customer);
     Customer findOneCus(int onlineCustomerId);
     OrderNew findOneOrder(int orderId);
 
+    void saveCustomDesign(CustomDesignDTO customDesignDTO);
+    CustomDesignDTO getCustomDesById(int id);
+    CustomDesignDTO findHighestCustomDesId();
+
+    void userLogout(int id);
 }

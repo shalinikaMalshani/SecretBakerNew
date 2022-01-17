@@ -223,8 +223,27 @@
 
 #alert_infoo{
     background-color: #2196F3;
-    padding: 10px;
+    padding: 5px;
     color:white;
+    position: fixed;
+    /*overflow: hidden;*/
+
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+
+}
+
+.closebtn:hover {
+    color: black;
 }
 /*responsive styles*/
 

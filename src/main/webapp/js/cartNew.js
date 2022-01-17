@@ -42,20 +42,18 @@ let products=[
 for (let i = 0; i <carts.length; i++) {
     carts[i].addEventListener('click',()=>{
 
-        document.getElementById('alert_info').innerHTML=`  
+        document.getElementById("alert_info").innerHTML=`  
  <div id="alert_infoo">
     <span class="closebtn">&times;</span>
         <strong>Info!</strong> Item added to cart.
 </div>
 `
-let el=document.getElementById('alert_info');
-        setTimeout(function () {
 
-            }
-        ,1000);
+
 
         cartNumbers(products[i]);
          totalItemCost(products[i]);
+         // manQty(products[i]);
          close();
     })
 }
@@ -64,15 +62,17 @@ function close() {
     var i;
 
     for (i = 0; i < close.length; i++) {
-        close[i].onclick = function () {
-            var div = this.parentElement;
+        close[i].onclick = function(){
             div.style.opacity = "0";
-            setTimeout(function () {
-                div.style.display = "none";
-            }, 600);
+        }
+            var div = close[i].parentElement;
+            setTimeout(function(){div.style.display = "none"; }, 1000);
+            close[i].onclick = function(){
+                div.style.opacity = "0";
+            }
         }
     }
-}
+
 //refreash the page cart no not change
 function onLoadCartNumbers(){
     let productNumbers=localStorage.getItem('cartNo');
@@ -178,30 +178,46 @@ Rs:${cartCost}.00
 }
 
 function  manageQuantity(){
-    let increment = document.querySelectorAll('.inc-btn');
-    let decrement = document.querySelectorAll('.dec-btn');
-    let value=0;
-    let  sum=0;
-
-    let price=0;
+     console.log("product increment");
+     let increment = document.querySelectorAll('.inc-btn');
+     let decrement = document.querySelectorAll('.dec-btn');
+     let value=0;
+     let  sum=0;
+    //
+     let price=0;
     for(let i=0;i<increment.length;i++){
-        increment[i].addEventListener('click', () => {
-            value = increment[i].parentElement.querySelector('span.qtyCart').textContent;
+         increment[i].addEventListener('click', () => {
+             value = increment[i].parentElement.querySelector('span.qtyCart').textContent;
+             let productNumbers=localStorage.getItem('cartNo');
+             let cartItems=localStorage.getItem('productsAllInCart');
+             cartItems=JSON.parse(cartItems);
 
-            if (isNaN(value) || value < 1) {
-                value = 1;
-            }
-            console.log(value);
-            value++;
-            let productNumbers=localStorage.getItem('cartNo');
-            productNumbers = parseInt(productNumbers);//convert productNumber string into int
-            localStorage.setItem('cartNo',productNumbers+1);
+              if (isNaN(value) || value < 1) {
+            value = 1;
 
-            document.querySelector('.cart-icon span').textContent=value;
-            console.log("incremnet",value);
-            increment[i].parentElement.querySelector('span.qtyCart').textContent = value;
-            let totalPrice = document.querySelector('.basketTotal .total').textContent;
+              }
+              console.log(value);
+              value++;
 
+              cartItems={
+                          ...cartItems,
+                          [products[i].tag]:products[i]
+                      }
+
+                  cartItems[products[i].tag].inCart =value;
+
+             localStorage.setItem("productsAllInCart",JSON.stringify(cartItems));
+
+             productNumbers = parseInt(productNumbers);//convert productNumber string into int
+             localStorage.setItem('cartNo',productNumbers+1);
+
+
+
+             document.querySelector('.cart-icon span').textContent=value;
+             console.log("incremnet",value);
+             increment[i].parentElement.querySelector('span.qtyCart').textContent = value;
+             let totalPrice = document.querySelector('.basketTotal .total').textContent;
+    //
             price = increment[i].parentElement.previousElementSibling.querySelector('span.p').textContent;
             console.log("Type 1",typeof(price));
             // parseFloat(price);
@@ -211,23 +227,52 @@ function  manageQuantity(){
             sum = p * value;
             console.log("type of sum",typeof(sum));
             // let s=Number(sum.replace(/[^0-9.-]+/g,""));
+
+             let cartCost=localStorage.getItem('totalItemCost');
+
+             //if(cartCost != null){
+             cartCost=parseInt(cartCost);
+             localStorage.setItem('totalItemCost' ,cartCost+parseInt(price));
+
             increment[i].parentElement.nextElementSibling.querySelector('span.t').textContent = "Rs:"+sum+".00";
+
+
+            // }else{
+                 //localStorage.setItem('totalItemCost' , products.price);
+
+            // }
 
             updateTotal();
             updateCart();
 
 
-        });
+         });
 
         decrement[i].addEventListener('click', () => {
             value = decrement[i].parentElement.querySelector('span.qtyCart').textContent;
+            let productNumbers=localStorage.getItem('cartNo');
+            let cartItems=localStorage.getItem('productsAllInCart');
+            cartItems=JSON.parse(cartItems);
+
 
             if (isNaN(value) || value < 1) {
                 value = 1;
             }
 
             value--;
-            let productNumbers=localStorage.getItem('cartNo');
+           // let productNumbers=localStorage.getItem('cartNo');
+
+            cartItems={
+                ...cartItems,
+                [products[i].tag]:products[i]
+            }
+
+            cartItems[products[i].tag].inCart =value;
+
+            localStorage.setItem("productsAllInCart",JSON.stringify(cartItems));
+
+
+
             productNumbers = parseInt(productNumbers);//convert productNumber string into int
             localStorage.setItem('cartNo',productNumbers-1);
 
@@ -237,6 +282,13 @@ function  manageQuantity(){
             price = decrement[i].parentElement.previousElementSibling.querySelector('span.p').textContent;
             let p=Number(price.replace(/[^0-9.-]+/g,""));
             sum = p * value;
+
+            let cartCost=localStorage.getItem('totalItemCost');
+
+            //if(cartCost != null){
+            cartCost=parseInt(cartCost);
+            localStorage.setItem('totalItemCost' ,cartCost-parseInt(price));
+
 
             // let s=Number(sum.replace(/[^0-9.-]+/g,""));
             decrement[i].parentElement.nextElementSibling.querySelector('span.t').textContent = "Rs:"+sum+".00";
@@ -249,9 +301,11 @@ function  manageQuantity(){
         });
 
 
-    }
+     }
 
 }
+
+
 function updateCart() {
 
     let cartsItem = document.querySelectorAll('.qtyCart');
@@ -299,27 +353,30 @@ function updateTotal() {
 
 function removeItem() {
     let removeItem = document.getElementsByClassName('remove');
+    let productNumbers=localStorage.getItem('cartNo');
+    let cartItems=localStorage.getItem('productsAllInCart');
+    cartItems=JSON.parse(cartItems);
+
     console.log(removeItem)
     let i;
     for (i = 0; i < removeItem.length; i++) {
+        //let price=0;
+        let price = removeItem[i].parentElement.nextElementSibling.querySelector('span.p').textContent;
+        let value = removeItem[i].parentElement.nextElementSibling.nextElementSibling.querySelector('span.qtyCart').textContent;
+        //let tot=removeItem[i].parentElement.nextElementSibling.nextElementSibling.nextElementSibling.querySelector('span.t').textContent.replace(/\.00([^\d])/g,'$1');
+
+
         let button = removeItem[i];
         button.addEventListener('click', function (event) {
             console.log('clicked',i);
             let removeItem = event.target;
+            let cartCost=localStorage.getItem('totalItemCost');
             removeItem.parentElement.parentElement.remove();
             updateCart();
             updateTotal();
-
-    localStorage.removeItem('productsAllInCart');
-     localStorage.removeItem('cartNo');
-     localStorage.removeItem('totalItemCost');
+            localStorage.clear();
         });
     }
-}
-function displayOne(){
-    //let item=document.querySelectorAll();
-    console.log("called displayOne");
-    console.log(products);
 }
 
 function getValue() {
@@ -367,69 +424,14 @@ var processing="Processing...";
   $("#pay").val(stre);
   $("#submitPay").text(processing);
 
-    localStorage.removeItem('productsAllInCart');
-    localStorage.removeItem('cartNo');
-    localStorage.removeItem('totalItemCost');
+    // localStorage.removeItem('productsAllInCart');
+    // localStorage.removeItem('cartNo');
+    // localStorage.removeItem('totalItemCost');
 
 }
 
-    // function tempAlert(duration)
-    // {
-    //     // let cartbktn=document.querySelectorAll(".add-cart");
-    //     for(let i=0;i<carts.length;i++) {
-    //     carts[i].addEventListener('click',()=> {
-    //     console.log("clicked cart",i);
-    //     var el = document.getElementById('alert_info');
-    //     console.log("alert",el);
-    //          console.log(document.querySelector('#alert_info').style.visibility = 'visible');
-    //
-    //     //     setTimeout(function () {
-    //     //         document.getElementById('alert_info').parentNode.removeChild(el);
-    //     //     }, duration);
-    //     //
-    // })
-    //
-    // }
-    //
-    // }
 
-
-// function  alertBox(){
-//     var txt;
-//     if (confirm("You need to login or signUp!")) {
-//         // txt = "You pressed OK!";
-//         window.location="signUpLogin.jsp";
-//
-//     } else {
-//         txt = "You pressed Cancel!";
-//     }
-// }
- // cartEmpty();
+//manQty(products[i]);
  onLoadCartNumbers();
 loadCart();
-displayOne();
-// tempAlert(1000);
-//getValue();
-<!--<div class="item-content">-->
-
-// <!--            <td>${item.id}</td>-->
-// <!--            <td>${item.name}</td>-->
-// <!--             <td>${item.price}</td>-->
-// <!--             <td>${item.inCart}</td>-->
-// <!--             <td>${item.inCart*item.price}</td>-->
-//
-// <!--     </div>-->
-// <td style="display: none;">${item.id}</td>
-// <td>
-//     <ion-icon name="close-circle" className="remove"></ion-icon>
-//     <img src="../../img/${item.tag}.jpg" alt="">
-//         <span className="itemName"> ${item.name}</span></td>
-// <td className="pricee"><span className="p">${item.price}</span></td>
-// <td>
-//     <ion-icon name="caret-back-circle" className="dec-btn"></ion-icon>
-//     <span className="qtyCart">${item.inCart}</span>
-//     <ion-icon name="caret-forward-circle" className="inc-btn"></ion-icon>
-// </td>
-// <td className="totall"><span className="t">${item.inCart * item.price}.00</span></td>
-//
-//
+//displayOne();

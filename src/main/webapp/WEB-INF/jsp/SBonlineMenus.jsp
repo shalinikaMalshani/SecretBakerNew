@@ -23,58 +23,31 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 </head>
-<style>
-    /*.alert {*/
-    /*    padding: 20px;*/
-    /*    background-color: #f44336;*/
-    /*    color: white;*/
-    /*    opacity: 1;*/
-    /*    transition: opacity 0.6s;*/
-    /*    margin-bottom: 15px;*/
-    /*}*/
 
-
-    /*#alert_infoo {*/
-        /*background-color: #2196F3;*/
-        /*padding: 10px;*/
-        /*color:white;*/
-        /*!*visibility: hidden;*!*/
-    /*}*/
-
-
-    .closebtn {
-        margin-left: 15px;
-        color: white;
-        font-weight: bold;
-        float: right;
-        font-size: 22px;
-        line-height: 20px;
-        cursor: pointer;
-        transition: 0.3s;
-
-    }
-
-    .closebtn:hover {
-        color: black;
-    }
-</style>
 <body>
-<p>${loggerId.userName}</p>
-<script>
-    localStorage.removeItem('productsAllInCart');
-    localStorage.removeItem('cartNo');
-</script>
+<%--<p>${loggerId.userName}</p>--%>
+<%--<script>--%>
+<%--    localStorage.removeItem('productsAllInCart');--%>
+<%--    localStorage.removeItem('cartNo');--%>
+<%--    localStorage.removeItem('totalItemCost');--%>
+<%--localStorage.removeItem('cusName');--%>
+
+<%--</script>--%>
 <div class="container"><%--    content start--%>
-
+<div class="row">
+    <div class="col-12">
     <div id="alert_info">
-
     </div>
-
-     <p style="font-weight: bold; margin-right: 30px;">${loggerId.userName}</p>
+    </div>
+</div>
+    <br>
+     <p style="font-weight: bold; margin-right: 30px;">Name:${loggerId.userName}</p>
 
     <button class="cart-icon" onclick="alertBox();return false"><a href="/shoppingCartNew">Cart</a><span style="padding-left: 3px;">0</span></button>
     <script type="text/javascript">
         function  alertBox() {
+            if(${loggerId.userName==null}){
+                console.log("User Id Null");
             document.body.style.opacity=0.9;
 
             swal({
@@ -85,12 +58,10 @@
                 if(okay){
                     window.location.href = '/signUpLogin';
                 }
-
-
             })
-
-
-
+        }else{
+                window.location.href = '/shoppingCartNew';
+            }
         }
 
     </script>
@@ -103,7 +74,7 @@
                 <ul>
                     <li><a href="/foodItemsCakes">All Cakes</a></li>
                     <li><a href="/foodItemsCupcakes">CupCakes</a></li>
-                    <li><a href="">Custom designs</a></li>
+                    <li><a href="/customDesign">Custom designs</a></li>
                     <li><a href="">Birthday Cakes</a></li>
                     <li><a href="">Wedding/Anniversary</a></li>
                 </ul>
@@ -115,6 +86,7 @@
             <div class="container mt-3">
                 <div class="row">
                     <c:forEach items="${AllFoodItems}" var="e">
+                        <span style="display: none">${e.itemId}</span>
                         <div class="col-12 col-md-6 col-lg-4 col-xl-3">
 
                             <div class="product"><%--product start--%>
@@ -129,29 +101,13 @@
                                             <h3 class="text-center"><span>${e.s_description}</span></h3>
                                             <h3 class="detail-price" style="text-align: center"><a href="/foodItem/${e.itemId}" class="det-price">Details and Price</a></h3>
                                             <a  href="#" class="add-cart" >Add To Cart</a>
+
                                         </div>
                                     </div>
-                                </div><%--product card end--%>
-<%--                                <script>--%>
-<%--                                     function tempAlert(duration)--%>
-<%--                                     {--%>
-<%--                                        let cartbktn=document.querySelectorAll(".add-cart");--%>
-<%--                                        for(let i=0;i<cartbktn.length;i++) {--%>
-<%--                                            cartbktn[i].addEventListener('click',()=> {--%>
-<%--                                                console.log("clicked cart",i);--%>
-<%--                                                var el = document.getElementById('alert_info');--%>
-<%--                                                console.log("alert",el);--%>
-<%--                                            //     document.getElementById('alert_info').style.visibility = 'visible';--%>
-<%--                                            //     setTimeout(function () {--%>
-<%--                                            //         document.getElementById('alert_info').parentNode.removeChild(el);--%>
-<%--                                            //     }, duration);--%>
-<%--                                            //--%>
-<%--                                             })--%>
 
-<%--                                          }--%>
+                                </div>
 
-<%--                                     }--%>
-<%--                                </script>--%>
+                                    <%--product card end--%>
 
                                 <div class="popup-view"><%--product popup start--%>
 

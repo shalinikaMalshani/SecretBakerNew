@@ -34,19 +34,26 @@
         <label for="exampleFormControlInput1" class="form-label">Email address</label>
         <input type="email" class="form-control" id="exampleFormControlInput2" name="email" placeholder="name@example.com">
     </div>
-    <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Address</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="address"></textarea>
-    </div>
 
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Mobile No</label>
+        <input type="text" class="form-control" id="exampleFormControlInput3" name="number" placeholder="Enter your mobile no">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Address</label>
+        <input type="text" class="form-control" id="exampleFormControlInput4" name="address_l1" placeholder="Enter your address line 1">
+    </div>
+    <div class="mb-3">
+
+        <input type="text" class="form-control" id="exampleFormControlInput5" name="address_l2" placeholder="Enter your address line 2">
+    </div>
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Mobile No</label>
-            <input type="text" class="form-control" id="exampleFormControlInput3" name="number" placeholder="Enter your mobile no">
+            <input type="text" class="form-control" id="exampleFormControlInput6" name="address_l3" placeholder="Enter your address">
         </div>
 
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Password</label>
-            <input type="text" class="form-control" id="exampleFormControlInput4" name="password" placeholder="Enter your password">
+            <input type="text" class="form-control" id="exampleFormControlInput7" name="password" placeholder="Enter your password">
         </div>
 
 

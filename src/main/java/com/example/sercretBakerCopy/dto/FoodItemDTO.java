@@ -7,6 +7,8 @@ public class FoodItemDTO {
     private String l_description;
     private int price;
     private String src;
+//    private String alert;
+
 //    private String ingredients;
 
 
@@ -46,6 +48,7 @@ public class FoodItemDTO {
 //        this.ingredients = ingredients;
     }
 
+
     public int getItemId() {
         return itemId;
     }
@@ -69,6 +72,14 @@ public class FoodItemDTO {
 //
 //    public void setIngredients(String ingredients) {
 //        this.ingredients = ingredients;
+//    }
+
+//    public String getAlert() {
+//        return alert;
+//    }
+//
+//    public void setAlert(String alert) {
+//        this.alert = alert;
 //    }
 
     public String getL_description() {
@@ -112,7 +123,7 @@ public class FoodItemDTO {
                 ", l_description='" + l_description + '\'' +
                 ", price='" + price + '\'' +
                 ", src='" + src + '\'' +
-//                ", ingredients='" + ingredients + '\'' +
+//                ", alert='" + alert + '\'' +
                 '}';
     }
 }

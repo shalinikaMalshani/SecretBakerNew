@@ -1,20 +1,11 @@
 package com.example.sercretBakerCopy.service.Impl;
 
 
-import com.example.sercretBakerCopy.dao.CustomerDAO;
-import com.example.sercretBakerCopy.dao.OrderDAO;
-import com.example.sercretBakerCopy.dao.OrderDetailDAO;
-import com.example.sercretBakerCopy.dao.foodItemDAO;
+import com.example.sercretBakerCopy.dao.*;
 
-import com.example.sercretBakerCopy.dto.CustomerDTO;
-import com.example.sercretBakerCopy.dto.FoodItemDTO;
-import com.example.sercretBakerCopy.dto.OrderDTO;
-import com.example.sercretBakerCopy.dto.OrderDetailDTO;
-import com.example.sercretBakerCopy.entity.Customer;
-import com.example.sercretBakerCopy.entity.FoodItem;
+import com.example.sercretBakerCopy.dto.*;
+import com.example.sercretBakerCopy.entity.*;
 
-import com.example.sercretBakerCopy.entity.OrderNew;
-import com.example.sercretBakerCopy.entity.OrderDetail;
 import com.example.sercretBakerCopy.service.foodItemBO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -49,6 +40,8 @@ public class foodItemBOImpl implements foodItemBO {
     @Autowired
     JavaMailSender javaMailSender;
 
+    @Autowired
+    CustomDesignDAO customDesignDAO;
 
     //get  food item by id
     @Override
@@ -166,10 +159,14 @@ public class foodItemBOImpl implements foodItemBO {
     public void saveCustomer(CustomerDTO customerDTO) {
         customerDAO.save(new Customer(customerDTO.getOnlineCustomerId(),
                 customerDTO.getUserName(),
-                customerDTO.getAddress(),
                 customerDTO.getEmail(),
                 customerDTO.getNumber(),
-                customerDTO.getPassword()));
+                customerDTO.getPassword(),
+                customerDTO.getAddress_l1(),
+                customerDTO.getAddress_l2(),
+                customerDTO.getAddress_l3()));
+
+
     }
 
     //get customer by id
@@ -178,7 +175,9 @@ public class foodItemBOImpl implements foodItemBO {
         Customer customer = customerDAO.findOne(id);
         CustomerDTO customerDTO = new CustomerDTO(customer.getOnlineCustomerId(),
                 customer.getUserName(),
-                customer.getAddress(),
+                customer.getAddress_l1(),
+                customer.getAddress_l2(),
+                customer.getAddress_l3(),
                 customer.getEmail());
         return customerDTO;
     }
@@ -278,7 +277,9 @@ public class foodItemBOImpl implements foodItemBO {
                     + "<td>Rs:" + sum + ".00</td>"
                     +"</tr>"
           +"</table>";
-            content+="<h4>Billing Address</h4>"+"\n"+s.getAddress();
+            content+="<h4>Billing Address</h4>"+"\n"+s.getAddress_l1()+"\n";
+            content+=s.getAddress_l1()+"\n";
+            content+=s.getAddress_l1()+"\n";
 
 
 
@@ -374,7 +375,9 @@ public class foodItemBOImpl implements foodItemBO {
                 +"</table>";
         content+="<h4>Customer details</h4>"+"\n"
                 +"Customer name:"+cus.getUserName() +"\n"
-                +"Customer Address:"+cus.getAddress()+"\n"
+                +"Customer Address:"+cus.getAddress_l1()+"\n"
+                +cus.getAddress_l2()+"\n"
+                +cus.getAddress_l3()+"\n"
                 +"Customer contact:"+cus.getNumber();
 
 
@@ -406,7 +409,9 @@ public class foodItemBOImpl implements foodItemBO {
         return new CustomerDTO(
                 onlineCustomer.getOnlineCustomerId(),
                 onlineCustomer.getUserName(),
-                onlineCustomer.getAddress(),
+                onlineCustomer.getAddress_l1(),
+                onlineCustomer.getAddress_l2(),
+                onlineCustomer.getAddress_l3(),
                 onlineCustomer.getEmail()
         );
     }
@@ -414,6 +419,7 @@ public class foodItemBOImpl implements foodItemBO {
     @Override
     public Customer findOneCus(int onlineCustomerId) {
         Customer onlineCustomer = customerDAO.findOne(onlineCustomerId);
+
         return new Customer(
                 onlineCustomer.getOnlineCustomerId(),
                 onlineCustomer.getUserName()
@@ -432,6 +438,7 @@ public class foodItemBOImpl implements foodItemBO {
     }
 
 
+
     @Override
     public OrderDetailDTO getOrderDetailByCusId(OrderNew orderNew,Customer customer) {
         OrderDetail orderDetail= orderDetailDAO.findByCustomerAndRestaurantCounterOrder(customer,orderNew);
@@ -441,5 +448,51 @@ public class foodItemBOImpl implements foodItemBO {
                 orderDetail.getFoodItem().getFoodName());
     }
 
+    //save custom design to the database
+    @Override
+    public void saveCustomDesign(CustomDesignDTO customDesignDTO) {
+        customDesignDAO.save(new CustomDesign(customDesignDTO.getCustomDesignId(),
+                customDesignDTO.getFirstName(),
+                customDesignDTO.getLastName(),
+                customDesignDTO.getEmail(),
+                customDesignDTO.getContact(),
+                customDesignDTO.getCakeType(),
+                customDesignDTO.getCakeSize(),
+                customDesignDTO.getDate(),
+                customDesignDTO.getImage(),
+                customDesignDTO.getDes()));
+    }
+
+    @Override
+    public CustomDesignDTO getCustomDesById(int id) {
+        CustomDesign customDesign= customDesignDAO.findOne(id);
+        CustomDesignDTO customDesignDTO=new CustomDesignDTO(customDesign.getCustomDesignId(),
+                customDesign.getFirstName(),
+                customDesign.getLastName(),
+                customDesign.getEmail(),
+                customDesign.getContact(),
+                customDesign.getCakeType(),
+                customDesign.getCakeSize(),
+                customDesign.getDate(),
+                customDesign.getImage(),
+                customDesign.getDes());
+        return  customDesignDTO;
+    }
+
+    @Override
+    public CustomDesignDTO findHighestCustomDesId() {
+        CustomDesign customDesign=null;
+        try {
+           customDesign=customDesignDAO.findTopByOrderByCustomDesignIdDesc();
+        }catch(Exception e){
+
+            }
+        return  new CustomDesignDTO(customDesign.getCustomDesignId());
+    }
+
+    @Override
+    public void userLogout(int id) {
+        customerDAO.removeCustomerByOnlineCustomerId(id);
+    }
 
 }

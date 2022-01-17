@@ -1,10 +1,9 @@
 package com.example.sercretBakerCopy.controller;
-import com.example.sercretBakerCopy.dto.CustomerDTO;
-import com.example.sercretBakerCopy.dto.FoodItemDTO;
-import com.example.sercretBakerCopy.dto.OrderDTO;
-import com.example.sercretBakerCopy.dto.OrderDetailDTO;
+import com.example.sercretBakerCopy.dto.*;
+
 import com.example.sercretBakerCopy.service.foodItemBO;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,10 +29,17 @@ public class SecretBaker {
     foodItemBO foodItemBO;
 
 
+
     @GetMapping("/home")
     public String home() {
-        return "HelloWorld";
+        return "home";
     }
+
+    @GetMapping("/confirm")
+    public String confirm() {
+        return "Confirm";
+    }
+
 
     @GetMapping("/shoppingCart")
     public String shoppingCart() {
@@ -40,12 +49,12 @@ public class SecretBaker {
 
     @GetMapping("/shoppingCartNew")
     public String shoppingCartNew(HttpSession session,Model model) {
-//        try {
-//            int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
-//            model.addAttribute("loggerId", foodItemBO.findOne(onlineCustomerId));
-//        }catch (NullPointerException e){
-//            return "SignUp";
-//        }
+        try {
+            int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
+            model.addAttribute("loggerId", foodItemBO.findOne(onlineCustomerId));
+        }catch (NullPointerException e){
+            return "signUpLogin";
+        }
         return "cartNew";
     }
 
@@ -78,9 +87,14 @@ public class SecretBaker {
 
     @GetMapping("/foodItemsss")
     public String displayAllFoodItems(Model model,HttpSession session) {
-//        int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
-//        model.addAttribute("loggerId", foodItemBO.findOne(onlineCustomerId));
         model.addAttribute("AllFoodItems", foodItemBO.getAllFoodItems());
+       try {
+           int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
+           model.addAttribute("loggerId", foodItemBO.findOne(onlineCustomerId));
+       }catch(Exception e){
+           return "SBonlineMenus";
+       }
+
         return "SBonlineMenus";
     }
     @GetMapping("/foodItemsCakes")
@@ -98,7 +112,7 @@ public class SecretBaker {
 
     @PostMapping("invoice")
     public String loadInvoicePage(@ModelAttribute OrderDTO restaurantCounterOrderDTO,
-                                  Model model,HttpSession session) {
+                                  Model model, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
 
 //        try {
 //            System.out.print("Called first try");
@@ -220,8 +234,8 @@ public class SecretBaker {
 //}
                 foodItemBO.saveRestaurantOrder(restaurantCounterOrderDTO);
 
-                foodItemBO.sendEmail(restaurantCounterOrderDTO);
-            foodItemBO.sendEmailToSB(restaurantCounterOrderDTO);
+            //    foodItemBO.sendEmail(restaurantCounterOrderDTO);
+     //     foodItemBO.sendEmailToSB(restaurantCounterOrderDTO);
 
             java.util.List<OrderDetailDTO> list = new ArrayList<>();
             String arr = restaurantCounterOrderDTO.getDataValue();
@@ -274,22 +288,26 @@ public class SecretBaker {
             model.addAttribute("customer",foodItemBO.findOne(restaurantCounterOrderDTO.getCustomer()));
 
 
-
-        } catch (NullPointerException | MessagingException e) {
+        } catch (NullPointerException e) {
             e.printStackTrace();
         }
 
 
 
 
+        int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
+
+        model.addAttribute("loggerId", foodItemBO.findOne(onlineCustomerId));
+        session.invalidate();
+
         return "Checkout";
     }
 
 
     @GetMapping("/invoice")
-    public String restaurant(Model model) {
+    public String restaurant(Model model, HttpSession session) {
 //        model.addAttribute("loggerName", indexLoginBO.getEmployeeByIdNo(SuperController.idNo));
-        return "Checkout";
+     return "Checkout";
     }
 
     @GetMapping("/signUp")
@@ -343,5 +361,44 @@ public class SecretBaker {
 
     }
 
+    @GetMapping("/customDesign")
+    public String customDesign() {
+//        model.addAttribute("loggerName", indexLoginBO.getEmployeeByIdNo(SuperController.idNo));
+        return "CustomDesign";
+    }
+
+
+    @PostMapping("/saveCustomDesign")
+    public String saveCustomDesign(@ModelAttribute CustomDesignDTO customDesignDTO){
+        try {
+           CustomDesignDTO customDesignDTO2= foodItemBO.findHighestCustomDesId();
+           CustomDesignDTO customDesignDTO1=null;
+            try {
+                customDesignDTO1 = foodItemBO.getCustomDesById(customDesignDTO.getCustomDesignId());
+            }catch (NullPointerException d){
+                int maxId = (customDesignDTO2.getCustomDesignId());
+                if (customDesignDTO.getCustomDesignId()==(maxId)) {
+                    customDesignDTO.setCustomDesignId((maxId));
+                } else {
+                    maxId++;
+                    customDesignDTO.setCustomDesignId((maxId));
+                }
+            }
+        } catch (NullPointerException e){
+            customDesignDTO.setCustomDesignId(1);
+        }
+
+        foodItemBO.saveCustomDesign(customDesignDTO);
+
+        return "redirect:/home";
+    }
+
+//    @PostMapping("/logout")
+//    public String logout(HttpServletRequest request) throws ServletException {
+//
+//            request.logout();
+//            return "redirect:home";
+//
+//    }
 
 }

@@ -81,6 +81,12 @@
     </div>
 
 </div>
+<%--<script>--%>
+<%--    var cus=JSON.stringify('${loggerId.userName}');--%>
+<%--    localStorage.setItem('cusName',cus);--%>
+<%--    JSON.parse(cus);--%>
+<%--    localStorage.getItem('cusName');--%>
+<%--</script>--%>
     <script src="../../js/cartNew.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <%--<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.1/dist/sweetalert2.all.min.js"></script>--%>

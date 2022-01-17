@@ -19,6 +19,9 @@
 </head>
 <body>
 <div class="container mt-3">
+
+    <p style="font-weight: bold; margin-right: 30px;">Name:${loggerId.userName}</p>
+
     <div class="row">
         <div class="col 12">
 <div class="top">
@@ -39,7 +42,10 @@
                 <div class="col-6">
                     Customer:<p>${customer.userName}</p>
                     <p>${customer.email}</p>
-                    <p>${customer.address}</p>
+                    <p>${customer.address_l1}</p>
+                    <p>${customer.address_l2}</p>
+                    <p>${customer.address_l3}</p>
+
                 </div>
                 <div class="col-6">
                     Shopping:<p>Secret Baker</p>
@@ -79,7 +85,6 @@
         </div>
     </div>
 
-
 <script>
 
     var table = document.getElementById('order');
@@ -93,8 +98,7 @@ console.log("row count",c);
 
      document.getElementById("val").innerHTML = "Rs: " + sumVal;
 
-
-
+    localStorage.clear();
 </script>
 
 </body>

@@ -19,6 +19,7 @@ public class FoodItem implements Serializable {
     private String l_description;
     private int price;
     private String src;
+//    private String alert;
 
 //    private String ingredients;
    @OneToMany(mappedBy = "foodItem", cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE})
@@ -60,8 +61,18 @@ public class FoodItem implements Serializable {
 //        this.ingredients = ingredients;
     }
 
+//    public FoodItem(int itemId, String foodName, String s_description, String l_description, int price, String src, String alert) {
+//        this.itemId = itemId;
+//        this.foodName = foodName;
+//        this.s_description = s_description;
+//        this.l_description = l_description;
+//        this.price = price;
+//        this.src = src;
+//        this.alert = alert;
+//    }
+//
     public int getItemId() {
-        return itemId;
+      return itemId;
     }
 
     public void setItemId(int itemId) {
@@ -74,6 +85,14 @@ public class FoodItem implements Serializable {
 //
 //    public void setInCart(int inCart) {
 //        this.inCart = inCart;
+//    }
+
+//    public String getAlert() {
+//        return alert;
+//    }
+//
+//    public void setAlert(String alert) {
+//        this.alert = alert;
 //    }
 
     public String getSrc() {
