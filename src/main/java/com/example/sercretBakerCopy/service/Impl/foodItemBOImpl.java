@@ -43,6 +43,9 @@ public class foodItemBOImpl implements foodItemBO {
     @Autowired
     CustomDesignDAO customDesignDAO;
 
+    @Autowired
+    DeliveryDAO deliveryDAO;
+
     //get  food item by id
     @Override
     public FoodItemDTO getFoodItemById(int id) {
@@ -495,4 +498,42 @@ public class foodItemBOImpl implements foodItemBO {
         customerDAO.removeCustomerByOnlineCustomerId(id);
     }
 
+    @Override
+    public DeliveryDTO findHighestDeliveryId() {
+        Delivery delivery3 = null;
+        try {
+            delivery3 = deliveryDAO.findTopByOrderByDeliveryIdDesc();
+        } catch (Exception e) {
+
+        }
+        return new DeliveryDTO(delivery3.getDeliveryId());
+    }
+    @Override
+    public DeliveryDTO getDeliveryById(int deliveryId) {
+        Delivery delivery = deliveryDAO.findOne(deliveryId);
+        DeliveryDTO deliveryDTO = new DeliveryDTO(delivery.getDeliveryId(),
+                delivery.getName(),
+                delivery.getContactNo(),
+                delivery.getEmail(),
+//                delivery.getDate(),
+                delivery.getNic(),
+                delivery.getDeliveryArea(),
+                delivery.getLocation());
+
+        return deliveryDTO;
+    }
+
+    @Override
+    public void saveDelivery(DeliveryDTO deliveryDTO) {
+        deliveryDAO.save(new Delivery(deliveryDTO.getDeliveryId(),
+                deliveryDTO.getName(),
+                deliveryDTO.getContactNo(),
+                deliveryDTO.getEmail(),
+//                deliveryDTO.getDate(),
+                deliveryDTO.getNic(),
+                deliveryDTO.getDeliveryArea(),
+                deliveryDTO.getLocation()
+        ));
+
+    }
 }

@@ -393,6 +393,35 @@ public class SecretBaker {
         return "redirect:/home";
     }
 
+    @GetMapping("delivery")
+    public String saveDelivery(){
+        return "delivery";
+    }
+
+    @PostMapping("delivery")
+    public String deliveryDetail(@ModelAttribute DeliveryDTO deliveryDTO, HttpServletRequest request){
+        try {
+            DeliveryDTO deliveryDTO1 = foodItemBO.findHighestDeliveryId();
+            DeliveryDTO deliveryDTO2 = null;
+            try {
+                deliveryDTO = foodItemBO.getDeliveryById(deliveryDTO.getDeliveryId());
+            }catch (NullPointerException d){
+                int maxId = (deliveryDTO1.getDeliveryId());
+                if (deliveryDTO.getDeliveryId()==(maxId)) {
+                    deliveryDTO.setDeliveryId((maxId));
+                } else {
+                    maxId++;
+                    deliveryDTO.setDeliveryId((maxId));
+                }
+            }
+        } catch (NullPointerException e){
+            deliveryDTO.setDeliveryId(1);
+        }
+        foodItemBO.saveDelivery(deliveryDTO);
+        return "delivery";
+//        return "redirect:/invoice";
+    }
+
 //    @PostMapping("/logout")
 //    public String logout(HttpServletRequest request) throws ServletException {
 //

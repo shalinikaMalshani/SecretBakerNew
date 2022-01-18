@@ -37,4 +37,10 @@ OrderDetailDTO getOrderDetailByCusId(OrderNew orderNew,Customer customer);
     CustomDesignDTO findHighestCustomDesId();
 
     void userLogout(int id);
+
+    DeliveryDTO findHighestDeliveryId();
+
+    DeliveryDTO getDeliveryById(int deliveryId);
+
+    void saveDelivery(DeliveryDTO deliveryDTO);
 }
