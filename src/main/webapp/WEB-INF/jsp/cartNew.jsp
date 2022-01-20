@@ -63,7 +63,7 @@
 
 
             <form method="POST" action="invoice" name="invoiceRestaurantOrder">
-                <input  type="text"  id="pay" name="dataValue">
+                <input  type="text"  id="pay" name="dataValue" style="display: none">
 
 <%--                <input style="display: none" type="text" id="cId" value="0"  name="customerId">--%>
 
