@@ -54,12 +54,15 @@
 
             </div>
 
-            <form method="POST" action="invoice" name="invoiceRestaurantOrder">
+<%--            <form method="POST" action="invoice" name="invoiceRestaurantOrder">--%>
+<%--            <form method="POST" action="invoice" name="invoiceRestaurantOrder">--%>
                 <input  type="text" style="width: 100%;display: none" id="pay" name="dataValue">
 <%--                <input style="display: none" type="text" id="cId" value="0"  name="customerId">--%>
 
                 <button type="submit" value="Register" id="submitPay"
                         onclick="getValue()">Checkout</button>
+
+
 
 
             </form>

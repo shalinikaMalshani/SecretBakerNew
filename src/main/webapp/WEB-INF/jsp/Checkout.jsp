@@ -48,6 +48,13 @@
 
                 </div>
                 <div class="col-6">
+                    Delivery:<p>${delivery.deliveryArea}</p>
+                    <p>${delivery.location}</p>
+                    <p>${delivery.contactNo}</p>
+
+
+                </div>
+                <div class="col-6">
                     Shopping:<p>Secret Baker</p>
                     <p>secretbaker@gamil.com</p>
                     <p>No 30,Palliyawatta,Piliyandala</p>

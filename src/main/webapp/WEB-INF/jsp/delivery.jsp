@@ -16,8 +16,11 @@
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5">
-                <form method="POST"  action="delivery"  name="delivery">
-<%--    <form method="POST"  action="invoice" name="delivery">--%>
+<%--                <form method="POST"  action="deliveryAdd"  name="delivery">--%>
+<%--    <form method="POST"  action="invoice" name="invoiceRestaurantOrder">--%>
+<%--        <form method="POST"  action="deliveryAdd"  name="delivery">--%>
+<%--            <form method="POST"  action="deliveryAdd"  name="invoiceRestaurantOrder">--%>
+    <form method="POST"  action="delivery"  name="invoiceRestaurantOrder">
 
                     <div class="form-group">
 
@@ -92,17 +95,17 @@
 <%--                    <button type='submit' class="btn btn-primary" style="width: 50%; top: 20px; position: relative" value="Submit">--%>
 <%--                        Submit--%>
 <%--                    </button>--%>
-                        <button type="submit" value="Register" id="submitPay"
-                                onclick="getValue()">Checkout</button>
+<%--                        <button type="submit" value="Register" id="submitPay"--%>
+<%--                                onclick="getValue()">Checkout</button>--%>
 
-                    <button type='reset' class="btn btn-outline-success" style="top: 20px; position: relative" value="">Reset</button>
+<%--                    <button type='reset' class="btn btn-outline-success" style="top: 20px; position: relative" value="">Reset</button>--%>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
-<script src="../../js/delivery.js"></script>
+<%--<script src="../../js/delivery.js"></script>--%>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </body>

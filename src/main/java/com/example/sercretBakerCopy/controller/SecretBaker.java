@@ -52,10 +52,12 @@ public class SecretBaker {
         try {
             int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
             model.addAttribute("loggerId", foodItemBO.findOne(onlineCustomerId));
-        }catch (NullPointerException e){
+        }catch (NullPointerException e) {
             return "signUpLogin";
         }
+
         return "cartNew";
+
     }
 
     @GetMapping("/signUpLogin")
@@ -282,7 +284,7 @@ public class SecretBaker {
 //            }
 //            int r = list.size();
             System.out.println("list of items " + list);
-            model.addAttribute("listCounterOrders", restaurantCounterOrderDTO.getOrderId());
+//            model.addAttribute("listCounterOrders", restaurantCounterOrderDTO.getOrderId());
             model.addAttribute("listCounterOrderDetails", list);//Load Data to Payment
             model.addAttribute("NoOfItems", list.size());
             model.addAttribute("customer",foodItemBO.findOne(restaurantCounterOrderDTO.getCustomer()));
@@ -300,14 +302,16 @@ public class SecretBaker {
         model.addAttribute("loggerId", foodItemBO.findOne(onlineCustomerId));
         session.invalidate();
 
-        return "Checkout";
+//        return "Checkout";
+        return "delivery";
     }
 
 
     @GetMapping("/invoice")
     public String restaurant(Model model, HttpSession session) {
 //        model.addAttribute("loggerName", indexLoginBO.getEmployeeByIdNo(SuperController.idNo));
-     return "Checkout";
+//     return "Checkout";
+        return "delivery";
     }
 
     @GetMapping("/signUp")
@@ -398,29 +402,30 @@ public class SecretBaker {
         return "delivery";
     }
 
-    @PostMapping("delivery")
-    public String deliveryDetail(@ModelAttribute DeliveryDTO deliveryDTO, HttpServletRequest request){
-        try {
-            DeliveryDTO deliveryDTO1 = foodItemBO.findHighestDeliveryId();
-            DeliveryDTO deliveryDTO2 = null;
-            try {
-                deliveryDTO = foodItemBO.getDeliveryById(deliveryDTO.getDeliveryId());
-            }catch (NullPointerException d){
-                int maxId = (deliveryDTO1.getDeliveryId());
-                if (deliveryDTO.getDeliveryId()==(maxId)) {
-                    deliveryDTO.setDeliveryId((maxId));
-                } else {
-                    maxId++;
-                    deliveryDTO.setDeliveryId((maxId));
-                }
-            }
-        } catch (NullPointerException e){
-            deliveryDTO.setDeliveryId(1);
-        }
-        foodItemBO.saveDelivery(deliveryDTO);
-        return "delivery";
-//        return "redirect:/invoice";
-    }
+    //comment
+//    @PostMapping("delivery")
+//    public String deliveryDetail(@ModelAttribute DeliveryDTO deliveryDTO, HttpServletRequest request,Model model){
+//        try {
+//            DeliveryDTO deliveryDTO1 = foodItemBO.findHighestDeliveryId();
+//            DeliveryDTO deliveryDTO2 = null;
+//            try {
+//                deliveryDTO = foodItemBO.getDeliveryById(deliveryDTO.getDeliveryId());
+//            }catch (NullPointerException d){
+//                int maxId = (deliveryDTO1.getDeliveryId());
+//                if (deliveryDTO.getDeliveryId()==(maxId)) {
+//                    deliveryDTO.setDeliveryId((maxId));
+//                } else {
+//                    maxId++;
+//                    deliveryDTO.setDeliveryId((maxId));
+//                }
+//            }
+//        } catch (NullPointerException e){
+//            deliveryDTO.setDeliveryId(1);
+//        }
+//        foodItemBO.saveDelivery(deliveryDTO);
+//
+//        return "Checkout";
+//    }
 
 //    @PostMapping("/logout")
 //    public String logout(HttpServletRequest request) throws ServletException {
