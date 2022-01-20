@@ -230,7 +230,7 @@ public class foodItemBOImpl implements foodItemBO {
                 MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
                 helper.setTo(s.getEmail());
-                helper.setFrom("webspring404@gmail.com");
+                helper.setFrom("jananimadushika13@gmail.com");
                 helper.setSubject("Your secret baker order has been received!!");
                 boolean html = true;
 
@@ -327,8 +327,8 @@ public class foodItemBOImpl implements foodItemBO {
         MimeMessage message = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
-        helper.setTo("webspring404@gmail.com");
-        helper.setFrom("webspring404@gmail.com");
+        helper.setTo("jananimadushika13@gmail.com");
+        helper.setFrom("jananimadushika13@gmail.com");
         helper.setSubject("Secret baker todays orders");
         boolean html = true;
 
