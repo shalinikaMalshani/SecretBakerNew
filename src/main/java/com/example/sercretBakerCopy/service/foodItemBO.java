@@ -43,4 +43,6 @@ OrderDetailDTO getOrderDetailByCusId(OrderNew orderNew,Customer customer);
     DeliveryDTO getDeliveryById(int deliveryId);
 
     void saveDelivery(DeliveryDTO deliveryDTO);
+
+
 }

@@ -9,6 +9,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="../../css/cart.css">
 
+<%--    <title>SB</title>--%>
+<%--    <meta name="viewport" content="width=device-width, initial-scale=1">--%>
+<%--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">--%>
+<%--    <link rel="stylesheet" href="../../css/SBonlineMenu.css">--%>
+<%--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">--%>
+<%--    <link rel="stylesheet" href="../../css/cartNew.css">--%>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+
+
+
+
 </head>
 <body>
 <div class="container mt-3">
@@ -16,6 +27,8 @@
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <div class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5">
+
+                <p style="font-weight: bold; margin-right: 30px;">Name:${loggerId.userName}</p>
                 <form method="POST"  action="delivery"  name="delivery">
 <%--    <form method="POST"  action="invoice" name="delivery">--%>
 
@@ -92,8 +105,15 @@
 <%--                    <button type='submit' class="btn btn-primary" style="width: 50%; top: 20px; position: relative" value="Submit">--%>
 <%--                        Submit--%>
 <%--                    </button>--%>
-                        <button type="submit" value="Register" id="submitPay"
-                                onclick="getValue()">Checkout</button>
+
+<%--                        Order <span id="order"></span>--%>
+
+
+
+
+                     Order:   <input  type="text"  id="payNew" name="dataValue">
+                        <button type="submit"
+                                onclick="getValueNew()">Checkout</button>
 
                     <button type='reset' class="btn btn-outline-success" style="top: 20px; position: relative" value="">Reset</button>
                     </div>
@@ -102,7 +122,10 @@
         </div>
     </div>
 </div>
-<script src="../../js/delivery.js"></script>
+
+
+<%--<script src="../../js/delivery.js"></script>--%>
+<script src="../../js/cartNew.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </body>

@@ -16,6 +16,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="../../css/cartNew.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+
+
+
+
 </head>
 <body>
 <div class="container mt-3">
@@ -54,8 +58,13 @@
 
             </div>
 
+
+
+
+
             <form method="POST" action="invoice" name="invoiceRestaurantOrder">
-                <input  type="text" style="width: 100%;display: none" id="pay" name="dataValue">
+                <input  type="text"  id="pay" name="dataValue">
+
 <%--                <input style="display: none" type="text" id="cId" value="0"  name="customerId">--%>
 
                 <button type="submit" value="Register" id="submitPay"
