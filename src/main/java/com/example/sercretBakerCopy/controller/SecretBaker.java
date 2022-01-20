@@ -302,15 +302,6 @@ public class SecretBaker {
     public String deliveryDetail(@ModelAttribute OrderDTO restaurantCounterOrderDTO,@ModelAttribute DeliveryDTO deliveryDTO, HttpServletRequest request,Model model,HttpSession session) throws MessagingException {
 
         System.out.println("Model orderDto2"+restaurantCounterOrderDTO);
-
-       // int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
-       // restaurantCounterOrderDTO.setCustomer(onlineCustomerId);
-
-        //model.addAttribute("loggerId", foodItemBO.findOne(onlineCustomerId));
-
-
-
-
         try {
             DeliveryDTO deliveryDTO1 = foodItemBO.findHighestDeliveryId();
             DeliveryDTO deliveryDTO2 = null;
@@ -386,16 +377,7 @@ public class SecretBaker {
 
         session.invalidate();
         return "Checkout";
-//        return "redirect:/invoice";
+
     }
-
-
-//    @PostMapping("/logout")
-//    public String logout(HttpServletRequest request) throws ServletException {
-//
-//            request.logout();
-//            return "redirect:home";
-//
-//    }
 
 }

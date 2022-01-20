@@ -111,7 +111,7 @@
 
 
 
-                     Order:   <input  type="text"  id="payNew" name="dataValue" style="display: none">
+                        <input  type="text"  id="payNew" name="dataValue" style="display: none">
                         <button type="submit"
                                 onclick="getValueNew()">Checkout</button>
 

@@ -67,7 +67,7 @@
 
             <c:forEach items="${listCounterOrderDetails}" var="list">
             <tr>
-               <td>${list.name}</td>
+                <td>${list.name}</td>
                 <td>${list.quantity}</td>
                 <td>${list.unitePrice}</td>
                 <td>${list.quantity*list.unitePrice}</td>

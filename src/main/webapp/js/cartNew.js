@@ -436,6 +436,7 @@ var processing="Processing...";
     //localStorage.clear();
 
 }
+
 function  getValueNew(){
    var val=JSON.parse(JSON.stringify(localStorage.getItem('orderRes') ));
    console.log("local storage",val);
