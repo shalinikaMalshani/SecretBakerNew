@@ -1,5 +1,5 @@
-
 //when click add to cart btn this store all the items
+
 let carts = document.querySelectorAll(".add-cart");
 
 //all the products
@@ -174,6 +174,8 @@ Rs:${cartCost}.00
 
         manageQuantity();
         removeItem();
+
+
     }
 }
 
@@ -309,6 +311,7 @@ function  manageQuantity(){
 function updateCart() {
 
     let cartsItem = document.querySelectorAll('.qtyCart');
+    let productNumbers=localStorage.getItem('cartNo');
     let cart=0;
     for (let i = 0; i < cartsItem.length; i++) {
         cart = +cart + +parseInt(cartsItem[i].parentElement.querySelector('span.qtyCart').textContent);
@@ -316,6 +319,7 @@ function updateCart() {
 
     }
     console.log("updated cart no",cart);
+    localStorage.setItem('cartNo',cart);
 
     document.querySelector('.cart-icon span').textContent = cart;
 }
@@ -323,22 +327,24 @@ function updateTotal() {
 
     let cartsItem = document.querySelectorAll('.qtyCart');
     let sumItem = document.querySelectorAll('.totall');
+    let cartCost=localStorage.getItem('totalItemCost');
     let total=0;
-    let t;
 
     for (let i = 0; i < sumItem.length; i++) {
         let sItem=Number(sumItem[i].querySelector('span.t').textContent.replace(/[^0-9.-]+/g,""));
         total = +total + +sItem;
 
-        console.log("total",total);
+        console.log("New total",total);
+
     }
+    localStorage.setItem('totalItemCost',total);
 
     if(cartsItem.length == 0){
         console.log("empty");
         let empty=document.querySelector("#products");
          console.log("called",empty);
          empty.innerHTML='';
-        empty.innerHTML +=`
+         empty.innerHTML +=`
 
  <td id="cart-empty">Cart is Empty</td>
  
@@ -357,25 +363,22 @@ function removeItem() {
     let cartItems=localStorage.getItem('productsAllInCart');
     cartItems=JSON.parse(cartItems);
 
-    console.log(removeItem)
+    console.log("remove item len",removeItem.length);
     let i;
     for (i = 0; i < removeItem.length; i++) {
-        //let price=0;
-        let price = removeItem[i].parentElement.nextElementSibling.querySelector('span.p').textContent;
-        let value = removeItem[i].parentElement.nextElementSibling.nextElementSibling.querySelector('span.qtyCart').textContent;
-        //let tot=removeItem[i].parentElement.nextElementSibling.nextElementSibling.nextElementSibling.querySelector('span.t').textContent.replace(/\.00([^\d])/g,'$1');
-
-
         let button = removeItem[i];
         button.addEventListener('click', function (event) {
-            console.log('clicked',i);
             let removeItem = event.target;
-            let cartCost=localStorage.getItem('totalItemCost');
             removeItem.parentElement.parentElement.remove();
+
             updateCart();
             updateTotal();
-            localStorage.clear();
+
+
+
+
         });
+
     }
 }
 
@@ -421,15 +424,23 @@ var processing="Processing...";
         }
     }
 
-  $("#pay").val(stre);
+  // $("#pay").val(stre);
+
+    //var v=document.getElementById('pay').value;
+    $("#pay").val(stre);
+    //console.log("order",orderRes);
+    localStorage.setItem('orderRes',stre);
   $("#submitPay").text(processing);
 
-    // localStorage.removeItem('productsAllInCart');
-    // localStorage.removeItem('cartNo');
-    // localStorage.removeItem('totalItemCost');
+
+    //localStorage.clear();
 
 }
-
+function  getValueNew(){
+   var val=JSON.parse(JSON.stringify(localStorage.getItem('orderRes') ));
+   console.log("local storage",val);
+    $("#payNew").val(val);
+}
 
 //manQty(products[i]);
  onLoadCartNumbers();
