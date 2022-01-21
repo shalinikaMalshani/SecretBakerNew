@@ -297,13 +297,21 @@ public class SecretBaker {
     @PostMapping("delivery")
     public String deliveryDetail(@ModelAttribute OrderDTO restaurantCounterOrderDTO,@ModelAttribute DeliveryDTO deliveryDTO, HttpServletRequest request,Model model,HttpSession session) throws MessagingException {
 
+<<<<<<< HEAD
 
+=======
+        System.out.println("Model orderDto2"+restaurantCounterOrderDTO);
+>>>>>>> 9fbe38ff35eb00f62488b6b95dfba09928b53b8b
 
         // int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
         // restaurantCounterOrderDTO.setCustomer(onlineCustomerId);
 
         //model.addAttribute("loggerId", foodItemBO.findOne(onlineCustomerId));
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9fbe38ff35eb00f62488b6b95dfba09928b53b8b
         try {
             DeliveryDTO deliveryDTO1 = foodItemBO.findHighestDeliveryId();
             DeliveryDTO deliveryDTO2 = null;
