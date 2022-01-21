@@ -8,27 +8,37 @@ public class Delivery {
     @Id
     private int deliveryId;
     private String name;
-    private String contactNo;
-    private String email;
+    private String lastName;
+
 //    private String date;
-    private String nic;
+//    private String nic;
+
     private String deliveryArea;
     private String location;
+    private String contactNo;
+    private String email;
+    private String deliveryDate;
+    private String deliveryTime;
 
-    public Delivery(int deliveryId, String name, String contactNo, String email,
-                    String nic, String deliveryArea, String location) {
+    public Delivery(int deliveryId, String name, String lastName, String deliveryArea,
+                    String location,  String contactNo, String email, String deliveryDate, String deliveryTime) {
         this.deliveryId = deliveryId;
         this.name = name;
+        this.lastName = lastName;
         this.contactNo = contactNo;
         this.email = email;
 //        this.date = date;
-        this.nic = nic;
+//        this.nic = nic;
         this.deliveryArea = deliveryArea;
         this.location = location;
+        this.deliveryDate = deliveryDate;
+        this.deliveryTime = deliveryTime;
     }
 
     public Delivery() {
     }
+
+
 
     public int getDeliveryId() {
         return deliveryId;
@@ -96,13 +106,13 @@ public class Delivery {
         this.contactNo = contactNo;
     }
 
-    public String getNic() {
-        return nic;
-    }
-
-    public void setNic(String nic) {
-        this.nic = nic;
-    }
+//    public String getNic() {
+//        return nic;
+//    }
+//
+//    public void setNic(String nic) {
+//        this.nic = nic;
+//    }
 
     public String getDeliveryArea() {
         return deliveryArea;
@@ -110,5 +120,29 @@ public class Delivery {
 
     public void setDeliveryArea(String deliveryArea) {
         this.deliveryArea = deliveryArea;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getDeliveryDate() {
+        return deliveryDate;
+    }
+
+    public void setDeliveryDate(String deliveryDate) {
+        this.deliveryDate = deliveryDate;
+    }
+
+    public String getDeliveryTime() {
+        return deliveryTime;
+    }
+
+    public void setDeliveryTime(String deliveryTime) {
+        this.deliveryTime = deliveryTime;
     }
 }

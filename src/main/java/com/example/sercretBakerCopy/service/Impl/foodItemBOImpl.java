@@ -230,7 +230,7 @@ public class foodItemBOImpl implements foodItemBO {
                 MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
                 helper.setTo(s.getEmail());
-                helper.setFrom("aagmail.com");
+                helper.setFrom("aa@gmail.com");
                 helper.setSubject("Your secret baker order has been received!!");
                 boolean html = true;
 
@@ -328,7 +328,7 @@ public class foodItemBOImpl implements foodItemBO {
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
         helper.setTo("aa@gmail.com");
-        helper.setFrom("aa@gmail.com");
+        helper.setFrom("aagmail.com");
         helper.setSubject("Secret baker todays orders");
         boolean html = true;
 
@@ -513,12 +513,15 @@ public class foodItemBOImpl implements foodItemBO {
         Delivery delivery = deliveryDAO.findOne(deliveryId);
         DeliveryDTO deliveryDTO = new DeliveryDTO(delivery.getDeliveryId(),
                 delivery.getName(),
+                delivery.getLastName(),
                 delivery.getContactNo(),
                 delivery.getEmail(),
 //                delivery.getDate(),
-                delivery.getNic(),
+//                delivery.getNic(),
                 delivery.getDeliveryArea(),
-                delivery.getLocation());
+                delivery.getLocation(),
+                delivery.getDeliveryDate(),
+                delivery.getDeliveryTime());
 
         return deliveryDTO;
     }
@@ -527,12 +530,16 @@ public class foodItemBOImpl implements foodItemBO {
     public void saveDelivery(DeliveryDTO deliveryDTO) {
         deliveryDAO.save(new Delivery(deliveryDTO.getDeliveryId(),
                 deliveryDTO.getName(),
+                deliveryDTO.getLastName(),
+
+//           deliveryDTO.getDate(),
+//                deliveryDTO.getNic(),
+                deliveryDTO.getDeliveryArea(),
+                deliveryDTO.getLocation(),
                 deliveryDTO.getContactNo(),
                 deliveryDTO.getEmail(),
-//                deliveryDTO.getDate(),
-                deliveryDTO.getNic(),
-                deliveryDTO.getDeliveryArea(),
-                deliveryDTO.getLocation()
+                deliveryDTO.getDeliveryDate(),
+                deliveryDTO.getDeliveryTime()
         ));
 
     }
