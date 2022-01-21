@@ -114,7 +114,7 @@ public class SecretBaker {
     public String loadInvoicePage(@ModelAttribute OrderDTO restaurantCounterOrderDTO,
                                   Model model, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
 
-        System.out.println("Model orderDto1"+restaurantCounterOrderDTO);
+        //System.out.println("Model orderDto1"+restaurantCounterOrderDTO);
 
 
         try { //
@@ -126,6 +126,7 @@ public class SecretBaker {
             restaurantCounterOrderDTO.setOrderId((1));//Set Id as 1 when Initial Round
         }
 
+        System.out.println("Model orderDto1"+restaurantCounterOrderDTO.getOrderId()+restaurantCounterOrderDTO.getDate());
 
         try {
 
@@ -170,21 +171,16 @@ public class SecretBaker {
                 System.out.println("Food price"+d.getUnitePrice());
             }
 
-//            try{
-//                OrderDetailDTO orderDetailDTO=foodItemBO.getOrderDetailByCusId(o,c);
-//                System.out.println("Item name:"+orderDetailDTO.getName());
-//                System.out.println("Food qty"+orderDetailDTO.getQuantity());
-//                System.out.println("Food price"+orderDetailDTO.getUnitePrice());
-//            }catch (Exception e){
-//                e.printStackTrace();
-//            }
-//            int r = list.size();
+
             System.out.println("list of items " + list);
             model.addAttribute("listCounterOrders", restaurantCounterOrderDTO.getOrderId());
 
             model.addAttribute("NoOfItems", list.size());
             model.addAttribute("listCounterOrderDetails", list);//Load Data to Payment
             model.addAttribute("customer", foodItemBO.findOne(restaurantCounterOrderDTO.getCustomer()));
+
+
+            System.out.println("Model orderDto date"+restaurantCounterOrderDTO.getDate());
 
 
 
@@ -301,19 +297,13 @@ public class SecretBaker {
     @PostMapping("delivery")
     public String deliveryDetail(@ModelAttribute OrderDTO restaurantCounterOrderDTO,@ModelAttribute DeliveryDTO deliveryDTO, HttpServletRequest request,Model model,HttpSession session) throws MessagingException {
 
-        System.out.println("Model orderDto2"+restaurantCounterOrderDTO);
-<<<<<<< HEAD
-=======
+
 
         // int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
         // restaurantCounterOrderDTO.setCustomer(onlineCustomerId);
 
         //model.addAttribute("loggerId", foodItemBO.findOne(onlineCustomerId));
 
-
-
-
->>>>>>> d46c2e5460873d7a4c6b678ee69fb171ade53d22
         try {
             DeliveryDTO deliveryDTO1 = foodItemBO.findHighestDeliveryId();
             DeliveryDTO deliveryDTO2 = null;
@@ -336,6 +326,16 @@ public class SecretBaker {
         }
         foodItemBO.saveDelivery(deliveryDTO);
 
+        try { //
+//            restaurantCounterOrderDTO.setCustomerId(SuperController.idNo);
+            OrderDTO top = foodItemBO.findTopByOrderByRestIdDesc();//find Highest Id to Save Order
+            int x = (top.getOrderId()) + 1;
+            restaurantCounterOrderDTO.setOrderId((x));
+        } catch (NullPointerException e) {
+            restaurantCounterOrderDTO.setOrderId((1));//Set Id as 1 when Initial Round
+        }
+
+        System.out.println("Model orderDto2"+restaurantCounterOrderDTO.getOrderId()+restaurantCounterOrderDTO.getDate());
 
 
         int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
@@ -376,6 +376,7 @@ public class SecretBaker {
             System.out.println("Item name:" + d.getName());
             System.out.println("Food qty" + d.getQuantity());
             System.out.println("Food price" + d.getUnitePrice());
+
         }
         System.out.println("list of items " + list);
         model.addAttribute("listCounterOrders", restaurantCounterOrderDTO.getOrderId());
@@ -383,9 +384,10 @@ public class SecretBaker {
         model.addAttribute("NoOfItems", list.size());
         model.addAttribute("listCounterOrderDetails", list);//Load Data to Payment
         model.addAttribute("customer", foodItemBO.findOne(restaurantCounterOrderDTO.getCustomer()));
+        System.out.println("Model orderDto date 2"+restaurantCounterOrderDTO.getDate());
 
-        //foodItemBO.sendEmailToSB(restaurantCounterOrderDTO);
-        //foodItemBO.sendEmail(restaurantCounterOrderDTO);
+        foodItemBO.sendEmailToSB(restaurantCounterOrderDTO);
+        foodItemBO.sendEmail(restaurantCounterOrderDTO);
         model.addAttribute("delivery",foodItemBO.getDeliveryById(deliveryDTO.getDeliveryId()));
 
         session.invalidate();
