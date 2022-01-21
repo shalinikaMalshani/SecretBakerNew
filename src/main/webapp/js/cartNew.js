@@ -441,6 +441,8 @@ function  getValueNew(){
    var val=JSON.parse(JSON.stringify(localStorage.getItem('orderRes') ));
    console.log("local storage",val);
     $("#payNew").val(val);
+
+    localStorage.clear();
 }
 
 //manQty(products[i]);
