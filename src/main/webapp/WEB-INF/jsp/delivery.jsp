@@ -403,104 +403,102 @@
                                 <option value="During 1pm - 4pm">During 1PM - 4PM</option>
                             </select>
                         </div>
-<<<<<<< HEAD
+
                         <br><br><br>
                         <input  type="text"  id="payNew" name="dataValue" style="display: none">
                         <button type="submit" class="site-btn"
                                 onclick="getValueNew()">Checkout</button>
-<%--                        <div class="checkout__input">--%>
-<%--                            <p>Postcode / ZIP<span>*</span></p>--%>
-<%--                            <input type="text">--%>
-<%--                        </div>--%>
-=======
->>>>>>> 7a81c874acfe52fe3e5db62dfe620826890897b1
+                        <%--                        <div class="checkout__input">--%>
+                        <%--                            <p>Postcode / ZIP<span>*</span></p>--%>
+                        <%--                            <input type="text">--%>
+                        <%--                        </div>--%>
 
-                        <input   type="text"  id="payNew" name="dataValue" style="display: none">
-                        <br><br>
-                        <button type="submit" class="site-btn"
-                                onclick="getValueNew()">Checkout</button>
+
+<%--                        <input   type="text"  id="payNew" name="dataValue" style="display: none">--%>
+<%--                        <br><br>--%>
+<%--                        <button type="submit" class="site-btn"--%>
+<%--                                onclick="getValueNew()">Checkout</button>--%>
 
                     </div>
-<<<<<<< HEAD
-<%--                    <form method="post" action="delivery" name="delivery">--%>
-=======
 
-
-<%--                    <table class="table" id="order">--%>
-<%--                        <thead>--%>
-<%--                        <tr>--%>
-<%--                            <th>Item Name</th>--%>
-<%--                            <th>Qty</th>--%>
-<%--                            <th>Unit Price</th>--%>
-<%--                            <th>Amount</th>--%>
-<%--                        </tr>--%>
-<%--                        </thead>--%>
-<%--                        <tbody>--%>
-
-<%--                        <c:forEach items="${listCounterOrderDetailsdel}" var="list">--%>
-<%--                            <tr>--%>
-<%--                                <td>${list.name}</td>--%>
-<%--                                <td>${list.quantity}</td>--%>
-<%--                                <td>${list.unitePrice}</td>--%>
-<%--                                <td>${list.quantity*list.unitePrice}</td>--%>
-<%--                            </tr>--%>
-
-<%--                        </c:forEach>--%>
-
-<%--                        </tbody>--%>
-
-<%--                    </table>--%>
+                    <%--                    <form method="post" action="delivery" name="delivery">--%>
 
 
 
->>>>>>> 7a81c874acfe52fe3e5db62dfe620826890897b1
+                    <%--                    <table class="table" id="order">--%>
+                    <%--                        <thead>--%>
+                    <%--                        <tr>--%>
+                    <%--                            <th>Item Name</th>--%>
+                    <%--                            <th>Qty</th>--%>
+                    <%--                            <th>Unit Price</th>--%>
+                    <%--                            <th>Amount</th>--%>
+                    <%--                        </tr>--%>
+                    <%--                        </thead>--%>
+                    <%--                        <tbody>--%>
+
+                    <%--                        <c:forEach items="${listCounterOrderDetailsdel}" var="list">--%>
+                    <%--                            <tr>--%>
+                    <%--                                <td>${list.name}</td>--%>
+                    <%--                                <td>${list.quantity}</td>--%>
+                    <%--                                <td>${list.unitePrice}</td>--%>
+                    <%--                                <td>${list.quantity*list.unitePrice}</td>--%>
+                    <%--                            </tr>--%>
+
+                    <%--                        </c:forEach>--%>
+
+                    <%--                        </tbody>--%>
+
+                    <%--                    </table>--%>
+
+
+
                     <div class="col-lg-4 col-md-6">
                         <div class="checkout__order">
                             <h6 class="order__title">Your order</h6>
                             <div class="checkout__order__products">Product <span>Total</span></div>
-<<<<<<< HEAD
-<%--                            <ul class="checkout__total__products">--%>
-<%--                                <li><samp>01.</samp> Vanilla salted caramel <span>$ 300.0</span></li>--%>
-<%--                                <li><samp>02.</samp> German chocolate <span>$ 170.0</span></li>--%>
-<%--                                <li><samp>03.</samp> Sweet autumn <span>$ 170.0</span></li>--%>
-<%--                                <li><samp>04.</samp> Cluten free mini dozen <span>$ 110.0</span></li>--%>
-<%--                            </ul>--%>
-<%--                            <ul class="checkout__total__all">--%>
-<%--                                <li>Subtotal <span>$750.99</span></li>--%>
-<%--                                <li>Total <span>$750.99</span></li>--%>
-<%--                            </ul>--%>
-<%--                            <div class="checkout__input__checkbox">--%>
-<%--                                <label for="acc-or">--%>
-<%--                                    Create an account?--%>
-<%--                                    <input type="checkbox" id="acc-or">--%>
-<%--                                    <span class="checkmark"></span>--%>
-<%--                                </label>--%>
-<%--                            </div>--%>
-<%--                            <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt--%>
-<%--                                ut labore et dolore magna aliqua.</p>--%>
+
+                            <%--                            <ul class="checkout__total__products">--%>
+                            <%--                                <li><samp>01.</samp> Vanilla salted caramel <span>$ 300.0</span></li>--%>
+                            <%--                                <li><samp>02.</samp> German chocolate <span>$ 170.0</span></li>--%>
+                            <%--                                <li><samp>03.</samp> Sweet autumn <span>$ 170.0</span></li>--%>
+                            <%--                                <li><samp>04.</samp> Cluten free mini dozen <span>$ 110.0</span></li>--%>
+                            <%--                            </ul>--%>
+                            <%--                            <ul class="checkout__total__all">--%>
+                            <%--                                <li>Subtotal <span>$750.99</span></li>--%>
+                            <%--                                <li>Total <span>$750.99</span></li>--%>
+                            <%--                            </ul>--%>
+                            <%--                            <div class="checkout__input__checkbox">--%>
+                            <%--                                <label for="acc-or">--%>
+                            <%--                                    Create an account?--%>
+                            <%--                                    <input type="checkbox" id="acc-or">--%>
+                            <%--                                    <span class="checkmark"></span>--%>
+                            <%--                                </label>--%>
+                            <%--                            </div>--%>
+                            <%--                            <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt--%>
+                            <%--                                ut labore et dolore magna aliqua.</p>--%>
                             <table class="table" id="orderDetails">
-<%--                                <thead>--%>
-<%--                                <tr>--%>
-<%--                                    <th>Item Name</th>--%>
-<%--                                    <th>Qty</th>--%>
-<%--                                    <th>Unit Price</th>--%>
-<%--                                    <th>Amount</th>--%>
-<%--                                </tr>--%>
-<%--                                </thead>--%>
-<%--                                <tbody>--%>
+                                <%--                                <thead>--%>
+                                <%--                                <tr>--%>
+                                <%--                                    <th>Item Name</th>--%>
+                                <%--                                    <th>Qty</th>--%>
+                                <%--                                    <th>Unit Price</th>--%>
+                                <%--                                    <th>Amount</th>--%>
+                                <%--                                </tr>--%>
+                                <%--                                </thead>--%>
+                                <%--                                <tbody>--%>
 
-<%--                                <c:forEach items="${OrderDetails}" var="list2">--%>
-<%--                                    <tr>--%>
-<%--                                        <td>${list2.name}</td>--%>
-<%--&lt;%&ndash;                                        <td>${list.quantity}</td>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                                        <td>${list.unitePrice}</td>&ndash;%&gt;--%>
-<%--                                        <td>${list2.quantity*list2.unitePrice}</td>--%>
-<%--                                        <td>${list2.total}</td>--%>
-<%--                                    </tr>--%>
+                                <%--                                <c:forEach items="${OrderDetails}" var="list2">--%>
+                                <%--                                    <tr>--%>
+                                <%--                                        <td>${list2.name}</td>--%>
+                                <%--&lt;%&ndash;                                        <td>${list.quantity}</td>&ndash;%&gt;--%>
+                                <%--&lt;%&ndash;                                        <td>${list.unitePrice}</td>&ndash;%&gt;--%>
+                                <%--                                        <td>${list2.quantity*list2.unitePrice}</td>--%>
+                                <%--                                        <td>${list2.total}</td>--%>
+                                <%--                                    </tr>--%>
 
-<%--                                </c:forEach>--%>
+                                <%--                                </c:forEach>--%>
 
-<%--                                      <tbody id="products">--%>
+                                <%--                                      <tbody id="products">--%>
 
                                 </tbody>
 
@@ -513,38 +511,37 @@
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
-<%--                            <div class="checkout__input__checkbox">--%>
-<%--                                <label for="paypal">--%>
-<%--                                    Paypal--%>
-<%--                                    <input type="checkbox" id="paypal">--%>
-<%--                                    <span class="checkmark"></span>--%>
-<%--                                </label>--%>
-<%--                            </div>--%>
-<%--                            <button type="submit" class="site-btn">PLACE ORDER</button>--%>
-<%--                            <input  type="text"  id="payNew" name="dataValue" style="display: none">--%>
-<%--                            <button type="submit" class="site-btn"--%>
-<%--                                    onclick="getValueNew()">Checkout</button>--%>
-<%--                            <input   type="text"  id="payNew" name="dataValue" style="display: none">--%>
-<%--                            <button type="submit" class="site-btn"--%>
-<%--                                    onclick="getValueNew()">Checkout</button>--%>
-=======
+                            <%--                            <div class="checkout__input__checkbox">--%>
+                            <%--                                <label for="paypal">--%>
+                            <%--                                    Paypal--%>
+                            <%--                                    <input type="checkbox" id="paypal">--%>
+                            <%--                                    <span class="checkmark"></span>--%>
+                            <%--                                </label>--%>
+                            <%--                            </div>--%>
+                            <%--                            <button type="submit" class="site-btn">PLACE ORDER</button>--%>
+                            <%--                            <input  type="text"  id="payNew" name="dataValue" style="display: none">--%>
+                            <%--                            <button type="submit" class="site-btn"--%>
+                            <%--                                    onclick="getValueNew()">Checkout</button>--%>
+                            <%--                            <input   type="text"  id="payNew" name="dataValue" style="display: none">--%>
+                            <%--                            <button type="submit" class="site-btn"--%>
+                            <%--                                    onclick="getValueNew()">Checkout</button>--%>
+
                             <ul class="checkout__total__products">
                                 <c:forEach items="${listCounterOrderDetailsdel}" var="list">
-                                <li><samp>0${list.foodItem}.</samp>${list.name}<span>${list.unitePrice}</span></li>
+                                    <li><samp>0${list.foodItem}.</samp>${list.name}<span>${list.unitePrice}</span></li>
                                 </c:forEach>
                             </ul>
                             <ul class="checkout__total__all">
                                 <li>Subtotal <span id="subtotDel">$750.99</span></li>
                                 <li>Total <span id="totDel">$750.99</span></li>
                             </ul>
->>>>>>> 7a81c874acfe52fe3e5db62dfe620826890897b1
                         </div>
                     </div>
 
-                    </form>
-                </div>
-
+            </form>
         </div>
+
+    </div>
 
 </section>
 <!-- Checkout Section End -->
@@ -632,7 +629,6 @@
     console.log("total",valTot);
     document.getElementById("subtotDel").innerHTML="Rs:"+valTot+".00";
     document.getElementById("totDel").innerHTML="Rs:"+valTot+".00";
-
 </script>
 <script src="../../js/cartNew.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
