@@ -123,7 +123,7 @@ public class SecretBaker {
             System.out.println("customer details" + foodItemBO.findOne(restaurantCounterOrderDTO.getCustomer()));
         }catch(Exception e){
             return "signUpLogin";
-            }
+        }
 
 //        try { //
 ////            restaurantCounterOrderDTO.setCustomerId(SuperController.idNo);
@@ -311,12 +311,12 @@ public class SecretBaker {
         System.out.print("Order"+restaurantCounterOrderDTO);
 
         //get already login customer
-         int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
-         restaurantCounterOrderDTO.setCustomer(onlineCustomerId);
-         model.addAttribute("loggerId", foodItemBO.findOne(onlineCustomerId));
+        int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
+        restaurantCounterOrderDTO.setCustomer(onlineCustomerId);
+        model.addAttribute("loggerId", foodItemBO.findOne(onlineCustomerId));
 
 
-         //asign order id
+        //asign order id
         try { //
 //            restaurantCounterOrderDTO.setCustomerId(SuperController.idNo);
             OrderDTO top = foodItemBO.findTopByOrderByRestIdDesc();//find Highest Id to Save Order
@@ -326,7 +326,7 @@ public class SecretBaker {
             restaurantCounterOrderDTO.setOrderId((1));//Set Id as 1 when Initial Round
         }
 
-       // System.out.println("Model orderDto1"+restaurantCounterOrderDTO.getOrderId()+restaurantCounterOrderDTO.getDate());
+        // System.out.println("Model orderDto1"+restaurantCounterOrderDTO.getOrderId()+restaurantCounterOrderDTO.getDate());
 
         //save order
         try {
@@ -388,7 +388,7 @@ public class SecretBaker {
 
 
 
-       // int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
+        // int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
 
         model.addAttribute("loggerId", foodItemBO.findOne(onlineCustomerId));
         //session.invalidate();
@@ -422,13 +422,6 @@ public class SecretBaker {
         foodItemBO.sendEmailToSB(restaurantCounterOrderDTO);
         foodItemBO.sendEmail(restaurantCounterOrderDTO);
         model.addAttribute("delivery",foodItemBO.getDeliveryById(deliveryDTO.getDeliveryId()));
-
-
-        java.util.List<OrderDetailDTO> list2 = new ArrayList<>();
-        String arr = restaurantCounterOrderDTO.getDataValue();
-        model.addAttribute("listCounterOrderDetails", list2);//Load Data to Payment
-
-
 
         session.invalidate();
         return "Checkout";

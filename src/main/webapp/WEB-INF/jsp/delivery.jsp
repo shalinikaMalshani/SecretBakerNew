@@ -404,8 +404,8 @@
                         </div>
                         <br><br><br>
                         <input  type="text"  id="payNew" name="dataValue" style="display: none">
-<%--                        <button type="submit" class="site-btn"--%>
-<%--                                onclick="getValueNew()">Checkout</button>--%>
+                        <button type="submit" class="site-btn"
+                                onclick="getValueNew()">Checkout</button>
 <%--                        <div class="checkout__input">--%>
 <%--                            <p>Postcode / ZIP<span>*</span></p>--%>
 <%--                            <input type="text">--%>
@@ -437,7 +437,7 @@
 <%--                                   placeholder="Notes about your order, e.g. special notes for delivery.">--%>
 <%--                        </div>--%>
                     </div>
-                    <form method="post" action="delivery" name="delivery">
+<%--                    <form method="post" action="delivery" name="delivery">--%>
                     <div class="col-lg-4 col-md-6">
                         <div class="checkout__order">
                             <h6 class="order__title">Your order</h6>
@@ -483,7 +483,7 @@
 
 <%--                                </c:forEach>--%>
 
-                                      <tbody id="products">
+<%--                                      <tbody id="products">--%>
 
                                 </tbody>
 
@@ -507,9 +507,9 @@
 <%--                            <input  type="text"  id="payNew" name="dataValue" style="display: none">--%>
 <%--                            <button type="submit" class="site-btn"--%>
 <%--                                    onclick="getValueNew()">Checkout</button>--%>
-                            <input   type="text"  id="payNew" name="dataValue" style="display: none">
-                            <button type="submit" class="site-btn"
-                                    onclick="getValueNew()">Checkout</button>
+<%--                            <input   type="text"  id="payNew" name="dataValue" style="display: none">--%>
+<%--                            <button type="submit" class="site-btn"--%>
+<%--                                    onclick="getValueNew()">Checkout</button>--%>
                         </div>
                     </div>
                     </form>
