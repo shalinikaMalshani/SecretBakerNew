@@ -389,10 +389,10 @@
 
                         </div>
 
-<%--                        <div class="checkout__input">--%>
-<%--                            <p>Delivery Date<span>*</span></p>--%>
-<%--                            <input type="date" name ="deliveryDate" id="deliveryDate" placeholder="Delivery Date" class="checkout__input__add">--%>
-<%--                        </div>--%>
+                        <div class="checkout__input">
+                            <p>Delivery Date<span>*</span></p>
+                            <input type="date" name ="deliveryDate" id="deliveryDate" placeholder="Delivery Date" class="checkout__input__add">
+                        </div>
                         <div class="checkout__input">
                             <p>Delivery Time<span>*</span></p>
                             <select required="required" name="deliveryTime"

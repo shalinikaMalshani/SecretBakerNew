@@ -308,6 +308,7 @@ public class SecretBaker {
 
         System.out.println("Model orderDto2"+restaurantCounterOrderDTO);
 
+        System.out.print("Order"+restaurantCounterOrderDTO);
 
         //get already login customer
          int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
@@ -325,7 +326,7 @@ public class SecretBaker {
             restaurantCounterOrderDTO.setOrderId((1));//Set Id as 1 when Initial Round
         }
 
-        System.out.println("Model orderDto1"+restaurantCounterOrderDTO.getOrderId()+restaurantCounterOrderDTO.getDate());
+       // System.out.println("Model orderDto1"+restaurantCounterOrderDTO.getOrderId()+restaurantCounterOrderDTO.getDate());
 
         //save order
         try {
