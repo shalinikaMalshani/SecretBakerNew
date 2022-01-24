@@ -115,7 +115,7 @@ public class SecretBaker {
     public String loadInvoicePage(@ModelAttribute OrderDTO restaurantCounterOrderDTO,
                                   Model model, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
 
-        //System.out.println("Model orderDto1"+restaurantCounterOrderDTO);
+        System.out.println("Model orderDto1"+restaurantCounterOrderDTO);
 
         try {
             int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
@@ -125,88 +125,48 @@ public class SecretBaker {
             return "signUpLogin";
             }
 
-//        try { //
-////            restaurantCounterOrderDTO.setCustomerId(SuperController.idNo);
-//            OrderDTO top = foodItemBO.findTopByOrderByRestIdDesc();//find Highest Id to Save Order
-//            int x = (top.getOrderId()) + 1;
-//            restaurantCounterOrderDTO.setOrderId((x));
-//        } catch (NullPointerException e) {
-//            restaurantCounterOrderDTO.setOrderId((1));//Set Id as 1 when Initial Round
-//        }
-//
-//        System.out.println("Model orderDto1"+restaurantCounterOrderDTO.getOrderId()+restaurantCounterOrderDTO.getDate());
-//
-//        try {
-////
-////            int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
-////            restaurantCounterOrderDTO.setCustomer(onlineCustomerId);
-////            System.out.println("customer details"+foodItemBO.findOne(restaurantCounterOrderDTO.getCustomer()));
-////
-//
-//
-//            //foodItemBO.saveRestaurantOrder(restaurantCounterOrderDTO);
-//
-//
-//            java.util.List<OrderDetailDTO> list = new ArrayList<>();
-//            String arr = restaurantCounterOrderDTO.getDataValue();
-//            System.out.print("arr" + arr);
-//
-//
-//            String yo[] = arr.split(" ");
-//
-//            System.out.print("yo" + Arrays.toString(yo));
-//            int count = 0;
-//            OrderDetailDTO itm = new OrderDetailDTO();
-//            for (String str : yo) {//Read String and add to list
-//                if (count == 0) {
-//                    itm = new OrderDetailDTO();
-//                    itm.setFoodItem(Integer.parseInt(str));
-//                    count++;
-//
-//                } else if (count == 1) {
-//                    itm.setUnitePrice(Integer.parseInt(str));
-//                    count++;
-//
-//                } else if (count == 2) {
-//                    itm.setQuantity(Integer.parseInt(str));
-//                    list.add(itm);
-//                    count = 0;
-//                }
-//            }
-//            System.out.println("list of itms " + itm);
-//            for (OrderDetailDTO d : list) {
-//                FoodItemDTO f = foodItemBO.findFoodItemById(d.getFoodItem());
-//                d.setName(f.getFoodName());
-//                System.out.println("Item name:"+d.getName());
-//                System.out.println("Food qty"+d.getQuantity());
-//                System.out.println("Food price"+d.getUnitePrice());
-//            }
-//
-//
-//            System.out.println("list of items " + list);
-//            model.addAttribute("listCounterOrders", restaurantCounterOrderDTO.getOrderId());
-//
-//            model.addAttribute("NoOfItems", list.size());
-//            model.addAttribute("listCounterOrderDetails", list);//Load Data to Payment
-//            model.addAttribute("customer", foodItemBO.findOne(restaurantCounterOrderDTO.getCustomer()));
-//
-//
-//            System.out.println("Model orderDto date"+restaurantCounterOrderDTO.getDate());
-//
-//
-//
-//        } catch (NullPointerException e) {
-//            e.printStackTrace();
-//        }
-//
-//
-//
-//
-//        int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
-//
-//        model.addAttribute("loggerId", foodItemBO.findOne(onlineCustomerId));
-//        //session.invalidate();
-//
+
+        java.util.List<OrderDetailDTO> list = new ArrayList<>();
+        String arr = restaurantCounterOrderDTO.getDataValue();
+        System.out.print("arr" + arr);
+
+
+        String yo[] = arr.split(" ");
+
+        System.out.print("yo" + Arrays.toString(yo));
+        int count = 0;
+        OrderDetailDTO itm = new OrderDetailDTO();
+        for (String str : yo) {//Read String and add to list
+            if (count == 0) {
+                itm = new OrderDetailDTO();
+                itm.setFoodItem(Integer.parseInt(str));
+                count++;
+
+            } else if (count == 1) {
+                itm.setUnitePrice(Integer.parseInt(str));
+                count++;
+
+            } else if (count == 2) {
+                itm.setQuantity(Integer.parseInt(str));
+                list.add(itm);
+                count = 0;
+            }
+        }
+//        System.out.println("list of itms " + itm);
+        for (OrderDetailDTO d : list) {
+            FoodItemDTO f = foodItemBO.findFoodItemById(d.getFoodItem());
+            d.setName(f.getFoodName());
+            System.out.println("Item name:"+d.getName());
+            System.out.println("Food qty"+d.getQuantity());
+            System.out.println("Food price"+d.getUnitePrice());
+        }
+
+
+        System.out.println("list of items " + list);
+        model.addAttribute("listCounterOrders", restaurantCounterOrderDTO.getOrderId());
+
+        //model.addAttribute("NoOfItems", list.size());
+        model.addAttribute("listCounterOrderDetailsdel", list);//Load Data to Payment
         return "delivery";
     }
 
@@ -419,14 +379,14 @@ public class SecretBaker {
         }
         foodItemBO.saveDelivery(deliveryDTO);
 
-        foodItemBO.sendEmailToSB(restaurantCounterOrderDTO);
-        foodItemBO.sendEmail(restaurantCounterOrderDTO);
+        //foodItemBO.sendEmailToSB(restaurantCounterOrderDTO);
+        //foodItemBO.sendEmail(restaurantCounterOrderDTO);
         model.addAttribute("delivery",foodItemBO.getDeliveryById(deliveryDTO.getDeliveryId()));
 
 
-        java.util.List<OrderDetailDTO> list2 = new ArrayList<>();
-        String arr = restaurantCounterOrderDTO.getDataValue();
-        model.addAttribute("listCounterOrderDetails", list2);//Load Data to Payment
+//        java.util.List<OrderDetailDTO> list2 = new ArrayList<>();
+//        String arr = restaurantCounterOrderDTO.getDataValue();
+//        model.addAttribute("listCounterOrderDetails", list2);//Load Data to Payment
 
 
 
