@@ -263,9 +263,6 @@ public class SecretBaker {
 
     @PostMapping("delivery")
     public String deliveryDetail(@ModelAttribute OrderDTO restaurantCounterOrderDTO,@ModelAttribute DeliveryDTO deliveryDTO, @ModelAttribute OrderDetailDTO orderDetailDTO, HttpServletRequest request,Model model,HttpSession session) throws MessagingException {
-
-
-
         System.out.println("Model orderDto2"+restaurantCounterOrderDTO);
 
         System.out.print("Order"+restaurantCounterOrderDTO);
@@ -351,7 +348,7 @@ public class SecretBaker {
        // int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
 
         model.addAttribute("loggerId", foodItemBO.findOne(onlineCustomerId));
-        //session.invalidate();
+
 
 
 
@@ -382,13 +379,6 @@ public class SecretBaker {
         //foodItemBO.sendEmailToSB(restaurantCounterOrderDTO);
         //foodItemBO.sendEmail(restaurantCounterOrderDTO);
         model.addAttribute("delivery",foodItemBO.getDeliveryById(deliveryDTO.getDeliveryId()));
-
-
-//        java.util.List<OrderDetailDTO> list2 = new ArrayList<>();
-//        String arr = restaurantCounterOrderDTO.getDataValue();
-//        model.addAttribute("listCounterOrderDetails", list2);//Load Data to Payment
-
-
 
         session.invalidate();
         return "Checkout";
