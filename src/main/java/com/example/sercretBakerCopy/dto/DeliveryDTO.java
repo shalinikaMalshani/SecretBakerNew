@@ -17,7 +17,7 @@ public class DeliveryDTO {
     }
 
     public DeliveryDTO(int deliveryId, String name,String lastName, String deliveryArea, String location,
-                       String contactNo, String email,String deliveryDate,String deliveryTime) {
+                       String contactNo, String email,String deliveryDate, String deliveryTime) {
         this.deliveryId = deliveryId;
         this.name = name;
         this.lastName =lastName;
@@ -139,6 +139,7 @@ public class DeliveryDTO {
         this.location = location;
     }
 
+
 //    @Override
 //    public String toString() {
 //        return "DeliveryDTO{" +
@@ -149,9 +150,11 @@ public class DeliveryDTO {
 //                ", email='" + email + '\'' +
 //                ", deliveryArea='" + deliveryArea + '\'' +
 //                ", location='" + location + '\'' +
+////                ", deliveryDate='" + deliveryDate + '\'' +
 //                ", deliveryTime='" + deliveryTime + '\'' +
 //                '}';
 //    }
+
 
     @Override
     public String toString() {

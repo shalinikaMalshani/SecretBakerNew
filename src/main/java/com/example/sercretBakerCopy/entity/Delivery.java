@@ -40,6 +40,10 @@ public class Delivery {
 
 
 
+//    public Delivery(int deliveryId, String name, String lastName, String deliveryArea, String location, String contactNo, String email, String deliveryTime) {
+//    }
+
+
     public int getDeliveryId() {
         return deliveryId;
     }

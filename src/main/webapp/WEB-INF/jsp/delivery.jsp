@@ -389,10 +389,10 @@
 
                         </div>
 
-                        <div class="checkout__input">
-                            <p>Delivery Date<span>*</span></p>
-                            <input type="date" name ="deliveryDate" id="deliveryDate" placeholder="Delivery Date" class="checkout__input__add">
-                        </div>
+<%--                        <div class="checkout__input">--%>
+<%--                            <p>Delivery Date<span>*</span></p>--%>
+<%--                            <input type="date" name ="deliveryDate" id="deliveryDate" placeholder="Delivery Date" class="checkout__input__add">--%>
+<%--                        </div>--%>
                         <div class="checkout__input">
                             <p>Delivery Time<span>*</span></p>
                             <select required="required" name="deliveryTime"
@@ -404,8 +404,8 @@
                         </div>
                         <br><br><br>
                         <input  type="text"  id="payNew" name="dataValue" style="display: none">
-                        <button type="submit" class="site-btn"
-                                onclick="getValueNew()">Checkout</button>
+<%--                        <button type="submit" class="site-btn"--%>
+<%--                                onclick="getValueNew()">Checkout</button>--%>
 <%--                        <div class="checkout__input">--%>
 <%--                            <p>Postcode / ZIP<span>*</span></p>--%>
 <%--                            <input type="text">--%>
@@ -437,20 +437,21 @@
 <%--                                   placeholder="Notes about your order, e.g. special notes for delivery.">--%>
 <%--                        </div>--%>
                     </div>
+                    <form method="post" action="delivery" name="delivery">
                     <div class="col-lg-4 col-md-6">
                         <div class="checkout__order">
                             <h6 class="order__title">Your order</h6>
                             <div class="checkout__order__products">Product <span>Total</span></div>
-                            <ul class="checkout__total__products">
-                                <li><samp>01.</samp> Vanilla salted caramel <span>$ 300.0</span></li>
-                                <li><samp>02.</samp> German chocolate <span>$ 170.0</span></li>
-                                <li><samp>03.</samp> Sweet autumn <span>$ 170.0</span></li>
-                                <li><samp>04.</samp> Cluten free mini dozen <span>$ 110.0</span></li>
-                            </ul>
-                            <ul class="checkout__total__all">
-                                <li>Subtotal <span>$750.99</span></li>
-                                <li>Total <span>$750.99</span></li>
-                            </ul>
+<%--                            <ul class="checkout__total__products">--%>
+<%--                                <li><samp>01.</samp> Vanilla salted caramel <span>$ 300.0</span></li>--%>
+<%--                                <li><samp>02.</samp> German chocolate <span>$ 170.0</span></li>--%>
+<%--                                <li><samp>03.</samp> Sweet autumn <span>$ 170.0</span></li>--%>
+<%--                                <li><samp>04.</samp> Cluten free mini dozen <span>$ 110.0</span></li>--%>
+<%--                            </ul>--%>
+<%--                            <ul class="checkout__total__all">--%>
+<%--                                <li>Subtotal <span>$750.99</span></li>--%>
+<%--                                <li>Total <span>$750.99</span></li>--%>
+<%--                            </ul>--%>
 <%--                            <div class="checkout__input__checkbox">--%>
 <%--                                <label for="acc-or">--%>
 <%--                                    Create an account?--%>
@@ -460,6 +461,34 @@
 <%--                            </div>--%>
 <%--                            <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt--%>
 <%--                                ut labore et dolore magna aliqua.</p>--%>
+                            <table class="table" id="orderDetails">
+<%--                                <thead>--%>
+<%--                                <tr>--%>
+<%--                                    <th>Item Name</th>--%>
+<%--                                    <th>Qty</th>--%>
+<%--                                    <th>Unit Price</th>--%>
+<%--                                    <th>Amount</th>--%>
+<%--                                </tr>--%>
+<%--                                </thead>--%>
+<%--                                <tbody>--%>
+
+<%--                                <c:forEach items="${OrderDetails}" var="list2">--%>
+<%--                                    <tr>--%>
+<%--                                        <td>${list2.name}</td>--%>
+<%--&lt;%&ndash;                                        <td>${list.quantity}</td>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                                        <td>${list.unitePrice}</td>&ndash;%&gt;--%>
+<%--                                        <td>${list2.quantity*list2.unitePrice}</td>--%>
+<%--                                        <td>${list2.total}</td>--%>
+<%--                                    </tr>--%>
+
+<%--                                </c:forEach>--%>
+
+                                      <tbody id="products">
+
+                                </tbody>
+
+                            </table>
+                            <h4>Total:<span id="val"></span></h4>
                             <div class="checkout__input__checkbox">
                                 <label for="payment">
                                     Check Payment
@@ -474,12 +503,16 @@
 <%--                                    <span class="checkmark"></span>--%>
 <%--                                </label>--%>
 <%--                            </div>--%>
-                            <button type="submit" class="site-btn">PLACE ORDER</button>
+<%--                            <button type="submit" class="site-btn">PLACE ORDER</button>--%>
 <%--                            <input  type="text"  id="payNew" name="dataValue" style="display: none">--%>
 <%--                            <button type="submit" class="site-btn"--%>
 <%--                                    onclick="getValueNew()">Checkout</button>--%>
+                            <input   type="text"  id="payNew" name="dataValue" style="display: none">
+                            <button type="submit" class="site-btn"
+                                    onclick="getValueNew()">Checkout</button>
                         </div>
                     </div>
+                    </form>
                 </div>
             </form>
         </div>

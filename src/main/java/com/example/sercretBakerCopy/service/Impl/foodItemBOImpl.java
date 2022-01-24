@@ -231,12 +231,16 @@ public class foodItemBOImpl implements foodItemBO {
 
                 helper.setTo(s.getEmail());
 
-                helper.setFrom("jananimadushika13@gmail.com");
+                helper.setFrom("webspring404@gmail.com");
+
+
+//                helper.setFrom("jananimadushika13@gmail.com");
 
 
                 helper.setFrom("webspring404@gmail.com");
 
-                helper.setFrom("jananimadushika13@gmail.com");
+//                helper.setFrom("jananimadushika13@gmail.com");
+
 
                 helper.setSubject("Your secret baker order has been received!!");
                 boolean html = true;
@@ -288,8 +292,8 @@ public class foodItemBOImpl implements foodItemBO {
                     +"</tr>"
           +"</table>";
             content+="<h4>Billing Address</h4>"+"\n"+s.getAddress_l1()+"\n";
-            content+=s.getAddress_l1()+"\n";
-            content+=s.getAddress_l1()+"\n";
+            content+=s.getAddress_l2()+"\n";
+            content+=s.getAddress_l3()+"\n";
 
 
 
@@ -338,11 +342,12 @@ public class foodItemBOImpl implements foodItemBO {
         helper.setTo("webspring404@gmail.com");
         helper.setFrom("webspring404@gmail.com");
 
-        helper.setTo("jananimadushika13@gmail.com");
+//        helper.setTo("jananimadushika13@gmail.com");
+//
+//        helper.setFrom("jananimadushika13@gmail.com");
+//
+//        helper.setFrom("jananimadushika13@gmail.com.com");
 
-        helper.setFrom("jananimadushika13@gmail.com");
-
-        helper.setFrom("jananimadushika13@gmail.com.com");
 
         helper.setSubject("Secret baker todays orders");
         boolean html = true;
