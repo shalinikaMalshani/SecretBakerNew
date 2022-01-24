@@ -231,12 +231,12 @@ public class foodItemBOImpl implements foodItemBO {
 
                 helper.setTo(s.getEmail());
 
-                helper.setFrom("aa@gmail.com");
+                helper.setFrom("jananimadushika13@gmail.com");
 
 
                 helper.setFrom("webspring404@gmail.com");
 
-                helper.setFrom("aagmail.com");
+                helper.setFrom("jananimadushika13@gmail.com");
 
                 helper.setSubject("Your secret baker order has been received!!");
                 boolean html = true;
@@ -338,11 +338,11 @@ public class foodItemBOImpl implements foodItemBO {
         helper.setTo("webspring404@gmail.com");
         helper.setFrom("webspring404@gmail.com");
 
-        helper.setTo("aa@gmail.com");
+        helper.setTo("jananimadushika13@gmail.com");
 
-        helper.setFrom("aagmail.com");
+        helper.setFrom("jananimadushika13@gmail.com");
 
-        helper.setFrom("aa@gmail.com");
+        helper.setFrom("jananimadushika13@gmail.com.com");
 
         helper.setSubject("Secret baker todays orders");
         boolean html = true;
