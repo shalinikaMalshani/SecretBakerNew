@@ -130,6 +130,9 @@
 /*    border-bottom: 1px solid black;*/
 
 /*}*/
+.p{
+    color: black;
+}
 #cart-empty{
     background: red;
     /*width: 100%;*/

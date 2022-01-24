@@ -144,7 +144,8 @@ function loadCart(){
             
             <td style="display: none;">${item.id}</td>
 <td class="product__cart__item"><div class="product__cart__item__pic"><ion-icon name="close-circle" class="remove"></ion-icon><img src="img/${item.tag}.jpg" alt=""></div>
-<div class="product__cart__item__text"><h6>${item.name}</h6><h5 class="p">${item.price}</h5></div></td>
+<div class="product__cart__item__text"><h6 style="margin-top: 10px;">${item.name}</h6></div></td>
+<td><h5 class="p">${item.price}</h5></div></td>
 <td><ion-icon name="caret-back-circle" class="dec-btn"></ion-icon><span class="qtyCart">${item.inCart}</span><ion-icon name="caret-forward-circle" class="inc-btn"></ion-icon></td>
 <td class="cartPrice"><span class="t">Rs:${item.inCart * item.price}.00</span></td>
                                 
