@@ -172,8 +172,11 @@ public class SecretBaker {
 
 
     @GetMapping("/invoice")
-    public String restaurant(Model model, HttpSession session) {
+    public String restaurant(@ModelAttribute OrderDTO restaurantCounterOrderDTO, Model model, HttpSession session) {
 //        model.addAttribute("loggerName", indexLoginBO.getEmployeeByIdNo(SuperController.idNo));
+
+
+
         return "delivery";
     }
 
@@ -210,14 +213,57 @@ public class SecretBaker {
 
     //customer sign in
     @PostMapping("/onlineSignInn")
-    public String onlineTableDetails(@ModelAttribute CustomerDTO onlineCustomer, HttpServletRequest request,Model model) {
+    public String onlineTableDetails(@ModelAttribute OrderDTO restaurantCounterOrderDTO,@ModelAttribute CustomerDTO onlineCustomer, HttpServletRequest request,Model model) {
         try {
             //Check validations
             CustomerDTO onlineCustomerDTO = foodItemBO.findByEmailAndPassword(onlineCustomer.getEmail(), onlineCustomer.getPassword());
             if (onlineCustomerDTO != null) {
                 //Show Logged User Name
                 request.getSession().setAttribute("userId", onlineCustomerDTO.getOnlineCustomerId());
-                return "delivery";
+
+                System.out.print("model4"+restaurantCounterOrderDTO);
+                java.util.List<OrderDetailDTO> list = new ArrayList<>();
+                String arr = restaurantCounterOrderDTO.getDataValue();
+                System.out.print("arr" + arr);
+
+
+                String yo[] = arr.split(" ");
+
+                System.out.print("yo" + Arrays.toString(yo));
+                int count = 0;
+                OrderDetailDTO itm = new OrderDetailDTO();
+                for (String str : yo) {//Read String and add to list
+                    if (count == 0) {
+                        itm = new OrderDetailDTO();
+                        itm.setFoodItem(Integer.parseInt(str));
+                        count++;
+
+                    } else if (count == 1) {
+                        itm.setUnitePrice(Integer.parseInt(str));
+                        count++;
+
+                    } else if (count == 2) {
+                        itm.setQuantity(Integer.parseInt(str));
+                        list.add(itm);
+                        count = 0;
+                    }
+                }
+//        System.out.println("list of itms " + itm);
+                for (OrderDetailDTO d : list) {
+                    FoodItemDTO f = foodItemBO.findFoodItemById(d.getFoodItem());
+                    d.setName(f.getFoodName());
+                    System.out.println("Item name:"+d.getName());
+                    System.out.println("Food qty"+d.getQuantity());
+                    System.out.println("Food price"+d.getUnitePrice());
+                }
+
+
+                System.out.println("list of items " + list);
+                model.addAttribute("listCounterOrders", restaurantCounterOrderDTO.getOrderId());
+
+                //model.addAttribute("NoOfItems", list.size());
+                model.addAttribute("listCounterOrderDetailsdel", list);//Load Data to Payment
+                return  "delivery";
             } else {//If User name And Password is not match
                 return "redirect:/saveCustomer";
 
