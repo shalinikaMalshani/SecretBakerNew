@@ -450,7 +450,7 @@ function  getValueNew(){
     console.log("local storage",val);
     $("#payNew").val(val);
 
-    localStorage.clear();
+    //localStorage.clear();
 }
 
 //manQty(products[i]);

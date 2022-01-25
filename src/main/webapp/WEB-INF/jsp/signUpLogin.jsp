@@ -21,7 +21,7 @@
     <div class="col-12">
         <h1>Sign In</h1>
         <form method="post" action="onlineSignInn">
-                <input  type="text" style="width: 100%;display: none" id="pay" name="dataValue">
+<%--                <input  type="text" style="width: 100%;display: none" id="pay" name="dataValue">--%>
             <input class="form-control" name="onlineCustomerId" value="0" id="onlineCustomerId" type="hidden" >
 
                 <div class="mb-3">
@@ -33,7 +33,8 @@
                 <label for="exampleFormControlInput" class="form-label">Password</label>
                 <input type="text" class="form-control" id="exampleFormControlInput5" name="password" placeholder="Enter your password">
             </div>
-            <input type="submit" value="signIn">
+            <input   type="text"  id="payNew" name="dataValue" style="display: none">
+            <button type="submit"  onclick="getValueNew()">SignIn</button>
             <%
                 session.setAttribute("userId", "usffff");
             %>
