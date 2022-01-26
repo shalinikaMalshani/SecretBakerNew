@@ -19,6 +19,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import java.awt.*;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.List;
 
@@ -123,10 +124,13 @@ public class foodItemBOImpl implements foodItemBO {
                 count = 0;
             }
         }
-        Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DATE, 0);
-        java.util.Date today = cal.getTime();
+        System.out.print("this done");
+        //Calendar cal = Calendar.getInstance();
+        //cal.add(Calendar.DATE, 0);
+        //java.util.Date today = cal.getTime();
+        LocalDate today=LocalDate.now();
         restaurantCounterOrderDTO.setDate(today);
+        System.out.print("Today"+today);
         orderDAO.save(new OrderNew(//Save Data in restaurantCounterOrderDAO table
                 restaurantCounterOrderDTO.getOrderId(),
                 restaurantCounterOrderDTO.getOrderState(),
@@ -520,7 +524,9 @@ public class foodItemBOImpl implements foodItemBO {
 //                delivery.getDate(),
 //                delivery.getNic(),
                 delivery.getDeliveryArea(),
-                delivery.getLocation(),
+                delivery.getLocation_l1(),
+                delivery.getLocation_l2(),
+                delivery.getLocation_l3(),
                 delivery.getDeliveryDate(),
                 delivery.getDeliveryTime());
 
@@ -536,7 +542,9 @@ public class foodItemBOImpl implements foodItemBO {
 //           deliveryDTO.getDate(),
 //                deliveryDTO.getNic(),
                 deliveryDTO.getDeliveryArea(),
-                deliveryDTO.getLocation(),
+                deliveryDTO.getLocation_l1(),
+                deliveryDTO.getLocation_l2(),
+                deliveryDTO.getLocation_l3(),
                 deliveryDTO.getContactNo(),
                 deliveryDTO.getEmail(),
                 deliveryDTO.getDeliveryDate(),

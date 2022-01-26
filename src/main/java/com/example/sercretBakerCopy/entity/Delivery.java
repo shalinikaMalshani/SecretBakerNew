@@ -14,23 +14,24 @@ public class Delivery {
 //    private String nic;
 
     private String deliveryArea;
-    private String location;
+    private String location_l1;
+    private String location_l2;
+    private String location_l3;
     private String contactNo;
     private String email;
     private String deliveryDate;
     private String deliveryTime;
 
-    public Delivery(int deliveryId, String name, String lastName, String deliveryArea,
-                    String location,  String contactNo, String email, String deliveryDate, String deliveryTime) {
+    public Delivery(int deliveryId, String name, String lastName, String deliveryArea, String location_l1, String location_l2, String location_l3, String contactNo, String email, String deliveryDate, String deliveryTime) {
         this.deliveryId = deliveryId;
         this.name = name;
         this.lastName = lastName;
+        this.deliveryArea = deliveryArea;
+        this.location_l1 = location_l1;
+        this.location_l2 = location_l2;
+        this.location_l3 = location_l3;
         this.contactNo = contactNo;
         this.email = email;
-//        this.date = date;
-//        this.nic = nic;
-        this.deliveryArea = deliveryArea;
-        this.location = location;
         this.deliveryDate = deliveryDate;
         this.deliveryTime = deliveryTime;
     }
@@ -68,12 +69,28 @@ public class Delivery {
         this.email = email;
     }
 
-    public String getLocation() {
-        return location;
+    public String getLocation_l1() {
+        return location_l1;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setLocation_l1(String location_l1) {
+        this.location_l1 = location_l1;
+    }
+
+    public String getLocation_l2() {
+        return location_l2;
+    }
+
+    public void setLocation_l2(String location_l2) {
+        this.location_l2 = location_l2;
+    }
+
+    public String getLocation_l3() {
+        return location_l3;
+    }
+
+    public void setLocation_l3(String location_l3) {
+        this.location_l3 = location_l3;
     }
 
 //    public Date getDate() {

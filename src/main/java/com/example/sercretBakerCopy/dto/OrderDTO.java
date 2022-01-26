@@ -1,5 +1,6 @@
 package com.example.sercretBakerCopy.dto;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -9,14 +10,14 @@ public class OrderDTO {
     private String orderState;
     private String foodName;
     //private double quantity;
-    private Date date;
+    private LocalDate date;
     private String dataValue;
     private int customer;
     private int orderHolder;
     private List<OrderDetailDTO> orderDetails = new ArrayList<>();
 
     public OrderDTO(int orderId, String orderState,
-                    Date date, String dataValue, int customer,
+                    LocalDate date, String dataValue, int customer,
                     int orderHolder) {
         this.orderId = orderId;
         this.orderState = orderState;
@@ -28,7 +29,7 @@ public class OrderDTO {
     }
 
     public OrderDTO(int orderId, String orderState,
-                    Date date, String dataValue,
+                    LocalDate date, String dataValue,
                     int customer) {
         this.orderId = orderId;
         this.orderState = orderState;
@@ -38,7 +39,7 @@ public class OrderDTO {
         this.customer = customer;
     }
 
-    public OrderDTO(int orderId, String orderState, Date date,int customer) {
+    public OrderDTO(int orderId, String orderState, LocalDate date,int customer) {
         this.orderId = orderId;
         this.orderState = orderState;
 
@@ -47,7 +48,7 @@ public class OrderDTO {
         this.customer = customer;
     }
 
-    public OrderDTO(int orderId, String orderState, Date date, String dataValue,
+    public OrderDTO(int orderId, String orderState, LocalDate date, String dataValue,
                     int customer, int orderHolder, List<OrderDetailDTO> orderDetails) {
         this.orderId = orderId;
         this.orderState = orderState;
@@ -63,7 +64,7 @@ public class OrderDTO {
     public OrderDTO() {
     }
 
-    public OrderDTO(int orderId, String orderState, String foodName, Date date,
+    public OrderDTO(int orderId, String orderState, String foodName, LocalDate date,
                     String dataValue, int customer, int orderHolder, List<OrderDetailDTO> orderDetails) {
         this.orderId = orderId;
         this.orderState = orderState;
@@ -135,11 +136,11 @@ public class OrderDTO {
 //        this.quantity = quantity;
 //    }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
