@@ -40,21 +40,27 @@
 
             <div class="row">
                 <div class="col-6">
-                    Customer:<p>${customer.userName}</p>
-                    <p>${customer.email}</p>
-                    <p>${customer.address_l1}</p>
+                    <b><u> Customer Detail</u></b><br>
+                    <p><b>Customer Name:</b> ${customer.userName}</p>
+                    <p><b>Customer Email:</b> ${customer.email}</p>
+                    <p><b>Customer Address:</b>
+                        ${customer.address_l1}</p>
                     <p>${customer.address_l2}</p>
                     <p>${customer.address_l3}</p>
 
                 </div>
                 <div class="col-6">
-                    Delivery:<p>${delivery.deliveryArea}</p>
-                    <p>${delivery.location}</p>
-                    <p>${delivery.contactNo}</p>
+                    <b><u>Delivery Detail</u></b><br>
+                    <p><b>Delivery Area:</b> ${delivery.deliveryArea}</p>
+                    <p><b>Delivery Address:</b> ${delivery.location}</p>
+                    <p><b>Contact Number:</b> ${delivery.contactNo}</p>
+                        <p><b>Delivery Date:</b> ${delivery.deliveryDate}</p>
+                        <p><b>Delivery Time: </b>${delivery.deliveryTime}</p>
                 </div>
 
                 <div class="col-6">
-                    Shopping:<p>Secret Baker</p>
+                    <b><u>Shopping</u></b>
+                    <p>Secret Baker</p>
                     <p>secretbaker@gamil.com</p>
                     <p>No 30,Palliyawatta,Piliyandala</p>
                 </div>
