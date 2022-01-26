@@ -365,7 +365,9 @@
                         <br><br><br>
                         <div class="checkout__input">
                             <p>Delivery Address<span>*</span></p>
-                            <input type="text" id="location" name="location" placeholder="Delivery Address" class="checkout__input__add">
+                            <input type="text" id="location_l1" name="location_l1" placeholder="Delivery Address line1" class="checkout__input__add">
+                            <input type="text" id="location_l2" name="location_l2" placeholder="Delivery Address line2" class="checkout__input__add">
+                            <input type="text" id="location_l3" name="location_l3" placeholder="Delivery Address line3" class="checkout__input__add">
 
                         </div>
 

@@ -18,8 +18,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 
@@ -45,6 +47,11 @@ public class SecretBaker {
     @GetMapping("/shoppingCart")
     public String shoppingCart() {
         return "cart";
+    }
+
+    @GetMapping("/summary")
+    public String summary() {
+        return "summary";
     }
 
 
@@ -374,9 +381,10 @@ public class SecretBaker {
 
             System.out.println("list of items " + list);
             model.addAttribute("listCounterOrders", restaurantCounterOrderDTO.getOrderId());
-
             model.addAttribute("NoOfItems", list.size());
             model.addAttribute("listCounterOrderDetails", list);//Load Data to Payment
+            //Date myDate=restaurantCounterOrderDTO.getDate();
+            model.addAttribute("orderDate",restaurantCounterOrderDTO.getDate());
             model.addAttribute("customer", foodItemBO.findOne(restaurantCounterOrderDTO.getCustomer()));
 
 
@@ -427,7 +435,7 @@ public class SecretBaker {
         model.addAttribute("delivery",foodItemBO.getDeliveryById(deliveryDTO.getDeliveryId()));
 
         session.invalidate();
-        return "Checkout";
+        return "summary";
 
     }
 

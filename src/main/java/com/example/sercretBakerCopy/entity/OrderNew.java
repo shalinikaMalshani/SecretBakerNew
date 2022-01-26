@@ -2,6 +2,7 @@ package com.example.sercretBakerCopy.entity;
 
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -13,7 +14,7 @@ public class OrderNew {
     private int orderId;
     private String orderState;
     //private double quantity;
-    private Date date;
+    private LocalDate date;
     private int orderHolder;
     @OneToMany(mappedBy = "restaurantCounterOrder", cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE})
     private List<OrderDetail> orderDetails = new ArrayList<>();
@@ -22,7 +23,7 @@ public class OrderNew {
     private Customer customer;
 
     public OrderNew(int orderId, String orderState,
-                    Date date, int orderHolder) {
+                    LocalDate date, int orderHolder) {
         this.orderId = orderId;
         this.orderState = orderState;
         //this.quantity = quantity;
@@ -30,7 +31,7 @@ public class OrderNew {
         this.orderHolder = orderHolder;
     }
 
-    public OrderNew(int orderId, String orderState, Date date, Customer customer) {
+    public OrderNew(int orderId, String orderState, LocalDate date, Customer customer) {
         this.orderId = orderId;
         this.orderState = orderState;
         this.date = date;
@@ -38,7 +39,7 @@ public class OrderNew {
     }
 
     public OrderNew(int orderId, String orderState,
-                    Date date, int orderHolder, List<OrderDetail> orderDetails) {
+                    LocalDate date, int orderHolder, List<OrderDetail> orderDetails) {
         this.orderId = orderId;
         this.orderState = orderState;
         //this.quantity = quantity;
@@ -74,11 +75,11 @@ public class OrderNew {
         this.orderState = orderState;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

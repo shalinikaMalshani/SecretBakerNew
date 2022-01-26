@@ -14,8 +14,8 @@
 <%--    <title>SB</title>--%>
 <%--    <meta name="viewport" content="width=device-width, initial-scale=1">--%>
 <%--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">--%>
-    <link rel="stylesheet" href="../../css/SBonlineMenu.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<%--    <link rel="stylesheet" href="../../css/SBonlineMenu.css">--%>
+<%--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">--%>
     <link rel="stylesheet" href="../../css/cartNew.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 
@@ -203,18 +203,13 @@
                         <thead>
                         <tr>
                             <th>Product</th>
-                            <th>Unit Price</th>
-                            <th>Quantity</th>
+                            <th class="heading-price">Unit Price</th>
+                            <th class="heading-qty">Quantity</th>
                             <th>Total</th>
                         </tr>
                         </thead>
 
                     <tbody id="products">
-<%--    <tr id="cart-empty">--%>
-<%--    <td style="border-bottom: none;">Cart is Empty</td>--%>
-<%--    </tr>--%>
-
-
 
                     </tbody>
                 </table>
@@ -257,7 +252,7 @@
             </div>
             </div>
         </div>
-    </div>
+
 
 </section>
 <!-- Shopping Cart Section End -->
@@ -283,13 +278,6 @@
 <%--            </form>--%>
 
 
-        </div>
-
-
-
-    </div>
-
-</div>
 
     <script src="../../js/cartNew.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

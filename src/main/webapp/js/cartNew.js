@@ -142,12 +142,31 @@ function loadCart(){
             console.log("My cart items:", item);
             proContainer.innerHTML +=`
             
-            <td style="display: none;">${item.id}</td>
+          <td style="display: none;">${item.id}</td>
 <td class="product__cart__item"><div class="product__cart__item__pic"><ion-icon name="close-circle" class="remove"></ion-icon><img src="img/${item.tag}.jpg" alt=""></div>
-<div class="product__cart__item__text"><h6 style="margin-top: 10px;">${item.name}</h6></div></td>
-<td><h5 class="p">${item.price}</h5></div></td>
+<div class="product__cart__item__text"><h6>${item.name}</h6></div></td>
+<td class="product__cart__item"><div class="product__cart__item__text"><h5 class="p" style="padding-bottom:25px;">Rs:${item.price}.00</h5></div></td>
 <td><ion-icon name="caret-back-circle" class="dec-btn"></ion-icon><span class="qtyCart">${item.inCart}</span><ion-icon name="caret-forward-circle" class="inc-btn"></ion-icon></td>
 <td class="cartPrice"><span class="t">Rs:${item.inCart * item.price}.00</span></td>
+
+<!--                                    <td style="display: none;">${item.id}</td>-->
+<!--                                    <td class="product__cart__item">-->
+<!--                                        <div class="product__cart__item__pic">-->
+<!--                                            <img src="img/${item.tag}.jpg" alt="">-->
+<!--                                        </div>-->
+<!--                                        <div class="product__cart__item__text">-->
+<!--                                            <h6>${item.name}</h6>-->
+<!--                                        </div>-->
+<!--                                    </td>-->
+<!--                                    <td class="product__cart__item">-->
+<!--                                        <div class="product__cart__item__text">-->
+<!--                                            <h5 class="p">Rs:${item.price}.00</h5>-->
+<!--                                        </div>-->
+<!--                                    </td>-->
+<!--                                    <td class="quantity__item"><ion-icon name="caret-back-circle" class="dec-btn"></ion-icon><span class="qtyCart">${item.inCart}</span><ion-icon name="caret-forward-circle" class="inc-btn"></ion-icon></td>-->
+<!--                                    <td class="cartPrice"><span class="t">Rs:${item.inCart * item.price}.00</span></td>-->
+<!--                                    <td class="cart__close"><ion-icon name="close-circle" class="remove"></ion-icon></td>-->
+                                
                                 
 `
         });
@@ -393,7 +412,7 @@ function removeItem() {
 function getValue() {
 
     var list = [];
-    var processing="Processing...";
+    // var processing="Processing...";
     var numberOfRows = $("#products tr").length;
     console.log("rows",numberOfRows);
     var odId = $("#barIdNo").text();
@@ -405,8 +424,9 @@ function getValue() {
         console.log(typeof (itemId));
         var name = $("#products tr:nth-child(" + (i + 1) + ") td:nth-child(2)").text();
         console.log("item name",name);
-        var price = $("#products tr:nth-child(" + (i + 1) + ") td:nth-child(3)").text();
-        console.log("item price",price);
+        var price = $("#products tr:nth-child(" + (i + 1) + ") td:nth-child(3)").text().replace("Rs:","");
+        var p=parseInt(price);
+        console.log("item price",p);
         console.log(typeof (price));
         var qty = $("#products tr:nth-child(" + (i + 1) + ") td:nth-child(4)").text();
         console.log("item qty",qty);
@@ -418,14 +438,14 @@ function getValue() {
             list.push({
                 itemCode:itemId,
                 itemName: name,
-                itemPrice: price,
+                itemPrice: p,
                 qty: qty,
                 totalPrice: total
 
             });
 
             console.log("list",list);
-            str =  itemId+" "+price+" "+qty+" ";
+            str =  itemId+" "+p+" "+qty+" ";
             console.log("str",str);
             stre+= str;
             console.log("stre",stre);
@@ -438,7 +458,7 @@ function getValue() {
     $("#pay").val(stre);
     //console.log("order",orderRes);
     localStorage.setItem('orderRes',stre);
-    $("#submitPay").text(processing);
+    // $("#submitPay").text(processing);
 
 
     //localStorage.clear();
