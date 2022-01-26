@@ -1,3 +1,5 @@
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
 <%--<html>--%>
@@ -187,6 +189,12 @@
     <link rel="stylesheet" href="../cake-main/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="../cake-main/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="../cake-main/css/style.css" type="text/css">
+
+<%--    <%--%>
+<%--        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");--%>
+<%--        String deliveryDate = sdf.format(new Date());--%>
+<%--    %>--%>
+
 </head>
 
 <body>
@@ -327,11 +335,11 @@
 <section class="checkout spad">
     <div class="container">
         <div class="checkout__form">
-            <form method="POST"  action="delivery"  name="delivery">
+            <form method="POST"  action="delivery"  name="delivery" onclick="dateCheck()">
                 <div class="row">
                     <div class="col-lg-8 col-md-6">
-                        <h6 class="coupon__code"><span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click
-                            here</a> to enter your code</h6>
+<%--                        <h6 class="coupon__code"><span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click--%>
+<%--                            here</a> to enter your code</h6>--%>
                         <h6 class="checkout__title">Delivery Details</h6>
                         <div class="row">
                             <div class="col-lg-6">
@@ -392,8 +400,9 @@
 
                         <div class="checkout__input">
                             <p>Delivery Date<span>*</span></p>
-                            <input type="date" name ="deliveryDate" id="deliveryDate" placeholder="Delivery Date" class="checkout__input__add">
+                            <input type="date" name ="deliveryDate" id="deliveryDate" placeholder="Delivery Date" class="checkout__input__add" required>
                         </div>
+
                         <div class="checkout__input">
                             <p>Delivery Time<span>*</span></p>
                             <select required="required" name="deliveryTime"
@@ -665,6 +674,28 @@
     document.getElementById("subtotDel").innerHTML="Rs:"+valTot+".00";
     document.getElementById("totDel").innerHTML="Rs:"+valTot+".00";
 </script>
+
+<script>
+    function dateCheck() {
+        var dateController = {
+            currentDate: null
+        }
+
+        $(document).on("change", "#deliveryDate", function (event, ui) {
+            var now = new Date();
+            var selectedDate = new Date($(this).val());
+
+            if (selectedDate < now) {
+                $(this).val("");
+                alert("Invalid date... Please enter future date... Can't enter old dates");
+
+            } else {
+                dateController.currentDate = $(this).val();
+            }
+        });
+    }
+</script>
+
 <script src="../../js/cartNew.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
