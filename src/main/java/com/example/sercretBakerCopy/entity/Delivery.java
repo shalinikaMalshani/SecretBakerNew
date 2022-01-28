@@ -21,8 +21,10 @@ public class Delivery {
     private String email;
     private String deliveryDate;
     private String deliveryTime;
+    private String paymentType;
 
-    public Delivery(int deliveryId, String name, String lastName, String deliveryArea, String location_l1, String location_l2, String location_l3, String contactNo, String email, String deliveryDate, String deliveryTime) {
+    public Delivery(int deliveryId, String name, String lastName, String deliveryArea, String location_l1, String location_l2, String location_l3,
+                    String contactNo, String email, String deliveryDate, String deliveryTime,String paymentType) {
         this.deliveryId = deliveryId;
         this.name = name;
         this.lastName = lastName;
@@ -34,6 +36,7 @@ public class Delivery {
         this.email = email;
         this.deliveryDate = deliveryDate;
         this.deliveryTime = deliveryTime;
+        this.paymentType = paymentType;
     }
 
     public Delivery() {
@@ -165,5 +168,13 @@ public class Delivery {
 
     public void setDeliveryTime(String deliveryTime) {
         this.deliveryTime = deliveryTime;
+    }
+
+    public String getPaymentType() {
+        return paymentType;
+    }
+
+    public void setPaymentType(String paymentType) {
+        this.paymentType = paymentType;
     }
 }

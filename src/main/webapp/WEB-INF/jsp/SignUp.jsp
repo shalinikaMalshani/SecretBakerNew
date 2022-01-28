@@ -178,84 +178,93 @@
 
 <section class="signup">
     <div class="container2">
-        <div class="signup-content" style="margin-bottom:10px; margin-top: 25px">
-            <div class="signup-form">
-                <h2 class="form-title" style="color: black"><b>Register</b></h2>
-                <form method="POST" class="register-form" id="register-form" action="saveCustomer" onsubmit="return verifyPassword() ">
-                    <input class="form-control" name="onlineCustomerId" value="0" id="onlineCustomerId" type="hidden">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="signup-content" style="margin-bottom:10px; margin-top: 25px">
+                    <div class="signup-form">
+                        <h2 class="form-title" style="color: black"><b>Register</b></h2>
+                        <form method="POST" class="register-form" id="register-form" action="saveCustomer" onsubmit="return verifyPassword() ">
+                            <input class="form-control" name="onlineCustomerId" value="0" id="onlineCustomerId" type="hidden">
 <%--                    <div class="form-group">--%>
 <%--                        <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>--%>
 <%--                        <input type="text" name="your_name" id="your_name1" placeholder="Your Name"/>--%>
 <%--                    </div>--%>
 
 
-                    <div class="form-group" >
-                        <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                        <input type="text"  id="your_name" name="userName" placeholder="Enter your name" required>
-                    </div><br>
+                            <div class="form-group" >
+                                <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text"  id="your_name" name="userName" placeholder="Enter your name" required>
+                            </div><br>
 
-                    <div class="form-group">
-                       <label for="your_name"><i class="zmdi zmdi-email"></i></label>
-                        <input type="email" id="exampleFormControlInput2" name="email" placeholder="Enter your email" required>
+                            <div class="form-group">
+                               <label for="your_name"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" id="exampleFormControlInput2" name="email" placeholder="Enter your email" required>
+                            </div>
+                            <div class="alert alert-warning" style="padding:2px 10px 2px 10px; margin-bottom:10px; margin-top:-10px">
+                                <small>Please provide a valid email address.<br>Your order receipts will be sent  by email.</small> <br>
+                            </div><br>
+
+
+                            <div class="form-group">
+                                <label for="your_name"><i class="zmdi zmdi-phone"></i></label>
+                                <input type="tel"  id="exampleFormControlInput3" name="number"
+                                       pattern="[0-9]{10}" oninvalid="setCustomValidity('Please enter a valid phone number!')"
+                                       placeholder="Enter your mobile no" required>
+                            </div>
+                            <br>
+
+
+                            <div class="form-group">
+                                <label for="your_name"><i class="zmdi zmdi-home"></i></label>
+                                <input type="text"  id="exampleFormControlInput4" name="address_l1" placeholder="Enter your address line 1" required>
+                            </div>
+
+
+                            <div class="form-group">
+                                <input type="text"  id="exampleFormControlInput5" name="address_l2" placeholder="Enter your address line 2" required>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text"  id="exampleFormControlInput6" name="address_l3" placeholder="Enter your address">
+                            </div><br>
+
+                            <div class="form-group">
+                                <label for="your_name"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password"  id="password" name="password" placeholder="Enter your password" onkeyup="check();" required/>
+                                <span id='message2'></span>
+                            </div>
+                            <div style="margin-top:-10px"> <small>(Minimum 8 characters enter the password)</small></div><br>
+
+
+                            <div class="form-group">
+                                <label for="re_pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password" onkeyup="check();" required />
+                                <span id='message'></span>
+                            </div>
+
+
+                            <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service2">Terms of service</a></label>
+                            </div>
+
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                            </div>
+                            <h6>I'm already your member <a href="signUpLogin" >Sign In</a></h6>
+                         </form>
                     </div>
-                        <div class="alert alert-warning" style="padding:2px 10px 2px 10px; margin-bottom:10px; margin-top:-10px">
-                            <small>Please provide a valid email address.<br>Your order receipts will be sent  by email.</small> <br>
-                        </div><br>
 
-
-                    <div class="form-group">
-                        <label for="your_name"><i class="zmdi zmdi-phone"></i></label>
-                        <input type="tel"  id="exampleFormControlInput3" name="number"
-                               pattern="[0-9]{10}" oninvalid="setCustomValidity('Please enter a valid phone number!')"
-                               placeholder="Enter your mobile no" required>
-                    </div>
-                    <br>
-
-
-                    <div class="form-group">
-                        <label for="your_name"><i class="zmdi zmdi-home"></i></label>
-                        <input type="text"  id="exampleFormControlInput4" name="address_l1" placeholder="Enter your address line 1" required>
-                    </div>
-
-
-                    <div class="form-group">
-                        <input type="text"  id="exampleFormControlInput5" name="address_l2" placeholder="Enter your address line 2" required>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text"  id="exampleFormControlInput6" name="address_l3" placeholder="Enter your address">
-                    </div><br>
-
-                    <div class="form-group">
-                        <label for="your_name"><i class="zmdi zmdi-lock"></i></label>
-                        <input type="password"  id="password" name="password" placeholder="Enter your password" onsubmit="check();" required/>
-                        <span id='message2'></span>
-                    </div>
-                    <div style="margin-top:-10px"> <small>(Minimum 8 characters enter the password)</small></div><br>
-
-
-                    <div class="form-group">
-                        <label for="re_pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                        <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password" onsubmit="check();" required />
-                        <span id='message'></span>
-                    </div>
-
-
-                    <div class="form-group">
-                        <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                        <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service2">Terms of service</a></label>
-                    </div>
-
-                    <div class="form-group form-button">
-                        <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
-                    </div>
-                    <h6>I'm already your member <a href="signUpLogin" >Sign In</a></h6>
-                </form>
-            </div>
-
-            <div class="signup-image">
-                <figure><img src="../../signupTemp/images/cake5.jpg" alt="sing up image"></figure>
+                    <div class="row">
+                        <div class="">
+                        <div class="signup-image">
+                                <figure><img src="../../signupTemp/images/cake5.jpg" alt="sing up image"></figure>
 <%--                <a href="signUpLogin" class="signup-image-link">I am already member</a>--%>
+                            </div>
+                        </div>
+                    </div>
+
+                 </div>
             </div>
         </div>
     </div>

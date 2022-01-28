@@ -14,11 +14,14 @@ public class DeliveryDTO {
     private String location_l3;
     private String deliveryDate;
     private String deliveryTime;
+    private String paymentType;
 
     public DeliveryDTO() {
     }
 
-    public DeliveryDTO(int deliveryId, String name, String lastName, String contactNo, String email, String deliveryArea, String location_l1, String location_l2, String location_l3, String deliveryDate, String deliveryTime) {
+    public DeliveryDTO(int deliveryId, String name, String lastName, String contactNo, String email,
+                       String deliveryArea, String location_l1, String location_l2, String location_l3,
+                       String deliveryDate, String deliveryTime,String paymentType) {
         this.deliveryId = deliveryId;
         this.name = name;
         this.lastName = lastName;
@@ -30,6 +33,7 @@ public class DeliveryDTO {
         this.location_l3 = location_l3;
         this.deliveryDate = deliveryDate;
         this.deliveryTime = deliveryTime;
+        this.paymentType = paymentType;
     }
 
     public DeliveryDTO(int deliveryId) {
@@ -155,7 +159,15 @@ public class DeliveryDTO {
         this.location_l3 = location_l3;
     }
 
-//    @Override
+    public String getPaymentType() {
+        return paymentType;
+    }
+
+    public void setPaymentType(String paymentType) {
+        this.paymentType = paymentType;
+    }
+
+    //    @Override
 //    public String toString() {
 //        return "DeliveryDTO{" +
 //                "deliveryId=" + deliveryId +

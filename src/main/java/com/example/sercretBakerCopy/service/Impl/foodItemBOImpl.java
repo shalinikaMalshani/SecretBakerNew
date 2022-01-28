@@ -530,13 +530,18 @@ public class foodItemBOImpl implements foodItemBO {
                 delivery.getLocation_l2(),
                 delivery.getLocation_l3(),
                 delivery.getDeliveryDate(),
-                delivery.getDeliveryTime());
+                delivery.getDeliveryTime(),
+                delivery.getPaymentType());
 
         return deliveryDTO;
     }
 
     @Override
     public void saveDelivery(DeliveryDTO deliveryDTO) {
+
+        String status= "Cash on Delivery";
+        deliveryDTO.setPaymentType(status);
+
         deliveryDAO.save(new Delivery(deliveryDTO.getDeliveryId(),
                 deliveryDTO.getName(),
                 deliveryDTO.getLastName(),
@@ -550,7 +555,9 @@ public class foodItemBOImpl implements foodItemBO {
                 deliveryDTO.getContactNo(),
                 deliveryDTO.getEmail(),
                 deliveryDTO.getDeliveryDate(),
-                deliveryDTO.getDeliveryTime()
+                deliveryDTO.getDeliveryTime(),
+                deliveryDTO.getPaymentType()
+
         ));
 
     }
