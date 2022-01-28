@@ -359,7 +359,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="checkout__input">
+
+
+                       <div class="checkout__input">
                             <p>Delivery Area<span>*</span></p>
                             <select required="required" name="deliveryArea"
                                     id="deliveryArea" class="checkout__input__add">
@@ -370,7 +372,11 @@
                                 <option value="Kasbawa">Kasbawa</option>
                             </select>
                         </div>
+
+
                         <br><br><br>
+
+
                         <div class="checkout__input">
                             <p>Delivery Address<span>*</span></p>
                             <input type="text" id="location_l1" name="location_l1" placeholder="Delivery Address line1" class="checkout__input__add">
@@ -399,21 +405,36 @@
                             </div>
 
                         </div>
-
+              <div class="row" >
+                    <div class="col-lg-6">
                         <div class="checkout__input">
                             <p>Delivery Date<span>*</span></p>
                             <input type="date" name ="deliveryDate" id="deliveryDate" placeholder="Delivery Date" class="checkout__input__add" required>
                         </div>
+                    </div>
 
+                    <div class="col-lg-6">
                         <div class="checkout__input">
                             <p>Delivery Time<span>*</span></p>
                             <select required="required" name="deliveryTime"
                                     id="deliveryTime" class="checkout__input__add">
-                                <option value="1">Choose Time</option>
+                                <option value="1">Select the prefer Time</option>
                                 <option value="During 10AM - 1PM">During 10AM - 1PM</option>
                                 <option value="During 1pm - 4pm">During 1PM - 4PM</option>
                             </select>
                         </div>
+                    </div>
+              </div>
+
+           <div class="col-lg-4">
+              <div class="checkout__input">
+                  <p>Payment Type</p>
+                  <input type="text"  name="paymentType" id="paymentType" placeholder="Cash on Payment" readonly/>
+               </div>
+            </div>
+
+
+
 
 
                         <br><br><br>
