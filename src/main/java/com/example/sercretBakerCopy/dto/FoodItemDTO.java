@@ -7,6 +7,7 @@ public class FoodItemDTO {
     private String l_description;
     private int price;
     private String src;
+    private String category;
 //    private String alert;
 
 //    private String ingredients;
@@ -48,6 +49,15 @@ public class FoodItemDTO {
 //        this.ingredients = ingredients;
     }
 
+    public FoodItemDTO(int itemId, String foodName, String s_description, String l_description, int price, String src, String category) {
+        this.itemId = itemId;
+        this.foodName = foodName;
+        this.s_description = s_description;
+        this.l_description = l_description;
+        this.price = price;
+        this.src = src;
+        this.category = category;
+    }
 
     public int getItemId() {
         return itemId;
@@ -81,6 +91,14 @@ public class FoodItemDTO {
 //    public void setAlert(String alert) {
 //        this.alert = alert;
 //    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
     public String getL_description() {
         return l_description;

@@ -118,16 +118,16 @@
                             </ul>
                         </div>
                         <div class="header__logo">
-                            <a href="index.html"><img src="img/logo.png" alt=""></a>
+                            <a href="index.html"><img src="../../cake-main/img/logo.png" alt=""></a>
                         </div>
                         <div class="header__top__right">
                             <div class="header__top__right__links">
-                                <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
-                                <a href="#"><img src="img/icon/heart.png" alt=""></a>
+                                <a href="#" class="search-switch"><img src="../../cake-main/img/icon/search.png" alt=""></a>
+                                <a href="#"><img src="../../cake-main/img/icon/heart.png" alt=""></a>
                             </div>
                             <div class="header__top__right__cart">
                                 <a href="/shoppingCartNew" class="cart-icon"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
-                                <div class="cartTot">Cart: <span>Rs:0.00</span></div>
+<%--                                <div class="cartTot">Cart: <span>Rs:0.00</span></div>--%>
                             </div>
                         </div>
                     </div>

@@ -516,7 +516,7 @@
                             <%--                            </div>--%>
                             <%--                            <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt--%>
                             <%--                                ut labore et dolore magna aliqua.</p>--%>
-                            <table class="table" id="orderDetails">
+<%--                            <table class="table" id="orderDetails">--%>
                                 <%--                                <thead>--%>
                                 <%--                                <tr>--%>
                                 <%--                                    <th>Item Name</th>--%>
@@ -540,17 +540,17 @@
 
                                 <%--                                      <tbody id="products">--%>
 
-                                </tbody>
+<%--                                </tbody>--%>
 
-                            </table>
-                            <h4>Total:<span id="val"></span></h4>
-                            <div class="checkout__input__checkbox">
-                                <label for="payment">
-                                    Check Payment
-                                    <input type="checkbox" id="payment">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
+<%--                            </table>--%>
+<%--                            <h4>Total:<span id="val"></span></h4>--%>
+<%--                            <div class="checkout__input__checkbox">--%>
+<%--                                <label for="payment">--%>
+<%--                                    Check Payment--%>
+<%--                                    <input type="checkbox" id="payment">--%>
+<%--                                    <span class="checkmark"></span>--%>
+<%--                                </label>--%>
+<%--                            </div>--%>
                             <%--                            <div class="checkout__input__checkbox">--%>
                             <%--                                <label for="paypal">--%>
                             <%--                                    Paypal--%>
@@ -566,10 +566,6 @@
                             <%--                            <button type="submit" class="site-btn"--%>
                             <%--                                    onclick="getValueNew()">Checkout</button>--%>
 
-                            <ul class="checkout__total__products">
-                                <c:forEach items="${listCounterOrderDetailsdel}" var="list">
-                                    <li><samp>0${list.foodItem}.</samp>${list.name}<span>${list.unitePrice}</span></li>
-                                    </c:forEach>
 
                             <ul class="checkout__total__products">
                                 <c:forEach items="${listCounterOrderDetailsdel}" var="list">

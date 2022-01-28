@@ -56,7 +56,8 @@ public class foodItemBOImpl implements foodItemBO {
                 foodItem.getS_description(),
                 foodItem.getL_description(),
                 foodItem.getPrice(),
-                foodItem.getSrc());
+                foodItem.getSrc(),
+                foodItem.getCategory());
 
         return foodItemDTO;
     }
@@ -73,7 +74,8 @@ public class foodItemBOImpl implements foodItemBO {
                     food.getS_description(),
                     food.getL_description(),
                     food.getPrice(),
-                    food.getSrc()));
+                    food.getSrc(),
+                    food.getCategory()));
 
         }
         return foodItemDTOList;

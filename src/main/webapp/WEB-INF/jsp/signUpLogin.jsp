@@ -39,6 +39,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
           rel="stylesheet">
 
+    <link rel="stylesheet" href="../../css/home.css" type="text/css">
     <!-- Css Styles -->
     <link rel="stylesheet" href="../cake-main/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="../cake-main/css/flaticon.css" type="text/css">
@@ -89,12 +90,12 @@
                         </div>
                         <div class="header__top__right">
                             <div class="header__top__right__links">
-                                <a href="#" class="search-switch"><img src="../cake-main/img/icon/search.png" alt=""></a>
-                                <a href="#"><img src="../cake-main/img/icon/heart.png" alt=""></a>
-                            </div>
-                            <div class="header__top__right__cart">
-                                <a href="cartNew"><img src="../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
-                                <div class="cart__price">Cart: <span>$0.00</span></div>
+                                <a href="/signUp" class="register">Register</a>
+                                <a href="/signUpLogin" class="signIn">SignIn</a>
+                            </div><br>
+                            <div class="header__top__right__cart" style="float: right;margin-right:20px;">
+                                <a href="#"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
+                                <%--                                <div class="cart__price">Cart: <span>$0.00</span></div>--%>
                             </div>
                         </div>
                     </div>
@@ -171,7 +172,7 @@
             </div>
 
             <div class="signin-form">
-                <h2 class="form-title">Sign up</h2>
+                <h2 class="form-title">Sign In</h2>
                 <form method="POST" class="register-form"  action="onlineSignInn">
 <%--                    <div class="form-group">--%>
 <%--                        <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>--%>
