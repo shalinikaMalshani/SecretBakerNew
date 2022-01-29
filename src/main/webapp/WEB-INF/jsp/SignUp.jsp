@@ -379,7 +379,7 @@
 <script>
     function verifyPassword() {
         var pw = document.getElementById("password").value;
-        //check empty password field
+        check empty password field
         if(pw == "") {
 
             document.getElementById("message2").innerHTML = "**Fill the password please!";
@@ -398,8 +398,6 @@
             document.getElementById('message2').style.color = 'red'
             document.getElementById("message2").innerHTML = "**Password length must not exceed 15 characters";
             return false;
-        } else {
-            alert("Password is correct");
         }
     }
 </script>

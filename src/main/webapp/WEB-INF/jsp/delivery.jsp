@@ -429,7 +429,7 @@
            <div class="col-lg-4">
               <div class="checkout__input">
                   <p>Payment Type</p>
-                  <input type="text"  name="paymentType" id="paymentType" placeholder="Cash on Payment" readonly/>
+                  <input type="text"  name="paymentType" id="paymentType" placeholder="Cash on Delivery" readonly/>
                </div>
             </div>
 
