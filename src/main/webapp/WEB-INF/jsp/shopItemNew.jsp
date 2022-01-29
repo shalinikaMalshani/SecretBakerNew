@@ -217,7 +217,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="product__details__text">
-                    <div class="product__label">Cupcake</div>
+                    <div class="product__label">${foodItem.category}</div>
                     <h4>${foodItem.foodName}</h4>
                     <h5>Rs:${foodItem.price}.00</h5>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, eiusmod tempor incididunt ut labore
@@ -225,72 +225,66 @@
                     <p>${foodItem.l_description}</p>
                     <ul>
                         <li>SKU: <span>${foodItem.s_description}</span></li>
-                        <li>Category: <span>Biscuit cake</span></li>
-                        <li>Tags: <span>Gadgets, minimalisstic</span></li>
+                        <li>Category: <span>${foodItem.category}</span></li>
                     </ul>
                     <div class="product__details__option">
-<%--                        <div class="quantity">--%>
-<%--                            <div class="pro-qty">--%>
-<%--                                <input type="text" value="2">--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
                         <a href="/shop" class="primary-btn">Continue Shopping</a>
 
                     </div>
                 </div>
             </div>
         </div>
-        <div class="product__details__tab">
-            <div class="col-lg-12">
-                <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Description</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Additional information</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Previews(1)</a>
-                    </li>
-                </ul>
-                <div class="tab-content">
-                    <div class="tab-pane active" id="tabs-1" role="tabpanel">
-                        <div class="row d-flex justify-content-center">
-                            <div class="col-lg-8">
-                                <p>This delectable Strawberry Pie is an extraordinary treat filled with sweet and
-                                    tasty chunks of delicious strawberries. Made with the freshest ingredients, one
-                                    bite will send you to summertime. Each gift arrives in an elegant gift box and
-                                    arrives with a greeting card of your choice that you can personalize online!</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="tabs-2" role="tabpanel">
-                        <div class="row d-flex justify-content-center">
-                            <div class="col-lg-8">
-                                <p>This delectable Strawberry Pie is an extraordinary treat filled with sweet and
-                                    tasty chunks of delicious strawberries. Made with the freshest ingredients, one
-                                    bite will send you to summertime. Each gift arrives in an elegant gift box and
-                                    arrives with a greeting card of your choice that you can personalize online!2
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="tabs-3" role="tabpanel">
-                        <div class="row d-flex justify-content-center">
-                            <div class="col-lg-8">
-                                <p>This delectable Strawberry Pie is an extraordinary treat filled with sweet and
-                                    tasty chunks of delicious strawberries. Made with the freshest ingredients, one
-                                    bite will send you to summertime. Each gift arrives in an elegant gift box and
-                                    arrives with a greeting card of your choice that you can personalize online!3
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<%--        <div class="product__details__tab">--%>
+<%--            <div class="col-lg-12">--%>
+<%--                <ul class="nav nav-tabs" role="tablist">--%>
+<%--                    <li class="nav-item">--%>
+<%--                        <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Description</a>--%>
+<%--                    </li>--%>
+<%--                    <li class="nav-item">--%>
+<%--                        <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Additional information</a>--%>
+<%--                    </li>--%>
+<%--                    <li class="nav-item">--%>
+<%--                        <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Previews(1)</a>--%>
+<%--                    </li>--%>
+<%--                </ul>--%>
+<%--                <div class="tab-content">--%>
+<%--                    <div class="tab-pane active" id="tabs-1" role="tabpanel">--%>
+<%--                        <div class="row d-flex justify-content-center">--%>
+<%--                            <div class="col-lg-8">--%>
+<%--                                <p>This delectable Strawberry Pie is an extraordinary treat filled with sweet and--%>
+<%--                                    tasty chunks of delicious strawberries. Made with the freshest ingredients, one--%>
+<%--                                    bite will send you to summertime. Each gift arrives in an elegant gift box and--%>
+<%--                                    arrives with a greeting card of your choice that you can personalize online!</p>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                    <div class="tab-pane" id="tabs-2" role="tabpanel">--%>
+<%--                        <div class="row d-flex justify-content-center">--%>
+<%--                            <div class="col-lg-8">--%>
+<%--                                <p>This delectable Strawberry Pie is an extraordinary treat filled with sweet and--%>
+<%--                                    tasty chunks of delicious strawberries. Made with the freshest ingredients, one--%>
+<%--                                    bite will send you to summertime. Each gift arrives in an elegant gift box and--%>
+<%--                                    arrives with a greeting card of your choice that you can personalize online!2--%>
+<%--                                </p>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                    <div class="tab-pane" id="tabs-3" role="tabpanel">--%>
+<%--                        <div class="row d-flex justify-content-center">--%>
+<%--                            <div class="col-lg-8">--%>
+<%--                                <p>This delectable Strawberry Pie is an extraordinary treat filled with sweet and--%>
+<%--                                    tasty chunks of delicious strawberries. Made with the freshest ingredients, one--%>
+<%--                                    bite will send you to summertime. Each gift arrives in an elegant gift box and--%>
+<%--                                    arrives with a greeting card of your choice that you can personalize online!3--%>
+<%--                                </p>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</section>--%>
 <!-- Shop Details Section End -->
 
 <!-- Related Products Section Begin -->

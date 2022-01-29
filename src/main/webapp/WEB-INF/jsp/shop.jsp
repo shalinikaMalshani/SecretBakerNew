@@ -173,7 +173,7 @@
                     <div class="product__item__pic set-bg" data-setbg="${e.src}">
                         <div class="quickView-title">Quick View</div>
                         <div class="product__label">
-                            <span>${e.foodName}</span>
+                            <span>${e.category}</span>
                         </div>
                     </div>
                     <div class="product__item__text">

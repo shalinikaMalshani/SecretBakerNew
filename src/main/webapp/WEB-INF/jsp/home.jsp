@@ -38,6 +38,9 @@
 
 
 <body>
+<script>
+    localStorage.clear();
+</script>
 <!-- Page Preloder -->
 <div id="preloder">
     <div class="loader"></div>
@@ -86,23 +89,23 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="header__top__inner">
-                        <div class="header__top__left">
-                            <ul>
-                                <li>USD <span class="arrow_carrot-down"></span>
-                                    <ul>
-                                        <li>EUR</li>
-                                        <li>USD</li>
-                                    </ul>
-                                </li>
-                                <li>ENG <span class="arrow_carrot-down"></span>
-                                    <ul>
-                                        <li>Spanish</li>
-                                        <li>ENG</li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Sign in</a> <span class="arrow_carrot-down"></span></li>
-                            </ul>
-                        </div>
+<%--                        <div class="header__top__left">--%>
+<%--                            <ul>--%>
+<%--                                <li>USD <span class="arrow_carrot-down"></span>--%>
+<%--                                    <ul>--%>
+<%--                                        <li>EUR</li>--%>
+<%--                                        <li>USD</li>--%>
+<%--                                    </ul>--%>
+<%--                                </li>--%>
+<%--                                <li>ENG <span class="arrow_carrot-down"></span>--%>
+<%--                                    <ul>--%>
+<%--                                        <li>Spanish</li>--%>
+<%--                                        <li>ENG</li>--%>
+<%--                                    </ul>--%>
+<%--                                </li>--%>
+<%--                                <li><a href="#">Sign in</a> <span class="arrow_carrot-down"></span></li>--%>
+<%--                            </ul>--%>
+<%--                        </div>--%>
                         <div class="header__logo">
                             <a href="./index.html"><img src="../../cake-main/img/logo.png" alt=""></a>
                         </div>
@@ -745,7 +748,7 @@
 <!-- Map End -->
 
 <!-- Footer Section Begin -->
-<footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
+<footer class="footer set-bg" data-setbg="../../cake-main/img/footer-bg.jpg">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-6">
@@ -761,7 +764,7 @@
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="footer__about">
                     <div class="footer__logo">
-                        <a href="#"><img src="../cake-main/img/footer-logo.png" alt=""></a>
+                        <a href="#"><img src="../../cake-main/img/footer-logo.png" alt=""></a>
                     </div>
                     <p>Lorem ipsum dolor amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore dolore magna aliqua.</p>

@@ -46,20 +46,22 @@
     position: relative;
     display: flex;
     width: 750px;
-    height: auto;
+    height:300px;
     margin: 20px;
     background: white;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.3);;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.3);
 }
 .product__item .popup-card .product-img{
    padding:15px;
-    width:300px;
+    /*width:300px;*/
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .product__item .popup-card .product-img img{
     margin-left: 5px;
     margin-top:0;
-    width:230px;
+    /*width:230px;*/
     border: 1px solid black;
 }
 .popup-card .info{
