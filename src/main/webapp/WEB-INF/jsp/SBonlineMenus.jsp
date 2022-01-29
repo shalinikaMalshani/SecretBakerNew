@@ -44,27 +44,7 @@
      <p style="font-weight: bold; margin-right: 30px;">Name:${loggerId.userName}</p>
 
     <button class="cart-icon"><a href="/shoppingCartNew">Cart</a><span style="padding-left: 3px;">0</span></button>
-<%--    <script type="text/javascript">--%>
-<%--        function  alertBox() {--%>
-<%--            if(${loggerId.userName==null}){--%>
-<%--                console.log("User Id Null");--%>
-<%--            document.body.style.opacity=0.9;--%>
 
-<%--            swal({--%>
-<%--                title: "You need to login",--%>
-<%--                text: "If you dont't have an account, you can also get yourself registered. It's Free!",--%>
-<%--                showCloseButton: true,--%>
-<%--                button: "Login or SignUp"}).then(okay=>{--%>
-<%--                if(okay){--%>
-<%--                    window.location.href = '/signUpLogin';--%>
-<%--                }--%>
-<%--            })--%>
-<%--        }else{--%>
-<%--                window.location.href = '/shoppingCartNew';--%>
-<%--            }--%>
-<%--        }--%>
-
-<%--    </script>--%>
     <div class="row"><%--    row start--%>
 
         <div class="col-12 col-lg-3" ><%--      right side of the content start--%>

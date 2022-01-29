@@ -54,6 +54,19 @@ public class SecretBaker {
         return "summary";
     }
 
+    @GetMapping("/shop")
+    public String shop(Model model,HttpSession session) {
+        model.addAttribute("AllFoodItemss", foodItemBO.getAllFoodItems());
+        try {
+            int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
+            model.addAttribute("loggerId", foodItemBO.findOne(onlineCustomerId));
+        }catch(Exception e){
+            return "shop";
+        }
+
+        return "shop";
+    }
+
 
     @GetMapping("/shoppingCartNew")
     public String shoppingCartNew(HttpSession session,Model model) {
@@ -72,10 +85,17 @@ public class SecretBaker {
     }
 
 
-    @GetMapping("/foodItem/{id}")
+//    @GetMapping("/shop/{id}")
+//    public String getFoodItem(@PathVariable("id") Integer id, Model model) {
+//        model.addAttribute("foodItem", foodItemBO.getFoodItemById(id));
+//        return "shopItem";
+//    }
+
+    @GetMapping("/shop/{id}")
     public String getFoodItem(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("foodItem", foodItemBO.getFoodItemById(id));
-        return "onlineOrder";
+        model.addAttribute("AllFoodItemsss", foodItemBO.getAllFoodItems());
+        return "shopItemNew";
     }
 
 
@@ -84,6 +104,7 @@ public class SecretBaker {
         model.addAttribute("AllFoodItems", foodItemBO.getAllFoodItems());
         return "SBonlineMenu";
     }
+
 
     @GetMapping("/foodItemss")
     public String getAllFoodItems(Model model,HttpSession session) {

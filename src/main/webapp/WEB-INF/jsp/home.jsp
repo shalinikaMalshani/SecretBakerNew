@@ -22,20 +22,25 @@
           rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="../cake-main/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="../cake-main/css/flaticon.css" type="text/css">
-    <link rel="stylesheet" href="../cake-main/css/barfiller.css" type="text/css">
-    <link rel="stylesheet" href="../cake-main/css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="../cake-main/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="../cake-main/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="../cake-main/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="../cake-main/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="../cake-main/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="../cake-main/css/style.css" type="text/css">
+    <link rel="stylesheet" href="../../css/home.css" type="text/css">
+
+    <link rel="stylesheet" href="../../cake-main/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../../cake-main/css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="../../cake-main/css/barfiller.css" type="text/css">
+    <link rel="stylesheet" href="../../cake-main/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="../../cake-main/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="../../cake-main/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="../../cake-main/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="../../cake-main/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="../../cake-main/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="../../cake-main/css/style.css" type="text/css">
 </head>
 
 
 <body>
+<script>
+    localStorage.clear();
+</script>
 <!-- Page Preloder -->
 <div id="preloder">
     <div class="loader"></div>
@@ -46,16 +51,15 @@
 <div class="offcanvas-menu-wrapper">
     <div class="offcanvas__cart">
         <div class="offcanvas__cart__links">
-            <a href="#" class="search-switch"><img src="../cake-main/img/icon/search.png" alt=""></a>
-            <a href="#"><img src="../cake-main/img/icon/heart.png" alt=""></a>
+            <a href="#" class="search-switch"><img src="../../cake-main/img/icon/search.png" alt=""></a>
+            <a href="#"><img src="../../cake-main/img/icon/heart.png" alt=""></a>
         </div>
         <div class="offcanvas__cart__item">
-            <a href="#"><img src="../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
-            <div class="cart__price">Cart: <span>$0.00</span></div>
+            <a href="#"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
         </div>
     </div>
     <div class="offcanvas__logo">
-        <a href="home"><img src="../cake-main/img/logo.png" alt=""></a>
+        <a href="home"><img src="../../cake-main/img/logo.png" alt=""></a>
     </div>
     <div id="mobile-menu-wrap"></div>
     <div class="offcanvas__option">
@@ -85,34 +89,34 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="header__top__inner">
-                        <div class="header__top__left">
-                            <ul>
-                                <li>USD <span class="arrow_carrot-down"></span>
-                                    <ul>
-                                        <li>EUR</li>
-                                        <li>USD</li>
-                                    </ul>
-                                </li>
-                                <li>ENG <span class="arrow_carrot-down"></span>
-                                    <ul>
-                                        <li>Spanish</li>
-                                        <li>ENG</li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Sign in</a> <span class="arrow_carrot-down"></span></li>
-                            </ul>
-                        </div>
+<%--                        <div class="header__top__left">--%>
+<%--                            <ul>--%>
+<%--                                <li>USD <span class="arrow_carrot-down"></span>--%>
+<%--                                    <ul>--%>
+<%--                                        <li>EUR</li>--%>
+<%--                                        <li>USD</li>--%>
+<%--                                    </ul>--%>
+<%--                                </li>--%>
+<%--                                <li>ENG <span class="arrow_carrot-down"></span>--%>
+<%--                                    <ul>--%>
+<%--                                        <li>Spanish</li>--%>
+<%--                                        <li>ENG</li>--%>
+<%--                                    </ul>--%>
+<%--                                </li>--%>
+<%--                                <li><a href="#">Sign in</a> <span class="arrow_carrot-down"></span></li>--%>
+<%--                            </ul>--%>
+<%--                        </div>--%>
                         <div class="header__logo">
-                            <a href="./index.html"><img src="../cake-main/img/logo.png" alt=""></a>
+                            <a href="./index.html"><img src="../../cake-main/img/logo.png" alt=""></a>
                         </div>
                         <div class="header__top__right">
                             <div class="header__top__right__links">
-                                <a href="#" class="search-switch"><img src="../cake-main/img/icon/search.png" alt=""></a>
-                                <a href="#"><img src="../cake-main/img/icon/heart.png" alt=""></a>
-                            </div>
-                            <div class="header__top__right__cart">
-                                <a href="#"><img src="../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
-                                <div class="cart__price">Cart: <span>$0.00</span></div>
+                                <a href="/signUp" class="register">Register</a>
+                                <a href="/signUpLogin" class="signIn">SignIn</a>
+                            </div><br>
+                            <div class="header__top__right__cart" style="float: right;margin-right:20px;">
+                                <a href="#"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
+<%--                                <div class="cart__price">Cart: <span>$0.00</span></div>--%>
                             </div>
                         </div>
                     </div>
@@ -128,7 +132,7 @@
                     <ul>
                         <li class="active"><a href="home">Home</a></li>
                         <li><a href="../cake-main/about.html">About</a></li>
-                        <li><a href="../cake-main/shop.html">Shop</a></li>
+                        <li><a href="/shop">Shop</a></li>
                         <li><a href="#">Pages</a>
                             <ul class="dropdown">
                                 <li><a href="../cake-main/shop-details.html">Shop Details</a></li>
@@ -152,7 +156,7 @@
 <!-- Hero Section Begin -->
 <section class="hero">
     <div class="hero__slider owl-carousel">
-        <div class="hero__item set-bg" data-setbg="img/hero/hero-1.jpg">
+        <div class="hero__item set-bg" data-setbg="../../cake-main/img/hero/hero-1.jpg">
             <div class="container">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-8">
@@ -164,7 +168,7 @@
                 </div>
             </div>
         </div>
-        <div class="hero__item set-bg" data-setbg="../cake-main/img/hero/hero-1.jpg">
+        <div class="hero__item set-bg" data-setbg="../../cake-main/img/hero/hero-1.jpg">
             <div class="container">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-8">
@@ -744,7 +748,7 @@
 <!-- Map End -->
 
 <!-- Footer Section Begin -->
-<footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
+<footer class="footer set-bg" data-setbg="../../cake-main/img/footer-bg.jpg">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-6">
@@ -760,7 +764,7 @@
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="footer__about">
                     <div class="footer__logo">
-                        <a href="#"><img src="../cake-main/img/footer-logo.png" alt=""></a>
+                        <a href="#"><img src="../../cake-main/img/footer-logo.png" alt=""></a>
                     </div>
                     <p>Lorem ipsum dolor amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore dolore magna aliqua.</p>

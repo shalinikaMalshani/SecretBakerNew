@@ -1,0 +1,185 @@
+.card{
+    height: auto;
+    background-color: white;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.input-field {
+    border:0;outline:0;
+}
+input:focus {
+    outline:none!important;
+}
+
+textarea{
+    resize: none;
+    width: 100%;
+}
+.input-field#s_des{
+    display:inline;
+    width:100px;
+}
+/*!*@media screen and (max-width: 1075px)  {*!*/
+/*!*   .product-order{*!*/
+/*!*       width: 900px;*!*/
+/*!*       height: auto;*!*/
+/*!*   }*!*/
+/*!*    .product-pic{*!*/
+/*!*        float: left;*!*/
+/*!*    }*!*/
+/*!*}*!*/
+
+/*@media screen and (max-width: 550px) {*/
+/*    .product-content{*/
+/*        flex-direction: column;*/
+/*    }*/
+/*}*/
+
+/*.card{*/
+/*    !*width:450px;*!*/
+/*    position: absolute;*/
+/*    top:50%;*/
+/*    left:50%;*/
+/*    transform: translate(-50%,-50%);*/
+/*    background-color: white;*/
+/*    box-shadow: 0 5px 25px rgba(0,0,0,0.3);*/
+
+/*}*/
+
+/*.card-title{*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*    width: 8em;*/
+/*}*/
+/*.card-text{*/
+/*    position: relative;*/
+/*    left: 20%;*/
+/*}*/
+
+hr{
+    width:25%;
+    color:gray;
+    background-color:gray;
+    margin-left: 0;
+}
+.btn-shop{
+    color: #fff;
+    background: red;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width:200px;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+@media screen and (max-width:450px ) {
+    .card{
+        width:100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    textarea{
+        width:100%;
+        /*font-size:3px;*/
+        /*height: auto;*/
+        /*width:50px;*/
+    }
+    .input-field#foodName{
+        /*width:10%;*/
+        width:100%;
+    }
+.card-text p{
+    font-size: small;
+}
+
+hr{
+    width: 100%;
+}
+.input-field#price,#s_des{
+    width: auto;
+}
+
+}
+
+
+@media screen and (min-width:450px ) and (max-width:650px ) {
+    .card{
+        width:80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    textarea{
+        width:100%;
+        /*font-size:3px;*/
+        /*height: auto;*/
+        /*width:50px;*/
+    }
+    .input-field#foodName{
+        /*width:10%;*/
+        width:100%;
+    }
+    .card-text p{
+        font-size: small;
+    }
+
+    hr{
+        width: 100%;
+    }
+    .input-field#price,#s_des{
+        width: auto;
+    }
+
+}
+
+@media screen and (min-width:650px ) and (max-width:770px ) {
+    .card{
+        width:75%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    textarea{
+        width:100%;
+        /*font-size:3px;*/
+        /*height: auto;*/
+        /*width:50px;*/
+    }
+    .input-field#foodName{
+        /*width:10%;*/
+        width:100%;
+    }
+    .card-text p{
+        font-size: small;
+    }
+
+    hr{
+        width: 100%;
+    }
+    .input-field#price,#s_des{
+        width: auto;
+    }
+
+}
+
+@media screen and (max-width:1200px ) {
+  hr{
+      width: 32%;
+  }
+}
+@media screen and (max-width:995px ) {
+    hr{
+        width:43%;
+    }
+}
+
+@media screen and (max-width:775px ) {
+    hr{
+        width:57%;
+    }
+}

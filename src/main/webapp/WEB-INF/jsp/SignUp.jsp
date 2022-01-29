@@ -27,6 +27,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../cake-main/fonts/material-icon/css/material-design-iconic-font.min.css">
 
+    <link rel="stylesheet" href="../../css/home.css" type="text/css">
 <%--    <meta charset="UTF-8">--%>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -88,12 +89,12 @@
                         </div>
                         <div class="header__top__right">
                             <div class="header__top__right__links">
-                                <a href="#" class="search-switch"><img src="../cake-main/img/icon/search.png" alt=""></a>
-                                <a href="#"><img src="../cake-main/img/icon/heart.png" alt=""></a>
-                            </div>
-                            <div class="header__top__right__cart">
-                                <a href="cartNew"><img src="../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
-                                <div class="cart__price">Cart: <span>$0.00</span></div>
+                                <a href="/signUp" class="register">Register</a>
+                                <a href="/signUpLogin" class="signIn">SignIn</a>
+                            </div><br>
+                            <div class="header__top__right__cart" style="float: right;margin-right:20px;">
+                                <a href="#"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
+                                <%--                                <div class="cart__price">Cart: <span>$0.00</span></div>--%>
                             </div>
                         </div>
                     </div>

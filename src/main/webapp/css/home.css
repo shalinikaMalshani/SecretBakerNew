@@ -1,0 +1,14 @@
+a.register,.signIn{
+    color:black;
+    font-weight: 600;
+    font-size: small;
+}
+.register:hover{
+    text-decoration: underline;
+    color: black;
+}
+
+.signIn:hover{
+    text-decoration: underline;
+    color: black;
+}
