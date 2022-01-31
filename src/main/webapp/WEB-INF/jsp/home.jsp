@@ -112,7 +112,7 @@
                         <div class="header__top__right">
                             <div class="header__top__right__links">
                                 <a href="/signUp" class="register">Register</a>
-                                <a href="/HomeSignup" class="signIn">SignIn</a>
+                                <a href="/signUpPage" class="signIn">SignIn</a>
                             </div><br>
                             <div class="header__top__right__cart" style="float: right;margin-right:20px;">
                                 <a href="#"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
@@ -795,18 +795,26 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="footer__newslatter">
-                    <h6>Subscribe</h6>
-                    <p>Get latest updates and offers.</p>
-                    <form action="#">
-                        <input type="text" placeholder="Email">
-                        <button type="submit"><i class="fa fa-send-o"></i></button>
-                    </form>
+                <div class="col-lg-4">
+                    <div class="footer__widget">
+                        <h6>CONTACT</h6>
+                        <ul>
+                            <li>No 12,</li>
+                            <li>Green view garden,</li>
+                            <li>Green view garden,</li>
+                            <li>Kotagedara Road,</li>
+                            <li>Piliyandala.</li>
+                        </ul>
+                        <br>
+                        <H6>EMAIL</H6>
+                        <ul>
+                            <li>secretbaker123.com</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
     <div class="copyright">
         <div class="container">
             <div class="row">
