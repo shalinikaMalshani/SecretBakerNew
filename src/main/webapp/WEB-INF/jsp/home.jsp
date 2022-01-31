@@ -112,7 +112,7 @@
                         <div class="header__top__right">
                             <div class="header__top__right__links">
                                 <a href="/signUp" class="register">Register</a>
-                                <a href="/signUpLogin" class="signIn">SignIn</a>
+                                <a href="/HomeSignup" class="signIn">SignIn</a>
                             </div><br>
                             <div class="header__top__right__cart" style="float: right;margin-right:20px;">
                                 <a href="#"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
@@ -122,7 +122,9 @@
                     </div>
                 </div>
             </div>
-            <div class="canvas__open"><i class="fa fa-bars"></i></div>
+<%--            <div class="canvas__open"><i class="fa fa-bars"></i>--%>
+            <div class="canvas__open"><i class="fa"><img src="../img/toggle.png" style="margin-bottom: 8px;"></i></div>
+            </div>
         </div>
     </div>
     <div class="container">
@@ -158,6 +160,23 @@
     <div class="hero__slider owl-carousel">
         <div class="hero__item set-bg" data-setbg="../../cake-main/img/hero/hero-1.jpg">
             <div class="container">
+                <div class="owl-nav">
+<%--                    <button type="button" role="presentation" class="owl-next">--%>
+<%--                        <i>--%>
+<%--                            <img src="../img/next.png">--%>
+<%--                        </i>--%>
+<%--                    </button>--%>
+    <button type="button" class="owl-prev">
+
+            <img src="../img/back.png">
+
+    </button>
+
+    <button type="button"  class="owl-next" >
+            <img src="../img/next.png">
+
+    </button>
+                </div>
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-8">
                         <div class="hero__text">

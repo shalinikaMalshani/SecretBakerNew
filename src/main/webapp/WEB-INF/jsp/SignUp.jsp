@@ -100,7 +100,9 @@
                     </div>
                 </div>
             </div>
-            <div class="canvas__open"><i class="fa fa-bars"></i></div>
+<%--            <div class="canvas__open"><i class="fa fa-bars"></i></div>--%>
+            <div class="canvas__open"><i class="fa"><img src="../img/toggle.png" style="margin-bottom: 8px;"></i></div>
+
         </div>
     </div>
     <div class="container">
@@ -380,12 +382,11 @@
 <script>
     function verifyPassword() {
         var pw = document.getElementById("password").value;
-        check empty password field
-        if(pw == "") {
-
-            document.getElementById("message2").innerHTML = "**Fill the password please!";
-            return false;
-        }
+        // check empty password field
+        // if(pw == "") {
+        //     document.getElementById("message2").innerHTML = "**Fill the password please!";
+        //     return false;
+        // }
 
         //minimum password length validation
         if(pw.length < 8) {

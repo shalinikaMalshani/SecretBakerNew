@@ -451,13 +451,18 @@ public class SecretBaker {
         }
         foodItemBO.saveDelivery(deliveryDTO);
 
-//        foodItemBO.sendEmailToSB(restaurantCounterOrderDTO);
-//        foodItemBO.sendEmail(restaurantCounterOrderDTO);
+        foodItemBO.sendEmailToSB(restaurantCounterOrderDTO);
+        foodItemBO.sendEmail(restaurantCounterOrderDTO);
         model.addAttribute("delivery",foodItemBO.getDeliveryById(deliveryDTO.getDeliveryId()));
 
         session.invalidate();
         return "summary";
 
+    }
+
+    @GetMapping("HomeSignup")
+    public String signupHome(){
+        return "HomeSignup";
     }
 
 }
