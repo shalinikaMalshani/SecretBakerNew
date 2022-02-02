@@ -312,7 +312,7 @@ function  manageQuantity(){
             localStorage.setItem('totalItemCost' ,cartCost-parseInt(price));
 
 
-            // let s=Number(sum.replace(/[^0-9.-]+/g,""));
+            
             decrement[i].parentElement.nextElementSibling.querySelector('span.t').textContent = "Rs:"+sum+".00";
 
             updateTotal();
