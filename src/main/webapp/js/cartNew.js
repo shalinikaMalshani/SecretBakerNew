@@ -33,7 +33,20 @@ for (let i = 0; i <carts.length; i++) {
     carts[i].addEventListener('click',()=>{
         cartNumbers(products[i]);
         totalItemCost(products[i]);
-    })
+// document.getElementById("alert-box").innerHTML=`<div class="alert alert-primary" role="alert" id="alert-box">
+//                     Item added to cart.<button class="viewCart"><a href="/shoppingCartNew">View Cart</a></button>
+//                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+//                         <span aria-hidden="true">&times;</span>
+//                     </button>
+//                     </div>`;
+//
+//         $(document).ready(function() {
+//             // close the alert
+//             setTimeout(function() {
+//                 $(".alert.alert-primary").alert('close');
+//             }, 3000);
+//         });
+     });
 }
 
 //refreash the page cart no not change
@@ -84,18 +97,18 @@ function setAllItems(product) {
 
 
     if(cartItems != null){
-        if(cartItems[product.tag] === undefined){
+        if(cartItems[product.id] === undefined){
             cartItems={
                 ...cartItems,
-                [product.tag]:product
+                [product.id]:product
             }
         }
         //this will incremnet relevant incart
-        cartItems[product.tag].inCart += 1;
+        cartItems[product.id].inCart += 1;
     }else {
         product.inCart = 1;
         cartItems = {
-            [product.tag]: product
+            [product.id]: product
         }
     }
     localStorage.setItem("productsAllInCart",JSON.stringify(cartItems));
@@ -141,11 +154,11 @@ function loadCart(){
         Object.values(cartItems).map(item => {
             console.log("My cart items:", item);
             proContainer.innerHTML +=`
-            
-          <td style="display: none;">${item.id}</td>
+
+          <td><span class="itemIdd">${item.id}</span></td>
 <td class="product__cart__item"><div class="product__cart__item__pic"><ion-icon name="close-circle" class="remove"></ion-icon><img src="img/${item.tag}.jpg" alt=""></div>
-<div class="product__cart__item__text"><h6 style="padding-bottom: 4px;">${item.name}</h6></div></td>
-<td class="product__cart__item"><div class="product__cart__item__text"><h5 class="p" style="padding-bottom:25px;">Rs:${item.price}.00</h5></div></td>
+<div class="product__cart__item__text"><h6 style="padding-top:20px;" class="iName">${item.name}</h6></div></td>
+<td class="product__cart__item"><div class="product__cart__item__text"><h5 class="p" style="padding-bottom:10px;">Rs:${item.price}.00</h5></div></td>
 <td><ion-icon name="caret-back-circle" class="dec-btn"></ion-icon><span class="qtyCart">${item.inCart}</span><ion-icon name="caret-forward-circle" class="inc-btn"></ion-icon></td>
 <td class="cartPrice"><span class="t">Rs:${item.inCart * item.price}.00</span></td>
 
@@ -166,8 +179,8 @@ function loadCart(){
 <!--                                    <td class="quantity__item"><ion-icon name="caret-back-circle" class="dec-btn"></ion-icon><span class="qtyCart">${item.inCart}</span><ion-icon name="caret-forward-circle" class="inc-btn"></ion-icon></td>-->
 <!--                                    <td class="cartPrice"><span class="t">Rs:${item.inCart * item.price}.00</span></td>-->
 <!--                                    <td class="cart__close"><ion-icon name="close-circle" class="remove"></ion-icon></td>-->
-                                
-                                
+
+
 `
         });
 
@@ -182,11 +195,7 @@ function loadCart(){
 `
 
         manageQuantity();
-        removeItem();
-
-
-
-
+removeItem();
     }
 }
 
@@ -214,10 +223,10 @@ function  manageQuantity(){
 
             cartItems={
                 ...cartItems,
-                [products[i].tag]:products[i]
+                [products[i].id]:products[i]
             }
 
-            cartItems[products[i].tag].inCart =value;
+            cartItems[products[i].id].inCart =value;
 
             localStorage.setItem("productsAllInCart",JSON.stringify(cartItems));
 
@@ -277,10 +286,10 @@ function  manageQuantity(){
 
             cartItems={
                 ...cartItems,
-                [products[i].tag]:products[i]
+                [products[i].id]:products[i]
             }
 
-            cartItems[products[i].tag].inCart =value;
+            cartItems[products[i].id].inCart =value;
 
             localStorage.setItem("productsAllInCart",JSON.stringify(cartItems));
 
@@ -365,46 +374,49 @@ function updateTotal() {
     // }else {
     document.querySelector('ul li .totalSub').textContent ="Rs:"+total+".00";
     document.querySelector('ul li .total').textContent ="Rs:"+total+".00";
-    document.querySelector('.cartTot span').textContent ="Rs:"+total+".00";
+
 
     // }
 
 }
-
-
 function removeItem() {
+    //get current cart items
+    let cartItems = localStorage.getItem('productsAllInCart');
+    cartItems = JSON.parse(cartItems);
+
     //get removed btn
-    let removeItem = document.getElementsByClassName('remove');
+    let removeItem = document.querySelectorAll('.remove');
 
     //get current cart no
-    let productNumbers=localStorage.getItem('cartNo');
+    let productNumbers = localStorage.getItem('cartNo');
 
-    //get current cart items
-    let cartItems=localStorage.getItem('productsAllInCart');
-    cartItems=JSON.parse(cartItems);
 
     let i;
     for (i = 0; i < removeItem.length; i++) {
 
         let button = removeItem[i];
         button.addEventListener('click', function (event) {
+            button = event.currentTarget;
 
-            let removeItem = event.target;
-            removeItem.parentElement.parentElement.parentElement.remove();
+            //get the clicked ones item Id
+            let itemId = button.parentElement.parentElement.previousElementSibling.querySelector('span.itemIdd').innerHTML;
+            console.log("clicked item id", itemId);
+            console.log("clicked item id", cartItems.hasOwnProperty(itemId));
+            if (cartItems.hasOwnProperty(itemId)) {
 
+                //delete item from LS
+                delete cartItems[itemId];
+                //remove form UI
+                button.parentElement.parentElement.parentElement.remove();
+            }
 
-            //localStorage.setItem('productsAllInCart',products.splice(i,1));
+            //again set the LS
+            localStorage.setItem('productsAllInCart', JSON.stringify(cartItems));
             updateCart();
             updateTotal();
 
-            localStorage.removeItem('productsAllInCart');
-
-
-
         });
     }
-
-
 
 
 }

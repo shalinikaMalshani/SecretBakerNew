@@ -6,9 +6,11 @@ import com.example.sercretBakerCopy.dto.*;
 import com.example.sercretBakerCopy.entity.Customer;
 import com.example.sercretBakerCopy.entity.OrderNew;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import javax.mail.MessagingException;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public interface foodItemBO {
@@ -24,8 +26,8 @@ public interface foodItemBO {
 
 //    OnlineOrderDTO findHighestId();
 //    OnlineOrderDTO findOrderById(int id);
-    void sendEmail(OrderDTO orderDTO) throws MessagingException;
-    void sendEmailToSB(OrderDTO orderDTO) throws MessagingException;
+    void sendEmail(OrderDTO orderDTO,DeliveryDTO deliveryDTO) throws MessagingException;
+    void sendEmailToSB(OrderDTO orderDTO,DeliveryDTO deliveryDTO) throws MessagingException;
     CustomerDTO findByEmailAndPassword(String email, String password);
     CustomerDTO findOne(int onlineCustomerId);
 OrderDetailDTO getOrderDetailByCusId(OrderNew orderNew,Customer customer);

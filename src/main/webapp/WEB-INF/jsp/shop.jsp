@@ -153,16 +153,9 @@
         </div>
 
 <%--        display alert when item added to cart--%>
-<%--        <div class="row">--%>
-<%--            <div class="col-12">--%>
-<%--                <div class="alert alert-primary" role="alert">--%>
-<%--                    This is a primary alert—check it out!--%>
-<%--                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">--%>
-<%--                        <span aria-hidden="true">&times;</span>--%>
-<%--                    </button>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </div>--%>
+
+                <div id="alert-box">
+                </div>
 
         <div class="row">
 

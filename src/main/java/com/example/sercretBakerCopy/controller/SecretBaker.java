@@ -4,6 +4,7 @@ import com.example.sercretBakerCopy.dto.*;
 import com.example.sercretBakerCopy.service.foodItemBO;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.mail.MailException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -141,7 +142,7 @@ public class SecretBaker {
 
     @PostMapping("invoice")
     public String loadInvoicePage(@ModelAttribute OrderDTO restaurantCounterOrderDTO,
-                                  Model model, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
+                                  Model model, HttpSession session, HttpServletRequest request, HttpServletResponse response) throws MessagingException {
 
         System.out.println("Model orderDto1"+restaurantCounterOrderDTO);
 
@@ -154,7 +155,7 @@ public class SecretBaker {
         }
 
 
-        java.util.List<OrderDetailDTO> list = new ArrayList<>();
+        List<OrderDetailDTO> list = new ArrayList<>();
         String arr = restaurantCounterOrderDTO.getDataValue();
         System.out.print("arr" + arr);
 
@@ -200,7 +201,7 @@ public class SecretBaker {
 
 
     @GetMapping("/invoice")
-    public String restaurant(@ModelAttribute OrderDTO restaurantCounterOrderDTO, Model model, HttpSession session) {
+    public String restaurant(@ModelAttribute OrderDTO restaurantCounterOrderDTO, Model model, HttpSession session) throws MessagingException {
 //        model.addAttribute("loggerName", indexLoginBO.getEmployeeByIdNo(SuperController.idNo));
 
 
@@ -451,8 +452,11 @@ public class SecretBaker {
         }
         foodItemBO.saveDelivery(deliveryDTO);
 
-//        foodItemBO.sendEmailToSB(restaurantCounterOrderDTO);
-//        foodItemBO.sendEmail(restaurantCounterOrderDTO);
+        foodItemBO.sendEmailToSB(restaurantCounterOrderDTO,deliveryDTO);
+
+
+         foodItemBO.sendEmail(restaurantCounterOrderDTO,deliveryDTO);
+
         model.addAttribute("delivery",foodItemBO.getDeliveryById(deliveryDTO.getDeliveryId()));
 
         session.invalidate();

@@ -224,7 +224,7 @@
                         et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida</p>
                     <p>${foodItem.l_description}</p>
                     <ul>
-                        <li>SKU: <span>${foodItem.s_description}</span></li>
+                        <li>Size: <span>${foodItem.s_description}</span></li>
                         <li>Category: <span>${foodItem.category}</span></li>
                     </ul>
                     <div class="product__details__option">
@@ -305,15 +305,15 @@
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="${e.src}">
                             <div class="product__label">
-                                <span>${e.foodName}</span>
+                                <span>${e.category}</span>
                             </div>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Dozen Cupcakes</a></h6>
+                            <h6><a href="">${e.foodName}</a></h6>
                             <div class="product__item__price">Rs:${e.price}.00</div>
-                            <div class="cart_add">
-                                <a href="#">Add to cart</a>
-                            </div>
+<%--                            <div class="cart_add">--%>
+<%--                                <a href="#">Add to cart</a>--%>
+<%--                            </div>--%>
                         </div>
                     </div>
 

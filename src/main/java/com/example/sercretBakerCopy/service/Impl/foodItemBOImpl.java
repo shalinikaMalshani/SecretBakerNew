@@ -4,14 +4,23 @@ package com.example.sercretBakerCopy.service.Impl;
 import com.example.sercretBakerCopy.dao.*;
 
 import com.example.sercretBakerCopy.dto.*;
+import com.example.sercretBakerCopy.emailConfiguration.Config;
 import com.example.sercretBakerCopy.entity.*;
 
 import com.example.sercretBakerCopy.service.foodItemBO;
+import freemarker.core.ParseException;
+import freemarker.template.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
+import org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean;
+import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 
 import javax.mail.*;
 import javax.mail.internet.MimeMessage;
@@ -19,6 +28,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import java.awt.*;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.List;
@@ -46,6 +56,9 @@ public class foodItemBOImpl implements foodItemBO {
 
     @Autowired
     DeliveryDAO deliveryDAO;
+
+    @Autowired
+    private Configuration config;
 
     //get  food item by id
     @Override
@@ -205,7 +218,7 @@ public class foodItemBOImpl implements foodItemBO {
 
     //send mail to customer
     @Override
-    public void sendEmail(OrderDTO orderDTO) throws MessagingException {
+    public void sendEmail(OrderDTO orderDTO,DeliveryDTO deliveryDTO) throws MessagingException {
 
         Customer s = customerDAO.findOne(orderDTO.getCustomer());
 
@@ -232,78 +245,85 @@ public class foodItemBOImpl implements foodItemBO {
                 count = 0;
             }
         }
-            MimeMessage message = javaMailSender.createMimeMessage();
-                MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
-                helper.setTo(s.getEmail());
-                helper.setFrom("webspring404@gmail.com");
-                helper.setSubject("Your secret baker order has been received!!");
-                boolean html = true;
+                    MimeMessage message = javaMailSender.createMimeMessage();
+
+                    MimeMessageHelper helper = new MimeMessageHelper(message, true);
+
+                    helper.setTo(s.getEmail());
+                    helper.setFrom("webspring404@gmail.com");
+                    helper.setSubject("Your secret baker order has been received!!");
+                    boolean html = true;
+
+                    String content = "<center><img src='cid:logoSB'/></center>";
+                    content += "<h1>Thank you for your order with Secret Baker</h1>" + "\n";
+                    content += "<h4>We contact you soon for the further confirmation</h4>" + "\n";
+                    content += "<p><b>Order SB" + orderDTO.getOrderId() + "</b>\t<b>[" + orderDTO.getDate() + "]</b></p>";
+                    content += "<table width='100%' align='center' border='1' style='border-collapse:collapse;'>"
+                            + "<tr align='center'>"
+                            + "<td><b>Product Name <b></td>"
+                            + "<td><b>Qty<b></td>"
+                            + "<td><b>Price<b></td>"
+                            + "</tr>";
+
+                    int total = 0;
+                    int sum = 0;
+
+                    for (OrderDetailDTO d : list) {
+
+                        total = d.getQuantity() * d.getUnitePrice();
+                        sum = sum + total;
+
+                        FoodItemDTO f = findFoodItemById(d.getFoodItem());
+                        d.setName(f.getFoodName());
+                        content += "<tr align='center'>" + "<td>" + d.getName() + "</td>"
+                                + "<td>" + d.getQuantity() + "</td>"
+                                + "<td>Rs:" + total + ".00</td>"
+                                + "</tr>";
+                    }
+                    content += "<tr align='center'>" + "<td><b>" + "Subtotal" + "</b></td>"
+                            + "<td>" + "" + "</td>"
+                            + "<td><b>Rs:" + sum + ".00</b></td>"
+                            + "</tr>";
+
+                    content += "<tr align='center'>" + "<td><b>" + "Shipping" + "</b></td>"
+                            + "<td>" + "" + "</td>"
+                            + "<td><b>" + "Free delivery" + "</b></td>"
+                            + "</tr>";
+
+                    content += "<tr align='center'>" + "<td><b>" + "Payment Method" + "</b></td>"
+                            + "<td>" + "" + "</td>"
+                            + "<td><b>" + "Cash on delivery" + "</b></td>"
+                            + "</tr>";
+
+                    content += "<tr align='center'>" + "<td><b>" + "Total" + "</b></td>"
+                            + "<td>" + "" + "</td>"
+                            + "<td><b>Rs:" + sum + ".00</b></td>"
+                            + "</tr>"
+                            + "</table>";
+        content+="<h4 style='text-decoration: underline;'>Customer</h4>"
+                +"<p><i>"+"<b>Name:</b>"+s.getUserName()+"</i></p>"
+                +"<p><i>"+"<b>Address:</b>"+s.getAddress_l1()+"</i></p>"
+                + "<p><i>"+s.getAddress_l2()+"</i></p>"
+                + "<p><i>"+s.getAddress_l3()+"</i></p>";
+            content+="<h4 style='text-decoration: underline;'>Delivery</h4>"
+                    +"<p><i>"+"<b>Address:</b>"+deliveryDTO.getLocation_l1()+"</i></p>"
+                    +"<p><i>"+deliveryDTO.getLocation_l2()+"</i></p>"
+                    + "<p><i>"+deliveryDTO.getLocation_l3()+"</i></p>"
+                    + "<p><i>"+"<b>Date:</b>"+deliveryDTO.getDeliveryDate()+"</i></p>"
+                    + "<p><i>"+"<b>Time:</b>"+deliveryDTO.getDeliveryTime()+"</i></p>";
 
 
-                        String content="<h3>Thank you for your order with Secret Baker</h3>" + "\n";
-                content+="<h4>We contact you soon for the further confirmation</h4>"+"\n";
-                content+="<p><b>Order SB"+orderDTO.getOrderId()+"</b>\t<b>"+orderDTO.getDate()+"</b></p>";
-         content+="<table width='100%' align='center' border='1' style='border-collapse:collapse;'>"
-                + "<tr align='center'>"
-                + "<td><b>Product Name <b></td>"
-                + "<td><b>Qty<b></td>"
-                 + "<td><b>Price<b></td>"
-                + "</tr>";
-
-         int total=0;
-        int sum=0;
-
-        for (OrderDetailDTO d : list) {
-
-            total=d.getQuantity()*d.getUnitePrice();
-            sum=sum+total;
-
-            FoodItemDTO f = findFoodItemById(d.getFoodItem());
-            d.setName(f.getFoodName());
-            content += "<tr align='center'>" + "<td>" + d.getName() + "</td>"
-                    + "<td>" + d.getQuantity() + "</td>"
-                    + "<td>Rs:" + total + ".00</td>"
-                    + "</tr>";
-        }
-          content+="<tr align='center' style='border-top-color:2px solid grey;padding:6px;font-size:20px;'>" +"<td><b>" + "Subtotal" + "</b></td>"
-                  + "<td>" +""+ "</td>"
-                    + "<td>Rs:" +sum+ ".00</td>"
-                    +"</tr>";
-
-          content+="<tr align='center'>" + "<td><b>" + "Shipping" + "</b></td>"
-                    +"<td style='border-left:hidden;'>" +""+ "</td>"
-                    + "<td>" + "Free delivery" + "</td>"
-                    +"</tr>";
-
-            content+="<tr align='center'>" +"<td><b>" + "Payment Method" + "</b></td>"
-                    +"<td>" +""+ "</td>"
-                    + "<td>" + "Cash on delivery" + "</td>"
-                    +"</tr>";
-
-            content+="<tr align='center'>"+"<td><b>"+ "Total" + "</b></td>"
-                    + "<td>" +""+ "</td>"
-                    + "<td>Rs:" + sum + ".00</td>"
-                    +"</tr>"
-          +"</table>";
-            content+="<h4>Billing Address</h4>"+"\n"+s.getAddress_l1()+"\n";
-            content+=s.getAddress_l2()+"\n";
-            content+=s.getAddress_l3()+"\n";
-
-
-
-        helper.setText(content, html);
-
-
-            javaMailSender.send(message);
-
-
-
+                    helper.setText(content, html);
+                    //img set
+                    ClassPathResource resource = new ClassPathResource("../../img/logoSB.png");
+                    helper.addInline("logoSB", resource);
+                    javaMailSender.send(message);
     }
 
     //send mail to SB
     @Override
-    public void sendEmailToSB(OrderDTO orderDTO) throws MessagingException {
+    public void sendEmailToSB(OrderDTO orderDTO,DeliveryDTO deliveryDTO) throws MessagingException {
 
         Customer cus = customerDAO.findOne(orderDTO.getCustomer());
 
@@ -336,7 +356,7 @@ public class foodItemBOImpl implements foodItemBO {
 
         helper.setTo("webspring404@gmail.com");
         helper.setFrom("webspring404@gmail.com");
-        helper.setSubject("Secret baker todays orders");
+        helper.setSubject("Secret baker today's orders");
         boolean html = true;
 
 
@@ -365,30 +385,38 @@ public class foodItemBOImpl implements foodItemBO {
         }
         content+="<tr align='center'>" +"<td><b>" + "Subtotal" + "</b></td>"
                 + "<td>" +""+ "</td>"
-                + "<td >Rs:" +sum+ ".00</td>"
+                + "<td ><b>Rs:" +sum+ ".00</b></td>"
                 +"</tr>";
 
         content+="<tr align='center'>" +"<td><b>" + "Shipping" + "</b></td>"
                 +"<td>" +""+ "</td>"
-                + "<td>" + "Free delivery" + "</td>"
+                + "<td><b>" + "Free delivery" + "</b></td>"
                 +"</tr>";
 
         content+="<tr align='center'>" +"<td><b>" + "Payment Method" + "</b></td>"
                 +"<td>" +""+ "</td>"
-                + "<td>" + "Cash on delivery" + "</td>"
+                + "<td><b>" + "Cash on delivery" + "</b></td>"
                 +"</tr>";
 
         content+="<tr align='center'>"+"<td><b>"+ "Total" + "</b></td>"
                 + "<td>" +""+ "</td>"
-                + "<td>Rs:" + sum + ".00</td>"
+                + "<td><b>Rs:" + sum + ".00<b></td>"
                 +"</tr>"
                 +"</table>";
-        content+="<h4>Customer details</h4>"+"\n"
-                +"Customer name:"+cus.getUserName() +"\n"
-                +"Customer Address:"+cus.getAddress_l1()+"\n"
-                +cus.getAddress_l2()+"\n"
-                +cus.getAddress_l3()+"\n"
-                +"Customer contact:"+cus.getNumber();
+        content+="<h4 style='text-decoration: underline;'>Customer</h4>"
+                +"<p><i>"+"<b>Name:</b>"+cus.getUserName()+"</i></p>"
+                +"<p><i>"+"<b>Address:</b>"+cus.getAddress_l1()+"</i></p>"
+                + "<p><i>"+cus.getAddress_l2()+"</i></p>"
+                + "<p><i>"+cus.getAddress_l3()+"</i></p>"
+                + "<p><i>"+"<b>Contact:</b>"+deliveryDTO.getContactNo()+"</i></p>";
+
+        content+="<h4 style='text-decoration: underline;'>Delivery</h4>"
+                +"<p><i>"+"<b>Address:</b>"+deliveryDTO.getLocation_l1()+"</i></p>"
+                +"<p><i>"+deliveryDTO.getLocation_l2()+"</i></p>"
+                + "<p><i>"+deliveryDTO.getLocation_l3()+"</i></p>"
+                + "<p><i>"+"<b>Date:</b>"+deliveryDTO.getDeliveryDate()+"</i></p>"
+                + "<p><i>"+"<b>Time:</b>"+deliveryDTO.getDeliveryTime()+"</i></p>";
+
 
 
 

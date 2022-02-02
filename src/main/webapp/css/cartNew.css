@@ -162,6 +162,9 @@
 /*.v-itemPrice, .v-itemQty, .v-itemTot{*/
 /*    visibility: hidden;*/
 /*}*/
+.heading-qty{
+    /*padding-right:30px;*/
+}
 
 @media screen and (max-width:400px) {
     .heading-price{
@@ -174,7 +177,7 @@
    .p{
        position:absolute;
        left:15px;
-       padding-top:50px;
+       padding-top:65px;
       /*display: flex;*/
    }
 
