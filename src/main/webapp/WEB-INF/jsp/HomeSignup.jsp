@@ -57,7 +57,7 @@
     <!-- Main css -->
     <link rel="stylesheet" href="../../signupTemp/cssNw/style.css">
 
-<%--    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">--%>
+    <%--    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">--%>
 
 
 </head>
@@ -103,9 +103,9 @@
                     </div>
                 </div>
             </div>
-<%--            <div class="canvas__open"><i class="fa fa-bars"></i></div>--%>
+            <%--            <div class="canvas__open"><i class="fa fa-bars"></i></div>--%>
             <div class="canvas__open"><i class="fa"><img src="../img/toggle.png" style="margin-bottom: 8px;"></i></div>
-<%--            <div class="canvas__open"><ion-icon name="basket"></ion-icon></div>--%>
+
         </div>
     </div>
     <div class="container">
@@ -178,10 +178,10 @@
             <div class="signin-form">
                 <h2 class="form-title">Sign In</h2>
                 <form method="POST" class="register-form"  action="onlineSignInn">
-<%--                    <div class="form-group">--%>
-<%--                        <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>--%>
-<%--                        <input type="text" name="your_name" id="your_name" placeholder="Your Name"/>--%>
-<%--                    </div>--%>
+                    <%--                    <div class="form-group">--%>
+                    <%--                        <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>--%>
+                    <%--                        <input type="text" name="your_name" id="your_name" placeholder="Your Name"/>--%>
+                    <%--                    </div>--%>
                     <input class="form-control" name="onlineCustomerId" value="0" id="onlineCustomerId" type="hidden" >
 
                     <div class="form-group">
@@ -198,7 +198,8 @@
                     </div>
                     <div class="form-group form-button">
                         <input   type="text"  id="payNew" name="dataValue" style="display: none">
-                        <input type="submit"  onclick="getValueNew()"  name="signin" id="signin" class="form-submit" value="Log in"/>
+<%--                        <input type="submit"  onclick="getValueNew()"  name="signin" id="signin" class="form-submit" value="Log in"/>--%>
+                        <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
                         <%
                             session.setAttribute("userId", "usffff");
                         %>

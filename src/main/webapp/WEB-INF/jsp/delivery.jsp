@@ -194,6 +194,7 @@
 <%--        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");--%>
 <%--        String deliveryDate = sdf.format(new Date());--%>
 <%--    %>--%>
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
 
 </head>
 
@@ -217,7 +218,8 @@
         </div>
     </div>
     <div class="offcanvas__logo">
-        <a href="home"><img src="../cake-main/img/logo.png" alt=""></a>
+<%--        <a href="home"><img src="../cake-main/img/logo.png" alt=""></a>--%>
+    <a href="home"><img src="../img/logoSB.png" alt=""></a>
     </div>
     <div id="mobile-menu-wrap"></div>
     <div class="offcanvas__option">
@@ -265,7 +267,8 @@
                             </ul>
                         </div>
                         <div class="header__logo">
-                            <a href="home"><img src="../cake-main/img/logo.png" alt=""></a>
+<%--                            <a href="home"><img src="../cake-main/img/logo.png" alt=""></a>--%>
+    <a href="home"><img src="../img/logoSB.png" alt="" style="width: 120px; height: 68px;"></a>
                         </div>
                         <div class="header__top__right">
                             <div class="header__top__right__links">
@@ -280,7 +283,11 @@
                     </div>
                 </div>
             </div>
-            <div class="canvas__open"><i class="fa fa-bars"></i></div>
+            <div class="canvas__open"><i class="fa"><img src="../img/toggle.png" style="margin-bottom: 8px;"></i></div>
+
+
+
+<%--                        <div class="canvas__open"><i class="zmdi zmdi-mail-reply material-icons-name"></i></div>--%>
         </div>
     </div>
     <div class="container">
@@ -371,13 +378,12 @@
                                 <option value="Panadura">Panadura</option>
                                 <option value="Kasbawa">Kasbawa</option>
                             </select>
-                        </div>
-
-
-                        <br><br><br>
-
-
-                        <div class="checkout__input">
+                       </div>
+                        <article style="color:red; margin-left:150px; margin-top:20px; padding-left:20px; " >
+                            (This covid situation, We deliver selected area only.)
+                        </article>
+    <br>
+                      <div class="checkout__input">
                             <p>Delivery Address<span>*</span></p>
                             <input type="text" id="location_l1" name="location_l1" placeholder="Delivery Address line1" class="checkout__input__add">
                             <input type="text" id="location_l2" name="location_l2" placeholder="Delivery Address line2" class="checkout__input__add">
@@ -405,7 +411,7 @@
                             </div>
 
                         </div>
-              <div class="row" >
+              <div class="row">
                     <div class="col-lg-6">
                         <div class="checkout__input">
                             <p>Delivery Date<span>*</span></p>
@@ -417,7 +423,7 @@
                         <div class="checkout__input">
                             <p>Delivery Time<span>*</span></p>
                             <select required="required" name="deliveryTime"
-                                    id="deliveryTime" class="checkout__input__add">
+                                    id="deliveryTime" class="checkout__input__add" >
                                 <option value="1">Select the prefer Time</option>
                                 <option value="During 10AM - 1PM">During 10AM - 1PM</option>
                                 <option value="During 1pm - 4pm">During 1PM - 4PM</option>
@@ -426,21 +432,27 @@
                     </div>
               </div>
 
-           <div class="col-lg-4">
-              <div class="checkout__input">
-                  <p>Payment Type</p>
-                  <input type="text"  name="paymentType" id="paymentType" placeholder="Cash on Payment" readonly/>
-               </div>
-            </div>
+              <div class="row">
+                       <div class="col-lg-6">
+                          <div class="checkout__input">
+                              <p>Payment Type</p>
+                              <input type="text"  name="paymentType" id="paymentType" placeholder="Cash on Delivery" readonly/>
+                           </div>
+                        </div>
+              </div>
 
-
-
-
-
-                        <br><br><br>
+    <br><br><br>
+    <div class="row">
+        <div class="col-lg-6">
                         <input  type="text"  id="payNew" name="dataValue" style="display: none">
                         <button type="submit" class="site-btn"
                                 onclick="getValueNew()">Checkout</button>
+        </div>
+        <div class="col-lg-6">
+            <input  type="text"  id="cancel" name="dataValue" style="display: none">
+            <button type="submit" class="site-btn"><a href="home" style="color: white;">Cancel</a></button>
+        </div>
+    </div>
                         <%--                        <div class="checkout__input">--%>
                         <%--                            <p>Postcode / ZIP<span>*</span></p>--%>
                         <%--                            <input type="text">--%>
@@ -452,7 +464,6 @@
 <%--                        <br><br>--%>
 <%--                        <button type="submit" class="site-btn"--%>
 <%--                                onclick="getValueNew()">Checkout</button>--%>
-
                     </div>
 
 
@@ -638,14 +649,21 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="footer__newslatter">
-                    <h6>Subscribe</h6>
-                    <p>Get latest updates and offers.</p>
-                    <form action="#">
-                        <input type="text" placeholder="Email">
-                        <button type="submit"><i class="fa fa-send-o"></i></button>
-                    </form>
+            <div class="col-lg-4">
+                <div class="footer__widget">
+                    <h6>CONTACT</h6>
+                    <ul>
+                        <li>No 12,</li>
+                        <li>Green view garden,</li>
+                        <li>Green view garden,</li>
+                        <li>Kotagedara Road,</li>
+                        <li>Piliyandala.</li>
+                    </ul>
+                    <br>
+                    <H6>EMAIL</H6>
+                    <ul>
+                        <li>secretbaker123.com</li>
+                    </ul>
                 </div>
             </div>
         </div>

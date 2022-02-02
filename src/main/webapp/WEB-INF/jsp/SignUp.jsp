@@ -100,7 +100,9 @@
                     </div>
                 </div>
             </div>
-            <div class="canvas__open"><i class="fa fa-bars"></i></div>
+<%--            <div class="canvas__open"><i class="fa fa-bars"></i></div>--%>
+            <div class="canvas__open"><i class="fa"><img src="../img/toggle.png" style="margin-bottom: 8px;"></i></div>
+
         </div>
     </div>
     <div class="container">
@@ -300,13 +302,20 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="footer__newslatter">
-                    <h6>Subscribe</h6>
-                    <p>Get latest updates and offers.</p>
-                    <form action="#">
-                        <input type="text" placeholder="Email">
-                        <button type="submit"><i class="fa fa-send-o"></i></button>
-                    </form>
+                <div class="footer__widget">
+                    <h6>CONTACT</h6>
+                    <ul>
+                        <li>No 12,</li>
+                        <li>Green view garden,</li>
+                        <li>Green view garden,</li>
+                        <li>Kotagedara Road,</li>
+                        <li>Piliyandala.</li>
+                    </ul>
+                    <br>
+                    <H6>EMAIL</H6>
+                    <ul>
+                        <li>secretbaker123.com</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -380,12 +389,11 @@
 <script>
     function verifyPassword() {
         var pw = document.getElementById("password").value;
-        //check empty password field
-        if(pw == "") {
-
-            document.getElementById("message2").innerHTML = "**Fill the password please!";
-            return false;
-        }
+        // check empty password field
+        // if(pw == "") {
+        //     document.getElementById("message2").innerHTML = "**Fill the password please!";
+        //     return false;
+        // }
 
         //minimum password length validation
         if(pw.length < 8) {
@@ -399,8 +407,6 @@
             document.getElementById('message2').style.color = 'red'
             document.getElementById("message2").innerHTML = "**Password length must not exceed 15 characters";
             return false;
-        } else {
-            alert("Password is correct");
         }
     }
 </script>
