@@ -155,7 +155,7 @@ function loadCart(){
             console.log("My cart items:", item);
             proContainer.innerHTML +=`
 
-          <td><span class="itemIdd">${item.id}</span></td>
+          <td style="display:none;"><span class="itemIdd">${item.id}</span></td>
 <td class="product__cart__item"><div class="product__cart__item__pic"><ion-icon name="close-circle" class="remove"></ion-icon><img src="img/${item.tag}.jpg" alt=""></div>
 <div class="product__cart__item__text"><h6 style="padding-top:20px;" class="iName">${item.name}</h6></div></td>
 <td class="product__cart__item"><div class="product__cart__item__text"><h5 class="p" style="padding-bottom:10px;">Rs:${item.price}.00</h5></div></td>
@@ -312,7 +312,7 @@ function  manageQuantity(){
             localStorage.setItem('totalItemCost' ,cartCost-parseInt(price));
 
 
-            
+
             decrement[i].parentElement.nextElementSibling.querySelector('span.t').textContent = "Rs:"+sum+".00";
 
             updateTotal();

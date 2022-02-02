@@ -449,7 +449,7 @@
                                 onclick="getValueNew()">Checkout</button>
         </div>
         <div class="col-lg-6">
-            <input  type="text"  id="cancel" name="dataValue" style="display: none">
+<%--            <input  type="text"  id="cancel" name="dataValue" style="display: none">--%>
             <button type="submit" class="site-btn"><a href="home" style="color: white;">Cancel</a></button>
         </div>
     </div>
