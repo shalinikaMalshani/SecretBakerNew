@@ -13,7 +13,7 @@
     <meta name="keywords" content="Cake, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cake | Template</title>
+    <title>Secret Baker | Home</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
@@ -51,34 +51,17 @@
 <div class="offcanvas-menu-wrapper">
     <div class="offcanvas__cart">
         <div class="offcanvas__cart__links">
-            <a href="#" class="search-switch"><img src="../../cake-main/img/icon/search.png" alt=""></a>
-            <a href="#"><img src="../../cake-main/img/icon/heart.png" alt=""></a>
+            <a href="/signUp" class="register">Register</a>
+            <a href="/signIn" class="signIn">SignIn</a>
         </div>
         <div class="offcanvas__cart__item">
-            <a href="#"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
+            <a href="/shoppingCartNew"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
         </div>
     </div>
     <div class="offcanvas__logo">
         <a href="home"><img src="../../cake-main/img/logo.png" alt=""></a>
     </div>
     <div id="mobile-menu-wrap"></div>
-    <div class="offcanvas__option">
-        <ul>
-            <li>USD <span class="arrow_carrot-down"></span>
-                <ul>
-                    <li>EUR</li>
-                    <li>USD</li>
-                </ul>
-            </li>
-            <li>ENG <span class="arrow_carrot-down"></span>
-                <ul>
-                    <li>Spanish</li>
-                    <li>ENG</li>
-                </ul>
-            </li>
-            <li><a href="#">Sign in</a> <span class="arrow_carrot-down"></span></li>
-        </ul>
-    </div>
 </div>
 <!-- Offcanvas Menu End -->
 
@@ -89,25 +72,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="header__top__inner">
-<%--                        <div class="header__top__left">--%>
-<%--                            <ul>--%>
-<%--                                <li>USD <span class="arrow_carrot-down"></span>--%>
-<%--                                    <ul>--%>
-<%--                                        <li>EUR</li>--%>
-<%--                                        <li>USD</li>--%>
-<%--                                    </ul>--%>
-<%--                                </li>--%>
-<%--                                <li>ENG <span class="arrow_carrot-down"></span>--%>
-<%--                                    <ul>--%>
-<%--                                        <li>Spanish</li>--%>
-<%--                                        <li>ENG</li>--%>
-<%--                                    </ul>--%>
-<%--                                </li>--%>
-<%--                                <li><a href="#">Sign in</a> <span class="arrow_carrot-down"></span></li>--%>
-<%--                            </ul>--%>
-<%--                        </div>--%>
+
                         <div class="header__logo">
-                            <a href="./index.html"><img src="../../cake-main/img/logo.png" alt=""></a>
+                            <a href=""><img src="../../cake-main/img/logo.png" alt=""></a>
                         </div>
                         <div class="header__top__right">
                             <div class="header__top__right__links">
@@ -115,18 +82,17 @@
                                 <a href="/signIn" class="signIn">SignIn</a>
                             </div><br>
                             <div class="header__top__right__cart" style="float: right;margin-right:20px;">
-                                <a href="#"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
-<%--                                <div class="cart__price">Cart: <span>$0.00</span></div>--%>
+                                <a href="/shoppingCartNew" class="cart-icon"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-<%--            <div class="canvas__open"><i class="fa fa-bars"></i>--%>
+
             <div class="canvas__open"><i class="fa"><img src="../img/toggle.png" style="margin-bottom: 8px;"></i></div>
             </div>
         </div>
-    </div>
+
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -135,16 +101,16 @@
                         <li class="active"><a href="home">Home</a></li>
                         <li><a href="../cake-main/about.html">About</a></li>
                         <li><a href="/shop">Shop</a></li>
-                        <li><a href="#">Pages</a>
-                            <ul class="dropdown">
-                                <li><a href="../cake-main/shop-details.html">Shop Details</a></li>
-                                <li><a href="../cake-main/shoping-cart.html">Shoping Cart</a></li>
-                                <li><a href="../cake-main/checkout.html">Check Out</a></li>
-                                <li><a href="../cake-main/wisslist.html">Wisslist</a></li>
-                                <li><a href="../cake-main/./Class.html">Class</a></li>
-                                <li><a href="../cake-main/blog-details.html">Blog Details</a></li>
-                            </ul>
-                        </li>
+<%--                        <li><a href="#">Pages</a>--%>
+<%--                            <ul class="dropdown">--%>
+<%--                                <li><a href="../cake-main/shop-details.html">Shop Details</a></li>--%>
+<%--                                <li><a href="../cake-main/shoping-cart.html">Shoping Cart</a></li>--%>
+<%--                                <li><a href="../cake-main/checkout.html">Check Out</a></li>--%>
+<%--                                <li><a href="../cake-main/wisslist.html">Wisslist</a></li>--%>
+<%--                                <li><a href="../cake-main/./Class.html">Class</a></li>--%>
+<%--                                <li><a href="../cake-main/blog-details.html">Blog Details</a></li>--%>
+<%--                            </ul>--%>
+<%--                        </li>--%>
                         <li><a href="../cake-main/blog.html">Blog</a></li>
                         <li><a href="../cake-main/contact.html">Contact</a></li>
                     </ul>
