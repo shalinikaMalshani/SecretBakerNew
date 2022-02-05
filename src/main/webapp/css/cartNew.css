@@ -95,6 +95,21 @@
     /*justify-content: center;*/
     margin-left: 15px;
 }
+#cart-empty{
+    /*transform: translate(-50%,-50%);*/
+    /*bottom:5%;*/
+    /*top:10%;*/
+    /*left:50%;*/
+    /*margin-top: 30%;*/
+    /*position:relative;*/
+    background: #f08632;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 3px;
+
+}
 
 /*.basketTotalContainer{*/
 /*    display: flex;*/

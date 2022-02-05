@@ -2,8 +2,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: User
-  Date: 1/3/2022
-  Time: 7:46 PM
+  Date: 2/5/2022
+  Time: 7:14 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -41,6 +41,8 @@
           rel="stylesheet">
 
     <link rel="stylesheet" href="../../css/home.css" type="text/css">
+    <link rel="stylesheet" href="../../css/ForgotPwd.css" type="text/css">
+
     <!-- Css Styles -->
     <link rel="stylesheet" href="../cake-main/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="../cake-main/css/flaticon.css" type="text/css">
@@ -58,12 +60,11 @@
     <!-- Main css -->
     <link rel="stylesheet" href="../../signupTemp/cssNw/style.css">
 
-<%--    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">--%>
+    <%--    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">--%>
 
 
 </head>
 <body>
-
 <!-- Header Section Begin -->
 <header class="header">
     <div class="header__top">
@@ -104,9 +105,9 @@
                     </div>
                 </div>
             </div>
-<%--            <div class="canvas__open"><i class="fa fa-bars"></i></div>--%>
+            <%--            <div class="canvas__open"><i class="fa fa-bars"></i></div>--%>
             <div class="canvas__open"><i class="fa"><img src="../img/toggle.png" style="margin-bottom: 8px;"></i></div>
-<%--            <div class="canvas__open"><ion-icon name="basket"></ion-icon></div>--%>
+
         </div>
     </div>
     <div class="container">
@@ -137,97 +138,52 @@
 </header>
 <!-- Header Section End -->
 
-<!--start of previous page-->
-<%--<div class="container">--%>
-<%--    <div class="col-12">--%>
-<%--        <h1>Sign In</h1>--%>
-<%--        <form method="post" action="onlineSignInn">--%>
-<%--&lt;%&ndash;                <input  type="text" style="width: 100%;display: none" id="pay" name="dataValue">&ndash;%&gt;--%>
-<%--            <input class="form-control" name="onlineCustomerId" value="0" id="onlineCustomerId" type="hidden" >--%>
-
-<%--                <div class="mb-3">--%>
-<%--                <label for="exampleFormControlInput" class="form-label">Email address</label>--%>
-<%--                <input type="email" class="form-control" id="exampleFormControlInput" name="email" placeholder="name@example.com">--%>
-<%--            </div>--%>
-
-<%--            <div class="mb-3">--%>
-<%--                <label for="exampleFormControlInput" class="form-label">Password</label>--%>
-<%--                <input type="text" class="form-control" id="exampleFormControlInput5" name="password" placeholder="Enter your password">--%>
-<%--            </div>--%>
-<%--            <input   type="text"  id="payNew" name="dataValue" style="display: none">--%>
-<%--            <button type="submit"  onclick="getValueNew()">SignIn</button>--%>
-<%--            <%--%>
-<%--                session.setAttribute("userId", "usffff");--%>
-<%--            %>--%>
-
-<%--        </form>--%>
-<%--        <div class="col-12">--%>
-<%--            <h4>Don't have an account?</h4>--%>
-<%--            <button><a href="/signUp">Create Account</a></button>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</div>--%>
-<!--end of previous page-->
-<!-- Sing in  Form -->
 <section class="sign-in">
     <div class="container2">
-        <div class="signin-content" style="margin-top:25px; margin-bottom:30px">
-            <div class="signin-image">
-                <figure><img src="../signupTemp/images/cake9.jpg"  style="margin-left:0px; width:300px; height: 300px;" alt="sing up image"></figure>
-            </div>
+        <div class="signin-content" style="margin-bottom:30px;">
 
             <div class="signin-form">
-                <h2 class="form-title">Sign In</h2>
-                <form method="POST" class="register-form"  action="onlineSignInn">
+                <h2 class="form-title">Forgot Your Password?</h2>
+                <c:if test="${error!=null}">
+                <div class="alert alert-danger" role="alert" id="alert-box">
+                                         ${error}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                         </button>
+                                        </div>
+                </c:if>
+                <c:if test="${message!=null}">
+                    <div class="alert alert-primary" role="alert" id="alert-box">
+                            ${message}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </c:if>
 
-                    <c:if test="${invalidd!=null}">
-                        <div class="alert alert-danger" role="alert" id="alert-box">
-                                ${invalidd}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    </c:if>
-<%--                    <div class="form-group">--%>
-<%--                        <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>--%>
-<%--                        <input type="text" name="your_name" id="your_name" placeholder="Your Name"/>--%>
-<%--                    </div>--%>
-                    <input class="form-control" name="onlineCustomerId" value="0" id="onlineCustomerId" type="hidden" >
+
+                <form method="POST" class="register-form"  action="sendPwdResetEmail">
+                    <div><p>We will be sending a reset password link to your email</p></div><br>
+<%--                    <input class="form-control" name="onlineCustomerId" value="0" id="onlineCustomerId" type="hidden" >--%>
 
                     <div class="form-group">
                         <label for="exampleFormControlInput" class="form-label"><i class="zmdi zmdi-email"></i></label>
                         <input type="email"  id="exampleFormControlInput" name="email" placeholder="Enter your email">
                     </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput"><i class="zmdi zmdi-lock"></i></label>
-                        <input type="password" id="exampleFormControlInput5" name="password" placeholder="Password"/>
-                    </div>
-                    <div class="form-group">
-                        <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
-                        <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
-                    </div>
-                    <div><a href="/forgotPwd" class="forgotPwd">Forgot your password?</a></div>
+
                     <div class="form-group form-button">
-                        <input   type="text"  id="payNew" name="dataValue" style="display: none">
-                        <input type="submit"  onclick="getValueNew()"  name="signin" id="signin" class="form-submit" value="Log in"/>
+<%--                        <input   type="text"  id="payNew" name="dataValue" style="display: none">--%>
+                        <%--                        <input type="submit"  onclick="getValueNew()"  name="signin" id="signin" class="form-submit" value="Log in"/>--%>
+                        <input type="submit" name="signin" id="signin" class="form-submit" value="Send"/>
+
                         <%
                             session.setAttribute("userId", "usffff");
                         %>
                     </div>
-                    <div class="form-group form-button">
-                        <article>Don't have an account?<a href="/signUpCart" style=" hover:black; ">Create an account</a></article>
-                    </div>
-                </form>
 
-                <div class="social-login">
-                    <span class="social-label">Or login with</span>
-                    <ul class="socials">
-                        <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
-                        <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
-                        <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
-                    </ul>
-                </div>
+                </form>
             </div>
+
         </div>
     </div>
 </section>

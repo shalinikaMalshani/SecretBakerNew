@@ -112,7 +112,7 @@
                         <div class="header__top__right">
                             <div class="header__top__right__links">
                                 <a href="/signUp" class="register">Register</a>
-                                <a href="/signUpPage" class="signIn">SignIn</a>
+                                <a href="/signIn" class="signIn">SignIn</a>
                             </div><br>
                             <div class="header__top__right__cart" style="float: right;margin-right:20px;">
                                 <a href="#"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>

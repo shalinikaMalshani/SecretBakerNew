@@ -45,6 +45,8 @@
         <link rel="stylesheet" href="../cake-main/css/slicknav.min.css" type="text/css">
         <link rel="stylesheet" href="../cake-main/css/style.css" type="text/css">
 
+        <link rel="stylesheet" href="../../css/home.css" type="text/css">
+
 
 
 
@@ -122,12 +124,12 @@
                         </div>
                         <div class="header__top__right">
                             <div class="header__top__right__links">
-                                <a href="#" class="search-switch"><img src="../../cake-main/img/icon/search.png" alt=""></a>
-                                <a href="#"><img src="../../cake-main/img/icon/heart.png" alt=""></a>
-                            </div>
-                            <div class="header__top__right__cart">
+                                <a href="/signUp" class="register">Register</a>
+                                <a href="/signUpLogin" class="signIn">SignIn</a>
+                            </div><br>
+                            <div class="header__top__right__cart" style="float: right;margin-right:20px;">
                                 <a href="/shoppingCartNew" class="cart-icon"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
-<%--                                <div class="cartTot">Cart: <span>Rs:0.00</span></div>--%>
+                                <%--                                <div class="cart__price">Cart: <span>$0.00</span></div>--%>
                             </div>
                         </div>
                     </div>
@@ -211,8 +213,11 @@
                         </thead>
 
                     <tbody id="products">
-
+                    <td><div id="cart-empty"></div></td>
                     </tbody>
+    <script>
+    document.getElementById("cart-empty").innerHTML="Cart is Empty";
+    </script>
                 </table>
 
             </div>

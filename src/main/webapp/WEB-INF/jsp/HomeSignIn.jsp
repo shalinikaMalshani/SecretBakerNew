@@ -58,7 +58,7 @@
     <!-- Main css -->
     <link rel="stylesheet" href="../../signupTemp/cssNw/style.css">
 
-<%--    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">--%>
+    <%--    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">--%>
 
 
 </head>
@@ -94,7 +94,7 @@
                         <div class="header__top__right">
                             <div class="header__top__right__links">
                                 <a href="/signUp" class="register">Register</a>
-                                <a href="/signUpLogin" class="signIn">SignIn</a>
+                                <a href="/signIn" class="signIn">SignIn</a>
                             </div><br>
                             <div class="header__top__right__cart" style="float: right;margin-right:20px;">
                                 <a href="#"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
@@ -104,9 +104,9 @@
                     </div>
                 </div>
             </div>
-<%--            <div class="canvas__open"><i class="fa fa-bars"></i></div>--%>
+            <%--            <div class="canvas__open"><i class="fa fa-bars"></i></div>--%>
             <div class="canvas__open"><i class="fa"><img src="../img/toggle.png" style="margin-bottom: 8px;"></i></div>
-<%--            <div class="canvas__open"><ion-icon name="basket"></ion-icon></div>--%>
+
         </div>
     </div>
     <div class="container">
@@ -178,21 +178,44 @@
 
             <div class="signin-form">
                 <h2 class="form-title">Sign In</h2>
-                <form method="POST" class="register-form"  action="onlineSignInn">
 
-                    <c:if test="${invalidd!=null}">
-                        <div class="alert alert-danger" role="alert" id="alert-box">
-                                ${invalidd}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    </c:if>
-<%--                    <div class="form-group">--%>
-<%--                        <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>--%>
-<%--                        <input type="text" name="your_name" id="your_name" placeholder="Your Name"/>--%>
-<%--                    </div>--%>
-                    <input class="form-control" name="onlineCustomerId" value="0" id="onlineCustomerId" type="hidden" >
+
+                <form method="POST" class="register-form"  action="onlineSignInnHome">
+                    <%--                    <div class="form-group">--%>
+                    <%--                        <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>--%>
+                    <%--                        <input type="text" name="your_name" id="your_name" placeholder="Your Name"/>--%>
+                    <%--                    </div>--%>
+                        <c:if test="${invalidd!=null}">
+                            <div class="alert alert-danger" role="alert" id="alert-box">
+                                    ${invalidd}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </c:if>
+                                        <c:if test="${success!=null}">
+                                            <div class="alert alert-success" role="alert" id="alert-box">
+                                                    ${success}
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                        </c:if>
+                        <%--                <c:if test="${success!=null}">--%>
+                        <%--                    <div class="alert alert-success" role="alert" id="alert-box">--%>
+                        <%--                            ${success}--%>
+                        <%--                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">--%>
+                        <%--                            <span aria-hidden="true">&times;</span>--%>
+                        <%--                        </button>--%>
+                        <%--                    </div>--%>
+                        <%--                </c:if>--%>
+
+
+
+
+
+
+                        <input class="form-control" name="onlineCustomerId" value="0" id="onlineCustomerId" type="hidden" >
 
                     <div class="form-group">
                         <label for="exampleFormControlInput" class="form-label"><i class="zmdi zmdi-email"></i></label>
@@ -206,16 +229,19 @@
                         <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
                         <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
                     </div>
-                    <div><a href="/forgotPwd" class="forgotPwd">Forgot your password?</a></div>
+                        <div><a href="/forgotPwd" class="forgotPwd">Forgot your password?</a></div>
                     <div class="form-group form-button">
                         <input   type="text"  id="payNew" name="dataValue" style="display: none">
-                        <input type="submit"  onclick="getValueNew()"  name="signin" id="signin" class="form-submit" value="Log in"/>
+<%--                        <input type="submit"  onclick="getValueNew()"  name="signin" id="signin" class="form-submit" value="Log in"/>--%>
+                        <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+
                         <%
                             session.setAttribute("userId", "usffff");
                         %>
                     </div>
+
                     <div class="form-group form-button">
-                        <article>Don't have an account?<a href="/signUpCart" style=" hover:black; ">Create an account</a></article>
+                        <article>Don't have an account?<a href="/signUp" style=" hover:black; ">Create an account</a></article>
                     </div>
                 </form>
 

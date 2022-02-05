@@ -35,6 +35,7 @@
         <h5 class="total">TOTAL</h5>
     </div>
     <div class="products">
+
     </div>
 
 </div>

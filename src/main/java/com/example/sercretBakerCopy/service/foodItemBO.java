@@ -2,6 +2,7 @@ package com.example.sercretBakerCopy.service;
 
 
 
+import com.example.sercretBakerCopy.Exception.CustomerNotFoundException;
 import com.example.sercretBakerCopy.dto.*;
 import com.example.sercretBakerCopy.entity.Customer;
 import com.example.sercretBakerCopy.entity.OrderNew;
@@ -22,15 +23,19 @@ public interface foodItemBO {
     FoodItemDTO findFoodItemById(int itemId);
     void saveCustomer(CustomerDTO customerDTO);
     CustomerDTO getCustomerById(int id);
+    CustomerDTO getCustomerByEmail(String email);
     CustomerDTO findHighestCustomerId();
+    Customer getToken(String token);
+    void updatePwd(Customer customer,String newPwd);
+    void updateResetPwd(String token,String email) throws CustomerNotFoundException;
 
-//    OnlineOrderDTO findHighestId();
-//    OnlineOrderDTO findOrderById(int id);
+
+
     void sendEmail(OrderDTO orderDTO,DeliveryDTO deliveryDTO) throws MessagingException;
     void sendEmailToSB(OrderDTO orderDTO,DeliveryDTO deliveryDTO) throws MessagingException;
     CustomerDTO findByEmailAndPassword(String email, String password);
     CustomerDTO findOne(int onlineCustomerId);
-OrderDetailDTO getOrderDetailByCusId(OrderNew orderNew,Customer customer);
+    OrderDetailDTO getOrderDetailByCusId(OrderNew orderNew,Customer customer);
     Customer findOneCus(int onlineCustomerId);
     OrderNew findOneOrder(int orderId);
 
@@ -47,4 +52,5 @@ OrderDetailDTO getOrderDetailByCusId(OrderNew orderNew,Customer customer);
     void saveDelivery(DeliveryDTO deliveryDTO);
 
 
+    void setResetPwdEmail(String email, String resetPwdLink) throws MessagingException;
 }

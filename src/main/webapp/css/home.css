@@ -12,3 +12,10 @@ a.register,.signIn{
     text-decoration: underline;
     color: black;
 }
+.forgotPwd{
+    color:grey;
+}
+.forgotPwd:hover{
+    text-decoration: underline;
+    color:grey;
+}

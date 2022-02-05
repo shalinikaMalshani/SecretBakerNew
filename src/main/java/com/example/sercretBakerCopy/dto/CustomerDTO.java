@@ -15,6 +15,7 @@ public class CustomerDTO {
     private String email;
     private String number;
 private String password;
+private String token;
 
 
     public CustomerDTO() {
@@ -81,6 +82,14 @@ private String password;
 
     public void setAddress_l1(String address_l1) {
         this.address_l1 = address_l1;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public String getAddress_l2() {

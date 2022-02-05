@@ -1,21 +1,14 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: User
-  Date: 1/3/2022
-  Time: 7:46 PM
+  Date: 2/5/2022
+  Time: 1:05 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>SB</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../css/SBonlineMenu.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="stylesheet" href="../../css/checkout.css">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <title>SignUp</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../cake-main/css/SBonlineMenu.css">
@@ -34,13 +27,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../cake-main/fonts/material-icon/css/material-design-iconic-font.min.css">
 
+    <link rel="stylesheet" href="../../css/home.css" type="text/css">
+    <%--    <meta charset="UTF-8">--%>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="../../signupTemp/fonts/material-icon/css/material-design-iconic-font.min.css">
+    <!-- Main css -->
+    <link rel="stylesheet" href="../../signupTemp/cssNw/style.css">
+
+    <%--    <title>Cake | Template</title>--%>
+
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
           rel="stylesheet">
 
-    <link rel="stylesheet" href="../../css/home.css" type="text/css">
     <!-- Css Styles -->
     <link rel="stylesheet" href="../cake-main/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="../cake-main/css/flaticon.css" type="text/css">
@@ -53,17 +57,9 @@
     <link rel="stylesheet" href="../cake-main/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="../cake-main/css/style.css" type="text/css">
 
-    <!-- Font Icon -->
-    <link rel="stylesheet" href="../../signupTemp/fonts/material-icon/css/material-design-iconic-font.min.css">
-    <!-- Main css -->
-    <link rel="stylesheet" href="../../signupTemp/cssNw/style.css">
-
-<%--    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">--%>
-
 
 </head>
 <body>
-
 <!-- Header Section Begin -->
 <header class="header">
     <div class="header__top">
@@ -94,7 +90,7 @@
                         <div class="header__top__right">
                             <div class="header__top__right__links">
                                 <a href="/signUp" class="register">Register</a>
-                                <a href="/signUpLogin" class="signIn">SignIn</a>
+                                <a href="/signIn" class="signIn">SignIn</a>
                             </div><br>
                             <div class="header__top__right__cart" style="float: right;margin-right:20px;">
                                 <a href="#"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
@@ -104,9 +100,9 @@
                     </div>
                 </div>
             </div>
-<%--            <div class="canvas__open"><i class="fa fa-bars"></i></div>--%>
+            <%--            <div class="canvas__open"><i class="fa fa-bars"></i></div>--%>
             <div class="canvas__open"><i class="fa"><img src="../img/toggle.png" style="margin-bottom: 8px;"></i></div>
-<%--            <div class="canvas__open"><ion-icon name="basket"></ion-icon></div>--%>
+
         </div>
     </div>
     <div class="container">
@@ -137,100 +133,145 @@
 </header>
 <!-- Header Section End -->
 
-<!--start of previous page-->
+<!--Previous page-->
 <%--<div class="container">--%>
 <%--    <div class="col-12">--%>
-<%--        <h1>Sign In</h1>--%>
-<%--        <form method="post" action="onlineSignInn">--%>
-<%--&lt;%&ndash;                <input  type="text" style="width: 100%;display: none" id="pay" name="dataValue">&ndash;%&gt;--%>
-<%--            <input class="form-control" name="onlineCustomerId" value="0" id="onlineCustomerId" type="hidden" >--%>
+<%--<h1>Sign up</h1>--%>
+<%--<form method="post" action="saveCustomer">--%>
+<%--        <input  type="text" style="width: 100%;display: none" id="pay" name="dataValue">--%>
+<%--    <input class="form-control" name="onlineCustomerId" value="0" id="onlineCustomerId" type="hidden">--%>
 
-<%--                <div class="mb-3">--%>
-<%--                <label for="exampleFormControlInput" class="form-label">Email address</label>--%>
-<%--                <input type="email" class="form-control" id="exampleFormControlInput" name="email" placeholder="name@example.com">--%>
-<%--            </div>--%>
 
-<%--            <div class="mb-3">--%>
-<%--                <label for="exampleFormControlInput" class="form-label">Password</label>--%>
-<%--                <input type="text" class="form-control" id="exampleFormControlInput5" name="password" placeholder="Enter your password">--%>
-<%--            </div>--%>
-<%--            <input   type="text"  id="payNew" name="dataValue" style="display: none">--%>
-<%--            <button type="submit"  onclick="getValueNew()">SignIn</button>--%>
-<%--            <%--%>
-<%--                session.setAttribute("userId", "usffff");--%>
-<%--            %>--%>
-
-<%--        </form>--%>
-<%--        <div class="col-12">--%>
-<%--            <h4>Don't have an account?</h4>--%>
-<%--            <button><a href="/signUp">Create Account</a></button>--%>
-<%--        </div>--%>
+<%--    <div class="mb-3">--%>
+<%--        <label for="exampleFormControlInput1" class="form-label">Name</label>--%>
+<%--        <input type="text" class="form-control" id="exampleFormControlInput1" name="userName" placeholder="Enter your name">--%>
 <%--    </div>--%>
-<%--</div>--%>
+
+<%--    <div class="mb-3">--%>
+<%--        <label for="exampleFormControlInput1" class="form-label">Email address</label>--%>
+<%--        <input type="email" class="form-control" id="exampleFormControlInput2" name="email" placeholder="name@example.com">--%>
+<%--    </div>--%>
+
+<%--    <div class="mb-3">--%>
+<%--        <label for="exampleFormControlInput1" class="form-label">Mobile No</label>--%>
+<%--        <input type="text" class="form-control" id="exampleFormControlInput3" name="number" placeholder="Enter your mobile no">--%>
+<%--    </div>--%>
+<%--    <div class="mb-3">--%>
+<%--        <label for="exampleFormControlInput1" class="form-label">Address</label>--%>
+<%--        <input type="text" class="form-control" id="exampleFormControlInput4" name="address_l1" placeholder="Enter your address line 1">--%>
+<%--    </div>--%>
+<%--    <div class="mb-3">--%>
+
+<%--        <input type="text" class="form-control" id="exampleFormControlInput5" name="address_l2" placeholder="Enter your address line 2">--%>
+<%--    </div>--%>
+<%--        <div class="mb-3">--%>
+<%--            <input type="text" class="form-control" id="exampleFormControlInput6" name="address_l3" placeholder="Enter your address">--%>
+<%--        </div>--%>
+
+<%--        <div class="mb-3">--%>
+<%--            <label for="exampleFormControlInput1" class="form-label">Password</label>--%>
+<%--            <input type="text" class="form-control" id="exampleFormControlInput7" name="password" placeholder="Enter your password">--%>
+<%--        </div>--%>
+
+
+<%--<input type="submit" value="signUp">--%>
+<%--</form>--%>
 <!--end of previous page-->
-<!-- Sing in  Form -->
-<section class="sign-in">
+
+<section class="signup">
     <div class="container2">
-        <div class="signin-content" style="margin-top:25px; margin-bottom:30px">
-            <div class="signin-image">
-                <figure><img src="../signupTemp/images/cake9.jpg"  style="margin-left:0px; width:300px; height: 300px;" alt="sing up image"></figure>
-            </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="signup-content" style="margin-bottom:10px; margin-top: 25px">
+                    <div class="signup-form">
+                        <h2 class="form-title" style="color: black"><b>Register</b></h2>
+                        <form method="POST" class="register-form" id="register-form" action="saveCustomerHome" onsubmit="return verifyPassword() ">
+                            <input class="form-control" name="onlineCustomerId" value="0" id="onlineCustomerId" type="hidden">
+                            <%--                    <div class="form-group">--%>
+                            <%--                        <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>--%>
+                            <%--                        <input type="text" name="your_name" id="your_name1" placeholder="Your Name"/>--%>
+                            <%--                    </div>--%>
 
-            <div class="signin-form">
-                <h2 class="form-title">Sign In</h2>
-                <form method="POST" class="register-form"  action="onlineSignInn">
 
-                    <c:if test="${invalidd!=null}">
-                        <div class="alert alert-danger" role="alert" id="alert-box">
-                                ${invalidd}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+                            <div class="form-group" >
+                                <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text"  id="your_name" name="userName" placeholder="Enter your name" required>
+                            </div><br>
+
+                            <div class="form-group">
+                                <label for="your_name"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" id="exampleFormControlInput2" name="email" placeholder="Enter your email" required>
+                            </div>
+                            <div class="alert alert-warning" style="padding:2px 10px 2px 10px; margin-bottom:10px; margin-top:-10px">
+                                <small>Please provide a valid email address.<br>Your order receipts will be sent  by email.</small> <br>
+                            </div><br>
+
+
+                            <div class="form-group">
+                                <label for="your_name"><i class="zmdi zmdi-phone"></i></label>
+                                <input type="tel"  id="exampleFormControlInput3" name="number"
+                                       pattern="[0-9]{10}" oninvalid="setCustomValidity('Please enter a valid phone number!')"
+                                       placeholder="Enter your mobile no" required>
+                            </div>
+                            <br>
+
+
+                            <div class="form-group">
+                                <label for="your_name"><i class="zmdi zmdi-home"></i></label>
+                                <input type="text"  id="exampleFormControlInput4" name="address_l1" placeholder="Enter your address line 1" required>
+                            </div>
+
+
+                            <div class="form-group">
+                                <input type="text"  id="exampleFormControlInput5" name="address_l2" placeholder="Enter your address line 2" required>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text"  id="exampleFormControlInput6" name="address_l3" placeholder="Enter your address">
+                            </div><br>
+
+                            <div class="form-group">
+                                <label for="your_name"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password"  id="password" name="password" placeholder="Enter your password" onkeyup="check();" required/>
+                                <span id='message2'></span>
+                            </div>
+                            <div style="margin-top:-10px"> <small>(Minimum 8 characters enter the password)</small></div><br>
+
+
+                            <div class="form-group">
+                                <label for="re_pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password" onkeyup="check();" required />
+                                <span id='message'></span>
+                            </div>
+
+
+                            <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service2">Terms of service</a></label>
+                            </div>
+
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                            </div>
+                            <h6>I'm already your member <a href="signUpLogin" >Sign In</a></h6>
+                        </form>
+                    </div>
+
+                    <div class="row">
+                        <div class="">
+                            <div class="signup-image">
+                                <figure><img src="../../signupTemp/images/cake5.jpg" alt="sing up image"></figure>
+                                <%--                <a href="signUpLogin" class="signup-image-link">I am already member</a>--%>
+                            </div>
                         </div>
-                    </c:if>
-<%--                    <div class="form-group">--%>
-<%--                        <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>--%>
-<%--                        <input type="text" name="your_name" id="your_name" placeholder="Your Name"/>--%>
-<%--                    </div>--%>
-                    <input class="form-control" name="onlineCustomerId" value="0" id="onlineCustomerId" type="hidden" >
+                    </div>
 
-                    <div class="form-group">
-                        <label for="exampleFormControlInput" class="form-label"><i class="zmdi zmdi-email"></i></label>
-                        <input type="email"  id="exampleFormControlInput" name="email" placeholder="Enter your email">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlInput"><i class="zmdi zmdi-lock"></i></label>
-                        <input type="password" id="exampleFormControlInput5" name="password" placeholder="Password"/>
-                    </div>
-                    <div class="form-group">
-                        <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
-                        <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
-                    </div>
-                    <div><a href="/forgotPwd" class="forgotPwd">Forgot your password?</a></div>
-                    <div class="form-group form-button">
-                        <input   type="text"  id="payNew" name="dataValue" style="display: none">
-                        <input type="submit"  onclick="getValueNew()"  name="signin" id="signin" class="form-submit" value="Log in"/>
-                        <%
-                            session.setAttribute("userId", "usffff");
-                        %>
-                    </div>
-                    <div class="form-group form-button">
-                        <article>Don't have an account?<a href="/signUpCart" style=" hover:black; ">Create an account</a></article>
-                    </div>
-                </form>
-
-                <div class="social-login">
-                    <span class="social-label">Or login with</span>
-                    <ul class="socials">
-                        <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
-                        <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
-                        <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
-                    </ul>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 <!-- Footer Section Begin -->
 <footer class="footer set-bg" data-setbg="../cake-main/img/footer-bg.jpg">
     <div class="container">
@@ -312,6 +353,9 @@
 </div>
 <!-- Search End -->
 
+
+
+
 <!-- Js Plugins -->
 <script src="../cake-main/js/jquery-3.3.1.min.js"></script>
 <script src="../cake-main/js/bootstrap.min.js"></script>
@@ -323,8 +367,49 @@
 <script src="../cake-main/js/jquery.nicescroll.min.js"></script>
 <script src="../cake-main/js/main.js"></script>
 <!-- Footer Section End -->
+<%--<script src="../../js/cartNew.js"></script>--%>
 
+<!-- JS -->
+<script src="../../signupTemp/vendor/jquery/jquery.min.js"></script>
+<script src="../../signupTemp/js/main.js"></script>
 
-<script src="../../js/cartNew.js"></script>
+<script>
+    var check = function() {
+        if (document.getElementById('password').value ==
+            document.getElementById('re_pass').value) {
+            document.getElementById('message').style.color = 'green';
+            document.getElementById('message').innerHTML = 'matching';
+        } else {
+            document.getElementById('message').style.color = 'red';
+            document.getElementById('message').innerHTML = 'not matching';
+        }
+    }
+</script>
+
+<script>
+    function verifyPassword() {
+        var pw = document.getElementById("password").value;
+        // check empty password field
+        // if(pw == "") {
+        //     document.getElementById("message2").innerHTML = "**Fill the password please!";
+        //     return false;
+        // }
+
+        //minimum password length validation
+        if(pw.length < 8) {
+            document.getElementById('message2').style.color = 'red'
+            document.getElementById("message2").innerHTML = "**Password length must be ateast 8 characters";
+            return false;
+        }
+
+//maximum length of password validation
+        if(pw.length > 15) {
+            document.getElementById('message2').style.color = 'red'
+            document.getElementById("message2").innerHTML = "**Password length must not exceed 15 characters";
+            return false;
+        }
+    }
+</script>
+
 </body>
 </html>

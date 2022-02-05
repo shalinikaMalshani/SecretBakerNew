@@ -1,34 +1,24 @@
 package com.example.sercretBakerCopy.service.Impl;
 
 
+import com.example.sercretBakerCopy.Exception.CustomerNotFoundException;
 import com.example.sercretBakerCopy.dao.*;
 
 import com.example.sercretBakerCopy.dto.*;
-import com.example.sercretBakerCopy.emailConfiguration.Config;
 import com.example.sercretBakerCopy.entity.*;
 
 import com.example.sercretBakerCopy.service.foodItemBO;
-import freemarker.core.ParseException;
 import freemarker.template.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMailMessage;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.Model;
-import org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean;
-import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 
 import javax.mail.*;
 import javax.mail.internet.MimeMessage;
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
-import java.awt.*;
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.List;
@@ -204,6 +194,18 @@ public class foodItemBOImpl implements foodItemBO {
         return customerDTO;
     }
 
+    @Override
+    public CustomerDTO getCustomerByEmail(String email) {
+        Customer customer = customerDAO.findByEmail(email);
+        CustomerDTO customerDTO = new CustomerDTO(customer.getOnlineCustomerId(),
+                customer.getUserName(),
+                customer.getAddress_l1(),
+                customer.getAddress_l2(),
+                customer.getAddress_l3(),
+                customer.getEmail());
+        return customerDTO;
+    }
+
     //find highest id to save
     @Override
     public CustomerDTO findHighestCustomerId() {
@@ -214,6 +216,31 @@ public class foodItemBOImpl implements foodItemBO {
 
         }
         return new CustomerDTO(customer.getOnlineCustomerId());
+    }
+
+    @Override
+    public Customer getToken(String token) {
+        return customerDAO.findByToken(token);
+    }
+
+    @Override
+    public void updatePwd(Customer customer, String newPwd) {
+customer.setPassword(newPwd);
+customerDAO.save(customer);
+    }
+
+    //update forgot pwd
+    @Override
+    public void updateResetPwd(String token, String email) throws CustomerNotFoundException {
+        Customer customer=customerDAO.findByEmail(email);
+
+       if(customer!=null){
+           customer.setToken(token);
+           customerDAO.save(customer);
+       }else{
+            throw  new CustomerNotFoundException("Could not find any customer with email "+email);
+       }
+
     }
 
     //send mail to customer
@@ -588,6 +615,26 @@ public class foodItemBOImpl implements foodItemBO {
 
         ));
 
+
+    }
+
+    //send reset pwd with email
+    @Override
+    public void setResetPwdEmail(String email, String resetPwdLink) throws MessagingException {
+        MimeMessage message=javaMailSender.createMimeMessage();
+        MimeMessageHelper helper=new MimeMessageHelper(message);
+
+        helper.setFrom("webspring404@gmail.com");
+        helper.setTo(email);
+        helper.setSubject("Here's the link with reset your password");
+
+        String content="<p>Hello,</p>"
+                +"<p>You have request to reset your password.</p>"
+                +"<p>Click the link below to reset your password:</p>"
+                +"<p><b><a href=\""+resetPwdLink+"\">Change my password</a></b></p>";
+
+helper.setText(content,true);
+javaMailSender.send(message);
     }
 
 

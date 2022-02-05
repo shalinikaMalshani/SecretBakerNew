@@ -1,10 +1,13 @@
 package com.example.sercretBakerCopy.controller;
+import com.example.sercretBakerCopy.Exception.CustomerNotFoundException;
 import com.example.sercretBakerCopy.dto.*;
 
+import com.example.sercretBakerCopy.entity.Customer;
 import com.example.sercretBakerCopy.service.foodItemBO;
+import net.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.mail.MailException;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,15 +17,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 
@@ -44,6 +43,10 @@ public class SecretBaker {
         return "Confirm";
     }
 
+    @GetMapping("/resetPwd")
+    public String resetPwd() {
+        return "ResetPwd";
+    }
 
     @GetMapping("/shoppingCart")
     public String shoppingCart() {
@@ -53,6 +56,75 @@ public class SecretBaker {
     @GetMapping("/summary")
     public String summary() {
         return "summary";
+    }
+
+    @GetMapping("/signIn")
+    public String signIn(Model model) {
+
+        return "HomeSignIn";
+    }
+
+    @GetMapping("/signUp")
+    public String signUp(Model model) {
+
+        return "HomeSignUp";
+    }
+
+    @GetMapping("/forgotPwd")
+    public String forgotPwdGetEmail() {
+        return "ForgotPwd";
+    }
+    @PostMapping("/sendPwdResetEmail")
+    public String sendPwdRestEmail(HttpServletRequest request,Model model) {
+        String email=request.getParameter("email");
+        String token= RandomString.make(45);
+
+        System.out.println("Email"+email);
+        System.out.println("Token"+token);
+    try {
+    foodItemBO.updateResetPwd(token,email);
+
+    //set reset pwd link
+        String resetPwdLink=Utility.getSiteUrl(request)+"/reset_password?token="+token;
+        System.out.println("reset pwd link"+resetPwdLink);
+
+        //send email with reset pwd link
+        foodItemBO.setResetPwdEmail(email,resetPwdLink);
+        model.addAttribute("message","We have send a reset password link to your email.Please check your email.");
+
+    }catch (CustomerNotFoundException ex){
+    model.addAttribute("error",ex.getMessage());
+
+    }catch (MessagingException ex){
+        model.addAttribute("errorEmail","Error while sending email.");
+    }
+        return "ForgotPwd";
+    }
+@GetMapping("/reset_password")
+public String showResetPwd(@Param(value="token") String token,Model model) {
+    Customer customer = foodItemBO.getToken(token);
+    if (customer == null) {
+
+        model.addAttribute("invalidToken", "Invalid Token");
+        return "redirect:/reset_password";
+    }
+    model.addAttribute("token", token);
+    return "ResetPwd";
+}
+    @PostMapping("reset_passwordd")
+    public String processResetPwd(HttpServletRequest request,Model model){
+String token=request.getParameter("token");
+String password=request.getParameter("password");
+        Customer customer = foodItemBO.getToken(token);
+        if (customer == null) {
+            return "redirect:/reset_password";
+
+        }else{
+            foodItemBO.updatePwd(customer,password);
+            model.addAttribute("success","You have successfully change your password");
+            return "HomeSignIn";
+        }
+
     }
 
     @GetMapping("/shop")
@@ -80,10 +152,10 @@ public class SecretBaker {
         return "cartNew";
     }
 
-    @GetMapping("/signUpLogin")
-    public String signUpLogin() {
-        return "signUpLogin";
-    }
+//    @GetMapping("/signUpLogin")
+//    public String signUpLogin() {
+//        return "signUpLogin";
+//    }
 
 
 //    @GetMapping("/shop/{id}")
@@ -209,10 +281,35 @@ public class SecretBaker {
         return "delivery";
     }
 
-    @GetMapping("/signUp")
-    public String signUp(Model model) {
+    @GetMapping("/signUpCart")
+    public String signUpCart(Model model) {
 //        model.addAttribute("loggerName", indexLoginBO.getEmployeeByIdNo(SuperController.idNo));
         return "SignUp";
+    }
+
+    @PostMapping("/saveCustomerHome")
+    public String saveCustomerHome(@ModelAttribute CustomerDTO customerDTO, Model model, HttpServletRequest request){
+        try {
+            CustomerDTO customerDTO2 = foodItemBO.findHighestCustomerId();
+            CustomerDTO customerDTO1 = null;
+            try {
+                customerDTO1 = foodItemBO.getCustomerById(customerDTO.getOnlineCustomerId());
+            }catch (NullPointerException d){
+                int maxId = (customerDTO2.getOnlineCustomerId());
+                if (customerDTO.getOnlineCustomerId()==(maxId)) {
+                    customerDTO.setOnlineCustomerId((maxId));
+                } else {
+                    maxId++;
+                    customerDTO.setOnlineCustomerId((maxId));
+                }
+            }
+        } catch (NullPointerException e){
+            customerDTO.setOnlineCustomerId(1);
+        }
+
+        foodItemBO.saveCustomer(customerDTO);
+
+        return "redirect:/signIn";
     }
 
     @PostMapping("/saveCustomer")
@@ -239,6 +336,31 @@ public class SecretBaker {
 
         return "redirect:/signUpLogin";
     }
+
+    //customer sign in from home
+
+    @PostMapping("/onlineSignInnHome")
+    public String signInHome(@ModelAttribute CustomerDTO onlineCustomer, HttpServletRequest request,Model model) {
+        try {
+            //Check validations
+            CustomerDTO onlineCustomerDTO = foodItemBO.findByEmailAndPassword(onlineCustomer.getEmail(), onlineCustomer.getPassword());
+            if (onlineCustomerDTO != null) {
+                //Show Logged User Name
+                request.getSession().setAttribute("userId", onlineCustomerDTO.getOnlineCustomerId());
+
+
+            } else {//If User name And Password is not match
+               model.addAttribute("invalidd", "Invalid user name or password");
+                return "HomeSignIn";
+
+            }
+        } catch (NullPointerException e) {
+            model.addAttribute("invalidd", "Invalid user name or password");
+            return "HomeSignIn";
+        }
+            return "home";
+    }
+
 
     //customer sign in
     @PostMapping("/onlineSignInn")
@@ -294,11 +416,13 @@ public class SecretBaker {
                 model.addAttribute("listCounterOrderDetailsdel", list);//Load Data to Payment
                 return  "delivery";
             } else {//If User name And Password is not match
-                return "redirect:/saveCustomer";
+                model.addAttribute("invalidd", "Invalid user name or password");
+                return "signUpLogin";
 
             }
         } catch (NullPointerException e) {
-            return "redirect:/saveCustomer";
+            model.addAttribute("invalidd", "Invalid user name or password");
+            return "signUpLogin";
         }
 
     }

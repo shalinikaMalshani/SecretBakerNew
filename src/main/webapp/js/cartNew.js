@@ -359,24 +359,27 @@ function updateTotal() {
     }
     localStorage.setItem('totalItemCost',total);
 
-//     if(cartsItem.length == 0){
-//         console.log("empty");
-//         let empty=document.querySelector("#products");
-//          console.log("called",empty);
-//          empty.innerHTML='';
-//          empty.innerHTML +=`
-//
-//  <td id="cart-empty">Cart is Empty</td>
-//
-// `
-
-    // document.querySelector('.basketTotal .total').innerHTML ='';
-    // }else {
+    if(cartsItem.length == 0){
+         console.log("empty");
+ //        let empty=document.querySelector("#products");
+ //         console.log("called",empty);
+ //         empty.innerHTML='';
+ //         empty.innerHTML +=`
+ //
+ //        <div id="cart-empty">Cart is Empty</div>
+ //
+ // `
+let u=document.querySelector('#cart-empty');
+        console.log("called",u);
+// u.innerHTML='';
+u.innerHTML="lop";
+   // document.querySelector('.basketTotal .total').innerHTML ='';
+    }else {
     document.querySelector('ul li .totalSub').textContent ="Rs:"+total+".00";
     document.querySelector('ul li .total').textContent ="Rs:"+total+".00";
 
 
-    // }
+    }
 
 }
 function removeItem() {

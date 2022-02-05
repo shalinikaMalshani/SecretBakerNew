@@ -18,6 +18,8 @@ public class Customer {
     private String address_l1;
     private String address_l2;
     private String address_l3;
+    private String token;
+
 
     @OneToMany(mappedBy = "customer", cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE})
     private List<OrderNew> restaurantOnlineOrders = new ArrayList<>();
@@ -79,6 +81,14 @@ public class Customer {
 
     public void setOnlineCustomerId(int onlineCustomerId) {
         this.onlineCustomerId = onlineCustomerId;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public String getAddress_l1() {
