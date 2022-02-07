@@ -53,4 +53,5 @@ public interface foodItemBO {
 
 
     void setResetPwdEmail(String email, String resetPwdLink) throws MessagingException;
+
 }

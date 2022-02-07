@@ -516,31 +516,73 @@ customerDAO.save(customer);
     //save custom design to the database
     @Override
     public void saveCustomDesign(CustomDesignDTO customDesignDTO) {
-        customDesignDAO.save(new CustomDesign(customDesignDTO.getCustomDesignId(),
-                customDesignDTO.getFirstName(),
-                customDesignDTO.getLastName(),
-                customDesignDTO.getEmail(),
-                customDesignDTO.getContact(),
-                customDesignDTO.getCakeType(),
-                customDesignDTO.getCakeSize(),
-                customDesignDTO.getDate(),
-                customDesignDTO.getImage(),
-                customDesignDTO.getDes()));
+
+        List<CustomDesignDTO> listCus = new ArrayList<>();
+        String array = customDesignDTO.getDataValueCustomDes();
+        System.out.print("arr" + array);
+
+
+        String yo[] = array.split(" ");
+
+        System.out.print("yo[]" + Arrays.toString(yo));
+        int c = 0;
+        CustomDesignDTO itm = new CustomDesignDTO();
+        for (String str : yo) {//Read String and add to list
+            if (c == 0) {
+                itm = new CustomDesignDTO();
+                itm.setCusDesName(str);
+                c++;
+            } else if (c == 1) {
+                itm.setCusDescontact(str);
+                c++;
+            } else if (c == 2) {
+                itm.setCusDesemail(str);
+                c++;
+            } else if (c == 3) {
+                itm.setCusDescakeType(str);
+                c++;
+            } else if (c == 4) {
+                itm.setCusDescakeSize(str);
+                c++;
+//            } else if (c == 5) {
+//                itm.setCusDesimage(str);
+//                c++;
+            } else if (c == 5) {
+                itm.setCusDesdes(str.replaceAll("\\s",""));
+                listCus.add(itm);
+                c = 0;
+            }
+        }
+        LocalDate todayy=LocalDate.now();
+        customDesignDTO.setCusDesdate(todayy);
+
+        for (CustomDesignDTO cusDes : listCus) {//Save Data in restaurantCounterOrderDetail table
+            customDesignDAO.save(new CustomDesign(customDesignDTO.getCustomDesignId(),
+                    cusDes.getCusDesName(),
+                    cusDes.getCusDesemail(),
+                    cusDes.getCusDescontact(),
+                    cusDes.getCusDescakeType(),
+                    cusDes.getCusDescakeSize(),
+                    customDesignDTO.getCusDesdate(),
+                    cusDes.getCusDesimage(),
+                    cusDes.getCusDesdes(),
+                    customerDAO.findOne(customDesignDTO.getCusDescustomer())));
+        }
+
     }
 
     @Override
     public CustomDesignDTO getCustomDesById(int id) {
         CustomDesign customDesign= customDesignDAO.findOne(id);
         CustomDesignDTO customDesignDTO=new CustomDesignDTO(customDesign.getCustomDesignId(),
-                customDesign.getFirstName(),
-                customDesign.getLastName(),
-                customDesign.getEmail(),
-                customDesign.getContact(),
-                customDesign.getCakeType(),
-                customDesign.getCakeSize(),
-                customDesign.getDate(),
-                customDesign.getImage(),
-                customDesign.getDes());
+                customDesign.getCusDesName(),
+                customDesign.getCusDesemail(),
+                customDesign.getCusDescontact(),
+                customDesign.getCusDescakeType(),
+                customDesign.getCusDescakeSize(),
+                customDesign.getCusDesdate(),
+                customDesign.getCusDesimage(),
+                customDesign.getCusDesdes());
         return  customDesignDTO;
     }
 
@@ -636,6 +678,8 @@ customerDAO.save(customer);
 helper.setText(content,true);
 javaMailSender.send(message);
     }
+
+
 
 
 }
