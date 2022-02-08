@@ -576,10 +576,10 @@ String password=request.getParameter("password");
         }
         foodItemBO.saveDelivery(deliveryDTO);
 
-//        foodItemBO.sendEmailToSB(restaurantCounterOrderDTO,deliveryDTO);
+        foodItemBO.sendEmailToSB(restaurantCounterOrderDTO,deliveryDTO);
 
 
-//         foodItemBO.sendEmail(restaurantCounterOrderDTO,deliveryDTO);
+         foodItemBO.sendEmail(restaurantCounterOrderDTO,deliveryDTO);
 
         model.addAttribute("delivery",foodItemBO.getDeliveryById(deliveryDTO.getDeliveryId()));
 
