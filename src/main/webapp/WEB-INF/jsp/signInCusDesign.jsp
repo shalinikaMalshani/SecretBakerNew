@@ -209,7 +209,7 @@
                     </div>
                     <div><a href="/forgotPwd" class="forgotPwd">Forgot your password?</a></div>
                     <div class="form-group form-button">
-                        <input   type="text"  id="cusDes"  name="dataValueCustomDes">
+                        <input   type="text"  id="cusDes" style="display:none;" name="dataValueCustomDes">
                         <input type="submit"  onclick="valuesAllNew()"  name="signin" id="signin" class="form-submit" value="Log in"/>
                         <%
                             session.setAttribute("userId", "usffff");

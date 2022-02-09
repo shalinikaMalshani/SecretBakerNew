@@ -177,22 +177,49 @@
     </div>
 </div>
 <!-- Breadcrumb End -->
+
 <!-- Checkout Section Begin -->
 <section class="checkout spad">
     <div class="container">
+        <div class="shop__option">
+            <div class="row">
+                <div class="col-lg-7 col-md-7">
+                    <div class="shop__option__search">
+                        <form action="#">
+                            <select onchange="javascript:handleSelect(this)">
+                                <option value="">Categories</option>
+                                <option value="/shop">All Cakes</option>
+                                <option value="/home">Cupcakes</option>
+                                <option value="/customDesign">Custom Design</option>
+                            </select>
+                            <script type="text/javascript">
+                                function handleSelect(elm)
+                                {
+                                    window.location = elm.value;
+                                }
+                            </script>
+                            <input type="text" placeholder="Search">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
         <div class="checkout__form">
         <form method="post" action="saveCustomDesign">
             <input  type="text" style="width: 100%;display: none" id="valuesAll" name="dataValueCustomDes">
             <p style="display: none;">${loggerId.onlineCustomerId}</p>
 
             <div class="row">
-                <div class="col-lg-8 col-md-6">
+                <div class="col-xl-12 col-lg-12 col-md-12">
                     <h6 class="checkout__title">Custom Design</h6>
                     <input class="form-control" name="customDesignId" value="0" id="customDesignId" type="hidden">
 
 
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                             <div class="checkout__input">
                                 <p>Name<span>*</span></p>
                                 <input type="text" class="form-control"
@@ -257,8 +284,7 @@
                                        id="cusDesimage" />
                             </div>
                         </div>
-                    </div>
-                        <div class="row">
+
                         <div class="col-lg-6">
                             <div class="checkout__input">
                                 <p>Notes<span>*</span></p>
@@ -266,6 +292,7 @@
                             </div>
                         </div>
                         </div>
+
 
                     <div class="row">
                         <div class="col-lg-6">
@@ -278,18 +305,104 @@
 </div>
     </div>
 </section>
+<!-- Footer Section Begin -->
+<footer class="footer set-bg" data-setbg="../../cake-main/img/footer-bg.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="footer__widget">
+                    <h6>WORKING HOURS</h6>
+                    <ul>
+                        <li>Monday - Friday: 08:00 am – 08:30 pm</li>
+                        <li>Saturday: 10:00 am – 16:30 pm</li>
+                        <li>Sunday: 10:00 am – 16:30 pm</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="footer__about">
+                    <div class="footer__logo">
+                        <a href="#"><img src="../../cake-main/img/footer-logo.png" alt=""></a>
+                    </div>
+                    <p>Lorem ipsum dolor amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore dolore magna aliqua.</p>
+                    <div class="footer__social">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-youtube-play"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="footer__widget">
+                    <h6>CONTACT</h6>
+                    <ul>
+                        <li>No 12,</li>
+                        <li>Green view garden,</li>
+                        <li>Kotagedara Road,</li>
+                        <li>Piliyandala.</li>
+                    </ul>
+                    <br>
+                    <H6>EMAIL</H6>
+                    <ul>
+                        <li>secretbaker123.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <p class="copyright__text text-white"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+                <div class="col-lg-5">
+                    <div class="copyright__widget">
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Site Map</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Section End -->
+
+<!-- Search Begin -->
+<div class="search-model">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+        <div class="search-close-switch">+</div>
+        <form class="search-model-form">
+            <input type="text" id="search-input" placeholder="Search here.....">
+        </form>
+    </div>
+</div>
+<!-- Search End -->
+
+<!-- Js Plugins -->
+<script src="../../cake-main/js/jquery-3.3.1.min.js"></script>
+<script src="../../cake-main/js/bootstrap.min.js"></script>
+<script src="../../cake-main/js/jquery.nice-select.min.js"></script>
+<script src="../../cake-main/js/jquery.barfiller.js"></script>
+<script src="../../cake-main/js/jquery.magnific-popup.min.js"></script>
+<script src="../../cake-main/js/jquery.slicknav.js"></script>
+<script src="../../cake-main/js/owl.carousel.min.js"></script>
+<script src="../../cake-main/js/jquery.nicescroll.min.js"></script>
+<script src="../../cake-main/js/main.js"></script>
+
 
 <script src="../../js/cartNew.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-<script src="../cake-main/js/jquery-3.3.1.min.js"></script>
-<script src="../cake-main/js/bootstrap.min.js"></script>
-<script src="../cake-main/js/jquery.nice-select.min.js"></script>
-<script src="../cake-main/js/jquery.barfiller.js"></script>
-<script src="../cake-main/js/jquery.magnific-popup.min.js"></script>
-<script src="../cake-main/js/jquery.slicknav.js"></script>
-<script src="../cake-main/js/owl.carousel.min.js"></script>
-<script src="../cake-main/js/jquery.nicescroll.min.js"></script>
-<script src="../cake-main/js/main.js"></script>
+
 </body>
 </html>
