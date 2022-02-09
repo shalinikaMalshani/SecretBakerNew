@@ -33,20 +33,20 @@ for (let i = 0; i <carts.length; i++) {
     carts[i].addEventListener('click',()=>{
         cartNumbers(products[i]);
         totalItemCost(products[i]);
-// document.getElementById("alert-box").innerHTML=`<div class="alert alert-primary" role="alert" id="alert-box">
-//                     Item added to cart.<button class="viewCart"><a href="/shoppingCartNew">View Cart</a></button>
-//                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-//                         <span aria-hidden="true">&times;</span>
-//                     </button>
-//                     </div>`;
-//
-//         $(document).ready(function() {
-//             // close the alert
-//             setTimeout(function() {
-//                 $(".alert.alert-primary").alert('close');
-//             }, 3000);
-//         });
-     });
+document.getElementById("alert-box").innerHTML=`<div class="alert alert-primary" role="alert">
+  Item added to cart.<a href="/shoppingCartNew" class="alert-link">View Cart</a>.
+<button type="button" class="close" data-dismiss="alert" aria-label="Close" id="close-btn">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>`;
+
+     //    $(document).ready(function() {
+     //        // close the alert
+     //        setTimeout(function() {
+     //            $(".alert.alert-primary").alert('close');
+     //        }, 8000);
+     //    });
+      });
 }
 
 //refreash the page cart no not change
@@ -104,7 +104,7 @@ function setAllItems(product) {
             }
         }
         //this will incremnet relevant incart
-        cartItems[product.id].inCart += 1;
+        cartItems[product.id].inCart++;
     }else {
         product.inCart = 1;
         cartItems = {

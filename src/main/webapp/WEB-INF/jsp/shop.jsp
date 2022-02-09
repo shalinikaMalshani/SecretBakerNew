@@ -34,18 +34,19 @@
         <!-- Css Styles -->
         <link rel="stylesheet" href="../../css/shop.css">
         <link rel="stylesheet" href="../../css/home.css">
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
 
-        <link rel="stylesheet" href="../cake-main/css/bootstrap.min.css" type="text/css">
-        <link rel="stylesheet" href="../cake-main/cssflaticon.css" type="text/css">
-        <link rel="stylesheet" href="../cake-main/css/barfiller.css" type="text/css">
-        <link rel="stylesheet" href="../cake-main/css/magnific-popup.css" type="text/css">
-        <link rel="stylesheet" href="../cake-main/css/font-awesome.min.css" type="text/css">
-        <link rel="stylesheet" href="../cake-main/css/elegant-icons.css" type="text/css">
-        <link rel="stylesheet" href="../cake-main/css/nice-select.css" type="text/css">
-        <link rel="stylesheet" href="../cake-main/css/owl.carousel.min.css" type="text/css">
-        <link rel="stylesheet" href="../cake-main/css/slicknav.min.css" type="text/css">
-        <link rel="stylesheet" href="../cake-main/css/style.css" type="text/css">
+        <link rel="stylesheet" href="../../cake-main/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="../../cake-main/css/flaticon.css" type="text/css">
+        <link rel="stylesheet" href="../../cake-main/css/barfiller.css" type="text/css">
+        <link rel="stylesheet" href="../../cake-main/css/magnific-popup.css" type="text/css">
+        <link rel="stylesheet" href="../../cake-main/css/font-awesome.min.css" type="text/css">
+        <link rel="stylesheet" href="../../cake-main/css/elegant-icons.css" type="text/css">
+        <link rel="stylesheet" href="../../cake-main/css/nice-select.css" type="text/css">
+        <link rel="stylesheet" href="../../cake-main/css/owl.carousel.min.css" type="text/css">
+        <link rel="stylesheet" href="../../cake-main/css/slicknav.min.css" type="text/css">
+        <link rel="stylesheet" href="../../cake-main/css/style.css" type="text/css">
     </head>
 <body>
 <!-- Header Section Begin -->
@@ -141,30 +142,16 @@
                             <input type="text" placeholder="Search">
                             <button type="submit"><i class="fa fa-search"></i></button>
                         </form>
-                    </div>
-                </div>
-                <div class="col-lg-5 col-md-5">
-                    <div class="shop__option__right">
-                        <select>
-                            <option value="">Default sorting</option>
-                            <option value="">A to Z</option>
-                            <option value="">1 - 8</option>
-                            <option value="">Name</option>
-                        </select>
-                        <a href="#"><i class="fa fa-list"></i></a>
-                        <a href="#"><i class="fa fa-reorder"></i></a>
+
                     </div>
                 </div>
             </div>
         </div>
-
-<%--        display alert when item added to cart--%>
-
-                <div id="alert-box">
-                </div>
+        <%--        display alert when item added to cart--%>
+        <div id="alert-box">
+        </div>
 
         <div class="row">
-
 <c:forEach items="${AllFoodItemss}" var="e">
     <span style="display: none">${e.itemId}</span>
             <div class="col-lg-3 col-md-6 col-sm-6">

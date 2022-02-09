@@ -59,6 +59,12 @@ public class SecretBaker {
         return "summary";
     }
 
+    @GetMapping("/blog")
+    public String blog() {
+        return "Blog";
+    }
+
+
     @GetMapping("/signIn")
     public String signIn(Model model) {
 
@@ -112,7 +118,7 @@ public class SecretBaker {
 
 
     @PostMapping("/saveCustomDesign")
-    public String saveCustomDesign(@ModelAttribute CustomDesignDTO customDesignDTO,HttpSession session) {
+    public String saveCustomDesign(@ModelAttribute CustomDesignDTO customDesignDTO,HttpSession session,Model model) {
 
         System.out.println("custom design after click submit:" + customDesignDTO);
 
@@ -178,6 +184,8 @@ public class SecretBaker {
 
 //        foodItemBO.saveCustomDesign(customDesignDTO);
 
+        model.addAttribute("customDes",listCus);
+        model.addAttribute("cus",foodItemBO.getCustomDesById(customDesignDTO.getCustomDesignId()));
 
         return "deliveryCusDesign";
 

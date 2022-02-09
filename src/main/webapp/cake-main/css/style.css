@@ -653,9 +653,9 @@ ol {
   -o-transition: all, 0.3s;
   transition: all, 0.3s;
 }
-.categories__item:hover {
-  background: #f08632;
-}
+/*.categories__item:hover {*/
+/*  background: #f08632;*/
+/*}*/
 .categories__item:hover:after {
   opacity: 1;
 }

@@ -169,8 +169,8 @@
         <div class="col-12">
             <div class="top-txt">
                 <p>Hey <b>${loggerId.userName}</b>,</p>
-                <p>Your order <b>SB${cus.customDesignId}</b> has successfully been placed.You'll find all the details
-                    about your order below,and we'll send you a confirmation email with invoice.</p>
+                <p>Your requested <b>SB${cus.customDesignId}</b> has successfully been placed.You'll find all the details
+                    about your request custom design below,and we'll send you a confirmation email with all the details.</p>
             </div>
         </div>
     </div>
@@ -224,7 +224,7 @@
                     <tr>
                         <td>${listCus.cusDescakeType}</td>
                         <td>${listCus.cusDescakeSize}</td>
-                        <td><img id="imgcake" src="" alt="" height="30px" width="30px"></td>
+                        <td><img id="imgcake" src="" alt="" height="50px" width="50px"></td>
 <script>
     let imgg=localStorage.getItem('img');
     if(imgg){
@@ -238,6 +238,13 @@
                 </tbody>
 
             </table>
+
+            <div class="bottom-text">
+
+                <p>Delivery:<span style="color:red">Free</span></p>
+                <p>Estimated Tax:<span style="color:red">Rs:00.00</span></p>
+
+            </div>
 
         </div>
     </div>
