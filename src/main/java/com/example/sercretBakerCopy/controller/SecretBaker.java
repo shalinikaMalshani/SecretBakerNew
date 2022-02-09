@@ -184,7 +184,7 @@ public class SecretBaker {
 
 //        foodItemBO.saveCustomDesign(customDesignDTO);
 
-        model.addAttribute("customDes",listCus);
+        model.addAttribute("customDees",listCus);
         model.addAttribute("cus",foodItemBO.getCustomDesById(customDesignDTO.getCustomDesignId()));
 
             return "deliveryCusDesign";

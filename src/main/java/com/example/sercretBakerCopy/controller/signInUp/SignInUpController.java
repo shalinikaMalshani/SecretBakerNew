@@ -316,8 +316,9 @@ public class SignInUpController {
 
 
                 System.out.println("list of cus des " + listCus);
-
+                model.addAttribute("customDees",listCus);
                 return  "deliveryCusDesign";
+
             } else {//If User name And Password is not match
                 model.addAttribute("invalidd", "Invalid user name or password");
                 return "signInCusDesign";

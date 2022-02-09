@@ -54,4 +54,7 @@ public interface foodItemBO {
 
     void setResetPwdEmail(String email, String resetPwdLink) throws MessagingException;
 
+    void sendEmailToSBCD(CustomDesignDTO customDesignDTO, DeliveryDTO deliveryDTO) throws MessagingException;
+
+    void sendEmailCD(CustomDesignDTO customDesignDTO, DeliveryDTO deliveryDTO) throws MessagingException;
 }

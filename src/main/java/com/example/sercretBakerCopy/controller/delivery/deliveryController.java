@@ -23,17 +23,19 @@ public class deliveryController {
 
     //save delivery details from cus des req
     @PostMapping("deliveryCus")
-    public String deliveryDetailCusDes(HttpServletRequest requestt, @ModelAttribute CustomDesignDTO customDesignDTO, @ModelAttribute OrderDTO restaurantCounterOrderDTO, @ModelAttribute DeliveryDTO deliveryDTO, @ModelAttribute OrderDetailDTO orderDetailDTO, HttpServletRequest request, Model model, HttpSession session) throws MessagingException {
+    public String deliveryDetailCusDes(@ModelAttribute CustomDesignDTO customDesignDTO, @ModelAttribute OrderDTO restaurantCounterOrderDTO, @ModelAttribute DeliveryDTO deliveryDTO, @ModelAttribute OrderDetailDTO orderDetailDTO, HttpServletRequest request, Model model, HttpSession session) throws MessagingException {
 
 
         //get already login customer
         int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
+        System.out.println("id"+onlineCustomerId);
         customDesignDTO.setCusDescustomer(onlineCustomerId);
         model.addAttribute("loggerId", foodItemBO.findOne(onlineCustomerId));
 
 
 
-////save custom design
+
+        //save custom design
         try{
             try {
                 CustomDesignDTO customDesignDTO2= foodItemBO.findHighestCustomDesId();
@@ -138,10 +140,10 @@ public class deliveryController {
         }
         foodItemBO.saveDelivery(deliveryDTO);
 
-//        foodItemBO.sendEmailToSB(restaurantCounterOrderDTO,deliveryDTO);
+        foodItemBO.sendEmailToSBCD(customDesignDTO,deliveryDTO);
 
 
-//         foodItemBO.sendEmail(restaurantCounterOrderDTO,deliveryDTO);
+         foodItemBO.sendEmailCD(customDesignDTO,deliveryDTO);
 
         model.addAttribute("deliveryCusDes",foodItemBO.getDeliveryById(deliveryDTO.getDeliveryId()));
 
