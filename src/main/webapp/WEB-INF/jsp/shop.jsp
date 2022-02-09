@@ -126,12 +126,18 @@
                 <div class="col-lg-7 col-md-7">
                     <div class="shop__option__search">
                         <form action="#">
-                            <select>
+                            <select onchange="javascript:handleSelect(this)">
                                 <option value="">Categories</option>
-                                <option value="">Red Velvet</option>
-                                <option value="">Cup Cake</option>
-                                <option value="">Biscuit</option>
+                                <option value="/shop">All Cakes</option>
+                                <option value="/home">Cupcakes</option>
+                                <option value="/customDesign">Custom Design</option>
                             </select>
+                            <script type="text/javascript">
+                                function handleSelect(elm)
+                                {
+                                    window.location = elm.value;
+                                }
+                            </script>
                             <input type="text" placeholder="Search">
                             <button type="submit"><i class="fa fa-search"></i></button>
                         </form>

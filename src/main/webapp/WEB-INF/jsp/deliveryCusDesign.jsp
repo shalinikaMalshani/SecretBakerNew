@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: User
+  Date: 2/6/2022
+  Time: 7:06 AM
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -30,10 +37,10 @@
     <link rel="stylesheet" href="../cake-main/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="../cake-main/css/style.css" type="text/css">
 
-<%--    <%--%>
-<%--        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");--%>
-<%--        String deliveryDate = sdf.format(new Date());--%>
-<%--    %>--%>
+    <%--    <%--%>
+    <%--        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");--%>
+    <%--        String deliveryDate = sdf.format(new Date());--%>
+    <%--    %>--%>
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
 
 </head>
@@ -58,8 +65,8 @@
         </div>
     </div>
     <div class="offcanvas__logo">
-<%--        <a href="home"><img src="../cake-main/img/logo.png" alt=""></a>--%>
-    <a href="home"><img src="../img/logoSB.png" alt=""></a>
+        <%--        <a href="home"><img src="../cake-main/img/logo.png" alt=""></a>--%>
+        <a href="home"><img src="../img/logoSB.png" alt=""></a>
     </div>
     <div id="mobile-menu-wrap"></div>
     <div class="offcanvas__option">
@@ -107,8 +114,8 @@
                             </ul>
                         </div>
                         <div class="header__logo">
-<%--                            <a href="home"><img src="../cake-main/img/logo.png" alt=""></a>--%>
-    <a href="home"><img src="../img/logoSB.png" alt="" style="width: 120px; height: 68px;"></a>
+                            <%--                            <a href="home"><img src="../cake-main/img/logo.png" alt=""></a>--%>
+                            <a href="home"><img src="../img/logoSB.png" alt="" style="width: 120px; height: 68px;"></a>
                         </div>
                         <div class="header__top__right">
                             <div class="header__top__right__links">
@@ -127,7 +134,7 @@
 
 
 
-<%--                        <div class="canvas__open"><i class="zmdi zmdi-mail-reply material-icons-name"></i></div>--%>
+            <%--                        <div class="canvas__open"><i class="zmdi zmdi-mail-reply material-icons-name"></i></div>--%>
         </div>
     </div>
     <div class="container">
@@ -182,7 +189,8 @@
 <section class="checkout spad">
     <div class="container">
         <div class="checkout__form">
-            <form method="POST"  action="delivery"  name="delivery" onclick="dateCheck()">
+            <form method="POST"  action="deliveryCus"  name="delivery" onclick="dateCheck()">
+                <input class="form-control" name="customDesignId" value="0" id="customDesignId" type="hidden">
                 <div class="row">
                     <div class="col-lg-8 col-md-6">
                         <h6 class="checkout__title">Delivery Details</h6>
@@ -206,7 +214,7 @@
                         </div>
 
 
-                       <div class="checkout__input">
+                        <div class="checkout__input">
                             <p>Delivery Area<span>*</span></p>
                             <select required="required" name="deliveryArea"
                                     id="deliveryArea" class="checkout__input__add">
@@ -216,12 +224,12 @@
                                 <option value="Panadura">Panadura</option>
                                 <option value="Kasbawa">Kasbawa</option>
                             </select>
-                       </div>
+                        </div>
                         <article style="color:red; margin-left:150px; margin-top:20px; padding-left:20px; " >
                             (This covid situation, We deliver selected area only.)
                         </article>
-    <br>
-                      <div class="checkout__input">
+                        <br>
+                        <div class="checkout__input">
                             <p>Delivery Address<span>*</span></p>
                             <input type="text" id="location_l1" name="location_l1" placeholder="Delivery Address line1" class="checkout__input__add">
                             <input type="text" id="location_l2" name="location_l2" placeholder="Delivery Address line2" class="checkout__input__add">
@@ -249,48 +257,48 @@
                             </div>
 
                         </div>
-              <div class="row">
-                    <div class="col-lg-6">
-                        <div class="checkout__input">
-                            <p>Delivery Date<span>*</span></p>
-                            <input type="date" name ="deliveryDate" id="deliveryDate" placeholder="Delivery Date" class="checkout__input__add" required>
-                        </div>
-                    </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Delivery Date<span>*</span></p>
+                                    <input type="date" name ="deliveryDate" id="deliveryDate" placeholder="Delivery Date" class="checkout__input__add" required>
+                                </div>
+                            </div>
 
-                    <div class="col-lg-6">
-                        <div class="checkout__input">
-                            <p>Delivery Time<span>*</span></p>
-                            <select required="required" name="deliveryTime"
-                                    id="deliveryTime" class="checkout__input__add" >
-                                <option value="1">Select the prefer Time</option>
-                                <option value="During 10AM - 1PM">During 10AM - 1PM</option>
-                                <option value="During 1pm - 4pm">During 1PM - 4PM</option>
-                            </select>
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Delivery Time<span>*</span></p>
+                                    <select required="required" name="deliveryTime"
+                                            id="deliveryTime" class="checkout__input__add" >
+                                        <option value="1">Select the prefer Time</option>
+                                        <option value="During 10AM - 1PM">During 10AM - 1PM</option>
+                                        <option value="During 1pm - 4pm">During 1PM - 4PM</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-              </div>
 
-              <div class="row">
-                       <div class="col-lg-6">
-                          <div class="checkout__input">
-                              <p>Payment Type</p>
-                              <input type="text"  name="paymentType" id="paymentType" placeholder="Cash on Delivery" readonly/>
-                           </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="checkout__input">
+                                    <p>Payment Type</p>
+                                    <input type="text"  name="paymentType" id="paymentType" placeholder="Cash on Delivery" readonly/>
+                                </div>
+                            </div>
                         </div>
-              </div>
 
-    <br><br><br>
-    <div class="row">
-        <div class="col-lg-6">
-                        <input  type="text"  id="payNew" name="dataValue" style="display: none">
-                        <button type="submit" class="site-btn"
-                                onclick="getValueNew()">Checkout</button>
-        </div>
-        <div class="col-lg-6">
-<%--            <input  type="text"  id="cancel" name="dataValue" style="display: none">--%>
-            <button type="submit" class="site-btn"><a href="home" style="color: white;">Cancel</a></button>
-        </div>
-    </div>
+                        <br><br><br>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <input  type="text"  id="cusDes"   name="dataValueCustomDes">
+                                <button type="submit" class="site-btn"
+                                        onclick="valuesAllNew()">Checkout</button>
+                            </div>
+                            <div class="col-lg-6">
+                                <%--            <input  type="text"  id="cancel" name="dataValue" style="display: none">--%>
+                                <button type="submit" class="site-btn"><a href="home" style="color: white;">Cancel</a></button>
+                            </div>
+                        </div>
                         <%--                        <div class="checkout__input">--%>
                         <%--                            <p>Postcode / ZIP<span>*</span></p>--%>
                         <%--                            <input type="text">--%>
@@ -298,10 +306,10 @@
 
 
 
-<%--                        <input   type="text"  id="payNew" name="dataValue" style="display: none">--%>
-<%--                        <br><br>--%>
-<%--                        <button type="submit" class="site-btn"--%>
-<%--                                onclick="getValueNew()">Checkout</button>--%>
+                        <%--                        <input   type="text"  id="payNew" name="dataValue" style="display: none">--%>
+                        <%--                        <br><br>--%>
+                        <%--                        <button type="submit" class="site-btn"--%>
+                        <%--                                onclick="getValueNew()">Checkout</button>--%>
                     </div>
 
 
@@ -386,41 +394,41 @@
                             <%--                            </div>--%>
                             <%--                            <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt--%>
                             <%--                                ut labore et dolore magna aliqua.</p>--%>
-<%--                            <table class="table" id="orderDetails">--%>
-                                <%--                                <thead>--%>
-                                <%--                                <tr>--%>
-                                <%--                                    <th>Item Name</th>--%>
-                                <%--                                    <th>Qty</th>--%>
-                                <%--                                    <th>Unit Price</th>--%>
-                                <%--                                    <th>Amount</th>--%>
-                                <%--                                </tr>--%>
-                                <%--                                </thead>--%>
-                                <%--                                <tbody>--%>
+                            <%--                            <table class="table" id="orderDetails">--%>
+                            <%--                                <thead>--%>
+                            <%--                                <tr>--%>
+                            <%--                                    <th>Item Name</th>--%>
+                            <%--                                    <th>Qty</th>--%>
+                            <%--                                    <th>Unit Price</th>--%>
+                            <%--                                    <th>Amount</th>--%>
+                            <%--                                </tr>--%>
+                            <%--                                </thead>--%>
+                            <%--                                <tbody>--%>
 
-                                <%--                                <c:forEach items="${OrderDetails}" var="list2">--%>
-                                <%--                                    <tr>--%>
-                                <%--                                        <td>${list2.name}</td>--%>
-                                <%--&lt;%&ndash;                                        <td>${list.quantity}</td>&ndash;%&gt;--%>
-                                <%--&lt;%&ndash;                                        <td>${list.unitePrice}</td>&ndash;%&gt;--%>
-                                <%--                                        <td>${list2.quantity*list2.unitePrice}</td>--%>
-                                <%--                                        <td>${list2.total}</td>--%>
-                                <%--                                    </tr>--%>
+                            <%--                                <c:forEach items="${OrderDetails}" var="list2">--%>
+                            <%--                                    <tr>--%>
+                            <%--                                        <td>${list2.name}</td>--%>
+                            <%--&lt;%&ndash;                                        <td>${list.quantity}</td>&ndash;%&gt;--%>
+                            <%--&lt;%&ndash;                                        <td>${list.unitePrice}</td>&ndash;%&gt;--%>
+                            <%--                                        <td>${list2.quantity*list2.unitePrice}</td>--%>
+                            <%--                                        <td>${list2.total}</td>--%>
+                            <%--                                    </tr>--%>
 
-                                <%--                                </c:forEach>--%>
+                            <%--                                </c:forEach>--%>
 
-                                <%--                                      <tbody id="products">--%>
+                            <%--                                      <tbody id="products">--%>
 
-<%--                                </tbody>--%>
+                            <%--                                </tbody>--%>
 
-<%--                            </table>--%>
-<%--                            <h4>Total:<span id="val"></span></h4>--%>
-<%--                            <div class="checkout__input__checkbox">--%>
-<%--                                <label for="payment">--%>
-<%--                                    Check Payment--%>
-<%--                                    <input type="checkbox" id="payment">--%>
-<%--                                    <span class="checkmark"></span>--%>
-<%--                                </label>--%>
-<%--                            </div>--%>
+                            <%--                            </table>--%>
+                            <%--                            <h4>Total:<span id="val"></span></h4>--%>
+                            <%--                            <div class="checkout__input__checkbox">--%>
+                            <%--                                <label for="payment">--%>
+                            <%--                                    Check Payment--%>
+                            <%--                                    <input type="checkbox" id="payment">--%>
+                            <%--                                    <span class="checkmark"></span>--%>
+                            <%--                                </label>--%>
+                            <%--                            </div>--%>
                             <%--                            <div class="checkout__input__checkbox">--%>
                             <%--                                <label for="paypal">--%>
                             <%--                                    Paypal--%>

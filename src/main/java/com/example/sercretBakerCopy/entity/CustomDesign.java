@@ -1,40 +1,56 @@
 package com.example.sercretBakerCopy.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 public class CustomDesign {
     @Id
     private int customDesignId;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String contact;
-    private String cakeType;
-    private String cakeSize;
-    private String date;
-    private String image;
-    private String des;
+    private String cusDesName;
+    private String cusDesemail;
+    private String cusDescontact;
+    private String cusDescakeType;
+    private String cusDescakeSize;
+    private LocalDate cusDesdate;
+    private String cusDesimage;
+    private String cusDesdes;
+
+    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE})
+    @JoinColumn(name = "onlineCustomerId", referencedColumnName = "onlineCustomerId", nullable = false)
+    private Customer customer;
 
     public CustomDesign() {
     }
 
-    public CustomDesign(int customDesignId, String firstName, String lastName, String email, String contact, String cakeType, String cakeSize, String date, String image, String des) {
+    public CustomDesign(int customDesignId, String cusDesName, String cusDesemail, String cusDescontact, String cusDescakeType, String cusDescakeSize, LocalDate cusDesdate, String cusDesimage, String cusDesdes) {
         this.customDesignId = customDesignId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.contact = contact;
-        this.cakeType = cakeType;
-        this.cakeSize = cakeSize;
-        this.date = date;
-        this.image = image;
-        this.des = des;
+        this.cusDesName = cusDesName;
+        this.cusDesemail = cusDesemail;
+        this.cusDescontact = cusDescontact;
+        this.cusDescakeType = cusDescakeType;
+        this.cusDescakeSize = cusDescakeSize;
+        this.cusDesdate = cusDesdate;
+        this.cusDesimage = cusDesimage;
+        this.cusDesdes = cusDesdes;
     }
 
-    public CustomDesign(int customDesignId) {
+    public CustomDesign(int customDesignId, String cusDesName, String cusDesemail, String cusDescontact, String cusDescakeType, String cusDescakeSize, LocalDate cusDesdate, String cusDesimage, String cusDesdes, Customer customer) {
         this.customDesignId = customDesignId;
+        this.cusDesName = cusDesName;
+        this.cusDesemail = cusDesemail;
+        this.cusDescontact = cusDescontact;
+        this.cusDescakeType = cusDescakeType;
+        this.cusDescakeSize = cusDescakeSize;
+        this.cusDesdate = cusDesdate;
+        this.cusDesimage = cusDesimage;
+        this.cusDesdes = cusDesdes;
+        this.customer = customer;
+    }
+
+    public CustomDesign(LocalDate cusDesdate) {
+        this.cusDesdate = cusDesdate;
     }
 
     public int getCustomDesignId() {
@@ -45,75 +61,76 @@ public class CustomDesign {
         this.customDesignId = customDesignId;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getCusDesName() {
+        return cusDesName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setCusDesName(String cusDesName) {
+        this.cusDesName = cusDesName;
     }
 
-    public String getLastName() {
-        return lastName;
+
+    public String getCusDesemail() {
+        return cusDesemail;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setCusDesemail(String cusDesemail) {
+        this.cusDesemail = cusDesemail;
     }
 
-    public String getEmail() {
-        return email;
+    public String getCusDescontact() {
+        return cusDescontact;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCusDescontact(String cusDescontact) {
+        this.cusDescontact = cusDescontact;
     }
 
-    public String getContact() {
-        return contact;
+    public String getCusDescakeType() {
+        return cusDescakeType;
     }
 
-    public void setContact(String contact) {
-        this.contact = contact;
+    public void setCusDescakeType(String cusDescakeType) {
+        this.cusDescakeType = cusDescakeType;
     }
 
-    public String getCakeType() {
-        return cakeType;
+    public String getCusDescakeSize() {
+        return cusDescakeSize;
     }
 
-    public void setCakeType(String cakeType) {
-        this.cakeType = cakeType;
+    public void setCusDescakeSize(String cusDescakeSize) {
+        this.cusDescakeSize = cusDescakeSize;
     }
 
-    public String getCakeSize() {
-        return cakeSize;
+    public LocalDate getCusDesdate() {
+        return cusDesdate;
     }
 
-    public void setCakeSize(String cakeSize) {
-        this.cakeSize = cakeSize;
+    public void setCusDesdate(LocalDate cusDesdate) {
+        this.cusDesdate = cusDesdate;
     }
 
-    public String getDate() {
-        return date;
+    public String getCusDesimage() {
+        return cusDesimage;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setCusDesimage(String cusDesimage) {
+        this.cusDesimage = cusDesimage;
     }
 
-    public String getImage() {
-        return image;
+    public String getCusDesdes() {
+        return cusDesdes;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setCusDesdes(String cusDesdes) {
+        this.cusDesdes = cusDesdes;
     }
 
-    public String getDes() {
-        return des;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setDes(String des) {
-        this.des = des;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }

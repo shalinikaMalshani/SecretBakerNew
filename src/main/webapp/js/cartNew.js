@@ -487,8 +487,59 @@ function  getValueNew(){
 
     //localStorage.clear();
 }
+function getAllDetails(){
 
-//manQty(products[i]);
+    var listCustom=[];
+    var str,stre="" ;
+
+    var Name=$("#cusDesName").val();
+    var phone=$("#cusDescontact").val();
+    var email=$("#cusDesemail").val();
+    var cakeType=$('#cusDescakeType option:selected').text();
+    var cakeSize=$('#cusDescakeSize option:selected').text();
+    var image = $("#cusDesimage")[0].files[0];
+     let reader = new FileReader();
+     reader.addEventListener("load", () => {
+         localStorage.setItem('img', reader.result)
+     });
+     reader.readAsDataURL(image);
+     var des=[];
+     des=$("#cusDesdes").val();
+
+     // var full=des.value;
+
+    listCustom.push({
+        Name:Name,
+        phone: phone,
+        email: email,
+        cakeType: cakeType,
+        cakeSize: cakeSize,
+        image:image,
+        des:des
+
+    });
+
+    console.log("list",listCustom);
+    str =  Name+" "+phone+" "+email+" "+cakeType+" "+cakeSize+" "+des+"";
+    console.log("str",str);
+    stre+= str;
+    console.log("stre",stre);
+
+
+    $("#valuesAll").val(stre);
+    //console.log("order",orderRes);
+    localStorage.setItem('customDesign',stre);
+
+
+}
+
+function  valuesAllNew() {
+    var vall = JSON.parse(JSON.stringify(localStorage.getItem('customDesign')));
+    console.log("local storage", vall);
+    $("#cusDes").val(vall);
+}
+
+
 onLoadCartNumbers();
 loadCart();
 //displayOne();

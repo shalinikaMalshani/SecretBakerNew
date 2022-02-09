@@ -1,4 +1,4 @@
-package com.example.sercretBakerCopy.controller;
+package com.example.sercretBakerCopy.controller.signInUp;
 
 import javax.servlet.http.HttpServletRequest;
 

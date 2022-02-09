@@ -27,6 +27,9 @@ public class Customer {
     @OneToMany(mappedBy = "customer", cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE})
     private List<OrderDetail> restaurantOnlineOrdersDetail = new ArrayList<>();
 
+    @OneToMany(mappedBy = "customer", cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE})
+    private List<CustomDesign> customDesigns = new ArrayList<>();
+
 
     public Customer() {
     }
