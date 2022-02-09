@@ -128,7 +128,7 @@ public class SecretBaker {
             System.out.println("customer details" + foodItemBO.findOne(customDesignDTO.getCusDescustomer()));
 
         }catch(Exception e){
-                return "signInCusDesign";
+            return "signInCusDesign";
         }
 
         List<CustomDesignDTO> listCus = new ArrayList<>();
@@ -169,7 +169,7 @@ public class SecretBaker {
                 c = 0;
             }
         }
-       System.out.println("description cus " + itm.getCusDesdes());
+        System.out.println("description cus " + itm.getCusDesdes());
         for (CustomDesignDTO cus : listCus) {
 //            FoodItemDTO f = foodItemBO.findFoodItemById(d.getFoodItem());
 //            d.setName(f.getFoodName());
@@ -187,10 +187,19 @@ public class SecretBaker {
         model.addAttribute("customDees",listCus);
         model.addAttribute("cus",foodItemBO.getCustomDesById(customDesignDTO.getCustomDesignId()));
 
-            return "deliveryCusDesign";
+        return "deliveryCusDesign";
 
     }
 
+    @GetMapping("/about")
+    public String about(Model model) {
+        return "about";
+    }
+
+    @GetMapping("/contact")
+    public String contact(Model model) {
+        return "contact";
+    }
 
 
 }
