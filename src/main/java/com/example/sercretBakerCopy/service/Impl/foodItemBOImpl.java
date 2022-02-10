@@ -16,6 +16,9 @@ import org.springframework.mail.javamail.MimeMailMessage;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.mail.*;
 import javax.mail.internet.MimeMessage;
@@ -546,9 +549,8 @@ customerDAO.save(customer);
                 c++;
 //            } else if (c == 5) {
 //                itm.setCusDesimage(str);
-//                c++;
             } else if (c == 5) {
-                itm.setCusDesdes(str.replaceAll("\\s",""));
+                itm.setCusDesdes(str);
                 listCus.add(itm);
                 c = 0;
             }
@@ -710,11 +712,11 @@ javaMailSender.send(message);
             } else if (c == 4) {
                 itm.setCusDescakeSize(str);
                 c++;
-//            } else if (c == 5) {
-//                itm.setCusDesimage(str);
-//                c++;
             } else if (c == 5) {
-                itm.setCusDesdes(str.replaceAll("\\s",""));
+                itm.setCusDesimage(str);
+                c++;
+            } else if (c == 6) {
+                itm.setCusDesdes(str);
                 listCus.add(itm);
                 c = 0;
             }
@@ -815,11 +817,11 @@ javaMailSender.send(message);
             } else if (c == 4) {
                 itm.setCusDescakeSize(str);
                 c++;
-//            } else if (c == 5) {
-//                itm.setCusDesimage(str);
-//                c++;
             } else if (c == 5) {
-                itm.setCusDesdes(str.replaceAll("\\s",""));
+                itm.setCusDesimage(str);
+                c++;
+            } else if (c == 6) {
+                itm.setCusDesdes(str);
                 listCus.add(itm);
                 c = 0;
             }

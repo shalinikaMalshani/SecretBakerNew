@@ -180,7 +180,7 @@
                             <div class="info">
                                 <h2>${e.foodName}</h2>
                                 <p >${e.l_description}</p>
-                                <span class="price">${e.price}</span><br>
+                                <span class="price">Rs:${e.price}.00</span><br>
                                 <a href="/shop/${e.itemId}" class="goToProduct-btn">Go to Product page</a>
                             </div>
                         </div>

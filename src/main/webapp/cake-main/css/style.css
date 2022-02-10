@@ -537,7 +537,7 @@ ol {
 
 .hero__text {
   text-align: center;
-  background: #ffffff;
+  /*background: #ffffff;*/
   padding: 65px 70px 70px;
   position: relative;
 }
@@ -547,7 +547,7 @@ ol {
   top: 15px;
   height: calc(100% - 30px);
   width: calc(100% - 30px);
-  border: 1px dashed #f08632;
+  /*border: 1px dashed #f08632;*/
   content: "";
   opacity: 0.3;
 }

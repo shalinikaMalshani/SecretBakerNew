@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: User
-  Date: 2/9/2022
-  Time: 9:22 AM
+  Date: 2/10/2022
+  Time: 9:22 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -128,74 +128,23 @@
     </div>
 </div>
 <!-- Breadcrumb End -->
-
-
 <section class="shop spad">
     <div class="container">
-        <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog1.jpeg">
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">butter icing </a></h6>
-                            <h6><a href="#">butter icing </a></h6>
-                        </div>
-                    </div>
+        <center>
+            <div class="row">
+                <div class="col-12">
+                    <button class="button-top"><a href="/blog_cakes">Cakes</a></button>
+                    <button class="button-top"><a href="/blog_birthdaycakes">Birthday</a></button>
+                    <button class="button-top"><a href="/blog_annicakes">Annivarsary</a></button>
+                    <button class="button-top"><a href="/blog_seasoncakes">Seasonal Special</a></button>
+                    <button class="button-top"><a href="/blog_cupcakes">Cupcake</a></button>
                 </div>
+            </div>
+        </center><br><br>
+        <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="product__item">
                     <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog2.jpeg">
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">butter icing </a></h6>
-                        <h6><a href="#">butter icing </a></h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog3.jpeg">
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">butter icing </a></h6>
-                        <h6><a href="#">butter icing </a></h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog4.jpeg">
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">butter icing </a></h6>
-                        <h6><a href="#">butter icing </a></h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog5.jpeg">
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">butter icing </a></h6>
-                        <h6><a href="#">butter icing </a></h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog6.jpeg">
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">butter icing </a></h6>
-                        <h6><a href="#">butter icing </a></h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog7.jpeg">
                     </div>
                     <div class="product__item__text">
                         <h6><a href="#">butter icing </a></h6>
@@ -215,7 +164,7 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog9.jpeg">
+                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog12.jpeg">
                     </div>
                     <div class="product__item__text">
                         <h6><a href="#">butter icing </a></h6>
@@ -225,7 +174,67 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog10.jpeg">
+                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog14.jpeg">
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="#">butter icing </a></h6>
+                        <h6><a href="#">butter icing </a></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog15.jpeg">
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="#">butter icing </a></h6>
+                        <h6><a href="#">butter icing </a></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog19.jpeg">
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="#">butter icing </a></h6>
+                        <h6><a href="#">butter icing </a></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog22.jpeg">
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="#">butter icing </a></h6>
+                        <h6><a href="#">butter icing </a></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog24.jpeg">
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="#">butter icing </a></h6>
+                        <h6><a href="#">butter icing </a></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog26.jpeg">
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="#">butter icing </a></h6>
+                        <h6><a href="#">butter icing </a></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog61.jpeg">
                     </div>
                     <div class="product__item__text">
                         <h6><a href="#">butter icing </a></h6>
@@ -241,84 +250,84 @@
 
 <!-- Footer Section Begin -->
 <footer class="footer set-bg" data-setbg="../../cake-main/img/footer-bg.jpg">
-<div class="container">
-<div class="row">
-<div class="col-lg-4 col-md-6 col-sm-6">
-<div class="footer__widget">
-    <h6>WORKING HOURS</h6>
-    <ul>
-        <li>Monday - Friday: 08:00 am – 08:30 pm</li>
-        <li>Saturday: 10:00 am – 16:30 pm</li>
-        <li>Sunday: 10:00 am – 16:30 pm</li>
-    </ul>
-</div>
-</div>
-<div class="col-lg-4 col-md-6 col-sm-6">
-<div class="footer__about">
-    <div class="footer__logo">
-        <a href="#"><img src="../../cake-main/img/footer-logo.png" alt=""></a>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="footer__widget">
+                    <h6>WORKING HOURS</h6>
+                    <ul>
+                        <li>Monday - Friday: 08:00 am – 08:30 pm</li>
+                        <li>Saturday: 10:00 am – 16:30 pm</li>
+                        <li>Sunday: 10:00 am – 16:30 pm</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="footer__about">
+                    <div class="footer__logo">
+                        <a href="#"><img src="../../cake-main/img/footer-logo.png" alt=""></a>
+                    </div>
+                    <p>Lorem ipsum dolor amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore dolore magna aliqua.</p>
+                    <div class="footer__social">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-youtube-play"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="footer__widget">
+                    <h6>CONTACT</h6>
+                    <ul>
+                        <li>No 12,</li>
+                        <li>Green view garden,</li>
+                        <li>Kotagedara Road,</li>
+                        <li>Piliyandala.</li>
+                    </ul>
+                    <br>
+                    <H6>EMAIL</H6>
+                    <ul>
+                        <li>secretbaker123.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-    <p>Lorem ipsum dolor amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        labore dolore magna aliqua.</p>
-    <div class="footer__social">
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-instagram"></i></a>
-        <a href="#"><i class="fa fa-youtube-play"></i></a>
-    </div>
-</div>
-</div>
-<div class="col-lg-4">
-<div class="footer__widget">
-    <h6>CONTACT</h6>
-    <ul>
-        <li>No 12,</li>
-        <li>Green view garden,</li>
-        <li>Kotagedara Road,</li>
-        <li>Piliyandala.</li>
-    </ul>
-    <br>
-    <H6>EMAIL</H6>
-    <ul>
-        <li>secretbaker123.com</li>
-    </ul>
-</div>
-</div>
-</div>
-</div>
 
-<div class="copyright">
-<div class="container">
-<div class="row">
-<div class="col-lg-7">
-    <p class="copyright__text text-white"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-    </p>
-</div>
-<div class="col-lg-5">
-    <div class="copyright__widget">
-        <ul>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms & Conditions</a></li>
-            <li><a href="#">Site Map</a></li>
-        </ul>
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <p class="copyright__text text-white"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+                <div class="col-lg-5">
+                    <div class="copyright__widget">
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Site Map</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-</div>
-</div>
-</div>
 </footer>
 <!-- Footer Section End -->
 
 <!-- Search Begin -->
 <div class="search-model">
-<div class="h-100 d-flex align-items-center justify-content-center">
-<div class="search-close-switch">+</div>
-<form class="search-model-form">
-<input type="text" id="search-input" placeholder="Search here.....">
-</form>
-</div>
+    <div class="h-100 d-flex align-items-center justify-content-center">
+        <div class="search-close-switch">+</div>
+        <form class="search-model-form">
+            <input type="text" id="search-input" placeholder="Search here.....">
+        </form>
+    </div>
 </div>
 <!-- Search End -->
 

@@ -208,7 +208,7 @@
         </div>
 
         <div class="checkout__form">
-        <form method="post" action="saveCustomDesign">
+        <form method="post" action="saveCustomDesign" enctype="multipart/form-data">
             <input  type="text" style="width: 100%;display: none" id="valuesAll" name="dataValueCustomDes">
             <p style="display: none;">${loggerId.onlineCustomerId}</p>
 
@@ -281,10 +281,13 @@
                             <div class="checkout__input">
                                 <p>Image<span>*</span></p>
                                 <input type="file" name="cusDesimage" class="form-control"
-                                       id="cusDesimage" />
+                                       id="cusDesimage" onchange="encodeImgtoBase64(this)"/>
+                                <br>
+                                <a href="" id="imgtag"></a>
+                                <img src="" alt="design preview" id="displayImg" width="90">
+
                             </div>
                         </div>
-
                         <div class="col-lg-6">
                             <div class="checkout__input">
                                 <p>Notes<span>*</span></p>

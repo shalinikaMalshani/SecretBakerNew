@@ -1,6 +1,7 @@
 package com.example.sercretBakerCopy.entity;
 
 import javax.persistence.*;
+import java.sql.Blob;
 import java.time.LocalDate;
 import java.util.Date;
 

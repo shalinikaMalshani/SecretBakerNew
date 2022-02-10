@@ -293,13 +293,11 @@ public class SignInUpController {
                     } else if (c == 4) {
                         itm.setCusDescakeSize(str);
                         c++;
-//                    } else if (c == 5) {
-//                        itm.setCusDesimage(str);
-//                        c++;
                     } else if (c == 5) {
-
+                        itm.setCusDesimage(str);
+                        c++;
+                    } else if (c == 6) {
                         itm.setCusDesdes(str);
-
                         listCus.add(itm);
                         c = 0;
                     }

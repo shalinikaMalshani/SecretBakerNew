@@ -104,7 +104,7 @@
                 <nav class="header__menu mobile-menu">
                     <ul>
                         <li class="active"><a href="home">Home</a></li>
-                        <li><a href="../cake-main/about.html">About</a></li>
+                        <li><a href="/about">About</a></li>
                         <li><a href="/shop">Shop</a></li>
                         <li><a href="../../blog">Blog</a></li>
                         <li><a href="../cake-main/contact.html">Contact</a></li>
@@ -120,233 +120,169 @@
 <section class="hero">
     <div class="hero__slider owl-carousel">
         <div class="hero__item set-bg" data-setbg="../../cake-main/img/hero/hero-1.jpg">
-<%--            <div class="container">--%>
-<%--                <div class="row d-flex justify-content-center">--%>
-<%--                    <div class="col-lg-8">--%>
-<%--                        <div class="hero__text">--%>
-<%--                            <h2>Making your life sweeter one bite at a time!</h2>--%>
-<%--                            <a href="#" class="primary-btn">Our cakes</a>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="hero__text">
+                            <h2>Making your life sweeter one bite at a time!</h2>
+                            <a href="#" class="primary-btn">Our cakes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="hero__item set-bg" data-setbg="../../img/Cupcaketag.jpg">
-<%--            <div class="container">--%>
-<%--                <div class="row d-flex justify-content-center">--%>
-<%--                    <div class="col-lg-8">--%>
-<%--                        <div class="hero__text">--%>
-<%--                            <h2>Making your life sweeter one bite at a time!</h2>--%>
-<%--                            <a href="#" class="primary-btn">Our cakes</a>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="hero__text">
+                            <h2>Making your life sweeter one bite at a time!</h2>
+                            <a href="#" class="primary-btn">Our cakes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 <!-- Hero Section End -->
 
 
-<!-- Categories Section Begin -->
+<%--<!-- Categories Section Begin -->--%>
+<%--<div class="categories">--%>
+<%--    <div class="container">--%>
+<%--        <div class="row">--%>
+<%--            <div class="categories__slider owl-carousel">--%>
+<%--                <div class="categories__item">--%>
+<%--                    <div class="categories__item__icon">--%>
+<%--                        <img style="border-radius: 50%;"src="../../img/birthday.jpg" alt=""  height="170">--%>
+<%--                        <h5>Birthday</h5>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="categories__item">--%>
+<%--                    <div class="categories__item__icon">--%>
+<%--                        <img style="border-radius: 50%;"src="../../img/anniv.jpg" alt=""  height="170">--%>
+<%--                        <h5>Anniversary</h5>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="categories__item">--%>
+<%--                    <div class="categories__item__icon">--%>
+<%--                        <img style="border-radius: 50%;"src="../../img/cupcake.jpg" alt=""  height="170">--%>
+<%--                        <h5>Cupcake</h5>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="categories__item">--%>
+<%--                    <div class="categories__item__icon">--%>
+<%--                        <img style="border-radius: 50%;"src="../../img/chri.jpg" alt=""  height="170">--%>
+<%--                        <h5>Christmas</h5>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="categories__item">--%>
+<%--                    <div class="categories__item__icon">--%>
+<%--                        <img style="border-radius: 50%;"src="../../img/Cupcaketag.jpg" alt=""  height="170">--%>
+<%--                        <h5>Donut</h5>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="categories__item">--%>
+<%--                    <div class="categories__item__icon">--%>
+<%--                        <img style="border-radius: 50%;"src="../../img/Cupcaketag.jpg" alt=""  height="170">--%>
+<%--                        <h5>Donut</h5>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</div>--%>
+<%--<!-- Categories Section End -->--%>
+
 <div class="categories">
     <div class="container">
         <div class="row">
-            <div class="categories__slider owl-carousel">
-                <div class="categories__item">
-                    <div class="categories__item__icon">
-                        <img style="border-radius: 50%;"src="../../img/birthday.jpg" alt=""  height="170">
-                        <h5>Birthday</h5>
-                    </div>
+            <!-- Categories Section Begin -->
+            <div class="categories__slider owl-carousel owl-loaded owl-drag">
+                <div class="owl-stage-outer">
+                    <div class="owl-stage" style="transform: translate3d(-2142px, 0px, 0px); transition: all 1.2s ease 0s; width: 3332px;"><div class="owl-item cloned" style="width: 216px; margin-right: 22px;">
+                        <div class="categories__item">
+                <div class="categories__item__icon">
+                    <img style="border-radius: 50%;" src="../../img/cupcake.jpg" alt="" height="170">
+                    <h5>Cupcake</h5>
                 </div>
-                <div class="categories__item">
-                    <div class="categories__item__icon">
-                        <img style="border-radius: 50%;"src="../../img/Cupcaketag.jpg" alt=""  height="170">
-                        <h5>Anniversary</h5>
-                    </div>
+            </div></div><div class="owl-item cloned" style="width: 216px; margin-right: 22px;"><div class="categories__item">
+                <div class="categories__item__icon">
+                    <img style="border-radius: 50%;" src="../../img/chri.jpg" alt="" height="170">
+                    <h5>Christmas</h5>
                 </div>
-                <div class="categories__item">
-                    <div class="categories__item__icon">
-                        <img style="border-radius: 50%;"src="../../img/Cupcaketag.jpg" alt=""  height="170">
-                        <h5>Cupcake</h5>
-                    </div>
+            </div></div><div class="owl-item cloned" style="width: 216px; margin-right: 22px;"><div class="categories__item">
+                <div class="categories__item__icon">
+                    <img style="border-radius: 50%;" src="../../img/Cupcaketag.jpg" alt="" height="170">
+                    <h5>Donut</h5>
                 </div>
-                <div class="categories__item">
-                    <div class="categories__item__icon">
-                        <img style="border-radius: 50%;"src="../../img/Cupcaketag.jpg" alt=""  height="170">
-                        <h5>Christmas</h5>
-                    </div>
+            </div></div><div class="owl-item cloned" style="width: 216px; margin-right: 22px;"><div class="categories__item">
+                <div class="categories__item__icon">
+                    <img style="border-radius: 50%;" src="../../img/Cupcaketag.jpg" alt="" height="170">
+                    <h5>Donut</h5>
                 </div>
-                <div class="categories__item">
-                    <div class="categories__item__icon">
-                        <img style="border-radius: 50%;"src="../../img/Cupcaketag.jpg" alt=""  height="170">
-                        <h5>Donut</h5>
-                    </div>
+            </div></div><div class="owl-item" style="width: 216px; margin-right: 22px;"><div class="categories__item">
+                <div class="categories__item__icon">
+                    <img style="border-radius: 50%;" src="../../img/birthday.jpg" alt="" height="170">
+                    <h5>Birthday</h5>
                 </div>
-                <div class="categories__item">
-                    <div class="categories__item__icon">
-                        <img style="border-radius: 50%;"src="../../img/Cupcaketag.jpg" alt=""  height="170">
-                        <h5>Donut</h5>
-                    </div>
+            </div></div><div class="owl-item" style="width: 216px; margin-right: 22px;"><div class="categories__item">
+                <div class="categories__item__icon">
+                    <img style="border-radius: 50%;" src="../../img/anniv.jpg" alt="" height="170">
+                    <h5>Anniversary</h5>
                 </div>
-            </div>
+            </div></div><div class="owl-item" style="width: 216px; margin-right: 22px;"><div class="categories__item">
+                <div class="categories__item__icon">
+                    <img style="border-radius: 50%;" src="../../img/cupcake.jpg" alt="" height="170">
+                    <h5>Cupcake</h5>
+                </div>
+            </div></div><div class="owl-item" style="width: 216px; margin-right: 22px;"><div class="categories__item">
+                <div class="categories__item__icon">
+                    <img style="border-radius: 50%;" src="../../img/chri.jpg" alt="" height="170">
+                    <h5>Christmas</h5>
+                </div>
+            </div></div><div class="owl-item" style="width: 216px; margin-right: 22px;"><div class="categories__item">
+                <div class="categories__item__icon">
+                    <img style="border-radius: 50%;" src="../../img/Cupcaketag.jpg" alt="" height="170">
+                    <h5>Donut</h5>
+                </div>
+            </div></div><div class="owl-item active" style="width: 216px; margin-right: 22px;"><div class="categories__item">
+                <div class="categories__item__icon">
+                    <img style="border-radius: 50%;" src="../../img/Cupcaketag.jpg" alt="" height="170">
+                    <h5>Donut</h5>
+                </div>
+            </div></div><div class="owl-item cloned active" style="width: 216px; margin-right: 22px;"><div class="categories__item">
+                <div class="categories__item__icon">
+                    <img style="border-radius: 50%;" src="../../img/birthday.jpg" alt="" height="170">
+                    <h5>Birthday</h5>
+                </div>
+            </div></div><div class="owl-item cloned active" style="width: 216px; margin-right: 22px;"><div class="categories__item">
+                <div class="categories__item__icon">
+                    <img style="border-radius: 50%;" src="../../img/anniv.jpg" alt="" height="170">
+                    <h5>Anniversary</h5>
+                </div>
+            </div></div><div class="owl-item cloned active" style="width: 216px; margin-right: 22px;"><div class="categories__item">
+                <div class="categories__item__icon">
+                    <img style="border-radius: 50%;" src="../../img/cupcake.jpg" alt="" height="170">
+                    <h5>Cupcake</h5>
+                </div>
+            </div></div><div class="owl-item cloned" style="width: 216px; margin-right: 22px;"><div class="categories__item">
+                <div class="categories__item__icon">
+                    <img style="border-radius: 50%;" src="../../img/chri.jpg" alt="" height="170">
+                    <h5>Christmas</h5>
+                </div>
+            </div></div></div></div>
+                <div class="owl-nav">
+                    <button type="button" role="presentation" class="owl-prev">
+                        <span class="arrow_carrot-left"><span></span></span></button>
+                    <button type="button" role="presentation" class="owl-next">
+                        <span class="arrow_carrot-right"><span></span></span>
+                    </button></div><div class="owl-dots disabled"></div></div>
         </div>
     </div>
 </div>
-<!-- Categories Section End -->
-
-
-
-<!-- Testimonial Section Begin -->
-<section class="testimonial spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="section-title">
-                    <span>Testimonial</span>
-                    <h2>Our client say</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="testimonial__slider owl-carousel">
-                <div class="col-lg-6">
-                    <div class="testimonial__item">
-                        <div class="testimonial__author">
-                            <div class="testimonial__author__pic">
-                                <img src="../../cake-main/img/testimonial/ta-1.jpg" alt="">
-                            </div>
-                            <div class="testimonial__author__text">
-                                <h5>Kerry D.Silva</h5>
-                                <span>New york</span>
-                            </div>
-                        </div>
-                        <div class="rating">
-                            <span class="icon_star"></span>
-                            <span class="icon_star"></span>
-                            <span class="icon_star"></span>
-                            <span class="icon_star"></span>
-                            <span class="icon_star-half_alt"></span>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="testimonial__item">
-                        <div class="testimonial__author">
-                            <div class="testimonial__author__pic">
-                                <img src="../../cake-main/img/testimonial/ta-2.jpg" alt="">
-                            </div>
-                            <div class="testimonial__author__text">
-                                <h5>Kerry D.Silva</h5>
-                                <span>New york</span>
-                            </div>
-                        </div>
-                        <div class="rating">
-                            <span class="icon_star"></span>
-                            <span class="icon_star"></span>
-                            <span class="icon_star"></span>
-                            <span class="icon_star"></span>
-                            <span class="icon_star-half_alt"></span>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="testimonial__item">
-                        <div class="testimonial__author">
-                            <div class="testimonial__author__pic">
-                                <img src="../../cake-main/img/testimonial/ta-1.jpg" alt="">
-                            </div>
-                            <div class="testimonial__author__text">
-                                <h5>Ophelia Nunez</h5>
-                                <span>London</span>
-                            </div>
-                        </div>
-                        <div class="rating">
-                            <span class="icon_star"></span>
-                            <span class="icon_star"></span>
-                            <span class="icon_star"></span>
-                            <span class="icon_star"></span>
-                            <span class="icon_star-half_alt"></span>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="testimonial__item">
-                        <div class="testimonial__author">
-                            <div class="testimonial__author__pic">
-                                <img src="../../cake-main/img/testimonial/ta-2.jpg" alt="">
-                            </div>
-                            <div class="testimonial__author__text">
-                                <h5>Kerry D.Silva</h5>
-                                <span>New york</span>
-                            </div>
-                        </div>
-                        <div class="rating">
-                            <span class="icon_star"></span>
-                            <span class="icon_star"></span>
-                            <span class="icon_star"></span>
-                            <span class="icon_star"></span>
-                            <span class="icon_star-half_alt"></span>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="testimonial__item">
-                        <div class="testimonial__author">
-                            <div class="testimonial__author__pic">
-                                <img src="../../cake-main/img/testimonial/ta-1.jpg" alt="">
-                            </div>
-                            <div class="testimonial__author__text">
-                                <h5>Ophelia Nunez</h5>
-                                <span>London</span>
-                            </div>
-                        </div>
-                        <div class="rating">
-                            <span class="icon_star"></span>
-                            <span class="icon_star"></span>
-                            <span class="icon_star"></span>
-                            <span class="icon_star"></span>
-                            <span class="icon_star-half_alt"></span>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="testimonial__item">
-                        <div class="testimonial__author">
-                            <div class="testimonial__author__pic">
-                                <img src="../../cake-main/img/testimonial/ta-2.jpg" alt="">
-                            </div>
-                            <div class="testimonial__author__text">
-                                <h5>Kerry D.Silva</h5>
-                                <span>New york</span>
-                            </div>
-                        </div>
-                        <div class="rating">
-                            <span class="icon_star"></span>
-                            <span class="icon_star"></span>
-                            <span class="icon_star"></span>
-                            <span class="icon_star"></span>
-                            <span class="icon_star-half_alt"></span>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Testimonial Section End -->
 
 <!-- Instagram Section Begin -->
 <section class="instagram spad">

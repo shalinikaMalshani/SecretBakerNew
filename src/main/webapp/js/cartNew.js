@@ -5,24 +5,35 @@ let carts = document.querySelectorAll(".cart_add");
 let products=[
     {
         id:"1",
-        name:'Lava',
-        tag:'Lavatag',
-        price:1000,
+        name:'Vanilla',
+        tag:'1tag',
+        price:100,
         inCart:"0"
     },
     {
-        id:2,
-        name:'Orange',
-        tag:'Orangetag',
-        price:2000,
-        inCart:0
+        id:"2",
+        name:'Chocolate',
+        tag:'2tag',
+        price:100,
+        inCart:"0"
     },
-    {
-        id:3,
-        name:'Cupcake',
-        tag:'Cupcaketag',
-        price:3000,
-        inCart:0
+    {   id:"3",
+        name:'Strawberry',
+        tag:'3tag',
+        price:100,
+        inCart:"0"
+    },
+    {   id:"4",
+        name:'Lemon',
+        tag:'4tag',
+        price:100,
+        inCart:"0"
+    },
+    {   id:"5",
+        name:'Orange',
+        tag:'5tag',
+        price:100,
+        inCart:"0"
     },
 ];
 
@@ -156,7 +167,7 @@ function loadCart(){
             proContainer.innerHTML +=`
 
           <td style="display:none;"><span class="itemIdd">${item.id}</span></td>
-<td class="product__cart__item"><div class="product__cart__item__pic"><ion-icon name="close-circle" class="remove"></ion-icon><img src="img/${item.tag}.jpg" alt=""></div>
+<td class="product__cart__item"><div class="product__cart__item__pic"><ion-icon name="close-circle" class="remove"></ion-icon><img src="img/cupcake/${item.tag}.jpg" alt=""></div>
 <div class="product__cart__item__text"><h6 style="padding-top:20px;" class="iName">${item.name}</h6></div></td>
 <td class="product__cart__item"><div class="product__cart__item__text"><h5 class="p" style="padding-bottom:10px;">Rs:${item.price}.00</h5></div></td>
 <td><ion-icon name="caret-back-circle" class="dec-btn"></ion-icon><span class="qtyCart">${item.inCart}</span><ion-icon name="caret-forward-circle" class="inc-btn"></ion-icon></td>
@@ -359,27 +370,19 @@ function updateTotal() {
     }
     localStorage.setItem('totalItemCost',total);
 
-    if(cartsItem.length == 0){
+     if(cartsItem.length == 0) {
          console.log("empty");
- //        let empty=document.querySelector("#products");
- //         console.log("called",empty);
- //         empty.innerHTML='';
- //         empty.innerHTML +=`
- //
- //        <div id="cart-empty">Cart is Empty</div>
- //
- // `
-let u=document.querySelector('#cart-empty');
-        console.log("called",u);
-// u.innerHTML='';
-u.innerHTML="lop";
-   // document.querySelector('.basketTotal .total').innerHTML ='';
-    }else {
+         let u = document.querySelector('#cart-empty');
+         console.log("called", u);
+         u.innerHTML = "lop";
+     }
+   // // document.querySelector('.basketTotal .total').innerHTML ='';
+   //  }else {
     document.querySelector('ul li .totalSub').textContent ="Rs:"+total+".00";
     document.querySelector('ul li .total').textContent ="Rs:"+total+".00";
 
 
-    }
+    // }
 
 }
 function removeItem() {
@@ -497,12 +500,7 @@ function getAllDetails(){
     var email=$("#cusDesemail").val();
     var cakeType=$('#cusDescakeType option:selected').text();
     var cakeSize=$('#cusDescakeSize option:selected').text();
-    var image = $("#cusDesimage")[0].files[0];
-     let reader = new FileReader();
-     reader.addEventListener("load", () => {
-         localStorage.setItem('img', reader.result)
-     });
-     reader.readAsDataURL(image);
+     var image = $("#cusDesimage").text();
      var des=[];
      des=$("#cusDesdes").val();
 
@@ -520,7 +518,7 @@ function getAllDetails(){
     });
 
     console.log("list",listCustom);
-    str =  Name+" "+phone+" "+email+" "+cakeType+" "+cakeSize+" "+des+"";
+    str =  Name+" "+phone+" "+email+" "+cakeType+" "+cakeSize+" "+image+" "+des+"";
     console.log("str",str);
     stre+= str;
     console.log("stre",stre);
@@ -532,7 +530,22 @@ function getAllDetails(){
 
 
 }
+function encodeImgtoBase64(element) {
 
+    var img = element.files[0];
+
+    var reader = new FileReader();
+
+    reader.onloadend = function() {
+
+        $("#displayImg").attr("src", reader.result);
+        $("#imgtag").attr("href", reader.result);
+
+    }
+
+    reader.readAsDataURL(img);
+
+}
 function  valuesAllNew() {
     var vall = JSON.parse(JSON.stringify(localStorage.getItem('customDesign')));
     console.log("local storage", vall);

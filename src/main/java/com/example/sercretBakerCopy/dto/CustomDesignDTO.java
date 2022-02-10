@@ -1,5 +1,6 @@
 package com.example.sercretBakerCopy.dto;
 
+import java.sql.Blob;
 import java.time.LocalDate;
 
 public class CustomDesignDTO {

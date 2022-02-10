@@ -224,13 +224,13 @@
                     <tr>
                         <td>${listCus.cusDescakeType}</td>
                         <td>${listCus.cusDescakeSize}</td>
-                        <td><img id="imgcake" src="" alt="" height="70px" width="70px"></td>
-<script>
-    let imgg=localStorage.getItem('img');
-    if(imgg){
-       document.querySelector("#imgcake").setAttribute("src",imgg);
-    }
-</script>
+                        <td><img id="imgcake" src="${listCus.cusDesimage}" alt="" height="70px" width="70px"></td>
+<%--<script>--%>
+<%--    let imgg=localStorage.getItem('img');--%>
+<%--    if(imgg){--%>
+<%--       document.querySelector("#imgcake").setAttribute("src",imgg);--%>
+<%--    }--%>
+<%--</script>--%>
 <%--                        <td>${listCus.cusDesdes}</td>--%>
                     </tr>
 

@@ -5,21 +5,30 @@ import com.example.sercretBakerCopy.dto.*;
 import com.example.sercretBakerCopy.entity.Customer;
 import com.example.sercretBakerCopy.service.foodItemBO;
 import net.bytebuddy.utility.RandomString;
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 
 import javax.mail.MessagingException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -59,9 +68,29 @@ public class SecretBaker {
         return "summary";
     }
 
-    @GetMapping("/blog")
-    public String blog() {
-        return "Blog";
+    @GetMapping("/blog_cakes")
+    public String blogCakes() {
+        return "BlogCakes";
+    }
+
+    @GetMapping("/blog_birthdaycakes")
+    public String blogBithday() {
+        return "BlogBirthday";
+    }
+
+    @GetMapping("/blog_annicakes")
+    public String blogAnni() {
+        return "BlogAnni";
+    }
+
+    @GetMapping("/blog_cupcakes")
+    public String blogCupcakes() {
+        return "BlogCupcake";
+    }
+
+    @GetMapping("/blog_seasoncakes")
+    public String blogSeasonal() {
+        return "BlogSeasonal";
     }
 
 
@@ -118,9 +147,11 @@ public class SecretBaker {
 
 
     @PostMapping("/saveCustomDesign")
-    public String saveCustomDesign(@ModelAttribute CustomDesignDTO customDesignDTO,HttpSession session,Model model) {
+    public String saveCustomDesign(@ModelAttribute CustomDesignDTO customDesignDTO, BindingResult result, HttpSession session, Model model, @RequestParam("cusDesimage") MultipartFile multipartFile) throws IOException {
 
-        System.out.println("custom design after click submit:" + customDesignDTO);
+        System.out.println("custom des des:" + customDesignDTO.getCusDesdes());
+        System.out.println("custom des des:" + customDesignDTO.getCusDesimage());
+
 
         try {
             int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
@@ -160,10 +191,11 @@ public class SecretBaker {
             } else if (c == 4) {
                 itm.setCusDescakeSize(str);
                 c++;
-//            } else if (c == 5) {
-//                itm.setCusDesimage(str);
-//                c++;
-            } else if(c==5)  {
+            } else if (c == 5) {
+                Base64.decodeBase64(str);
+                itm.setCusDesimage(str);
+                c++;
+            } else if (c == 6) {
                 itm.setCusDesdes(str);
                 listCus.add(itm);
                 c = 0;
@@ -185,7 +217,7 @@ public class SecretBaker {
 //        foodItemBO.saveCustomDesign(customDesignDTO);
 
         model.addAttribute("customDees",listCus);
-        model.addAttribute("cus",foodItemBO.getCustomDesById(customDesignDTO.getCustomDesignId()));
+        //model.addAttribute("cus",foodItemBO.getCustomDesById(customDesignDTO.getCustomDesignId()));
 
         return "deliveryCusDesign";
 
