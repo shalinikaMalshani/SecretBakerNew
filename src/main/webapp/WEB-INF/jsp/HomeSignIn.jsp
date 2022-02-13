@@ -274,7 +274,7 @@
             <div class="col-lg-4">
                 <div class="footer__about">
                     <div class="footer__logo">
-                        <a href="#"><img src="../cake-main/img/footer-logo.png" alt=""></a>
+                        <a href="#"><img src="../cake-main/img/footerlogo2.png" alt=""></a>
                     </div>
                     <p>Lorem ipsum dolor amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore dolore magna aliqua.</p>
