@@ -8,6 +8,8 @@ import com.example.sercretBakerCopy.entity.Customer;
 import com.example.sercretBakerCopy.entity.OrderNew;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.mail.MessagingException;
 import java.util.List;
@@ -39,7 +41,7 @@ public interface foodItemBO {
     Customer findOneCus(int onlineCustomerId);
     OrderNew findOneOrder(int orderId);
 
-    void saveCustomDesign(CustomDesignDTO customDesignDTO);
+    void saveCustomDesign( CustomDesignDTO customDesignDTO);
     CustomDesignDTO getCustomDesById(int id);
     CustomDesignDTO findHighestCustomDesId();
 
@@ -55,7 +57,13 @@ public interface foodItemBO {
     void setResetPwdEmail(String email, String resetPwdLink) throws MessagingException;
 
 
+
     List<CakeDTO>getAllCakes();
 
     CakeDTO getCakeById(Integer id);
+
+    void sendEmailToSBCD(CustomDesignDTO customDesignDTO, DeliveryDTO deliveryDTO) throws MessagingException;
+
+    void sendEmailCD(CustomDesignDTO customDesignDTO, DeliveryDTO deliveryDTO) throws MessagingException;
+
 }

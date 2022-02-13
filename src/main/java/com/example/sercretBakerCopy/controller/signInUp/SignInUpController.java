@@ -293,13 +293,11 @@ public class SignInUpController {
                     } else if (c == 4) {
                         itm.setCusDescakeSize(str);
                         c++;
-//                    } else if (c == 5) {
-//                        itm.setCusDesimage(str);
-//                        c++;
                     } else if (c == 5) {
-
+                        itm.setCusDesimage(str);
+                        c++;
+                    } else if (c == 6) {
                         itm.setCusDesdes(str);
-
                         listCus.add(itm);
                         c = 0;
                     }
@@ -316,8 +314,9 @@ public class SignInUpController {
 
 
                 System.out.println("list of cus des " + listCus);
-
+                model.addAttribute("customDees",listCus);
                 return  "deliveryCusDesign";
+
             } else {//If User name And Password is not match
                 model.addAttribute("invalidd", "Invalid user name or password");
                 return "signInCusDesign";

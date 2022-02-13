@@ -313,8 +313,8 @@
 
 
                             <ul class="checkout__total__products">
-                                <c:forEach items="${customDes}" var="list">
-                                    <li><samp>0${list.customDesignId}.</samp>${list.cusDescakeType}<span>Rs:${list.cusDescakeSize}</span></li>
+                                <c:forEach items="${customDees}" var="listn">
+                                    <li><samp>0${listn.customDesignId}</samp>${listn.cusDescakeType}<span>Rs:${listn.cusDescakeSize}</span></li>
 
                                 </c:forEach>
                             </ul>
