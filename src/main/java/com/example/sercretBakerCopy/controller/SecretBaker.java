@@ -230,5 +230,34 @@ public class SecretBaker {
         return "contact";
     }
 
+    @GetMapping("/cake")
+    public String cake(Model model, HttpSession session) {
+        model.addAttribute("AllCakes", foodItemBO.getAllCakes());
+        try {
+            int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
+            model.addAttribute("loggerId", foodItemBO.findOne(onlineCustomerId));
+        }catch(Exception e){
+            return "cake";
+        }
+
+        return "cake";
+    }
+    //load item individually
+    @GetMapping("/cake/{id}")
+    public String getFoodItem(@PathVariable("id") Integer id, Model model) {
+        model.addAttribute("cake", foodItemBO.getCakeById(id));
+        model.addAttribute("cakes", foodItemBO.getAllCakes());
+        return "cakeItemNew";
+    }
+
+    @GetMapping("/weddingCake")
+    public String weddingCake(Model model) {
+        return "weddingCake";
+    }
+
+    @GetMapping("/BirthdayCake")
+    public String BirthdayCake(Model model) {
+        return "BirthdayCake";
+    }
 
 }

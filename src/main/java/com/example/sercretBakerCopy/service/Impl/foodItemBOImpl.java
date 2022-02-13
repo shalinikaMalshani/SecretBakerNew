@@ -67,6 +67,9 @@ public class foodItemBOImpl implements foodItemBO {
     @Autowired
     private Configuration config;
 
+    @Autowired
+    CakeDAO cakeDAO;
+
     //get  food item by id
     @Override
     public FoodItemDTO getFoodItemById(int id) {
@@ -698,7 +701,28 @@ javaMailSender.send(message);
     }
 
     @Override
+<<<<<<< HEAD
     public void sendEmailToSBCD(CustomDesignDTO customDesignDTO, DeliveryDTO deliveryDTO) throws MessagingException, IOException {
+=======
+
+    public List<CakeDTO> getAllCakes() {
+        List<CakeDTO> cakeDTOList = new ArrayList<>();
+        Iterable<Cake> cakeList = this.cakeDAO.findAll();
+        for (Cake cake : cakeList) {
+            cakeDTOList.add(new CakeDTO(cake.getItemId(),
+                    cake.getFoodName(),
+                    cake.getS_description(),
+                    cake.getL_description(),
+                    cake.getPrice(),
+                    cake.getSrc(),
+                    cake.getCategory()));
+
+        }
+        return cakeDTOList;
+    }
+
+    public void sendEmailToSBCD(CustomDesignDTO customDesignDTO, DeliveryDTO deliveryDTO) throws MessagingException {
+>>>>>>> 26d87a8dfd627d3ef9097e368ca679a75098778d
         Customer cus = customerDAO.findOne(customDesignDTO.getCusDescustomer());
 
         List<CustomDesignDTO> listCus = new ArrayList<>();
@@ -747,6 +771,7 @@ javaMailSender.send(message);
         boolean html = true;
 
 
+<<<<<<< HEAD
         MimeMultipart multipart = new MimeMultipart("related");
 
         // first part  (the html)
@@ -755,6 +780,11 @@ javaMailSender.send(message);
         String htmlText="<h3>Custom Design Request</h3>" + "\n";
         htmlText+="<p><b>Custom Design SB"+customDesignDTO.getCustomDesignId()+"</b>\t<b>"+customDesignDTO.getCusDesdate()+"</b></p>";
         htmlText+="<table width='100%' align='center' border='1' style='border-collapse:collapse;'>"
+=======
+        String content = "<h3>Order details</h3>" + "\n";
+        content += "<p><b>Custom Design SB" + customDesignDTO.getCustomDesignId() + "</b>\t<b>" + customDesignDTO.getCusDesdate() + "</b></p>";
+        content += "<table width='100%' align='center' border='1' style='border-collapse:collapse;'>"
+>>>>>>> 26d87a8dfd627d3ef9097e368ca679a75098778d
                 + "<tr align='center'>"
                 + "<td><b>Cake Type <b></td>"
                 + "<td><b>Cake size<b></td>"
@@ -762,6 +792,11 @@ javaMailSender.send(message);
                 + "<td><b>Image<b></td>"
                 + "</tr>";
 
+<<<<<<< HEAD
+=======
+        int total = 0;
+        int sum = 0;
+>>>>>>> 26d87a8dfd627d3ef9097e368ca679a75098778d
 
         String data=null;
         for (CustomDesignDTO d : listCus) {
@@ -769,6 +804,7 @@ javaMailSender.send(message);
 
             htmlText += "<tr align='center'>" + "<td>" + d.getCusDescakeType() + "</td>"
                     + "<td>" + d.getCusDescakeSize() + "</td>"
+<<<<<<< HEAD
                     + "<td>"+d.getCusDesdes()+"</td>"
                     + "<td><img  height='80' width='80' src=\"cid:image\"></td>"
                     + "</tr>";
@@ -776,10 +812,19 @@ javaMailSender.send(message);
 
         htmlText+="<tr align='center'>" +"<td><b>" + "Shipping" + "</b></td>"
                 +"<td>" +""+ "</td>"
+=======
+                    + "<td>" + d.getCusDesdes() + "</td>"
+                    + "</tr>";
+        }
+
+
+        content += "<tr align='center'>" + "<td><b>" + "Shipping" + "</b></td>"
+>>>>>>> 26d87a8dfd627d3ef9097e368ca679a75098778d
                 + "<td>" + "" + "</td>"
                 + "<td><b>" + "Free delivery" + "</b></td>"
-                +"</tr>";
+                + "</tr>";
 
+<<<<<<< HEAD
         htmlText+="<tr align='center'>" +"<td><b>" + "Payment Method" + "</b></td>"
                 +"<td>" +""+ "</td>"
                 + "<td>" + "" + "</td>"
@@ -799,6 +844,29 @@ javaMailSender.send(message);
                 + "<p><i>"+deliveryDTO.getLocation_l3()+"</i></p>"
                 + "<p><i>"+"<b>Date:</b>"+deliveryDTO.getDeliveryDate()+"</i></p>"
                 + "<p><i>"+"<b>Time:</b>"+deliveryDTO.getDeliveryTime()+"</i></p>";
+=======
+        content += "<tr align='center'>" + "<td><b>" + "Payment Method" + "</b></td>"
+                + "<td>" + "" + "</td>"
+                + "<td><b>" + "Cash on delivery" + "</b></td>"
+                + "</tr>"
+                + "</table>";
+        content += "<h4 style='text-decoration: underline;'>Customer</h4>"
+                + "<p><i>" + "<b>Name:</b>" + cus.getUserName() + "</i></p>"
+                + "<p><i>" + "<b>Address:</b>" + cus.getAddress_l1() + "</i></p>"
+                + "<p><i>" + cus.getAddress_l2() + "</i></p>"
+                + "<p><i>" + cus.getAddress_l3() + "</i></p>"
+                + "<p><i>" + "<b>Contact:</b>" + deliveryDTO.getContactNo() + "</i></p>";
+
+        content += "<h4 style='text-decoration: underline;'>Delivery</h4>"
+                + "<p><i>" + "<b>Address:</b>" + deliveryDTO.getLocation_l1() + "</i></p>"
+                + "<p><i>" + deliveryDTO.getLocation_l2() + "</i></p>"
+                + "<p><i>" + deliveryDTO.getLocation_l3() + "</i></p>"
+                + "<p><i>" + "<b>Date:</b>" + deliveryDTO.getDeliveryDate() + "</i></p>"
+                + "<p><i>" + "<b>Time:</b>" + deliveryDTO.getDeliveryTime() + "</i></p>";
+
+
+
+>>>>>>> 26d87a8dfd627d3ef9097e368ca679a75098778d
 
 
         assert data != null;
@@ -830,6 +898,20 @@ javaMailSender.send(message);
         javaMailSender.send(message);
 
 
+    }
+
+    @Override
+    public CakeDTO getCakeById(Integer id) {
+        Cake cake = cakeDAO.findOne(id);
+        CakeDTO cakeDTO = new CakeDTO(cake.getItemId(),
+                cake.getFoodName(),
+                cake.getS_description(),
+                cake.getL_description(),
+                cake.getPrice(),
+                cake.getSrc(),
+                cake.getCategory());
+
+        return cakeDTO;
     }
 
     @Override

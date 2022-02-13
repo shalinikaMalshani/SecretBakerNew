@@ -288,8 +288,8 @@ foodItemBO.saveCustomDesign(customDesignDTO);
         foodItemBO.saveDelivery(deliveryDTO);
 
 //        foodItemBO.sendEmailToSB(restaurantCounterOrderDTO,deliveryDTO);
-
-
+//
+//
 //         foodItemBO.sendEmail(restaurantCounterOrderDTO,deliveryDTO);
 
         model.addAttribute("delivery",foodItemBO.getDeliveryById(deliveryDTO.getDeliveryId()));
