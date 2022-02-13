@@ -50,6 +50,9 @@ public class foodItemBOImpl implements foodItemBO {
     @Autowired
     private Configuration config;
 
+    @Autowired
+    CakeDAO cakeDAO;
+
     //get  food item by id
     @Override
     public FoodItemDTO getFoodItemById(int id) {
@@ -679,7 +682,36 @@ helper.setText(content,true);
 javaMailSender.send(message);
     }
 
+    @Override
+    public List<CakeDTO> getAllCakes() {
+        List<CakeDTO> cakeDTOList = new ArrayList<>();
+        Iterable<Cake> cakeList = this.cakeDAO.findAll();
+        for (Cake cake : cakeList) {
+            cakeDTOList.add(new CakeDTO(cake.getItemId(),
+                    cake.getFoodName(),
+                    cake.getS_description(),
+                    cake.getL_description(),
+                    cake.getPrice(),
+                    cake.getSrc(),
+                    cake.getCategory()));
 
+        }
+        return cakeDTOList;
+    }
+
+    @Override
+    public CakeDTO getCakeById(Integer id) {
+        Cake cake = cakeDAO.findOne(id);
+        CakeDTO cakeDTO = new CakeDTO(cake.getItemId(),
+                cake.getFoodName(),
+                cake.getS_description(),
+                cake.getL_description(),
+                cake.getPrice(),
+                cake.getSrc(),
+                cake.getCategory());
+
+        return cakeDTO;
+    }
 
 
 }

@@ -16,6 +16,9 @@
           rel="stylesheet">
 
     <!-- Css Styles -->
+
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://patskailua.com/font-email/font/flaticon.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/home.css" type="text/css">
 
     <link rel="stylesheet" href="../../cake-main/css/bootstrap.min.css" type="text/css">
@@ -28,6 +31,59 @@
     <link rel="stylesheet" href="../../cake-main/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="../../cake-main/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="../../cake-main/css/style.css" type="text/css">
+
+    <style>
+    /*body{*/
+    /*background:#353b45 !important;*/
+    /*font-family:'Poppins';*/
+    /*}*/
+    .flt-left1{
+    float:left;
+    }
+    .carousel3{
+    width:100%;
+    margin:auto;
+    }
+    .row4{
+    width:90%;
+    padding:0;
+    overflow:hidden;
+    margin:auto;
+    }
+    .row-container2{
+    width:2000px;
+    transition:0.5s;
+    }
+    .container4{
+    width:250px;
+
+    float:left;
+    display:inline;
+    margin:0 5px;
+    }
+    .clear1{
+    clear:both;
+    }
+    .controls{
+    width:100%;
+    margin:auto;
+    }
+    button{
+    border:none;
+    padding:10px 20px;
+    color:black;
+    /*background:#21252b;*/
+    font-weight:bold;
+    outline:none;
+    border-radius:3px;
+    height:200px;
+    position: relative;
+    /*postion:relative;*/
+    }
+
+    </style>
+
+
 </head>
 
 <body>
@@ -74,46 +130,32 @@
 <!-- Offcanvas Menu End -->
 
 <!-- Header Section Begin -->
+<!-- Header Section Begin -->
 <header class="header">
     <div class="header__top">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="header__top__inner">
-<%--                        <div class="header__top__left">--%>
-<%--                            <ul>--%>
-<%--                                <li>USD <span class="arrow_carrot-down"></span>--%>
-<%--                                    <ul>--%>
-<%--                                        <li>EUR</li>--%>
-<%--                                        <li>USD</li>--%>
-<%--                                    </ul>--%>
-<%--                                </li>--%>
-<%--                                <li>ENG <span class="arrow_carrot-down"></span>--%>
-<%--                                    <ul>--%>
-<%--                                        <li>Spanish</li>--%>
-<%--                                        <li>ENG</li>--%>
-<%--                                    </ul>--%>
-<%--                                </li>--%>
-<%--                                <li><a href="#">Sign in</a> <span class="arrow_carrot-down"></span></li>--%>
-<%--                            </ul>--%>
-<%--                        </div>--%>
+                    <div class="header__top__inner" >
+
                         <div class="header__logo">
-                            <a href="home"><img src="../../cake-main/img/logo.png"  alt=""></a>
+                            <a href=""><img src="../../cake-main/img/logomw7.png" style="height:110px; weight:60px;" alt=""></a>
                         </div>
                         <div class="header__top__right">
-                            <div class="header__top__right__links">
-                                <a href="/signUp" class="register" style="color: black">Register</a>
-                                <a href="/signIn" class="signIn" style="color: black">SignIn</a>
+                            <div class="header__top__right__links header__top__right__cart" >
+                                <a href="/signUp" class="register" style="color: black; margin-left:50px">Register</a>
+                                <a href="/signIn" class="signIn" style="color: black; margin-left:50px">SignIn</a>
+                                <a href="/shoppingCartNew" class="cart-icon" style="margin-left:50px;"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
                             </div><br>
-                            <div class="header__top__right__cart" style="float: right;margin-right:20px;">
-                                <a href="/shoppingCartNew" class="cart-icon" ><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
-                            </div>
-                        </div>
+                            <%--                            <div class="header__top__right__cart" style="float: right;margin-right:20px;">--%>
+                            <%--                                <a href="/shoppingCartNew" class="cart-icon" ><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>--%>
+                            <%--                            </div>--%>
                         </div>
                     </div>
                 </div>
             </div>
-        <div class="canvas__open"><i class="fa"><img src="../img/toggle.png" style="margin-bottom: 8px;"></i></div>
+
+            <div class="canvas__open"><i class="fa"><img src="../../img/toggle.png" style="margin-bottom: 8px;" alt=""></i></div>
         </div>
     </div>
     <div class="container">
@@ -124,18 +166,18 @@
                         <li><a href="home">Home</a></li>
                         <li class="active"><a href="about">About</a></li>
                         <li><a href="shop">Shop</a></li>
-                        <li><a href="#">Pages</a>
-                            <ul class="dropdown">
-                                <li><a href="shop-details.html">Shop Details</a></li>
-                                <li><a href="shoping-cart.html">Shoping Cart</a></li>
-                                <li><a href="checkout.html">Check Out</a></li>
-                                <li><a href="wisslist.html">Wisslist</a></li>
-                                <li><a href="./Class.html">Class</a></li>
-                                <li><a href="blog-details.html">Blog Details</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+<%--                        <li><a href="pages">Pages</a>--%>
+<%--&lt;%&ndash;                            <ul class="dropdown">&ndash;%&gt;--%>
+<%--&lt;%&ndash;                                <li><a href="shop-details.html">Shop Details</a></li>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                                <li><a href="shoping-cart.html">Shoping Cart</a></li>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                                <li><a href="checkout.html">Check Out</a></li>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                                <li><a href="wisslist.html">Wisslist</a></li>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                                <li><a href="./Class.html">Class</a></li>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                                <li><a href="blog-details.html">Blog Details</a></li>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                            </ul>&ndash;%&gt;--%>
+<%--                        </li>--%>
+                        <li><a href="blog">Blog</a></li>
+                        <li><a href="contact">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -169,7 +211,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="about__video set-bg" data-setbg="../../cake-main/img/cake22.jpg">
+                <div class="about__video set-bg" data-setbg="../../cake-main/img/homenw222.jpg" style="margin-top:-30px;">
 <%--                    <a href="https://www.youtube.com/watch?v=8PJ3_p7VqHw&list=RD8PJ3_p7VqHw&start_radio=1"--%>
 <%--                       class="play-btn video-popup"><i class="fa fa-play"></i></a>--%>
                 </div>
@@ -182,11 +224,14 @@
                         <span>About Cake shop</span>
                         <h2>Cakes and bakes from the house of Queens!</h2>
                     </div>
-                    <p>The "Cake Shop" is a Jordanian Brand that started as a small family business. The owners are
-                        Dr. Iyad Sultan and Dr. Sereen Sharabati, supported by a staff of 80 employees.</p>
+                    <p>The "Secret Baker" is a started as a small family business. The owner is .....
+                        She passion to bring forth the rich and tasteful delights to the public drew her to start up her own shop.
+                        What started in 2020 as a small shop, "Secret Baker" is now an established and well known name among everyone.
+                        We strive to provide the best quality food and service always.Our menu currently consists of a diverse selection from sweets, cakes & savories to among many others.
+                        Also we sell the all bakery items.  </p>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6">
+            <div class="col-lg-6 col-md-6" style="margin-top: 150px;">
                 <div class="about__bar">
                     <div class="about__bar__item">
                         <p>Cake design</p>
@@ -367,83 +412,313 @@
 </section>
 <!-- Testimonial Section End -->
 
+<br>
+<br>
+
+<%--<!-- Testimonial Section Begin -->--%>
+<%--<section class="testimonial spad" style="background-color: #d2b1ab; height: 700px;">--%>
+<%--    <div class="container">--%>
+<%--        <div class="row">--%>
+<%--            <div class="col-lg-12 text-center">--%>
+<%--                <div class="section-title" style="margin-top: -60px;">--%>
+<%--                    <span>Our location</span>--%>
+<%--                    <h2>Secret Baker </h2>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--        <div class="row">--%>
+<%--            <div class="testimonial__slider owl-carousel">--%>
+<%--                <div class="col-lg-6">--%>
+<%--                    <div>--%>
+<%--                        <div class="testimonial__author">--%>
+<%--                            <div style="weight:350px; height:350px;">--%>
+<%--                                <img src="../../cake-main/img/shop1.jpg" alt="">--%>
+<%--                            </div>--%>
+
+<%--                        </div>--%>
+<%--&lt;%&ndash;                        <div class="rating">&ndash;%&gt;--%>
+<%--&lt;%&ndash;                            <span class="icon_star"></span>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                            <span class="icon_star"></span>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                            <span class="icon_star"></span>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                            <span class="icon_star"></span>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                            <span class="icon_star-half_alt"></span>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                        </div>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt&ndash;%&gt;--%>
+<%--&lt;%&ndash;                            ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>&ndash;%&gt;--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="col-lg-6">--%>
+<%--                    <div>--%>
+<%--                        <div class="testimonial__author">--%>
+<%--                            <div style="weight:350px; height:350px;">--%>
+<%--                                <img src="../../cake-main/img/shop2.jpg" alt="">--%>
+<%--                            </div>--%>
+<%--&lt;%&ndash;                            <div class="testimonial__author__text">&ndash;%&gt;--%>
+<%--&lt;%&ndash;                                <h5>Kerry D.Silva</h5>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                                <span>New york</span>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                            </div>&ndash;%&gt;--%>
+<%--                        </div>--%>
+<%--&lt;%&ndash;                        <div class="rating">&ndash;%&gt;--%>
+<%--&lt;%&ndash;                            <span class="icon_star"></span>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                            <span class="icon_star"></span>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                            <span class="icon_star"></span>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                            <span class="icon_star"></span>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                            <span class="icon_star-half_alt"></span>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                        </div>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt&ndash;%&gt;--%>
+<%--&lt;%&ndash;                            ut labore et dolore magna aliqua viverra lacus vel facilisis.</p>&ndash;%&gt;--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="col-lg-6">--%>
+<%--                    <div>--%>
+<%--                        <div class="testimonial__author">--%>
+<%--                            <div style="weight:350px; height:350px;">--%>
+<%--                                <img src="../../cake-main/img/shop3.jpg" alt="">--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="col-lg-6">--%>
+<%--                    <div>--%>
+<%--                        <div class="testimonial__author">--%>
+<%--                            <div style="weight:350px; height:350px;">--%>
+<%--                                <img src="../../cake-main/img/shop4.jpg" alt="">--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="col-lg-6">--%>
+<%--                    <div>--%>
+<%--                        <div class="testimonial__author">--%>
+<%--                            <div style="weight:350px; height:350px;">--%>
+<%--                                <img src="../../cake-main/img/shop5.jpg" alt="">--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="col-lg-6">--%>
+<%--                    <div>--%>
+<%--                        <div class="testimonial__author">--%>
+<%--                            <div style="weight:350px; height:350px;">--%>
+<%--                                <img src="../../cake-main/img/shop6.jpg" alt="">--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="col-lg-6">--%>
+<%--                    <div>--%>
+<%--                        <div class="testimonial__author">--%>
+<%--                            <div style="weight:350px; height:350px;">--%>
+<%--                                <img src="../../cake-main/img/shop7NW.jpg" alt="">--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="col-lg-6">--%>
+<%--                    <div>--%>
+<%--                        <div class="testimonial__author">--%>
+<%--                            <div style="weight:350px; height:350px;">--%>
+<%--                                <img src="../../cake-main/img/shop8.jpg" alt="">--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="col-lg-6">--%>
+<%--                    <div>--%>
+<%--                        <div class="testimonial__author">--%>
+<%--                            <div style="weight:350px; height:350px;">--%>
+<%--                                <img src="../../cake-main/img/shop3.jpg" alt="">--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="col-lg-6">--%>
+<%--                    <div>--%>
+<%--                        <div class="testimonial__author">--%>
+<%--                            <div style="weight:350px; height:350px;">--%>
+<%--                                <img src="../../cake-main/img/shop8.jpg" alt="">--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</section>--%>
+<%--<!-- Testimonial Section End -->--%>
+
+
+
+
 <!-- Team Section Begin -->
 <section class="team spad">
     <div class="container">
         <div class="row">
-            <div class="col-lg-7 col-md-7 col-sm-7">
+            <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="section-title">
-                    <span>Our team</span>
-                    <h2>Sweet Baker </h2>
+                    <span>Our location</span>
+                    <h2>Secret Baker </h2>
                 </div>
             </div>
-            <div class="col-lg-5 col-md-5 col-sm-5">
-                <div class="team__btn">
-                    <a href="#" class="primary-btn">Join Us</a>
+<%--            <div class="col-lg-5 col-md-5 col-sm-5">--%>
+<%--                <div class="team__btn">--%>
+<%--                    <a href="#" class="primary-btn">Join Us</a>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="team__item set-bg" data-setbg="../../cake-main/img/shop1.jpg" style="height: 200px; width: 350px;">
+<%--                    <div class="team__item__text">--%>
+<%--                        <h6>Randy Butler</h6>--%>
+<%--                        <span>Decorater</span>--%>
+<%--                        <div class="team__item__social">--%>
+<%--                            <a href="#"><i class="fa fa-facebook"></i></a>--%>
+<%--                            <a href="#"><i class="fa fa-twitter"></i></a>--%>
+<%--                            <a href="#"><i class="fa fa-instagram"></i></a>--%>
+<%--                            <a href="#"><i class="fa fa-youtube-play"></i></a>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="team__item set-bg" data-setbg="../../cake-main/img/shop2.jpg" style="height: 200px; width: 350px;">
+<%--                    <div class="team__item__text">--%>
+<%--                        <h6>Randy Butler</h6>--%>
+<%--                        <span>Decorater</span>--%>
+<%--                        <div class="team__item__social">--%>
+<%--                            <a href="#"><i class="fa fa-facebook"></i></a>--%>
+<%--                            <a href="#"><i class="fa fa-twitter"></i></a>--%>
+<%--                            <a href="#"><i class="fa fa-instagram"></i></a>--%>
+<%--                            <a href="#"><i class="fa fa-youtube-play"></i></a>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="team__item set-bg" data-setbg="../../cake-main/img/shop3.jpg" style="height: 200px; width: 350px;">
+<%--                    <div class="team__item__text">--%>
+<%--                        <h6>Randy Butler</h6>--%>
+<%--                        <span>Decorater</span>--%>
+<%--                        <div class="team__item__social">--%>
+<%--                            <a href="#"><i class="fa fa-facebook"></i></a>--%>
+<%--                            <a href="#"><i class="fa fa-twitter"></i></a>--%>
+<%--                            <a href="#"><i class="fa fa-instagram"></i></a>--%>
+<%--                            <a href="#"><i class="fa fa-youtube-play"></i></a>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+                </div>
+            </div>
+<%--            <div class="col-md-4">--%>
+<%--                <div class="team__item set-bg" data-setbg="../../cake-main/img/shop4.jpg" style="height: 200px; width: 350px;">--%>
+<%--&lt;%&ndash;                    <div class="team__item__text">&ndash;%&gt;--%>
+<%--&lt;%&ndash;                        <h6>Randy Butler</h6>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                        <span>Decorater</span>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                        <div class="team__item__social">&ndash;%&gt;--%>
+<%--&lt;%&ndash;                            <a href="#"><i class="fa fa-facebook"></i></a>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                            <a href="#"><i class="fa fa-twitter"></i></a>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                            <a href="#"><i class="fa fa-instagram"></i></a>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                            <a href="#"><i class="fa fa-youtube-play"></i></a>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                        </div>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    </div>&ndash;%&gt;--%>
+<%--                </div>--%>
+<%--&lt;%&ndash;                <div class="map">&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <div class="container" style="width: 500px; height:800px;">&ndash;%&gt;--%>
+<%--&lt;%&ndash;                        <div class="d-flex justify-content-center">&ndash;%&gt;--%>
+<%--&lt;%&ndash;                            <div class="col-lg-4 col-md-7">&ndash;%&gt;--%>
+<%--&lt;%&ndash;                                <div class="map__inner">&ndash;%&gt;--%>
+<%--&lt;%&ndash;                                    <h6>Secret Baker</h6>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                                    <ul>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                                        <li>No 12,Green view garden,Green view garden,Kotagedara Road,Piliyandala.</li>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                                        <li>secretbaker123@gmail.com</li>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                                        <li>+1 800-786-1000</li>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                                    </ul>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                                </div>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                            </div>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                        </div>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    </div>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    <div class="map__iframe">&ndash;%&gt;--%>
+<%--&lt;%&ndash;                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.942207142346!2d79.92214461477212!3d6.776888895101511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd16689cd0fdbf703!2zNsKwNDYnMzYuOCJOIDc5wrA1NScyNy42IkU!5e0!3m2!1sen!2slk!4v1644470167986!5m2!1sen!2slk" width="800" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                    </div>&ndash;%&gt;--%>
+<%--&lt;%&ndash;                </div>&ndash;%&gt;--%>
+            </div>
+        </div>
+    </div>
+    <div class="map">
+        <div class="container">
+            <div class="d-flex justify-content-center">
+                <div class="col-lg-4 col-md-7">
+                    <div class="map__inner">
+                        <h6>Secret Baker</h6>
+                        <ul>
+                            <li>No 12,Green view garden,Green view garden,Kotagedara Road,Piliyandala.</li>
+                            <li>secretbaker123@gmail.com</li>
+                            <li>+1 800-786-1000</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-3  col-md-6 col-sm-6">
-                <div class="team__item set-bg" data-setbg="../../cake-main/img/team/team-1.jpg">
-                    <div class="team__item__text">
-                        <h6>Randy Butler</h6>
-                        <span>Decorater</span>
-                        <div class="team__item__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3  col-md-6 col-sm-6">
-                <div class="team__item set-bg" data-setbg="../../cake-main/img/team/team-2.jpg">
-                    <div class="team__item__text">
-                        <h6>Randy Butler</h6>
-                        <span>Decorater</span>
-                        <div class="team__item__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3  col-md-6 col-sm-6">
-                <div class="team__item set-bg" data-setbg="../../cake-main/img/team/team-3.jpg">
-                    <div class="team__item__text">
-                        <h6>Randy Butler</h6>
-                        <span>Decorater</span>
-                        <div class="team__item__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3  col-md-6 col-sm-6">
-                <div class="team__item set-bg" data-setbg="../../cake-main/img/team/team-4.jpg">
-                    <div class="team__item__text">
-                        <h6>Randy Butler</h6>
-                        <span>Decorater</span>
-                        <div class="team__item__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="map__iframe" style="background-size: cover; padding-right: 250px; padding-left: 250px;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.942207142346!2d79.92214461477212!3d6.776888895101511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd16689cd0fdbf703!2zNsKwNDYnMzYuOCJOIDc5wrA1NScyNy42IkU!5e0!3m2!1sen!2slk!4v1644470167986!5m2!1sen!2slk" width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </div>
 </section>
 <!-- Team Section End -->
+
+<br>
+<br>
+<br>
+<br>
+
+<!--shop image begin-->
+<section class="team spad">
+<div class="carousel3 " >
+    <button class='flt-left1 ' onclick="slideRight(this);"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+<%--    <button class='flt-left1 col-md-4' onclick="slideRight(this);"><i class="fa fa-angle-up" aria-hidden="true"></i></button>--%>
+    <div class="row4 flt-left1 ">
+
+        <div class="row-container2 ">
+            <div class="container4 col-md-4" >
+                <img src="../../cake-main/img/shop1.jpg" style="height: 200px; width: 350px;"/>
+            </div>
+            <div class="container4 col-md-4">
+                <img src="../../cake-main/img/shop2.jpg" style="height: 200px; width: 350px;"/>
+            </div>
+            <div class="container4 col-md-4">
+                <img src="../../cake-main/img/shop3.jpg" style="height: 200px; width: 350px;" />
+            </div>
+            <div class="container4 col-md-4">
+                <img src="../../cake-main/img/shop5.jpg" style="height: 200px; width: 350px;" />
+            </div>
+            <div class="container4 col-md-4">
+                <img src="../../cake-main/img/shop6.jpg" style="height: 200px; width: 350px;"/>
+            </div>
+            <div class="container4 col-md-4">
+                <img src="../../cake-main/img/shop7.jpg" style="height: 200px; width: 350px;"/>
+            </div>
+            <div class="container4 col-md-4">
+                <img src="../../cake-main/img/shop5.jpg" style="height: 200px; width: 350px;"/>
+            </div>
+            <div class="container4 col-md-4">
+                <img src="../../cake-main/img/shop6.jpg" style="height: 200px; width: 350px;"/>
+            </div>
+            <div class="clear1"></div>
+        </div>
+
+    </div>
+    <button class='flt-left1'  onclick="slideLeft(this);" ><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+<%--    <button class='flt-left1 col-md-4'  onclick="slideLeft(this);" style="padding-right: -20px;"><i class="fa fa-angle-down" aria-hidden="true"></i></button>--%>
+    <div class="clear1"></div>
+</div>
+</section>
+
+<br>
+<br>
+<br>
+
+<!--shop image end-->
+
 
 <!-- Footer Section Begin -->
 <footer class="footer set-bg" data-setbg="../../cake-main/img/footer-bg.jpg">
@@ -462,7 +737,7 @@
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="footer__about">
                     <div class="footer__logo">
-                        <a href="#"><img src="../../cake-main/img/footer-logo.png" alt=""></a>
+                        <a href="#"><img src="../../cake-main/img/footerlogo2.png" alt=""></a>
                     </div>
                     <p>Lorem ipsum dolor amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore dolore magna aliqua.</p>
@@ -475,7 +750,7 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="footer__widget">
+                <div class="footer__widget"  style="padding-left: 15px;">
                     <h6>CONTACT</h6>
                     <ul>
                         <li>No 12,</li>
@@ -539,6 +814,52 @@
 <script src="../../cake-main/js/owl.carousel.min.js"></script>
 <script src="../../cake-main/js/jquery.nicescroll.min.js"></script>
 <script src="../../cake-main/js/main.js"></script>
+
+<script>
+var right = 0;
+var maxMargin;
+var jumpMargin = 150;
+
+function setWidth(){
+var boxwidth = document.querySelector(".container4").offsetWidth;
+var displaywidth = document.querySelector(".row4").offsetWidth;
+var displayheight = document.querySelector(".row4").offsetHeight;
+var children = document.querySelectorAll(".row-container2 > .container4").length;
+var outerboxwidth = children * boxwidth + (children*10);
+document.querySelector(".row-container2").style.width = outerboxwidth+"px";
+document.querySelectorAll("button")[0].style.height = displayheight+"px";
+document.querySelectorAll("button")[1].style.height = displayheight+"px";
+maxMargin = outerboxwidth - displaywidth;
+}
+
+function slideLeft(event){
+var rowcont = document.querySelector(".row-container2");
+if(right <= -maxMargin){
+event.preventDefault();
+}
+else{
+right -= jumpMargin;
+}
+rowcont.style.marginLeft = right+"px";
+}
+
+function slideRight(event){
+var rowcont = document.querySelector(".row-container2");
+if(right==0){
+event.preventDefault();
+}
+else if(right >= maxMargin){
+event.preventDefault();
+}
+else{
+right += jumpMargin;
+}
+rowcont.style.marginLeft = right+"px";
+}
+
+window.onload=setWidth;
+</script>
+
 </body>
 
 </html>

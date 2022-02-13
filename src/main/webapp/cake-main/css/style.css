@@ -317,7 +317,7 @@ ol {
 }
 
 .header__top__inner {
-  height: 102px;
+  height: 130px;
   padding-top: 38px;
 }
 
@@ -385,9 +385,13 @@ ol {
 
 .header__logo {
   position: absolute;
-  left: 50%;
-  top: 25px;
-  margin-left: -60px;
+  left: 415px;
+  /*left: 350px;*/
+  top: 20px;
+  /*display: block;*/
+  /*margin-left: -60px;*/
+  /*margin-left: auto;*/
+  /*margin-right: auto;*/
 }
 .header__logo a {
   display: inline-block;

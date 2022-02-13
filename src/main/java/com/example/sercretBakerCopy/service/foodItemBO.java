@@ -54,4 +54,8 @@ public interface foodItemBO {
 
     void setResetPwdEmail(String email, String resetPwdLink) throws MessagingException;
 
+
+    List<CakeDTO>getAllCakes();
+
+    CakeDTO getCakeById(Integer id);
 }

@@ -24,7 +24,7 @@
     <!-- Css Styles -->
 
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="http://patskailua.com/font-email/font/flaticon.css" rel="stylesheet">
+    <link href="http://patskailua.com/font-email/font/flaticon.css" rel="stylesheet" >
     <link rel="stylesheet" href="../../css/home.css" type="text/css">
 
     <link rel="stylesheet" href="../../cake-main/css/bootstrap.min.css" type="text/css">
@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="../../cake-main/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="../../cake-main/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="../../cake-main/css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://ionic.io/ionicons">
 
 
 </head>
@@ -56,17 +57,35 @@
 <div class="offcanvas-menu-wrapper">
     <div class="offcanvas__cart">
         <div class="offcanvas__cart__links">
-            <a href="/signUp" class="register">Register</a>
-            <a href="/signIn" class="signIn">SignIn</a>
+            <a href="#" class="search-switch"><img src="../../cake-main/img/icon/search.png" alt=""></a>
+            <a href="#"><img src="../../cake-main/img/icon/heart.png" alt=""></a>
         </div>
         <div class="offcanvas__cart__item">
-            <a href="/shoppingCartNew"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
+            <a href="#"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
+            <div class="cart__price">Cart: <span>$0.00</span></div>
         </div>
     </div>
     <div class="offcanvas__logo">
-        <a href="home"><img src="../../cake-main/img/logo.png" alt=""></a>
+        <a href="home"><img src="../../cake-main/img/logonw2.png" style="height: 120px; weight:52px;" alt=""></a>
     </div>
     <div id="mobile-menu-wrap"></div>
+    <%--    <div class="offcanvas__option">--%>
+    <%--        <ul>--%>
+    <%--            <li>USD <span class="arrow_carrot-down"></span>--%>
+    <%--                <ul>--%>
+    <%--                    <li>EUR</li>--%>
+    <%--                    <li>USD</li>--%>
+    <%--                </ul>--%>
+    <%--            </li>--%>
+    <%--            <li>ENG <span class="arrow_carrot-down"></span>--%>
+    <%--                <ul>--%>
+    <%--                    <li>Spanish</li>--%>
+    <%--                    <li>ENG</li>--%>
+    <%--                </ul>--%>
+    <%--            </li>--%>
+    <%--            <li><a href="#">Sign in</a> <span class="arrow_carrot-down"></span></li>--%>
+    <%--        </ul>--%>
+    <%--    </div>--%>
 </div>
 <!-- Offcanvas Menu End -->
 
@@ -76,19 +95,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="header__top__inner">
+                    <div class="header__top__inner" >
 
                         <div class="header__logo">
-                            <a href=""><img src="../../cake-main/img/logo.png" alt=""></a>
+                            <a href=""><img src="../../cake-main/img/logoo.png" style="height:110px; weight:60px;" alt=""></a>
                         </div>
                         <div class="header__top__right">
-                            <div class="header__top__right__links">
-                                <a href="/signUp" class="register">Register</a>
-                                <a href="/signIn" class="signIn">SignIn</a>
+                            <div class="header__top__right__links header__top__right__cart" >
+                                <a href="/signUp" class="register" style="color: black; margin-left:50px">Register</a>
+                                <a href="/signIn" class="signIn" style="color: black; margin-left:50px">SignIn</a>
+                                <a href="/shoppingCartNew" class="cart-icon" style="margin-left:50px;"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
                             </div><br>
-                            <div class="header__top__right__cart" style="float: right;margin-right:20px;">
-                                <a href="/shoppingCartNew" class="cart-icon"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
-                            </div>
+                            <%--                            <div class="header__top__right__cart" style="float: right;margin-right:20px;">--%>
+                            <%--                                <a href="/shoppingCartNew" class="cart-icon" ><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>--%>
+                            <%--                            </div>--%>
                         </div>
                     </div>
                 </div>
@@ -104,10 +124,10 @@
                 <nav class="header__menu mobile-menu">
                     <ul>
                         <li class="active"><a href="home">Home</a></li>
-                        <li><a href="../cake-main/about.html">About</a></li>
+                        <li><a href="/about">About</a></li>
                         <li><a href="/shop">Shop</a></li>
                         <li><a href="../../blog">Blog</a></li>
-                        <li><a href="../cake-main/contact.html">Contact</a></li>
+                        <li><a href="/contact">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -119,7 +139,7 @@
 <!-- Hero Section Begin -->
 <section class="hero">
     <div class="hero__slider owl-carousel">
-        <div class="hero__item set-bg" data-setbg="../../cake-main/img/hero/hero-1.jpg">
+        <div class="hero__item set-bg" data-setbg="../../cake-main/img/1home.jpg">
 <%--            <div class="container">--%>
 <%--                <div class="row d-flex justify-content-center">--%>
 <%--                    <div class="col-lg-8">--%>
@@ -131,7 +151,7 @@
 <%--                </div>--%>
 <%--            </div>--%>
         </div>
-        <div class="hero__item set-bg" data-setbg="../../img/Cupcaketag.jpg">
+        <div class="hero__item set-bg" data-setbg="../../cake-main/img/home3.jpg">
 <%--            <div class="container">--%>
 <%--                <div class="row d-flex justify-content-center">--%>
 <%--                    <div class="col-lg-8">--%>
@@ -152,7 +172,10 @@
 <div class="categories">
     <div class="container">
         <div class="row">
-            <div class="categories__slider owl-carousel">
+            <div class="categories__slider owl-carousel owl-nav">
+<%--                    <button type="button" role="presentation" class="owl-prev">--%>
+<%--                        <i class="fa fa-angle-left"></i>--%>
+<%--                    </button>--%>
                 <div class="categories__item">
                     <div class="categories__item__icon">
                         <img style="border-radius: 50%;"src="../../img/birthday.jpg" alt=""  height="170">
@@ -189,6 +212,12 @@
                         <h5>Donut</h5>
                     </div>
                 </div>
+<%--                <button type="button" role="presentation" class="owl-next">--%>
+<%--                    <i class="fa fa-angle-right"><i></i></i>--%>
+<%--                </button>--%>
+<%--                <div>--%>
+<%--                    <ion-icon name="arrow-forward-outline"></ion-icon>--%>
+<%--                </div>--%>
             </div>
         </div>
     </div>
@@ -418,7 +447,7 @@
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="footer__about">
                     <div class="footer__logo">
-                        <a href="#"><img src="../../cake-main/img/footer-logo.png" alt=""></a>
+                        <a href="#"><img src="../../cake-main/img/footerlogo2.png" alt=""></a>
                     </div>
                     <p>Lorem ipsum dolor amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore dolore magna aliqua.</p>
@@ -431,13 +460,13 @@
                 </div>
             </div>
                 <div class="col-lg-4">
-                    <div class="footer__widget">
+                    <div class="footer__widget" style="padding-left: 15px;">
                         <h6>CONTACT</h6>
                         <ul>
-                            <li>No 12,</li>
-                            <li>Green view garden,</li>
-                            <li>Kotagedara Road,</li>
-                            <li>Piliyandala.</li>
+                            <li> No 12,</li>
+                            <li> Green view garden,</li>
+                            <li> Kotagedara Road,</li>
+                            <li> Piliyandala.</li>
                         </ul>
                         <br>
                         <H6>EMAIL</H6>

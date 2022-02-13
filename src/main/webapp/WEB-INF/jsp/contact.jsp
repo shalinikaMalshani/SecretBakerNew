@@ -16,6 +16,9 @@
           rel="stylesheet">
 
     <!-- Css Styles -->
+
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://patskailua.com/font-email/font/flaticon.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/home.css" type="text/css">
 
     <link rel="stylesheet" href="../../cake-main/css/bootstrap.min.css" type="text/css">
@@ -28,6 +31,7 @@
     <link rel="stylesheet" href="../../cake-main/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="../../cake-main/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="../../cake-main/css/style.css" type="text/css">
+
 </head>
 
 <body>
@@ -50,7 +54,7 @@
         </div>
     </div>
     <div class="offcanvas__logo">
-        <a href="home"><img src="../../cake-main/img/logo.png" alt=""></a>
+        <a href="home"><img src="../../cake-main/img/logonw2.png" style="height: 120px; weight:52px;" alt=""></a>
     </div>
     <div id="mobile-menu-wrap"></div>
 <%--    <div class="offcanvas__option">--%>
@@ -98,16 +102,17 @@
 <%--                            </ul>--%>
 <%--                        </div>--%>
                         <div class="header__logo">
-                            <a href="home"><img src="../../cake-main/img/logo.png" alt=""></a>
+                            <a href="home"><img src="../../cake-main/img/logonw.png" style="height:110px; weight:60px;"  alt=""></a>
                         </div>
                         <div class="header__top__right">
-                            <div class="header__top__right__links">
-                                <a href="/signUp" class="register" style="color: black">Register</a>
-                                <a href="/signIn" class="signIn" style="color: black">SignIn</a>
+                            <div class="header__top__right__links header__top__right__cart" >
+                                <a href="/signUp" class="register" style="color: black; margin-left:50px">Register</a>
+                                <a href="/signIn" class="signIn" style="color: black; margin-left:50px">SignIn</a>
+                                <a href="/shoppingCartNew" class="cart-icon" style="margin-left:50px;"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
                             </div><br>
-                            <div class="header__top__right__cart" style="float: right;margin-right:20px;">
-                                <a href="/shoppingCartNew" class="cart-icon" ><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
-                            </div>
+<%--                            <div class="header__top__right__cart" style="float: right;margin-right:20px;">--%>
+<%--                                <a href="/shoppingCartNew" class="cart-icon" ><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>--%>
+<%--                            </div>--%>
                         </div>
                     </div>
                 </div>
@@ -123,17 +128,17 @@
                         <li><a href="home">Home</a></li>
                         <li><a href="about">About</a></li>
                         <li><a href="shop">Shop</a></li>
-                        <li><a href="#">Pages</a>
-                            <ul class="dropdown">
-                                <li><a href="shop-details.html">Shop Details</a></li>
-                                <li><a href="shoping-cart.html">Shoping Cart</a></li>
-                                <li><a href="checkout.html">Check Out</a></li>
-                                <li><a href="wisslist.html">Wisslist</a></li>
-                                <li><a href="./Class.html">Class</a></li>
-                                <li><a href="blog-details.html">Blog Details</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="blog.html">Blog</a></li>
+<%--                        <li><a href="#">Pages</a>--%>
+<%--                            <ul class="dropdown">--%>
+<%--                                <li><a href="shop-details.html">Shop Details</a></li>--%>
+<%--                                <li><a href="shoping-cart.html">Shoping Cart</a></li>--%>
+<%--                                <li><a href="checkout.html">Check Out</a></li>--%>
+<%--                                <li><a href="wisslist.html">Wisslist</a></li>--%>
+<%--                                <li><a href="./Class.html">Class</a></li>--%>
+<%--                                <li><a href="blog-details.html">Blog Details</a></li>--%>
+<%--                            </ul>--%>
+<%--                        </li>--%>
+                        <li><a href="blog">Blog</a></li>
                         <li class="active"><a href="./contact">Contact</a></li>
                     </ul>
                 </nav>
@@ -162,7 +167,7 @@
                 </div>
             </div>
             <div class="map__iframe">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.7513406552903!2d79.92193491379787!3d6.800077021775116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae24ff6ba97f809%3A0x884f202638db7b6e!2sPrasad%20Textiles!5e0!3m2!1sen!2slk!4v1644326385196!5m2!1sen!2slk" width="800" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.942207142346!2d79.92214461477212!3d6.776888895101511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd16689cd0fdbf703!2zNsKwNDYnMzYuOCJOIDc5wrA1NScyNy42IkU!5e0!3m2!1sen!2slk!4v1644470167986!5m2!1sen!2slk" width="800" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
         <div class="contact__address">
@@ -290,14 +295,13 @@
                     <ul>
                         <li>No 12,</li>
                         <li>Green view garden,</li>
-                        <li>Green view garden,</li>
                         <li>Kotagedara Road,</li>
                         <li>Piliyandala.</li>
                     </ul>
                     <br>
                     <H6>EMAIL</H6>
                     <ul>
-                        <li>secretbaker123@gmail.com</li>
+                        <li>secretbaker123.com</li>
                     </ul>
                 </div>
             </div>
