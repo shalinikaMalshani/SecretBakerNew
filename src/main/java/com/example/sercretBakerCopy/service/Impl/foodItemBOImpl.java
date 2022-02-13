@@ -9,6 +9,7 @@ import com.example.sercretBakerCopy.entity.*;
 
 import com.example.sercretBakerCopy.service.foodItemBO;
 import freemarker.template.*;
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -20,8 +21,21 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
+import javax.imageio.ImageIO;
 import javax.mail.*;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+import javax.mail.util.ByteArrayDataSource;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.List;
@@ -547,9 +561,11 @@ customerDAO.save(customer);
             } else if (c == 4) {
                 itm.setCusDescakeSize(str);
                 c++;
-//            } else if (c == 5) {
-//                itm.setCusDesimage(str);
             } else if (c == 5) {
+                //String base64Image = str.replaceAll(" ", "+");
+                itm.setCusDesimage(str);
+                c++;
+            } else if (c == 6) {
                 itm.setCusDesdes(str);
                 listCus.add(itm);
                 c = 0;
@@ -566,7 +582,6 @@ customerDAO.save(customer);
                     cusDes.getCusDescakeType(),
                     cusDes.getCusDescakeSize(),
                     customDesignDTO.getCusDesdate(),
-                    cusDes.getCusDesimage(),
                     cusDes.getCusDesdes(),
                     customerDAO.findOne(customDesignDTO.getCusDescustomer())));
         }
@@ -575,6 +590,7 @@ customerDAO.save(customer);
 
     @Override
     public CustomDesignDTO getCustomDesById(int id) {
+
         CustomDesign customDesign= customDesignDAO.findOne(id);
         CustomDesignDTO customDesignDTO=new CustomDesignDTO(customDesign.getCustomDesignId(),
                 customDesign.getCusDesName(),
@@ -682,7 +698,7 @@ javaMailSender.send(message);
     }
 
     @Override
-    public void sendEmailToSBCD(CustomDesignDTO customDesignDTO, DeliveryDTO deliveryDTO) throws MessagingException {
+    public void sendEmailToSBCD(CustomDesignDTO customDesignDTO, DeliveryDTO deliveryDTO) throws MessagingException, IOException {
         Customer cus = customerDAO.findOne(customDesignDTO.getCusDescustomer());
 
         List<CustomDesignDTO> listCus = new ArrayList<>();
@@ -731,45 +747,53 @@ javaMailSender.send(message);
         boolean html = true;
 
 
-        String content="<h3>Order details</h3>" + "\n";
-        content+="<p><b>Custom Design SB"+customDesignDTO.getCustomDesignId()+"</b>\t<b>"+customDesignDTO.getCusDesdate()+"</b></p>";
-        content+="<table width='100%' align='center' border='1' style='border-collapse:collapse;'>"
+        MimeMultipart multipart = new MimeMultipart("related");
+
+        // first part  (the html)
+        BodyPart messageBodyPart = new MimeBodyPart();
+//        String htmlText = "<H1>Hello</H1><img src=\"cid:image\">";
+        String htmlText="<h3>Custom Design Request</h3>" + "\n";
+        htmlText+="<p><b>Custom Design SB"+customDesignDTO.getCustomDesignId()+"</b>\t<b>"+customDesignDTO.getCusDesdate()+"</b></p>";
+        htmlText+="<table width='100%' align='center' border='1' style='border-collapse:collapse;'>"
                 + "<tr align='center'>"
                 + "<td><b>Cake Type <b></td>"
                 + "<td><b>Cake size<b></td>"
                 + "<td><b>Description<b></td>"
+                + "<td><b>Image<b></td>"
                 + "</tr>";
 
-        int total=0;
-        int sum=0;
 
+        String data=null;
         for (CustomDesignDTO d : listCus) {
+            data=d.getCusDesimage();
 
-            content += "<tr align='center'>" + "<td>" + d.getCusDescakeType() + "</td>"
+            htmlText += "<tr align='center'>" + "<td>" + d.getCusDescakeType() + "</td>"
                     + "<td>" + d.getCusDescakeSize() + "</td>"
                     + "<td>"+d.getCusDesdes()+"</td>"
+                    + "<td><img  height='80' width='80' src=\"cid:image\"></td>"
                     + "</tr>";
         }
 
-
-        content+="<tr align='center'>" +"<td><b>" + "Shipping" + "</b></td>"
+        htmlText+="<tr align='center'>" +"<td><b>" + "Shipping" + "</b></td>"
                 +"<td>" +""+ "</td>"
+                + "<td>" + "" + "</td>"
                 + "<td><b>" + "Free delivery" + "</b></td>"
                 +"</tr>";
 
-        content+="<tr align='center'>" +"<td><b>" + "Payment Method" + "</b></td>"
+        htmlText+="<tr align='center'>" +"<td><b>" + "Payment Method" + "</b></td>"
                 +"<td>" +""+ "</td>"
+                + "<td>" + "" + "</td>"
                 + "<td><b>" + "Cash on delivery" + "</b></td>"
                 +"</tr>"
                 +"</table>";
-        content+="<h4 style='text-decoration: underline;'>Customer</h4>"
+        htmlText+="<h4 style='text-decoration: underline;'>Customer</h4>"
                 +"<p><i>"+"<b>Name:</b>"+cus.getUserName()+"</i></p>"
                 +"<p><i>"+"<b>Address:</b>"+cus.getAddress_l1()+"</i></p>"
                 + "<p><i>"+cus.getAddress_l2()+"</i></p>"
                 + "<p><i>"+cus.getAddress_l3()+"</i></p>"
                 + "<p><i>"+"<b>Contact:</b>"+deliveryDTO.getContactNo()+"</i></p>";
 
-        content+="<h4 style='text-decoration: underline;'>Delivery</h4>"
+        htmlText+="<h4 style='text-decoration: underline;'>Delivery</h4>"
                 +"<p><i>"+"<b>Address:</b>"+deliveryDTO.getLocation_l1()+"</i></p>"
                 +"<p><i>"+deliveryDTO.getLocation_l2()+"</i></p>"
                 + "<p><i>"+deliveryDTO.getLocation_l3()+"</i></p>"
@@ -777,12 +801,34 @@ javaMailSender.send(message);
                 + "<p><i>"+"<b>Time:</b>"+deliveryDTO.getDeliveryTime()+"</i></p>";
 
 
+        assert data != null;
+        String base64Image = data.split(",")[1];
+        byte[] imageBytes = javax.xml.bind.DatatypeConverter.parseBase64Binary(base64Image);
+        BufferedImage img = ImageIO.read(new ByteArrayInputStream(imageBytes));
+        File outputfile = new File("image.jpg");
+        ImageIO.write(img, "jpg", outputfile);
 
+        messageBodyPart.setContent(htmlText, "text/html");
 
-        helper.setText(content, html);
+        // add it
+        multipart.addBodyPart(messageBodyPart);
 
+        // second part (the image)
+        messageBodyPart = new MimeBodyPart();
+        DataSource fds = new FileDataSource
+                (outputfile.getPath());
+        System.out.print("datasource"+fds);
+        messageBodyPart.setDataHandler(new DataHandler(fds));
+        messageBodyPart.setHeader("Content-ID","<image>");
+
+        // add it
+        multipart.addBodyPart(messageBodyPart);
+
+        // put everything together
+        message.setContent(multipart);
 
         javaMailSender.send(message);
+
 
     }
 
@@ -818,6 +864,7 @@ javaMailSender.send(message);
                 itm.setCusDescakeSize(str);
                 c++;
             } else if (c == 5) {
+                //Base64.encode(FileUtils.readFileToByteArray(file));
                 itm.setCusDesimage(str);
                 c++;
             } else if (c == 6) {

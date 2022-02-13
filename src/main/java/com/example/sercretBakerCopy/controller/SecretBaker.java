@@ -5,7 +5,6 @@ import com.example.sercretBakerCopy.dto.*;
 import com.example.sercretBakerCopy.entity.Customer;
 import com.example.sercretBakerCopy.service.foodItemBO;
 import net.bytebuddy.utility.RandomString;
-import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.data.repository.query.Param;
@@ -32,6 +31,7 @@ import java.nio.file.StandardCopyOption;
 import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.List;
 
 
@@ -147,10 +147,7 @@ public class SecretBaker {
 
 
     @PostMapping("/saveCustomDesign")
-    public String saveCustomDesign(@ModelAttribute CustomDesignDTO customDesignDTO, BindingResult result, HttpSession session, Model model, @RequestParam("cusDesimage") MultipartFile multipartFile) throws IOException {
-
-        System.out.println("custom des des:" + customDesignDTO.getCusDesdes());
-        System.out.println("custom des des:" + customDesignDTO.getCusDesimage());
+    public String saveCustomDesign(@ModelAttribute CustomDesignDTO customDesignDTO, BindingResult result, HttpSession session, Model model) throws IOException {
 
 
         try {
@@ -192,10 +189,10 @@ public class SecretBaker {
                 itm.setCusDescakeSize(str);
                 c++;
             } else if (c == 5) {
-                Base64.decodeBase64(str);
+                //String base64Image = str.replaceAll(" ", "+");
                 itm.setCusDesimage(str);
                 c++;
-            } else if (c == 6) {
+            } else  {
                 itm.setCusDesdes(str);
                 listCus.add(itm);
                 c = 0;
@@ -208,7 +205,7 @@ public class SecretBaker {
             System.out.println("Item type:"+cus.getCusDescakeType());
             System.out.println("Food size"+cus.getCusDescakeSize());
             System.out.println("Food des"+cus.getCusDesdes());
-            System.out.println("Food image"+cus.getCusDesimage());
+
 //            System.out.println("description cus " + itm.getCusDesdes());
         }
         System.out.println("list of cus des " + listCus);

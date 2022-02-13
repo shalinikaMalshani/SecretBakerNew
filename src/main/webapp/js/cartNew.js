@@ -500,9 +500,16 @@ function getAllDetails(){
     var email=$("#cusDesemail").val();
     var cakeType=$('#cusDescakeType option:selected').text();
     var cakeSize=$('#cusDescakeSize option:selected').text();
-     var image = $("#cusDesimage").text();
+
+     var image = $("#cusDesimage")[0].files[0];
+     var img = $("#imgtag").text();
+
+    //var strImage = image.replace(/^data:image\/[a-z]+;base64,/, "");
+    // console.log("image",image);
      var des=[];
      des=$("#cusDesdes").val();
+     console.log("des:",des);
+    // var f=des.split();
 
      // var full=des.value;
 
@@ -512,16 +519,16 @@ function getAllDetails(){
         email: email,
         cakeType: cakeType,
         cakeSize: cakeSize,
-        image:image,
+        image:img,
         des:des
 
     });
 
     console.log("list",listCustom);
-    str =  Name+" "+phone+" "+email+" "+cakeType+" "+cakeSize+" "+image+" "+des+"";
-    console.log("str",str);
+    str =  Name+" "+phone+" "+email+" "+cakeType+" "+cakeSize+" "+img+" "+des+"";
+    // console.log("str",str);
     stre+= str;
-    console.log("stre",stre);
+    // console.log("stre",stre);
 
 
     $("#valuesAll").val(stre);
@@ -530,8 +537,7 @@ function getAllDetails(){
 
 
 }
-function encodeImgtoBase64(element) {
-
+  function encodeImgtoBase64(element) {
     var img = element.files[0];
 
     var reader = new FileReader();
@@ -539,16 +545,16 @@ function encodeImgtoBase64(element) {
     reader.onloadend = function() {
 
         $("#displayImg").attr("src", reader.result);
-        $("#imgtag").attr("href", reader.result);
+        $("#imgtag").text( reader.result);
 
     }
 
     reader.readAsDataURL(img);
 
-}
+ }
 function  valuesAllNew() {
     var vall = JSON.parse(JSON.stringify(localStorage.getItem('customDesign')));
-    console.log("local storage", vall);
+    // console.log("local storage", vall);
     $("#cusDes").val(vall);
 }
 

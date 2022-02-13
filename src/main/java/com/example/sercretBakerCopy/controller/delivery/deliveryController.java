@@ -3,9 +3,11 @@ package com.example.sercretBakerCopy.controller.delivery;
 import com.example.sercretBakerCopy.dto.*;
 import com.example.sercretBakerCopy.service.foodItemBO;
 import freemarker.template.utility.StringUtil;
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.Base64Utils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.mail.MessagingException;
+import javax.persistence.Convert;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
@@ -21,6 +24,7 @@ import java.io.InputStream;
 import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.List;
 
 @Controller
@@ -31,8 +35,7 @@ public class deliveryController {
 
     //save delivery details from cus des req
     @PostMapping("deliveryCus")
-    public String deliveryDetailCusDes(@ModelAttribute CustomDesignDTO customDesignDTO, @ModelAttribute OrderDTO restaurantCounterOrderDTO, @ModelAttribute DeliveryDTO deliveryDTO, @ModelAttribute OrderDetailDTO orderDetailDTO, HttpServletRequest request, Model model, HttpSession session,@RequestParam("cusDesimage") MultipartFile multipartFile) throws MessagingException {
-
+    public String deliveryDetailCusDes(@ModelAttribute CustomDesignDTO customDesignDTO, @ModelAttribute OrderDTO restaurantCounterOrderDTO, @ModelAttribute DeliveryDTO deliveryDTO, @ModelAttribute OrderDetailDTO orderDetailDTO, HttpServletRequest request, Model model, HttpSession session) throws MessagingException, IOException {
 
         //get already login customer
         int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
@@ -60,7 +63,7 @@ public class deliveryController {
                 customDesignDTO.setCustomDesignId(1);
             }
 
-
+foodItemBO.saveCustomDesign(customDesignDTO);
 
             List<CustomDesignDTO> listCus = new ArrayList<>();
 
@@ -90,9 +93,11 @@ public class deliveryController {
                 } else if (c == 4) {
                     itm.setCusDescakeSize(str);
                     c++;
-        } else if (c == 5) {
+                } else if (c == 5) {
+                  //String base64Image = str.replaceAll(" ", "+");
+                  //  new Base64.encoder(FileUtils.readFileToByteArray(customDesignDTO.getCusDesimage()));
                     itm.setCusDesimage(str);
-            c++;
+                     c++;
                 } else if (c == 6) {
                     itm.setCusDesdes(str);
                     listCus.add(itm);
@@ -107,6 +112,7 @@ public class deliveryController {
                 System.out.println("Food size"+cus.getCusDescakeSize());
                 System.out.println("Food des"+cus.getCusDesdes());
                 System.out.println("Food image"+cus.getCusDesimage());
+
             }
 
 
@@ -114,8 +120,14 @@ public class deliveryController {
             model.addAttribute("customDes",listCus);
             model.addAttribute("cus",foodItemBO.getCustomDesById(customDesignDTO.getCustomDesignId()));
 
+     //       String encoded = Base64Utils.encodeToString(foodItemBO.getCustomDesById(customDesignDTO.getCustomDesignId()).getCusDesimage());
 
-        } catch (NullPointerException e) {
+//            String encoded=Base64.getEncoder().encodeToString(foodItemBO.getCustomDesById(customDesignDTO.getCustomDesignId()).getCusDesimage());
+       //     String s="data:image"+"jpeg/"+";base64, ";
+
+
+
+        } catch (NullPointerException  e) {
             e.printStackTrace();
         }
 
@@ -147,7 +159,7 @@ public class deliveryController {
         }
         foodItemBO.saveDelivery(deliveryDTO);
 
-        //foodItemBO.sendEmailToSBCD(customDesignDTO,deliveryDTO);
+        foodItemBO.sendEmailToSBCD(customDesignDTO,deliveryDTO);
 
 
         // foodItemBO.sendEmailCD(customDesignDTO,deliveryDTO);

@@ -15,7 +15,11 @@ public class CustomDesign {
     private String cusDescakeType;
     private String cusDescakeSize;
     private LocalDate cusDesdate;
+//    @Lob
+//    @Basic(fetch = FetchType.LAZY)
+//    private byte[] cusDesimage;
     private String cusDesimage;
+
     private String cusDesdes;
 
     @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE})
@@ -25,17 +29,34 @@ public class CustomDesign {
     public CustomDesign() {
     }
 
-    public CustomDesign(int customDesignId, String cusDesName, String cusDesemail, String cusDescontact, String cusDescakeType, String cusDescakeSize, LocalDate cusDesdate, String cusDesimage, String cusDesdes) {
-        this.customDesignId = customDesignId;
-        this.cusDesName = cusDesName;
-        this.cusDesemail = cusDesemail;
-        this.cusDescontact = cusDescontact;
-        this.cusDescakeType = cusDescakeType;
-        this.cusDescakeSize = cusDescakeSize;
-        this.cusDesdate = cusDesdate;
-        this.cusDesimage = cusDesimage;
-        this.cusDesdes = cusDesdes;
-    }
+//    public CustomDesign(int customDesignId, String cusDesName, String cusDesemail, String cusDescontact, String cusDescakeType, String cusDescakeSize, LocalDate cusDesdate, byte[] cusDesimage, String cusDesdes) {
+//        this.customDesignId = customDesignId;
+//        this.cusDesName = cusDesName;
+//        this.cusDesemail = cusDesemail;
+//        this.cusDescontact = cusDescontact;
+//        this.cusDescakeType = cusDescakeType;
+//        this.cusDescakeSize = cusDescakeSize;
+//        this.cusDesdate = cusDesdate;
+//        this.cusDesimage = cusDesimage;
+//        this.cusDesdes = cusDesdes;
+//    }
+//
+//    public CustomDesign(int customDesignId, String cusDesName, String cusDesemail, String cusDescontact, String cusDescakeType, String cusDescakeSize, LocalDate cusDesdate, byte[] cusDesimage, String cusDesdes, Customer customer) {
+//        this.customDesignId = customDesignId;
+//        this.cusDesName = cusDesName;
+//        this.cusDesemail = cusDesemail;
+//        this.cusDescontact = cusDescontact;
+//        this.cusDescakeType = cusDescakeType;
+//        this.cusDescakeSize = cusDescakeSize;
+//        this.cusDesdate = cusDesdate;
+//        this.cusDesimage = cusDesimage;
+//        this.cusDesdes = cusDesdes;
+//        this.customer = customer;
+//    }
+//
+//    public CustomDesign(byte[] cusDesimage) {
+//        this.cusDesimage = cusDesimage;
+//    }
 
     public CustomDesign(int customDesignId, String cusDesName, String cusDesemail, String cusDescontact, String cusDescakeType, String cusDescakeSize, LocalDate cusDesdate, String cusDesimage, String cusDesdes, Customer customer) {
         this.customDesignId = customDesignId;
@@ -50,9 +71,35 @@ public class CustomDesign {
         this.customer = customer;
     }
 
+    public CustomDesign(int customDesignId, String cusDesName, String cusDesemail, String cusDescontact, String cusDescakeType, String cusDescakeSize, LocalDate cusDesdate, String cusDesdes, Customer customer) {
+        this.customDesignId = customDesignId;
+        this.cusDesName = cusDesName;
+        this.cusDesemail = cusDesemail;
+        this.cusDescontact = cusDescontact;
+        this.cusDescakeType = cusDescakeType;
+        this.cusDescakeSize = cusDescakeSize;
+        this.cusDesdate = cusDesdate;
+        this.cusDesdes = cusDesdes;
+        this.customer = customer;
+    }
+
+
+    public CustomDesign(int customDesignId, String cusDesName, String cusDesemail, String cusDescontact, String cusDescakeType, String cusDescakeSize, LocalDate cusDesdate, String cusDesimage, String cusDesdes) {
+        this.customDesignId = customDesignId;
+        this.cusDesName = cusDesName;
+        this.cusDesemail = cusDesemail;
+        this.cusDescontact = cusDescontact;
+        this.cusDescakeType = cusDescakeType;
+        this.cusDescakeSize = cusDescakeSize;
+        this.cusDesdate = cusDesdate;
+        this.cusDesimage = cusDesimage;
+        this.cusDesdes = cusDesdes;
+    }
+
     public CustomDesign(LocalDate cusDesdate) {
         this.cusDesdate = cusDesdate;
     }
+
 
     public int getCustomDesignId() {
         return customDesignId;
@@ -110,6 +157,14 @@ public class CustomDesign {
     public void setCusDesdate(LocalDate cusDesdate) {
         this.cusDesdate = cusDesdate;
     }
+
+//    public byte[] getCusDesimage() {
+//        return cusDesimage;
+//    }
+//
+//    public void setCusDesimage(byte[] cusDesimage) {
+//        this.cusDesimage = cusDesimage;
+//    }
 
     public String getCusDesimage() {
         return cusDesimage;

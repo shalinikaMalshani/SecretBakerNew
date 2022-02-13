@@ -1,6 +1,6 @@
 package com.example.sercretBakerCopy.dto;
 
-import java.sql.Blob;
+import java.io.File;
 import java.time.LocalDate;
 
 public class CustomDesignDTO {
@@ -11,7 +11,9 @@ public class CustomDesignDTO {
     private String cusDescakeType;
     private String cusDescakeSize;
     private LocalDate cusDesdate;
+    //private byte[] cusDesimage;
     private String cusDesimage;
+
     private String cusDesdes;
     private String dataValueCustomDes;
     private int cusDescustomer;
@@ -19,7 +21,7 @@ public class CustomDesignDTO {
     public CustomDesignDTO() {
     }
 
-    public CustomDesignDTO(int customDesignId, String cusDesName,String cusDesemail, String cusDescontact, String cusDescakeType, String cusDescakeSize, LocalDate cusDesdate, String cusDesimage, String cusDesdes, String dataValueCustomDes, int cusDescustomer) {
+    public CustomDesignDTO(int customDesignId, String cusDesName, String cusDesemail, String cusDescontact, String cusDescakeType, String cusDescakeSize, LocalDate cusDesdate, String cusDesimage, String cusDesdes, String dataValueCustomDes, int cusDescustomer) {
         this.customDesignId = customDesignId;
         this.cusDesName = cusDesName;
         this.cusDesemail = cusDesemail;
@@ -36,6 +38,7 @@ public class CustomDesignDTO {
     public CustomDesignDTO(int customDesignId, String cusDesName, String cusDesemail, String cusDescontact, String cusDescakeType, String cusDescakeSize, LocalDate cusDesdate, String cusDesimage, String cusDesdes) {
         this.customDesignId = customDesignId;
         this.cusDesName = cusDesName;
+        this.cusDesemail = cusDesemail;
         this.cusDescontact = cusDescontact;
         this.cusDescakeType = cusDescakeType;
         this.cusDescakeSize = cusDescakeSize;
@@ -55,6 +58,55 @@ public class CustomDesignDTO {
         this.cusDesimage = cusDesimage;
         this.cusDesdes = cusDesdes;
         this.dataValueCustomDes = dataValueCustomDes;
+    }
+    //    public CustomDesignDTO(int customDesignId, String cusDesName, String cusDesemail, String cusDescontact, String cusDescakeType, String cusDescakeSize, LocalDate cusDesdate, byte[] cusDesimage, String cusDesdes, String dataValueCustomDes, int cusDescustomer) {
+//        this.customDesignId = customDesignId;
+//        this.cusDesName = cusDesName;
+//        this.cusDesemail = cusDesemail;
+//        this.cusDescontact = cusDescontact;
+//        this.cusDescakeType = cusDescakeType;
+//        this.cusDescakeSize = cusDescakeSize;
+//        this.cusDesdate = cusDesdate;
+//        this.cusDesimage = cusDesimage;
+//        this.cusDesdes = cusDesdes;
+//        this.dataValueCustomDes = dataValueCustomDes;
+//        this.cusDescustomer = cusDescustomer;
+//    }
+
+//    public CustomDesignDTO(int customDesignId, String cusDesName, String cusDesemail, String cusDescontact, String cusDescakeType, String cusDescakeSize, LocalDate cusDesdate, byte[] cusDesimage, String cusDesdes) {
+//        this.customDesignId = customDesignId;
+//        this.cusDesName = cusDesName;
+//        this.cusDescontact = cusDescontact;
+//        this.cusDescakeType = cusDescakeType;
+//        this.cusDescakeSize = cusDescakeSize;
+//        this.cusDesdate = cusDesdate;
+//        this.cusDesimage = cusDesimage;
+//        this.cusDesdes = cusDesdes;
+//    }
+//
+//    public CustomDesignDTO(int customDesignId, String cusDesName, String cusDesemail, String cusDescontact, String cusDescakeType, String cusDescakeSize, LocalDate cusDesdate, byte[] cusDesimage, String cusDesdes, String dataValueCustomDes) {
+//        this.customDesignId = customDesignId;
+//        this.cusDesName = cusDesName;
+//        this.cusDesemail = cusDesemail;
+//        this.cusDescontact = cusDescontact;
+//        this.cusDescakeType = cusDescakeType;
+//        this.cusDescakeSize = cusDescakeSize;
+//        this.cusDesdate = cusDesdate;
+//        this.cusDesimage = cusDesimage;
+//        this.cusDesdes = cusDesdes;
+//        this.dataValueCustomDes = dataValueCustomDes;
+//    }
+
+//    public CustomDesignDTO(byte[] cusDesimage) {
+//        this.cusDesimage = cusDesimage;
+//    }
+
+    public String getCusDesimage() {
+        return cusDesimage;
+    }
+
+    public void setCusDesimage(String cusDesimage) {
+        this.cusDesimage = cusDesimage;
     }
 
     public CustomDesignDTO(LocalDate cusDesdate) {
@@ -122,13 +174,13 @@ public class CustomDesignDTO {
         this.cusDesdate = cusDesdate;
     }
 
-    public String getCusDesimage() {
-        return cusDesimage;
-    }
+//    public byte[] getCusDesimage() {
+//        return cusDesimage;
+//    }
 
-    public void setCusDesimage(String cusDesimage) {
-        this.cusDesimage = cusDesimage;
-    }
+//    public void setCusDesimage(byte[] cusDesimage) {
+//        this.cusDesimage = cusDesimage;
+//    }
 
     public String getCusDesdes() {
         return cusDesdes;

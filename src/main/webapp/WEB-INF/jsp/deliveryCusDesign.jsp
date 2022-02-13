@@ -199,7 +199,7 @@
                                 <div class="checkout__input">
                                     <p>First Name<span>*</span></p>
                                     <input type="text" class="form-control"
-                                           required="required" name="name"
+                                            name="name"
                                            id="name" placeholder="First Name"/>
                                 </div>
                             </div>
@@ -207,7 +207,7 @@
                                 <div class="checkout__input">
                                     <p>Last Name<span>*</span></p>
                                     <input type="text" class="form-control"
-                                           required="required" name="lastName"
+                                            name="lastName"
                                            id="lastName" placeholder="LastName"/>
                                 </div>
                             </div>
@@ -216,7 +216,7 @@
 
                         <div class="checkout__input">
                             <p>Delivery Area<span>*</span></p>
-                            <select required="required" name="deliveryArea"
+                            <select  name="deliveryArea"
                                     id="deliveryArea" class="checkout__input__add">
                                 <option value="1">Choose Area</option>
                                 <option value="Moratuwa">Moratuwa</option>
@@ -251,7 +251,7 @@
                                 <div class="checkout__input">
                                     <p>Email<span>*</span></p>
                                     <input type="email" class="form-control"
-                                           required="required" name="email"
+                                            name="email"
                                            id="email" placeholder="Email"/>
                                 </div>
                             </div>
@@ -261,14 +261,14 @@
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Delivery Date<span>*</span></p>
-                                    <input type="date" name ="deliveryDate" id="deliveryDate" placeholder="Delivery Date" class="checkout__input__add" required>
+                                    <input type="date" name ="deliveryDate" id="deliveryDate" placeholder="Delivery Date" class="checkout__input__add" >
                                 </div>
                             </div>
 
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Delivery Time<span>*</span></p>
-                                    <select required="required" name="deliveryTime"
+                                    <select  name="deliveryTime"
                                             id="deliveryTime" class="checkout__input__add" >
                                         <option value="1">Select the prefer Time</option>
                                         <option value="During 10AM - 1PM">During 10AM - 1PM</option>
@@ -323,8 +323,8 @@
 
             </form>
         </div>
+        </div>
 
-    </div>
 
 </section>
 <!-- Checkout Section End -->

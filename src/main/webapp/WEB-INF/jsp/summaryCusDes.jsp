@@ -235,6 +235,7 @@
                     </tr>
 
                 </c:forEach>
+<%--                <img id="imgcake" src="${image}" alt="" height="70px" width="70px">--%>
                 </tbody>
 
             </table>

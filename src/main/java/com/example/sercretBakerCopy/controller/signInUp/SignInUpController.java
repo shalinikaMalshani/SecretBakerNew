@@ -17,6 +17,7 @@ import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.List;
 
 @Controller
@@ -294,9 +295,10 @@ public class SignInUpController {
                         itm.setCusDescakeSize(str);
                         c++;
                     } else if (c == 5) {
+                        //String base64Image = str.replaceAll(" ", "+");
                         itm.setCusDesimage(str);
                         c++;
-                    } else if (c == 6) {
+                    } else {
                         itm.setCusDesdes(str);
                         listCus.add(itm);
                         c = 0;
@@ -309,7 +311,6 @@ public class SignInUpController {
                     System.out.println("Item type:"+cus.getCusDescakeType());
                     System.out.println("Food size"+cus.getCusDescakeSize());
                     System.out.println("Food des"+cus.getCusDesdes());
-                    System.out.println("Food image"+cus.getCusDesimage());
                 }
 
 
