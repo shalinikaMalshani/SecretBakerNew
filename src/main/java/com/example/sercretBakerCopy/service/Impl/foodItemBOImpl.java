@@ -245,8 +245,8 @@ public class foodItemBOImpl implements foodItemBO {
 
     @Override
     public void updatePwd(Customer customer, String newPwd) {
-customer.setPassword(newPwd);
-customerDAO.save(customer);
+        customer.setPassword(newPwd);
+        customerDAO.save(customer);
     }
 
     //update forgot pwd
@@ -254,12 +254,12 @@ customerDAO.save(customer);
     public void updateResetPwd(String token, String email) throws CustomerNotFoundException {
         Customer customer=customerDAO.findByEmail(email);
 
-       if(customer!=null){
-           customer.setToken(token);
-           customerDAO.save(customer);
-       }else{
+        if(customer!=null){
+            customer.setToken(token);
+            customerDAO.save(customer);
+        }else{
             throw  new CustomerNotFoundException("Could not find any customer with email "+email);
-       }
+        }
 
     }
 
@@ -293,79 +293,79 @@ customerDAO.save(customer);
             }
         }
 
-                    MimeMessage message = javaMailSender.createMimeMessage();
+        MimeMessage message = javaMailSender.createMimeMessage();
 
-                    MimeMessageHelper helper = new MimeMessageHelper(message, true);
+        MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
-                    helper.setTo(s.getEmail());
-                    helper.setFrom("webspring404@gmail.com");
-                    helper.setSubject("Your secret baker order has been received!!");
-                    boolean html = true;
+        helper.setTo(s.getEmail());
+        helper.setFrom("webspring404@gmail.com");
+        helper.setSubject("Your secret baker order has been received!!");
+        boolean html = true;
 
-                    String content = "<center><img src='cid:logoSB'/></center>";
-                    content += "<h1>Thank you for your order with Secret Baker</h1>" + "\n";
-                    content += "<h4>We contact you soon for the further confirmation</h4>" + "\n";
-                    content += "<p><b>Order SB" + orderDTO.getOrderId() + "</b>\t<b>[" + orderDTO.getDate() + "]</b></p>";
-                    content += "<table width='100%' align='center' border='1' style='border-collapse:collapse;'>"
-                            + "<tr align='center'>"
-                            + "<td><b>Product Name <b></td>"
-                            + "<td><b>Qty<b></td>"
-                            + "<td><b>Price<b></td>"
-                            + "</tr>";
+        String content = "<center><img src='cid:logoSB'/></center>";
+        content += "<h1>Thank you for your order with Secret Baker</h1>" + "\n";
+        content += "<h4>We contact you soon for the further confirmation</h4>" + "\n";
+        content += "<p><b>Order SB" + orderDTO.getOrderId() + "</b>\t<b>[" + orderDTO.getDate() + "]</b></p>";
+        content += "<table width='100%' align='center' border='1' style='border-collapse:collapse;'>"
+                + "<tr align='center'>"
+                + "<td><b>Product Name <b></td>"
+                + "<td><b>Qty<b></td>"
+                + "<td><b>Price<b></td>"
+                + "</tr>";
 
-                    int total = 0;
-                    int sum = 0;
+        int total = 0;
+        int sum = 0;
 
-                    for (OrderDetailDTO d : list) {
+        for (OrderDetailDTO d : list) {
 
-                        total = d.getQuantity() * d.getUnitePrice();
-                        sum = sum + total;
+            total = d.getQuantity() * d.getUnitePrice();
+            sum = sum + total;
 
-                        FoodItemDTO f = findFoodItemById(d.getFoodItem());
-                        d.setName(f.getFoodName());
-                        content += "<tr align='center'>" + "<td>" + d.getName() + "</td>"
-                                + "<td>" + d.getQuantity() + "</td>"
-                                + "<td>Rs:" + total + ".00</td>"
-                                + "</tr>";
-                    }
-                    content += "<tr align='center'>" + "<td><b>" + "Subtotal" + "</b></td>"
-                            + "<td>" + "" + "</td>"
-                            + "<td><b>Rs:" + sum + ".00</b></td>"
-                            + "</tr>";
+            FoodItemDTO f = findFoodItemById(d.getFoodItem());
+            d.setName(f.getFoodName());
+            content += "<tr align='center'>" + "<td>" + d.getName() + "</td>"
+                    + "<td>" + d.getQuantity() + "</td>"
+                    + "<td>Rs:" + total + ".00</td>"
+                    + "</tr>";
+        }
+        content += "<tr align='center'>" + "<td><b>" + "Subtotal" + "</b></td>"
+                + "<td>" + "" + "</td>"
+                + "<td><b>Rs:" + sum + ".00</b></td>"
+                + "</tr>";
 
-                    content += "<tr align='center'>" + "<td><b>" + "Shipping" + "</b></td>"
-                            + "<td>" + "" + "</td>"
-                            + "<td><b>" + "Free delivery" + "</b></td>"
-                            + "</tr>";
+        content += "<tr align='center'>" + "<td><b>" + "Shipping" + "</b></td>"
+                + "<td>" + "" + "</td>"
+                + "<td><b>" + "Free delivery" + "</b></td>"
+                + "</tr>";
 
-                    content += "<tr align='center'>" + "<td><b>" + "Payment Method" + "</b></td>"
-                            + "<td>" + "" + "</td>"
-                            + "<td><b>" + "Cash on delivery" + "</b></td>"
-                            + "</tr>";
+        content += "<tr align='center'>" + "<td><b>" + "Payment Method" + "</b></td>"
+                + "<td>" + "" + "</td>"
+                + "<td><b>" + "Cash on delivery" + "</b></td>"
+                + "</tr>";
 
-                    content += "<tr align='center'>" + "<td><b>" + "Total" + "</b></td>"
-                            + "<td>" + "" + "</td>"
-                            + "<td><b>Rs:" + sum + ".00</b></td>"
-                            + "</tr>"
-                            + "</table>";
+        content += "<tr align='center'>" + "<td><b>" + "Total" + "</b></td>"
+                + "<td>" + "" + "</td>"
+                + "<td><b>Rs:" + sum + ".00</b></td>"
+                + "</tr>"
+                + "</table>";
         content+="<h4 style='text-decoration: underline;'>Customer</h4>"
                 +"<p><i>"+"<b>Name:</b>"+s.getUserName()+"</i></p>"
                 +"<p><i>"+"<b>Address:</b>"+s.getAddress_l1()+"</i></p>"
                 + "<p><i>"+s.getAddress_l2()+"</i></p>"
                 + "<p><i>"+s.getAddress_l3()+"</i></p>";
-            content+="<h4 style='text-decoration: underline;'>Delivery</h4>"
-                    +"<p><i>"+"<b>Address:</b>"+deliveryDTO.getLocation_l1()+"</i></p>"
-                    +"<p><i>"+deliveryDTO.getLocation_l2()+"</i></p>"
-                    + "<p><i>"+deliveryDTO.getLocation_l3()+"</i></p>"
-                    + "<p><i>"+"<b>Date:</b>"+deliveryDTO.getDeliveryDate()+"</i></p>"
-                    + "<p><i>"+"<b>Time:</b>"+deliveryDTO.getDeliveryTime()+"</i></p>";
+        content+="<h4 style='text-decoration: underline;'>Delivery</h4>"
+                +"<p><i>"+"<b>Address:</b>"+deliveryDTO.getLocation_l1()+"</i></p>"
+                +"<p><i>"+deliveryDTO.getLocation_l2()+"</i></p>"
+                + "<p><i>"+deliveryDTO.getLocation_l3()+"</i></p>"
+                + "<p><i>"+"<b>Date:</b>"+deliveryDTO.getDeliveryDate()+"</i></p>"
+                + "<p><i>"+"<b>Time:</b>"+deliveryDTO.getDeliveryTime()+"</i></p>";
 
 
-                    helper.setText(content, html);
-                    //img set
-                    ClassPathResource resource = new ClassPathResource("../../img/logoSB.png");
-                    helper.addInline("logoSB", resource);
-                    javaMailSender.send(message);
+        helper.setText(content, html);
+        //img set
+        ClassPathResource resource = new ClassPathResource("../../img/logoSB.png");
+        helper.addInline("logoSB", resource);
+        javaMailSender.send(message);
     }
 
     //send mail to SB
@@ -516,7 +516,7 @@ customerDAO.save(customer);
         OrderNew orderNew = orderDAO.findOne(orderId);
         return new OrderNew(
                 orderNew.getOrderId(),
-               orderNew.getOrderState(),
+                orderNew.getOrderState(),
                 orderNew.getDate(),
                 orderNew.getOrderHolder()
         );
@@ -611,10 +611,10 @@ customerDAO.save(customer);
     public CustomDesignDTO findHighestCustomDesId() {
         CustomDesign customDesign=null;
         try {
-           customDesign=customDesignDAO.findTopByOrderByCustomDesignIdDesc();
+            customDesign=customDesignDAO.findTopByOrderByCustomDesignIdDesc();
         }catch(Exception e){
 
-            }
+        }
         return  new CustomDesignDTO(customDesign.getCustomDesignId());
     }
 
@@ -696,135 +696,131 @@ customerDAO.save(customer);
                 +"<p>Click the link below to reset your password:</p>"
                 +"<p><b><a href=\""+resetPwdLink+"\">Change my password</a></b></p>";
 
-helper.setText(content,true);
-javaMailSender.send(message);
+        helper.setText(content,true);
+        javaMailSender.send(message);
     }
+
+//    @Override
+//    public void sendEmailToSBCD(CustomDesignDTO customDesignDTO, DeliveryDTO deliveryDTO) throws MessagingException, IOException {
+//
+//    }
 
     @Override
-<<<<<<< HEAD
-    public void sendEmailToSBCD(CustomDesignDTO customDesignDTO, DeliveryDTO deliveryDTO) throws MessagingException, IOException {
-=======
+        public List<CakeDTO> getAllCakes() {
+            List<CakeDTO> cakeDTOList = new ArrayList<>();
+            Iterable<Cake> cakeList = this.cakeDAO.findAll();
+            for (Cake cake : cakeList) {
+                cakeDTOList.add(new CakeDTO(cake.getItemId(),
+                        cake.getFoodName(),
+                        cake.getS_description(),
+                        cake.getL_description(),
+                        cake.getPrice(),
+                        cake.getSrc(),
+                        cake.getCategory()));
 
-    public List<CakeDTO> getAllCakes() {
-        List<CakeDTO> cakeDTOList = new ArrayList<>();
-        Iterable<Cake> cakeList = this.cakeDAO.findAll();
-        for (Cake cake : cakeList) {
-            cakeDTOList.add(new CakeDTO(cake.getItemId(),
-                    cake.getFoodName(),
-                    cake.getS_description(),
-                    cake.getL_description(),
-                    cake.getPrice(),
-                    cake.getSrc(),
-                    cake.getCategory()));
-
-        }
-        return cakeDTOList;
-    }
-
-    public void sendEmailToSBCD(CustomDesignDTO customDesignDTO, DeliveryDTO deliveryDTO) throws MessagingException {
->>>>>>> 26d87a8dfd627d3ef9097e368ca679a75098778d
-        Customer cus = customerDAO.findOne(customDesignDTO.getCusDescustomer());
-
-        List<CustomDesignDTO> listCus = new ArrayList<>();
-        String array = customDesignDTO.getDataValueCustomDes();
-        System.out.print("arr" + array);
-
-
-        String yo[] = array.split(" ");
-
-        System.out.print("yo[]" + Arrays.toString(yo));
-        int c = 0;
-        CustomDesignDTO itm = new CustomDesignDTO();
-        for (String str : yo) {//Read String and add to list
-            if (c == 0) {
-                itm = new CustomDesignDTO();
-                itm.setCusDesName(str);
-                c++;
-            } else if (c == 1) {
-                itm.setCusDescontact(str);
-                c++;
-            } else if (c == 2) {
-                itm.setCusDesemail(str);
-                c++;
-            } else if (c == 3) {
-                itm.setCusDescakeType(str);
-                c++;
-            } else if (c == 4) {
-                itm.setCusDescakeSize(str);
-                c++;
-            } else if (c == 5) {
-                itm.setCusDesimage(str);
-                c++;
-            } else if (c == 6) {
-                itm.setCusDesdes(str);
-                listCus.add(itm);
-                c = 0;
             }
+            return cakeDTOList;
         }
-        MimeMessage message = javaMailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(message, true);
+
+        @Override
+        public void sendEmailToSBCD(CustomDesignDTO customDesignDTO, DeliveryDTO deliveryDTO) throws MessagingException {
+            Customer cus = customerDAO.findOne(customDesignDTO.getCusDescustomer());
+
+            List<CustomDesignDTO> listCus = new ArrayList<>();
+            String array = customDesignDTO.getDataValueCustomDes();
+            System.out.print("arr" + array);
 
 
-        helper.setTo("webspring404@gmail.com");
-        helper.setFrom("webspring404@gmail.com");
-        helper.setSubject("Secret baker today's custom design request");
-        boolean html = true;
+            String yo[] = array.split(" ");
+
+            System.out.print("yo[]" + Arrays.toString(yo));
+            int c = 0;
+            CustomDesignDTO itm = new CustomDesignDTO();
+            for (String str : yo) {//Read String and add to list
+                if (c == 0) {
+                    itm = new CustomDesignDTO();
+                    itm.setCusDesName(str);
+                    c++;
+                } else if (c == 1) {
+                    itm.setCusDescontact(str);
+                    c++;
+                } else if (c == 2) {
+                    itm.setCusDesemail(str);
+                    c++;
+                } else if (c == 3) {
+                    itm.setCusDescakeType(str);
+                    c++;
+                } else if (c == 4) {
+                    itm.setCusDescakeSize(str);
+                    c++;
+                } else if (c == 5) {
+                    itm.setCusDesimage(str);
+                    c++;
+                } else if (c == 6) {
+                    itm.setCusDesdes(str);
+                    listCus.add(itm);
+                    c = 0;
+                }
+            }
+            MimeMessage message = javaMailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
 
-<<<<<<< HEAD
-        MimeMultipart multipart = new MimeMultipart("related");
+            helper.setTo("webspring404@gmail.com");
+            helper.setFrom("webspring404@gmail.com");
+            helper.setSubject("Secret baker today's custom design request");
+            boolean html = true;
 
-        // first part  (the html)
-        BodyPart messageBodyPart = new MimeBodyPart();
+
+
+            MimeMultipart multipart = new MimeMultipart("related");
+
+            // first part  (the html)
+            BodyPart messageBodyPart = new MimeBodyPart();
 //        String htmlText = "<H1>Hello</H1><img src=\"cid:image\">";
-        String htmlText="<h3>Custom Design Request</h3>" + "\n";
-        htmlText+="<p><b>Custom Design SB"+customDesignDTO.getCustomDesignId()+"</b>\t<b>"+customDesignDTO.getCusDesdate()+"</b></p>";
-        htmlText+="<table width='100%' align='center' border='1' style='border-collapse:collapse;'>"
-=======
-        String content = "<h3>Order details</h3>" + "\n";
-        content += "<p><b>Custom Design SB" + customDesignDTO.getCustomDesignId() + "</b>\t<b>" + customDesignDTO.getCusDesdate() + "</b></p>";
-        content += "<table width='100%' align='center' border='1' style='border-collapse:collapse;'>"
->>>>>>> 26d87a8dfd627d3ef9097e368ca679a75098778d
-                + "<tr align='center'>"
-                + "<td><b>Cake Type <b></td>"
-                + "<td><b>Cake size<b></td>"
-                + "<td><b>Description<b></td>"
-                + "<td><b>Image<b></td>"
-                + "</tr>";
+            String htmlText="<h3>Custom Design Request</h3>" + "\n";
+            htmlText+="<p><b>Custom Design SB"+customDesignDTO.getCustomDesignId()+"</b>\t<b>"+customDesignDTO.getCusDesdate()+"</b></p>";
+            htmlText+="<table width='100%' align='center' border='1' style='border-collapse:collapse;'>";
 
-<<<<<<< HEAD
-=======
-        int total = 0;
-        int sum = 0;
->>>>>>> 26d87a8dfd627d3ef9097e368ca679a75098778d
+            String content = "<h3>Order details</h3>" + "\n";
+            content += "<p><b>Custom Design SB" + customDesignDTO.getCustomDesignId() + "</b>\t<b>" + customDesignDTO.getCusDesdate() + "</b></p>";
+            content += "<table width='100%' align='center' border='1' style='border-collapse:collapse;'>"
 
-        String data=null;
-        for (CustomDesignDTO d : listCus) {
-            data=d.getCusDesimage();
-
-            htmlText += "<tr align='center'>" + "<td>" + d.getCusDescakeType() + "</td>"
-                    + "<td>" + d.getCusDescakeSize() + "</td>"
-<<<<<<< HEAD
-                    + "<td>"+d.getCusDesdes()+"</td>"
-                    + "<td><img  height='80' width='80' src=\"cid:image\"></td>"
+                    + "<tr align='center'>"
+                    + "<td><b>Cake Type <b></td>"
+                    + "<td><b>Cake size<b></td>"
+                    + "<td><b>Description<b></td>"
+                    + "<td><b>Image<b></td>"
                     + "</tr>";
-        }
 
-        htmlText+="<tr align='center'>" +"<td><b>" + "Shipping" + "</b></td>"
-                +"<td>" +""+ "</td>"
-=======
-                    + "<td>" + d.getCusDesdes() + "</td>"
+
+            int total = 0;
+            int sum = 0;
+            String data=null;
+            for (CustomDesignDTO d : listCus) {
+                data=d.getCusDesimage();
+
+                htmlText += "<tr align='center'>" + "<td>" + d.getCusDescakeType() + "</td>"
+                        + "<td>" + d.getCusDescakeSize() + "</td>"
+
+                        + "<td>"+d.getCusDesdes()+"</td>"
+                        + "<td><img  height='80' width='80' src=\"cid:image\"></td>"
+                        + "</tr>";
+//            }
+
+            htmlText+="<tr align='center'>" +"<td><b>" + "Shipping" + "</b></td>"
+                    +"<td>" +""+ "</td>"
+            + "<td>" + d.getCusDesdes() + "</td>"
                     + "</tr>";
         }
 
 
         content += "<tr align='center'>" + "<td><b>" + "Shipping" + "</b></td>"
->>>>>>> 26d87a8dfd627d3ef9097e368ca679a75098778d
                 + "<td>" + "" + "</td>"
                 + "<td><b>" + "Free delivery" + "</b></td>"
                 + "</tr>";
 
-<<<<<<< HEAD
+
         htmlText+="<tr align='center'>" +"<td><b>" + "Payment Method" + "</b></td>"
                 +"<td>" +""+ "</td>"
                 + "<td>" + "" + "</td>"
@@ -844,7 +840,7 @@ javaMailSender.send(message);
                 + "<p><i>"+deliveryDTO.getLocation_l3()+"</i></p>"
                 + "<p><i>"+"<b>Date:</b>"+deliveryDTO.getDeliveryDate()+"</i></p>"
                 + "<p><i>"+"<b>Time:</b>"+deliveryDTO.getDeliveryTime()+"</i></p>";
-=======
+
         content += "<tr align='center'>" + "<td><b>" + "Payment Method" + "</b></td>"
                 + "<td>" + "" + "</td>"
                 + "<td><b>" + "Cash on delivery" + "</b></td>"
@@ -865,8 +861,6 @@ javaMailSender.send(message);
                 + "<p><i>" + "<b>Time:</b>" + deliveryDTO.getDeliveryTime() + "</i></p>";
 
 
-
->>>>>>> 26d87a8dfd627d3ef9097e368ca679a75098778d
 
 
         assert data != null;
