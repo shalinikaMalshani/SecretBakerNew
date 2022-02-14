@@ -539,12 +539,10 @@ public class foodItemBOImpl implements foodItemBO {
 
         List<CustomDesignDTO> listCus = new ArrayList<>();
         String array = customDesignDTO.getDataValueCustomDes();
-        System.out.print("arr" + array);
 
 
         String yo[] = array.split(" ");
 
-        System.out.print("yo[]" + Arrays.toString(yo));
         int c = 0;
         CustomDesignDTO itm = new CustomDesignDTO();
         for (String str : yo) {//Read String and add to list
@@ -565,7 +563,6 @@ public class foodItemBOImpl implements foodItemBO {
                 itm.setCusDescakeSize(str);
                 c++;
             } else if (c == 5) {
-                //String base64Image = str.replaceAll(" ", "+");
                 itm.setCusDesimage(str);
                 c++;
             } else if (c == 6) {
@@ -585,7 +582,7 @@ public class foodItemBOImpl implements foodItemBO {
                     cusDes.getCusDescakeType(),
                     cusDes.getCusDescakeSize(),
                     customDesignDTO.getCusDesdate(),
-                    cusDes.getCusDesdes(),
+                    cusDes.getCusDesdes().replace("+"," "),
                     customerDAO.findOne(customDesignDTO.getCusDescustomer())));
         }
 
@@ -706,6 +703,7 @@ public class foodItemBOImpl implements foodItemBO {
 //    }
 
     @Override
+<<<<<<< HEAD
         public List<CakeDTO> getAllCakes() {
             List<CakeDTO> cakeDTOList = new ArrayList<>();
             Iterable<Cake> cakeList = this.cakeDAO.findAll();
@@ -717,10 +715,35 @@ public class foodItemBOImpl implements foodItemBO {
                         cake.getPrice(),
                         cake.getSrc(),
                         cake.getCategory()));
+=======
+    public List<CakeDTO> getAllCakes() {
+        List<CakeDTO> cakeDTOList = new ArrayList<>();
+        Iterable<Cake> cakeList = this.cakeDAO.findAll();
+        for (Cake cake : cakeList) {
+            cakeDTOList.add(new CakeDTO(cake.getItemId(),
+                    cake.getFoodName(),
+                    cake.getS_description(),
+                    cake.getL_description(),
+                    cake.getPrice(),
+                    cake.getSrc(),
+                    cake.getCategory()));
+>>>>>>> b48e9950791c90d0ef457221e72e9acf73920004
 
             }
             return cakeDTOList;
         }
+<<<<<<< HEAD
+=======
+        return cakeDTOList;
+    }
+
+    public void sendEmailToSBCD(CustomDesignDTO customDesignDTO, DeliveryDTO deliveryDTO) throws MessagingException, IOException {
+        Customer cus = customerDAO.findOne(customDesignDTO.getCusDescustomer());
+
+        List<CustomDesignDTO> listCus = new ArrayList<>();
+        String array = customDesignDTO.getDataValueCustomDes();
+        System.out.print("arr" + array);
+>>>>>>> b48e9950791c90d0ef457221e72e9acf73920004
 
         @Override
         public void sendEmailToSBCD(CustomDesignDTO customDesignDTO, DeliveryDTO deliveryDTO) throws MessagingException {
@@ -771,13 +794,18 @@ public class foodItemBOImpl implements foodItemBO {
             helper.setSubject("Secret baker today's custom design request");
             boolean html = true;
 
+<<<<<<< HEAD
 
+=======
+        MimeMultipart multipart = new MimeMultipart("related");
+>>>>>>> b48e9950791c90d0ef457221e72e9acf73920004
 
             MimeMultipart multipart = new MimeMultipart("related");
 
             // first part  (the html)
             BodyPart messageBodyPart = new MimeBodyPart();
 //        String htmlText = "<H1>Hello</H1><img src=\"cid:image\">";
+<<<<<<< HEAD
             String htmlText="<h3>Custom Design Request</h3>" + "\n";
             htmlText+="<p><b>Custom Design SB"+customDesignDTO.getCustomDesignId()+"</b>\t<b>"+customDesignDTO.getCusDesdate()+"</b></p>";
             htmlText+="<table width='100%' align='center' border='1' style='border-collapse:collapse;'>";
@@ -816,11 +844,39 @@ public class foodItemBOImpl implements foodItemBO {
 
 
         content += "<tr align='center'>" + "<td><b>" + "Shipping" + "</b></td>"
-                + "<td>" + "" + "</td>"
-                + "<td><b>" + "Free delivery" + "</b></td>"
+=======
+        String htmlText="<h3>Custom Design Request</h3>" + "\n";
+        htmlText+="<p><b>Custom Design SB"+customDesignDTO.getCustomDesignId()+"</b>\t<b>"+customDesignDTO.getCusDesdate()+"</b></p>";
+        htmlText+="<table width='100%' align='center' border='1' style='border-collapse:collapse;'>"
+                + "<tr align='center'>"
+                + "<td><b>Cake Type <b></td>"
+                + "<td><b>Cake size<b></td>"
+                + "<td><b>Description<b></td>"
+                + "<td><b>Image<b></td>"
                 + "</tr>";
 
+        String data=null;
+        for (CustomDesignDTO d : listCus) {
+            data=d.getCusDesimage();
 
+            htmlText += "<tr align='center'>" + "<td>" + d.getCusDescakeType() + "</td>"
+                    + "<td>" + d.getCusDescakeSize() + "</td>"
+                    + "<td>"+d.getCusDesdes().replace("+"," ")+"</td>"
+                    + "<td><img  height='80' width='80' src=\"cid:image\"></td>"
+                    + "</tr>";
+        }
+
+        htmlText+="<tr align='center'>" +"<td><b>" + "Shipping" + "</b></td>"
+                +"<td>" +""+ "</td>"
+>>>>>>> b48e9950791c90d0ef457221e72e9acf73920004
+                + "<td>" + "" + "</td>"
+                + "<td><b>" + "Free delivery" + "</b></td>"
+                +"</tr>";
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> b48e9950791c90d0ef457221e72e9acf73920004
         htmlText+="<tr align='center'>" +"<td><b>" + "Payment Method" + "</b></td>"
                 +"<td>" +""+ "</td>"
                 + "<td>" + "" + "</td>"
@@ -840,6 +896,7 @@ public class foodItemBOImpl implements foodItemBO {
                 + "<p><i>"+deliveryDTO.getLocation_l3()+"</i></p>"
                 + "<p><i>"+"<b>Date:</b>"+deliveryDTO.getDeliveryDate()+"</i></p>"
                 + "<p><i>"+"<b>Time:</b>"+deliveryDTO.getDeliveryTime()+"</i></p>";
+<<<<<<< HEAD
 
         content += "<tr align='center'>" + "<td><b>" + "Payment Method" + "</b></td>"
                 + "<td>" + "" + "</td>"
@@ -862,6 +919,8 @@ public class foodItemBOImpl implements foodItemBO {
 
 
 
+=======
+>>>>>>> b48e9950791c90d0ef457221e72e9acf73920004
 
         assert data != null;
         String base64Image = data.split(",")[1];

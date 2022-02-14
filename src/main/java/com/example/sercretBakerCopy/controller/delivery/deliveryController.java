@@ -63,7 +63,7 @@ public class deliveryController {
                 customDesignDTO.setCustomDesignId(1);
             }
 
-foodItemBO.saveCustomDesign(customDesignDTO);
+            foodItemBO.saveCustomDesign(customDesignDTO);
 
             List<CustomDesignDTO> listCus = new ArrayList<>();
 
@@ -94,10 +94,10 @@ foodItemBO.saveCustomDesign(customDesignDTO);
                     itm.setCusDescakeSize(str);
                     c++;
                 } else if (c == 5) {
-                  //String base64Image = str.replaceAll(" ", "+");
-                  //  new Base64.encoder(FileUtils.readFileToByteArray(customDesignDTO.getCusDesimage()));
+                    //String base64Image = str.replaceAll(" ", "+");
+                    //  new Base64.encoder(FileUtils.readFileToByteArray(customDesignDTO.getCusDesimage()));
                     itm.setCusDesimage(str);
-                     c++;
+                    c++;
                 } else if (c == 6) {
                     itm.setCusDesdes(str);
                     listCus.add(itm);
@@ -120,10 +120,10 @@ foodItemBO.saveCustomDesign(customDesignDTO);
             model.addAttribute("customDes",listCus);
             model.addAttribute("cus",foodItemBO.getCustomDesById(customDesignDTO.getCustomDesignId()));
 
-     //       String encoded = Base64Utils.encodeToString(foodItemBO.getCustomDesById(customDesignDTO.getCustomDesignId()).getCusDesimage());
+            //       String encoded = Base64Utils.encodeToString(foodItemBO.getCustomDesById(customDesignDTO.getCustomDesignId()).getCusDesimage());
 
 //            String encoded=Base64.getEncoder().encodeToString(foodItemBO.getCustomDesById(customDesignDTO.getCustomDesignId()).getCusDesimage());
-       //     String s="data:image"+"jpeg/"+";base64, ";
+            //     String s="data:image"+"jpeg/"+";base64, ";
 
 
 
@@ -159,7 +159,7 @@ foodItemBO.saveCustomDesign(customDesignDTO);
         }
         foodItemBO.saveDelivery(deliveryDTO);
 
-        foodItemBO.sendEmailToSBCD(customDesignDTO,deliveryDTO);
+        //foodItemBO.sendEmailToSBCD(customDesignDTO,deliveryDTO);
 
 
         // foodItemBO.sendEmailCD(customDesignDTO,deliveryDTO);

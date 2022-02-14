@@ -14,7 +14,7 @@ public class CustomDesignDTO {
     //private byte[] cusDesimage;
     private String cusDesimage;
 
-    private String cusDesdes;
+    private String  cusDesdes;
     private String dataValueCustomDes;
     private int cusDescustomer;
 

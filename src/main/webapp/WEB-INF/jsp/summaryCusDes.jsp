@@ -215,8 +215,8 @@
                 <tr>
                     <th>Custom Design Cake</th>
                     <th>Cake Size</th>
+                    <th>Description</th>
                     <th>Image</th>
-<%--                    <th>Description</th>--%>
                 </tr>
                 </thead>
                 <tbody>
@@ -224,18 +224,11 @@
                     <tr>
                         <td>${listCus.cusDescakeType}</td>
                         <td>${listCus.cusDescakeSize}</td>
+                        <td>${listCus.cusDesdes.replace("+"," ")}</td>
                         <td><img id="imgcake" src="${listCus.cusDesimage}" alt="" height="70px" width="70px"></td>
-<%--<script>--%>
-<%--    let imgg=localStorage.getItem('img');--%>
-<%--    if(imgg){--%>
-<%--       document.querySelector("#imgcake").setAttribute("src",imgg);--%>
-<%--    }--%>
-<%--</script>--%>
-<%--                        <td>${listCus.cusDesdes}</td>--%>
                     </tr>
 
                 </c:forEach>
-<%--                <img id="imgcake" src="${image}" alt="" height="70px" width="70px">--%>
                 </tbody>
 
             </table>

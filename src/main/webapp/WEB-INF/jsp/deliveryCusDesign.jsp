@@ -199,14 +199,14 @@
                                 <div class="checkout__input">
                                     <p>First Name<span>*</span></p>
                                     <input type="text" class="form-control"
-                                            name="name"
+                                            name="name" required
                                            id="name" placeholder="First Name"/>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Last Name<span>*</span></p>
-                                    <input type="text" class="form-control"
+                                    <input type="text" class="form-control" required
                                             name="lastName"
                                            id="lastName" placeholder="LastName"/>
                                 </div>
@@ -216,7 +216,7 @@
 
                         <div class="checkout__input">
                             <p>Delivery Area<span>*</span></p>
-                            <select  name="deliveryArea"
+                            <select  name="deliveryArea" required
                                     id="deliveryArea" class="checkout__input__add">
                                 <option value="1">Choose Area</option>
                                 <option value="Moratuwa">Moratuwa</option>
@@ -250,7 +250,7 @@
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Email<span>*</span></p>
-                                    <input type="email" class="form-control"
+                                    <input type="email" class="form-control" required
                                             name="email"
                                            id="email" placeholder="Email"/>
                                 </div>
@@ -261,14 +261,14 @@
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Delivery Date<span>*</span></p>
-                                    <input type="date" name ="deliveryDate" id="deliveryDate" placeholder="Delivery Date" class="checkout__input__add" >
+                                    <input type="date" name ="deliveryDate" id="deliveryDate" placeholder="Delivery Date" class="checkout__input__add" required >
                                 </div>
                             </div>
 
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Delivery Time<span>*</span></p>
-                                    <select  name="deliveryTime"
+                                    <select  name="deliveryTime" required
                                             id="deliveryTime" class="checkout__input__add" >
                                         <option value="1">Select the prefer Time</option>
                                         <option value="During 10AM - 1PM">During 10AM - 1PM</option>
@@ -314,8 +314,7 @@
 
                             <ul class="checkout__total__products">
                                 <c:forEach items="${customDees}" var="listn">
-                                    <li><samp>0${listn.customDesignId}</samp>${listn.cusDescakeType}<span>Rs:${listn.cusDescakeSize}</span></li>
-
+                                    <li>${listn.cusDescakeType}<span>Rs:${listn.cusDescakeSize}</span></li>
                                 </c:forEach>
                             </ul>
                         </div>

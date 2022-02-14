@@ -490,6 +490,7 @@ function  getValueNew(){
 
     //localStorage.clear();
 }
+
 function getAllDetails(){
 
     var listCustom=[];
@@ -500,14 +501,11 @@ function getAllDetails(){
     var email=$("#cusDesemail").val();
     var cakeType=$('#cusDescakeType option:selected').text();
     var cakeSize=$('#cusDescakeSize option:selected').text();
-
-     var image = $("#cusDesimage")[0].files[0];
-     var img = $("#imgtag").text();
-
-    //var strImage = image.replace(/^data:image\/[a-z]+;base64,/, "");
-    // console.log("image",image);
-     var des=[];
-     des=$("#cusDesdes").val();
+    var image = $("#cusDesimage")[0].files[0];
+    var img = $("#imgtag").text();
+    var des=[];
+    des=$("#cusDesdes").val().split(' ').join('+');
+    //des=$("#cusDesdes").val()
      console.log("des:",des);
     // var f=des.split();
 
@@ -526,9 +524,8 @@ function getAllDetails(){
 
     console.log("list",listCustom);
     str =  Name+" "+phone+" "+email+" "+cakeType+" "+cakeSize+" "+img+" "+des+"";
-    // console.log("str",str);
     stre+= str;
-    // console.log("stre",stre);
+
 
 
     $("#valuesAll").val(stre);
@@ -544,7 +541,7 @@ function getAllDetails(){
 
     reader.onloadend = function() {
 
-        $("#displayImg").attr("src", reader.result);
+        $("#displayImg").attr("src", reader.result).width(80).height(80);
         $("#imgtag").text( reader.result);
 
     }
