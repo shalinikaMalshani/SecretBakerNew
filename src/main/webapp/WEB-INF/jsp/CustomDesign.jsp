@@ -20,6 +20,9 @@
           rel="stylesheet">
 
     <!-- Css Styles -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+
     <link rel="stylesheet" href="../cake-main/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="../cake-main/css/flaticon.css" type="text/css">
     <link rel="stylesheet" href="../cake-main/css/barfiller.css" type="text/css">
@@ -31,10 +34,6 @@
     <link rel="stylesheet" href="../cake-main/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="../cake-main/css/style.css" type="text/css">
 
-    <%--    <%--%>
-    <%--        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");--%>
-    <%--        String deliveryDate = sdf.format(new Date());--%>
-    <%--    %>--%>
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
 
 </head>
@@ -150,8 +149,8 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="breadcrumb__links">
-                    <a href="home">Home</a>
-                    <span>Checkout</span>
+                    <a href="/shop">Shop</a>
+                    <span>Custom Design</span>
                 </div>
             </div>
         </div>
@@ -167,10 +166,14 @@
                 <div class="col-lg-7 col-md-7">
                     <div class="shop__option__search">
                         <form action="#">
-                            <select onchange="javascript:handleSelect(this)">
+
+                            <select onchange="javascript:handleSelect(this)" id="select">
                                 <option value="">Categories</option>
                                 <option value="/shop">All Cakes</option>
-                                <option value="/home">Cupcakes</option>
+                                <option value="/cake">Cake</option>
+                                <option value="/home">Cupcake</option>
+                                <option value="/BirthdayCake">Birthday Cake</option>
+                                <option value="/weddingCake">Wedding Cake</option>
                                 <option value="/customDesign">Custom Design</option>
                             </select>
                             <script type="text/javascript">
@@ -178,8 +181,25 @@
                                 {
                                     window.location = elm.value;
                                 }
+                                function filterFunction() {
+                                    var input, filter, ul, li, a, i,div;
+                                    input = document.getElementById("search");
+                                    filter = input.value.toUpperCase();
+                                    div = document.getElementById("select");
+                                    a = div.getElementsByTagName("option");
+                                    console.log("a len",a.length);
+                                    for (i = 0; i < a.length; i++) {
+                                        var txtValue = a[i].textContent || a[i].innerText;
+                                        console.log("text val",txtValue);
+                                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                            a[i].style.display = "";
+                                        } else {
+                                            a[i].style.display = "none";
+                                        }
+                                    }
+                                }
                             </script>
-                            <input type="text" placeholder="Search">
+                            <input type="text" placeholder="Search" id="search" onkeyup="filterFunction()">
                             <button type="submit"><i class="fa fa-search"></i></button>
                         </form>
                     </div>
@@ -263,10 +283,8 @@
                                 <p>Image<span>*</span></p>
                                 <input type="file" name="cusDesimage" class="form-control"
                                        id="cusDesimage" onchange="encodeImgtoBase64(this)"/>
-                                <br>
-                                <p id="imgtag"></p>
-                                <img src="" alt="design preview" id="displayImg" width="90">
-
+                                <p id="imgtag" style="display: none"></p>
+                                <img src=""  id="displayImg">
                             </div>
                         </div>
                         <div class="col-lg-6">

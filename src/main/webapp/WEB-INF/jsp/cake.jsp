@@ -131,7 +131,7 @@
                                 <option value="">Categories</option>
                                 <option value="/shop">All Cakes</option>
                                 <option value="/cake">Cake</option>
-                                <option value="/home">Cupcake</option>
+                                <option value="/shop">Cupcake</option>
                                 <option value="/BirthdayCake">Birthday Cake</option>
                                 <option value="/weddingCake">Wedding Cake</option>
                                 <option value="/customDesign">Custom Design</option>

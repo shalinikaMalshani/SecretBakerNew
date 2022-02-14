@@ -613,7 +613,7 @@ ol {
 }
 .categories__slider.owl-carousel .owl-stage-outer {
   padding-bottom: 40px;
-  border-bottom: 1px solid rgba(240, 135, 50, 0.5);
+  border-bottom: 1px solid black;
 }
 .categories__slider.owl-carousel .owl-nav button {
   font-size: 36px;
@@ -646,8 +646,8 @@ ol {
   bottom: -48px;
   width: 15px;
   height: 15px;
-  border: 1px solid #f08632;
-  border-color: transparent #f08632 #f08632 transparent;
+  border: 1px solid black;
+  border-color: transparent #000000 #000000 transparent;
   content: "";
   -webkit-transform: rotate(-135deg);
       -ms-transform: rotate(-135deg);
