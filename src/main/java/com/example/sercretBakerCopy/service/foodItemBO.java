@@ -57,24 +57,17 @@ public interface foodItemBO {
 
     void setResetPwdEmail(String email, String resetPwdLink) throws MessagingException;
 
-<<<<<<< HEAD
 //
 //    void sendEmailToSBCD(CustomDesignDTO customDesignDTO, DeliveryDTO deliveryDTO) throws MessagingException, IOException;
 
-=======
->>>>>>> b48e9950791c90d0ef457221e72e9acf73920004
 
 
     List<CakeDTO>getAllCakes();
 
     CakeDTO getCakeById(Integer id);
 
-<<<<<<< HEAD
-    void sendEmailToSBCD(CustomDesignDTO customDesignDTO, DeliveryDTO deliveryDTO) throws MessagingException;
-
-=======
     void sendEmailToSBCD(CustomDesignDTO customDesignDTO, DeliveryDTO deliveryDTO) throws MessagingException, IOException;
->>>>>>> b48e9950791c90d0ef457221e72e9acf73920004
+
 
     void sendEmailCD(CustomDesignDTO customDesignDTO, DeliveryDTO deliveryDTO) throws MessagingException;
 
