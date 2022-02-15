@@ -57,6 +57,9 @@ public interface foodItemBO {
 
     void setResetPwdEmail(String email, String resetPwdLink) throws MessagingException;
 
+//
+//    void sendEmailToSBCD(CustomDesignDTO customDesignDTO, DeliveryDTO deliveryDTO) throws MessagingException, IOException;
+
 
 
     List<CakeDTO>getAllCakes();
@@ -64,6 +67,7 @@ public interface foodItemBO {
     CakeDTO getCakeById(Integer id);
 
     void sendEmailToSBCD(CustomDesignDTO customDesignDTO, DeliveryDTO deliveryDTO) throws MessagingException, IOException;
+
 
     void sendEmailCD(CustomDesignDTO customDesignDTO, DeliveryDTO deliveryDTO) throws MessagingException;
 

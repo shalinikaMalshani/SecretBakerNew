@@ -146,7 +146,11 @@ public class deliveryController {
         foodItemBO.sendEmailToSBCD(customDesignDTO,deliveryDTO);
 
 
+<<<<<<< HEAD
         foodItemBO.sendEmailCD(customDesignDTO,deliveryDTO);
+=======
+         foodItemBO.sendEmailCD(customDesignDTO,deliveryDTO);
+>>>>>>> 583b9830c846f89f3b0dbef22f2687a2b46c14ae
 
         model.addAttribute("deliveryCusDes",foodItemBO.getDeliveryById(deliveryDTO.getDeliveryId()));
 
