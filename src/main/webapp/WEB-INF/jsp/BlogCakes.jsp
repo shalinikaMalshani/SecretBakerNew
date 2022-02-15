@@ -164,6 +164,16 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog8new.jpg">
+                    </div>
+                    <div class="product__item__text">
+                        <h6><a href="#">butter icing </a></h6>
+                        <h6><a href="#">butter icing </a></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="product__item">
                     <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog12.jpeg">
                     </div>
                     <div class="product__item__text">

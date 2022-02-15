@@ -218,24 +218,38 @@
                     <h6 class="checkout__title">Custom Design</h6>
                     <input class="form-control" name="customDesignId" value="0" id="customDesignId" type="hidden">
 
-
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="checkout__input">
                                 <p>Name<span>*</span></p>
-                                <input type="text" class="form-control"
-                                        name="cusDesName"
+                                <input type="text" class="form-control" required
+                                        name="cusDesName" pattern="[^\s]*" title="Spaces are not allowed.Please only enter your first name"
                                        id="cusDesName" placeholder="First Name"/>
+                                <script>
+                                    function checkName() {
+                                        var name = $("#cusDesName").val();
+                                        console.log(name);
+                                        console.log(name+'');
+
+                                        if (name+'') {
+                                            alert("Please enter only your first name");
+                                        }else{
+                                            return true;
+                                        }
+                                    }
+                                </script>
+
                             </div>
                         </div>
                     </div>
+
 
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="checkout__input">
                                 <p>Phone<span>*</span></p>
                                 <input type="tel" class="form-control"
-                                       pattern="[0-9]{10}" oninvalid="setCustomValidity('Please enter a valid phone number!')"
+                                       pattern="[0-9]{10}" title="Please enter a valid phone number!"
                                        name="cusDescontact"
                                        id="cusDescontact" placeholder="Mobile No"/>
                             </div>
@@ -244,7 +258,7 @@
                             <div class="checkout__input">
                                 <p>Email<span>*</span></p>
                                 <input type="email" class="form-control" name="cusDesemail"
-                                       id="cusDesemail" placeholder="Email"/>
+                                       id="cusDesemail" placeholder="Email" required/>
                             </div>
                         </div>
 
@@ -253,7 +267,7 @@
                         <div class="col-lg-6">
                     <div class="checkout__input">
                         <p>Cake Type<span>*</span></p>
-                        <select  name="cusDescakeType"
+                        <select  name="cusDescakeType" required
                                 id="cusDescakeType" class="checkout__input__add">
                             <option value="1">Choose Type</option>
                             <option value="Wedding">Wedding</option>
@@ -265,7 +279,7 @@
                         <div class="col-lg-6">
                     <div class="checkout__input">
                         <p>Cake Size<span>*</span></p>
-                        <select  name="cusDescakeSize"
+                        <select  name="cusDescakeSize" required
                                 id="cusDescakeSize" class="checkout__input__add">
                             <option value="1">Choose Type</option>
                             <option value="500g">500g</option>
@@ -281,7 +295,7 @@
                         <div class="col-lg-6">
                             <div class="checkout__input">
                                 <p>Image<span>*</span></p>
-                                <input type="file" name="cusDesimage" class="form-control"
+                                <input type="file" name="cusDesimage" class="form-control" required
                                        id="cusDesimage" onchange="encodeImgtoBase64(this)"/>
                                 <p id="imgtag" style="display: none"></p>
                                 <img src=""  id="displayImg">

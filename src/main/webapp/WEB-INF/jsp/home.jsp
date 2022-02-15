@@ -79,7 +79,7 @@
                     <div class="header__top__inner">
 
                         <div class="header__logo">
-                            <a href=""><img src="../../cake-main/img/logonw2.png" style="height:110px; weight:60px; padding-left: 75px;" alt=""></a>
+                            <a href=""><img src="../../cake-main/img/logonw2.png" style="height:110px; weight:60px;" alt=""></a>
                         </div>
                         <div class="header__top__right">
                             <div class="header__top__right__links header__top__right__cart" >
