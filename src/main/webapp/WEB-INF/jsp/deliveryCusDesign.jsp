@@ -102,6 +102,7 @@
                                     <ul>
                                         <li>EUR</li>
                                         <li>USD</li>
+
                                     </ul>
                                 </li>
                                 <li>ENG <span class="arrow_carrot-down"></span>
@@ -226,7 +227,7 @@
                             </select>
                         </div>
                         <article style="color:red; margin-left:150px; margin-top:20px; padding-left:20px; " >
-                            (This covid situation, We deliver selected area only.)
+                            (We deliver selected areas only,due to this covid situation)
                         </article>
                         <br>
                         <div class="checkout__input">
@@ -262,6 +263,7 @@
                                 <div class="checkout__input">
                                     <p>Delivery Date<span>*</span></p>
                                     <input type="date" name ="deliveryDate" id="deliveryDate" placeholder="Delivery Date" class="checkout__input__add" required >
+                                    <div id="errorMsg"></div>
                                 </div>
                             </div>
 
@@ -289,12 +291,12 @@
 
                         <br><br><br>
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-6">
                                 <input  type="text"  id="cusDes"  style="display: none;" name="dataValueCustomDes">
                                 <button type="submit" class="site-btn"
                                         onclick="valuesAllNew()">Checkout</button>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-6">
                                 <%--            <input  type="text"  id="cancel" name="dataValue" style="display: none">--%>
                                 <button type="submit" class="site-btn"><a href="home" style="color: white;">Cancel</a></button>
                             </div>
@@ -307,14 +309,15 @@
 
                     <div class="col-lg-4 col-md-6">
                         <div class="checkout__order">
-                            <h6 class="order__title">Your Requseted Custom Design</h6>
-                            <div class="checkout__order__products">Cake Type <span>Cake Size</span></div>
+                            <h6 class="order__title">Your Requseted Custom Design Summary</h6>
+                            <div class="checkout__order__products">Cake Type<span>Cake Size</span>
+                            </div>
 
 
 
                             <ul class="checkout__total__products">
                                 <c:forEach items="${customDees}" var="listn">
-                                    <li>${listn.cusDescakeType}<span>Rs:${listn.cusDescakeSize}</span></li>
+                                    <li>${listn.cusDescakeType}<span>${listn.cusDescakeSize}</span></li>
                                 </c:forEach>
                             </ul>
                         </div>
@@ -414,12 +417,12 @@
 
 <!-- Js Plugins -->
 
-<script>
-    var valTot=JSON.parse(JSON.stringify(localStorage.getItem('totalItemCost')));
-    console.log("total",valTot);
-    document.getElementById("subtotDel").innerHTML="Rs:"+valTot+".00";
-    document.getElementById("totDel").innerHTML="Rs:"+valTot+".00";
-</script>
+<%--<script>--%>
+<%--    var valTot=JSON.parse(JSON.stringify(localStorage.getItem('totalItemCost')));--%>
+<%--    console.log("total",valTot);--%>
+<%--    document.getElementById("subtotDel").innerHTML="Rs:"+valTot+".00";--%>
+<%--    document.getElementById("totDel").innerHTML="Rs:"+valTot+".00";--%>
+<%--</script>--%>
 
 <script>
     function dateCheck() {
@@ -432,9 +435,20 @@
             var selectedDate = new Date($(this).val());
 
             if (selectedDate < now) {
+                console.log("error");
+                var error=document.querySelector('#errorMsg');
                 $(this).val("");
-                alert("Invalid date... Please enter future date... Can't enter old dates");
-
+                error.innerHTML=`<div class="alert alert-danger" role="alert" id="alert-box">
+                                                    Only allow to enter future dates.
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>`;
+                $(document).ready(function (){
+                   setTimeout(function (){
+                       $(".alert.alert-danger").alert('close');
+                    },3000);
+                });
             } else {
                 dateController.currentDate = $(this).val();
             }

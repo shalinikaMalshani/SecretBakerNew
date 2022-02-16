@@ -107,8 +107,8 @@ public class SignInUpController {
         }
 
         foodItemBO.saveCustomer(customerDTO);
-
-        return "redirect:/signIn";
+        model.addAttribute("successSignUp","You have successfully create your account.Please login.");
+        return "HomeSignIn";
     }
 
     //save customer when sign In or up after request a custom design
@@ -133,7 +133,7 @@ public class SignInUpController {
         }
 
         foodItemBO.saveCustomer(customerDTO);
-
+        model.addAttribute("successSignUp","You have successfully create your account.Please login.");
         return "signInCusDesign";
     }
 
@@ -160,8 +160,8 @@ public class SignInUpController {
         }
 
         foodItemBO.saveCustomer(customerDTO);
-
-        return "redirect:/signUpLogin";
+        model.addAttribute("successSignUp","You have successfully create your account.Please login.");
+        return "signUpLogin";
     }
 
     //customer sign in from home
@@ -184,6 +184,8 @@ public class SignInUpController {
             model.addAttribute("invalidd", "Invalid user name or password");
             return "HomeSignIn";
         }
+
+
         return "home";
     }
 

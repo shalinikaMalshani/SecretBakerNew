@@ -64,7 +64,7 @@ public class OrderController {
             return "signUpLogin";
         }
 
-//convert all the dataVales
+        //convert all the dataVales
         List<OrderDetailDTO> list = new ArrayList<>();
         String arr = restaurantCounterOrderDTO.getDataValue();
         System.out.print("arr" + arr);

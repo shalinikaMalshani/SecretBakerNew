@@ -393,7 +393,44 @@ ol {
   /*margin-left: auto;*/
   /*margin-right: auto;*/
 }
-.header__logo a {
+/*responsive logo*/
+
+@media screen and (max-width:1200px) {
+  .header__logo{
+    position: absolute;
+    left:300px;
+  }
+
+}
+
+@media screen and (max-width:1000px) {
+  .header__logo{
+    position: absolute;
+    left:-50px;
+  }
+
+}
+@media screen and (max-width:750px) {
+  .header__logo {
+    position: absolute;
+    /*top:90px;*/
+    /*background: red;*/
+    /*left: -500px;*/
+    /*width: 100%;*/
+  }
+
+  /*.header__logo a img {*/
+  /*  position: absolute;*/
+  /*  */
+
+  /*}*/
+
+
+}
+
+
+
+  .header__logo a {
   display: inline-block;
 }
 

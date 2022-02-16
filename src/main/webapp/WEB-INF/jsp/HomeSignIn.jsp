@@ -201,16 +201,24 @@
                                                 </button>
                                             </div>
                                         </c:if>
-                        <%--                <c:if test="${success!=null}">--%>
-                        <%--                    <div class="alert alert-success" role="alert" id="alert-box">--%>
-                        <%--                            ${success}--%>
-                        <%--                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">--%>
-                        <%--                            <span aria-hidden="true">&times;</span>--%>
-                        <%--                        </button>--%>
-                        <%--                    </div>--%>
-                        <%--                </c:if>--%>
 
+                                        <c:if test="${successSignUp!=null}">
+                                            <div class="alert alert-success" role="alert" id="alert-box">
+                                                    ${successSignUp}
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                        </c:if>
 
+                        <script>
+                            $(document).ready(function() {
+                                // close the alert
+                                setTimeout(function() {
+                                    $(".alert.alert-success").alert('close');
+                                }, 8000);
+                            });
+                        </script>
 
 
 

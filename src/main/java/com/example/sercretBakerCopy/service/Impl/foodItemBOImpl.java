@@ -947,6 +947,7 @@ public class foodItemBOImpl implements foodItemBO {
                 +"<p><i>"+"<b>Address:</b>"+s.getAddress_l1()+"</i></p>"
                 + "<p><i>"+s.getAddress_l2()+"</i></p>"
                 + "<p><i>"+s.getAddress_l3()+"</i></p>";
+
         content+="<h4 style='text-decoration: underline;'>Delivery</h4>"
                 +"<p><i>"+"<b>Address:</b>"+deliveryDTO.getLocation_l1()+"</i></p>"
                 +"<p><i>"+deliveryDTO.getLocation_l2()+"</i></p>"

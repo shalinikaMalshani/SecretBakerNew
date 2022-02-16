@@ -188,6 +188,23 @@
                             </button>
                         </div>
                     </c:if>
+                    <c:if test="${successSignUp!=null}">
+                        <div class="alert alert-success" role="alert" id="alert-box">
+                                ${successSignUp}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </c:if>
+
+                    <script>
+                        $(document).ready(function() {
+                            // close the alert
+                            setTimeout(function() {
+                                $(".alert.alert-success").alert('close');
+                            }, 8000);
+                        });
+                    </script>
 <%--                    <div class="form-group">--%>
 <%--                        <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>--%>
 <%--                        <input type="text" name="your_name" id="your_name" placeholder="Your Name"/>--%>

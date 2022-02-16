@@ -39,7 +39,6 @@ public class deliveryController {
 
         //get already login customer
         int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
-        System.out.println("id"+onlineCustomerId);
         customDesignDTO.setCusDescustomer(onlineCustomerId);
         model.addAttribute("loggerId", foodItemBO.findOne(onlineCustomerId));
 
@@ -68,12 +67,9 @@ public class deliveryController {
             List<CustomDesignDTO> listCus = new ArrayList<>();
 
             String array = customDesignDTO.getDataValueCustomDes();
-            System.out.print("arr" + array);
-
 
             String yo[] = array.split(" ");
 
-            System.out.print("yo[]" + Arrays.toString(yo));
             int c = 0;
             CustomDesignDTO itm = new CustomDesignDTO();
             for (String str : yo) {//Read String and add to list
@@ -94,8 +90,6 @@ public class deliveryController {
                     itm.setCusDescakeSize(str);
                     c++;
                 } else if (c == 5) {
-                    //String base64Image = str.replaceAll(" ", "+");
-                    //  new Base64.encoder(FileUtils.readFileToByteArray(customDesignDTO.getCusDesimage()));
                     itm.setCusDesimage(str);
                     c++;
                 } else if (c == 6) {
@@ -104,10 +98,8 @@ public class deliveryController {
                     c = 0;
                 }
             }
-            System.out.println("description not replace " + itm.getCusDesdes());
+
             for (CustomDesignDTO cus : listCus) {
-//            FoodItemDTO f = foodItemBO.findFoodItemById(d.getFoodItem());
-//            d.setName(f.getFoodName());
                 System.out.println("Item type:"+cus.getCusDescakeType());
                 System.out.println("Food size"+cus.getCusDescakeSize());
                 System.out.println("Food des"+cus.getCusDesdes());
@@ -120,23 +112,15 @@ public class deliveryController {
             model.addAttribute("customDes",listCus);
             model.addAttribute("cus",foodItemBO.getCustomDesById(customDesignDTO.getCustomDesignId()));
 
-            //       String encoded = Base64Utils.encodeToString(foodItemBO.getCustomDesById(customDesignDTO.getCustomDesignId()).getCusDesimage());
-
-//            String encoded=Base64.getEncoder().encodeToString(foodItemBO.getCustomDesById(customDesignDTO.getCustomDesignId()).getCusDesimage());
-            //     String s="data:image"+"jpeg/"+";base64, ";
-
-
-
         } catch (NullPointerException  e) {
-            e.printStackTrace();
+            return "redirect:/deliveryCus";
         }
 
 
 
 
 
-//save delivery details
-
+        //save delivery details
         try {
             DeliveryDTO deliveryDTO1 = foodItemBO.findHighestDeliveryId();
             DeliveryDTO deliveryDTO2 = null;
@@ -162,7 +146,11 @@ public class deliveryController {
         foodItemBO.sendEmailToSBCD(customDesignDTO,deliveryDTO);
 
 
+<<<<<<< HEAD
+        foodItemBO.sendEmailCD(customDesignDTO,deliveryDTO);
+=======
          foodItemBO.sendEmailCD(customDesignDTO,deliveryDTO);
+>>>>>>> 583b9830c846f89f3b0dbef22f2687a2b46c14ae
 
         model.addAttribute("deliveryCusDes",foodItemBO.getDeliveryById(deliveryDTO.getDeliveryId()));
 
@@ -193,8 +181,6 @@ public class deliveryController {
         } catch (NullPointerException e) {
             restaurantCounterOrderDTO.setOrderId((1));//Set Id as 1 when Initial Round
         }
-
-        // System.out.println("Model orderDto1"+restaurantCounterOrderDTO.getOrderId()+restaurantCounterOrderDTO.getDate());
 
         //save order
         try {
@@ -227,7 +213,7 @@ public class deliveryController {
                     count = 0;
                 }
             }
-            System.out.println("list of itms " + itm);
+
             for (OrderDetailDTO d : list) {
                 FoodItemDTO f = foodItemBO.findFoodItemById(d.getFoodItem());
                 d.setName(f.getFoodName());
@@ -237,33 +223,23 @@ public class deliveryController {
             }
 
 
-            System.out.println("list of items " + list);
+
             model.addAttribute("listCounterOrders", restaurantCounterOrderDTO.getOrderId());
             model.addAttribute("NoOfItems", list.size());
             model.addAttribute("listCounterOrderDetails", list);//Load Data to Payment
-            //Date myDate=restaurantCounterOrderDTO.getDate();
             model.addAttribute("orderDate",restaurantCounterOrderDTO.getDate());
             model.addAttribute("customer", foodItemBO.findOne(restaurantCounterOrderDTO.getCustomer()));
 
-
-            System.out.println("Model orderDto date"+restaurantCounterOrderDTO.getDate());
-
-
-
         } catch (NullPointerException e) {
-            e.printStackTrace();
+            return "redirect:/delivery";
         }
 
-
-
-
-        // int onlineCustomerId = Integer.parseInt(session.getAttribute("userId").toString());
 
         model.addAttribute("loggerId", foodItemBO.findOne(onlineCustomerId));
 
 
 
-//save delivery details
+        //save delivery details
 
         try {
             DeliveryDTO deliveryDTO1 = foodItemBO.findHighestDeliveryId();
@@ -287,10 +263,10 @@ public class deliveryController {
         }
         foodItemBO.saveDelivery(deliveryDTO);
 
-//        foodItemBO.sendEmailToSB(restaurantCounterOrderDTO,deliveryDTO);
+        foodItemBO.sendEmailToSB(restaurantCounterOrderDTO,deliveryDTO);
 //
 //
-//         foodItemBO.sendEmail(restaurantCounterOrderDTO,deliveryDTO);
+         foodItemBO.sendEmail(restaurantCounterOrderDTO,deliveryDTO);
 
         model.addAttribute("delivery",foodItemBO.getDeliveryById(deliveryDTO.getDeliveryId()));
 

@@ -232,7 +232,7 @@
 
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password"  id="password" name="password" placeholder="Enter your password" onkeyup="check();" required/>
+                                <input type="password"  id="password" name="password" placeholder="Enter your password"  required/>
                                 <span id='message2'></span>
                             </div>
                             <div style="margin-top:-10px"> <small>(Minimum 8 characters enter the password)</small></div><br>
