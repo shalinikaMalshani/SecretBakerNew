@@ -299,7 +299,7 @@
                 </div>
                 <div class="row">
                     <div class="related__products__slider owl-carousel">
-                        <c:forEach items="${AllCakes}" var="e">
+                        <c:forEach items="${cakess}" var="e">
                             <span style="display: none">${e.itemId}</span>
                             <div class="col-lg-3">
                                 <div class="product__item">

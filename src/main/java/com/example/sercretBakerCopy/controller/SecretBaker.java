@@ -246,7 +246,7 @@ public class SecretBaker {
     @GetMapping("/cake/{id}")
     public String getFoodItem(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("cake", foodItemBO.getCakeById(id));
-        model.addAttribute("cakes", foodItemBO.getAllCakes());
+        model.addAttribute("cakess", foodItemBO.getAllCakes());
         return "cakeItemNew";
     }
 
