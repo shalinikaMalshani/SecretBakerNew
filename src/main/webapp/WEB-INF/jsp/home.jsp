@@ -64,7 +64,7 @@
         </div>
     </div>
     <div class="offcanvas__logo">
-        <a href="home"><img src="../../cake-main/img/logo.png" alt=""></a>
+        <a href="home"><img src="../../cake-main/img/logonw2.png" alt=""></a>
     </div>
     <div id="mobile-menu-wrap"></div>
 </div>
@@ -150,48 +150,59 @@
 <div class="categories">
     <div class="container">
         <div class="row">
-            <div class="categories__slider owl-carousel">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                 <div class="categories__item">
                     <div class="categories__item__icon">
                         <img style="border-radius: 50%;" src="../../img/cupcake.jpg" alt="" height="170">
                         <h5>Cupcake</h5>
                     </div>
                 </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                 <div class="categories__item">
                     <div class="categories__item__icon">
-                        <img style="border-radius: 50%;" src="../../img/cupcake.jpg" alt="" height="170">
-
-                        <h5>Butter</h5>
+                        <img style="border-radius: 50%;" src="../../img/birthday.jpg" alt="" height="170">
+                        <h5>Birthday</h5>
                     </div>
                 </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                 <div class="categories__item">
                     <div class="categories__item__icon">
-                        <img style="border-radius: 50%;" src="../../img/cupcake.jpg" alt="" height="170">
-
-                        <h5>Red Velvet</h5>
+                        <img style="border-radius: 50%;" src="../../img/anniv.jpg" alt="" height="170">
+                        <h5>Anniversary</h5>
                     </div>
                 </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-6">
                 <div class="categories__item">
                     <div class="categories__item__icon">
-                        <img style="border-radius: 50%;" src="../../img/cupcake.jpg" alt="" height="170">
-
-                        <h5>Biscuit</h5>
+                        <img style="border-radius: 50%;" src="../../img/cakes.jpg" alt="" height="170">
+                        <h5>Cake</h5>
                     </div>
                 </div>
-                <div class="categories__item">
-                    <div class="categories__item__icon">
-                        <img style="border-radius: 50%;" src="../../img/cupcake.jpg" alt="" height="170">
+            </div>
 
-                        <h5>Donut</h5>
-                    </div>
-                </div>
-                <div class="categories__item">
-                    <div class="categories__item__icon">
-                        <img style="border-radius: 50%;" src="../../img/cupcake.jpg" alt="" height="170">
+<%--            <div class="col-lg-4 col-md-4 col-sm-4 col-6">--%>
+<%--                <div class="categories__item">--%>
+<%--                    <div class="categories__item__icon">--%>
+<%--                        <img style="border-radius: 50%;" src="../../img/cakes.jpg" alt="" height="170">--%>
+<%--                        <h5>Cake</h5>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
 
-                        <h5>Cupcake</h5>
-                    </div>
-                </div>
+<%--            <div class="col-lg-4 col-md-4 col-sm-4 col-6">--%>
+<%--                <div class="categories__item">--%>
+<%--                    <div class="categories__item__icon">--%>
+<%--                        <img style="border-radius: 50%;" src="../../img/cakes.jpg" alt="" height="170">--%>
+<%--                        <h5>Cake</h5>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+
+
+        </div>
             </div>
         </div>
     </div>

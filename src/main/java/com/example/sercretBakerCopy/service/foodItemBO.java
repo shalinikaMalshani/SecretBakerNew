@@ -3,6 +3,7 @@ package com.example.sercretBakerCopy.service;
 
 
 import com.example.sercretBakerCopy.Exception.CustomerNotFoundException;
+import com.example.sercretBakerCopy.Exception.EmailExist;
 import com.example.sercretBakerCopy.dto.*;
 import com.example.sercretBakerCopy.entity.Customer;
 import com.example.sercretBakerCopy.entity.OrderNew;
@@ -71,4 +72,5 @@ public interface foodItemBO {
 
     void sendEmailCD(CustomDesignDTO customDesignDTO, DeliveryDTO deliveryDTO) throws MessagingException;
 
+    void checkEmailExist(String email) throws EmailExist;
 }

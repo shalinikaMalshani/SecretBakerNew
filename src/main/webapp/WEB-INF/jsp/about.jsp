@@ -97,49 +97,30 @@
 <div class="offcanvas-menu-wrapper">
     <div class="offcanvas__cart">
         <div class="offcanvas__cart__links">
-            <a href="#" class="search-switch"><img src="../../cake-main/img/icon/search.png" alt=""></a>
-            <a href="#"><img src="../../cake-main/img/icon/heart.png" alt=""></a>
+            <a href="/signUp" class="register">Register</a>
+            <a href="/signIn" class="signIn">SignIn</a>
         </div>
         <div class="offcanvas__cart__item">
-            <a href="#"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
-            <div class="cart__price">Cart: <span>$0.00</span></div>
+            <a href="/shoppingCartNew"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
         </div>
     </div>
     <div class="offcanvas__logo">
-        <a href="home"><img src="../../cake-main/img/new logo.png" alt=""></a>
+        <a href="home"><img src="../../cake-main/img/logonw2.png" alt=""></a>
     </div>
     <div id="mobile-menu-wrap"></div>
-<%--    <div class="offcanvas__option">--%>
-<%--        <ul>--%>
-<%--            <li>USD <span class="arrow_carrot-down"></span>--%>
-<%--                <ul>--%>
-<%--                    <li>EUR</li>--%>
-<%--                    <li>USD</li>--%>
-<%--                </ul>--%>
-<%--            </li>--%>
-<%--            <li>ENG <span class="arrow_carrot-down"></span>--%>
-<%--                <ul>--%>
-<%--                    <li>Spanish</li>--%>
-<%--                    <li>ENG</li>--%>
-<%--                </ul>--%>
-<%--            </li>--%>
-<%--            <li><a href="#">Sign in</a> <span class="arrow_carrot-down"></span></li>--%>
-<%--        </ul>--%>
-<%--    </div>--%>
 </div>
 <!-- Offcanvas Menu End -->
 
-<!-- Header Section Begin -->
 <!-- Header Section Begin -->
 <header class="header">
     <div class="header__top">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="header__top__inner" >
+                    <div class="header__top__inner">
 
                         <div class="header__logo">
-                            <a href=""><img src="../../cake-main/img/logomw7.png" style="height:110px; weight:60px;" alt=""></a>
+                            <a href=""><img src="../../cake-main/img/logonw2.png" style="height:110px; weight:60px;" alt=""></a>
                         </div>
                         <div class="header__top__right">
                             <div class="header__top__right__links header__top__right__cart" >
@@ -147,9 +128,6 @@
                                 <a href="/signIn" class="signIn" style="color: black; margin-left:50px">SignIn</a>
                                 <a href="/shoppingCartNew" class="cart-icon" style="margin-left:50px;"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
                             </div><br>
-                            <%--                            <div class="header__top__right__cart" style="float: right;margin-right:20px;">--%>
-                            <%--                                <a href="/shoppingCartNew" class="cart-icon" ><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>--%>
-                            <%--                            </div>--%>
                         </div>
                     </div>
                 </div>
@@ -158,26 +136,16 @@
             <div class="canvas__open"><i class="fa"><img src="../../img/toggle.png" style="margin-bottom: 8px;" alt=""></i></div>
         </div>
     </div>
+
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <nav class="header__menu mobile-menu">
                     <ul>
-                        <li><a href="home">Home</a></li>
-                        <li class="active"><a href="about">About</a></li>
-                        <li><a href="shop">Shop</a></li>
-<%--                        <li><a href="pages">Pages</a>--%>
-<%--&lt;%&ndash;                            <ul class="dropdown">&ndash;%&gt;--%>
-<%--&lt;%&ndash;                                <li><a href="shop-details.html">Shop Details</a></li>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                                <li><a href="shoping-cart.html">Shoping Cart</a></li>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                                <li><a href="checkout.html">Check Out</a></li>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                                <li><a href="wisslist.html">Wisslist</a></li>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                                <li><a href="./Class.html">Class</a></li>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                                <li><a href="blog-details.html">Blog Details</a></li>&ndash;%&gt;--%>
-<%--&lt;%&ndash;                            </ul>&ndash;%&gt;--%>
-<%--                        </li>--%>
-                        <li><a href="blog">Blog</a></li>
-                        <li><a href="contact">Contact</a></li>
+                        <li class="active"><a href="home">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/shop">Shop</a></li>
+                        <li><a href="/blog_cakes">Blog</a></li>
                     </ul>
                 </nav>
             </div>

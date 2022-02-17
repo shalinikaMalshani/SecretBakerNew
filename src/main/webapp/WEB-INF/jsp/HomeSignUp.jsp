@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: User
@@ -60,6 +61,25 @@
 
 </head>
 <body>
+<!-- Offcanvas Menu Begin -->
+<div class="offcanvas-menu-overlay"></div>
+<div class="offcanvas-menu-wrapper">
+    <div class="offcanvas__cart">
+        <div class="offcanvas__cart__links">
+            <a href="/signUp" class="register">Register</a>
+            <a href="/signIn" class="signIn">SignIn</a>
+        </div>
+        <div class="offcanvas__cart__item">
+            <a href="/shoppingCartNew"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
+        </div>
+    </div>
+    <div class="offcanvas__logo">
+        <a href="home"><img src="../../cake-main/img/logonw2.png" alt=""></a>
+    </div>
+    <div id="mobile-menu-wrap"></div>
+</div>
+<!-- Offcanvas Menu End -->
+
 <!-- Header Section Begin -->
 <header class="header">
     <div class="header__top">
@@ -67,64 +87,34 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="header__top__inner">
-                        <div class="header__top__left">
-                            <ul>
-                                <li>USD <span class="arrow_carrot-down"></span>
-                                    <ul>
-                                        <li>EUR</li>
-                                        <li>USD</li>
-                                    </ul>
-                                </li>
-                                <li>ENG <span class="arrow_carrot-down"></span>
-                                    <ul>
-                                        <li>Spanish</li>
-                                        <li>ENG</li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Sign in</a> <span class="arrow_carrot-down"></span></li>
-                            </ul>
-                        </div>
+
                         <div class="header__logo">
-                            <a href="home"><img src="../cake-main/img/logo.png" alt=""></a>
+                            <a href=""><img src="../../cake-main/img/logonw2.png" style="height:110px; weight:60px;" alt=""></a>
                         </div>
                         <div class="header__top__right">
-                            <div class="header__top__right__links">
-                                <a href="/signUp" class="register">Register</a>
-                                <a href="/signIn" class="signIn">SignIn</a>
+                            <div class="header__top__right__links header__top__right__cart" >
+                                <a href="/signUp" class="register" style="color: black; margin-left:50px">Register</a>
+                                <a href="/signIn" class="signIn" style="color: black; margin-left:50px">SignIn</a>
+                                <a href="/shoppingCartNew" class="cart-icon" style="margin-left:50px;"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
                             </div><br>
-                            <div class="header__top__right__cart" style="float: right;margin-right:20px;">
-                                <a href="#"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
-                                <%--                                <div class="cart__price">Cart: <span>$0.00</span></div>--%>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <%--            <div class="canvas__open"><i class="fa fa-bars"></i></div>--%>
-            <div class="canvas__open"><i class="fa"><img src="../img/toggle.png" style="margin-bottom: 8px;"></i></div>
 
+            <div class="canvas__open"><i class="fa"><img src="../../img/toggle.png" style="margin-bottom: 8px;" alt=""></i></div>
         </div>
     </div>
+
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <nav class="header__menu mobile-menu">
                     <ul>
-                        <li><a href="home">Home</a></li>
-                        <li><a href="about">About</a></li>
-                        <li><a href="shop.html">Shop</a></li>
-                        <li><a href="#">Pages</a>
-                            <ul class="dropdown">
-                                <li><a href="shop-details.html">Shop Details</a></li>
-                                <li><a href="shoping-cart.html">Shoping Cart</a></li>
-                                <li><a href="checkout.html">Check Out</a></li>
-                                <li><a href="wisslist.html">Wisslist</a></li>
-                                <li><a href="./Class.html">Class</a></li>
-                                <li><a href="blog-details.html">Blog Details</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li class="active"><a href="./contact.html">Contact</a></li>
+                        <li class="active"><a href="home">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/shop">Shop</a></li>
+                        <li><a href="/blog_cakes">Blog</a></li>
                     </ul>
                 </nav>
             </div>
@@ -133,55 +123,20 @@
 </header>
 <!-- Header Section End -->
 
-<!--Previous page-->
-<%--<div class="container">--%>
-<%--    <div class="col-12">--%>
-<%--<h1>Sign up</h1>--%>
-<%--<form method="post" action="saveCustomer">--%>
-<%--        <input  type="text" style="width: 100%;display: none" id="pay" name="dataValue">--%>
-<%--    <input class="form-control" name="onlineCustomerId" value="0" id="onlineCustomerId" type="hidden">--%>
-
-
-<%--    <div class="mb-3">--%>
-<%--        <label for="exampleFormControlInput1" class="form-label">Name</label>--%>
-<%--        <input type="text" class="form-control" id="exampleFormControlInput1" name="userName" placeholder="Enter your name">--%>
-<%--    </div>--%>
-
-<%--    <div class="mb-3">--%>
-<%--        <label for="exampleFormControlInput1" class="form-label">Email address</label>--%>
-<%--        <input type="email" class="form-control" id="exampleFormControlInput2" name="email" placeholder="name@example.com">--%>
-<%--    </div>--%>
-
-<%--    <div class="mb-3">--%>
-<%--        <label for="exampleFormControlInput1" class="form-label">Mobile No</label>--%>
-<%--        <input type="text" class="form-control" id="exampleFormControlInput3" name="number" placeholder="Enter your mobile no">--%>
-<%--    </div>--%>
-<%--    <div class="mb-3">--%>
-<%--        <label for="exampleFormControlInput1" class="form-label">Address</label>--%>
-<%--        <input type="text" class="form-control" id="exampleFormControlInput4" name="address_l1" placeholder="Enter your address line 1">--%>
-<%--    </div>--%>
-<%--    <div class="mb-3">--%>
-
-<%--        <input type="text" class="form-control" id="exampleFormControlInput5" name="address_l2" placeholder="Enter your address line 2">--%>
-<%--    </div>--%>
-<%--        <div class="mb-3">--%>
-<%--            <input type="text" class="form-control" id="exampleFormControlInput6" name="address_l3" placeholder="Enter your address">--%>
-<%--        </div>--%>
-
-<%--        <div class="mb-3">--%>
-<%--            <label for="exampleFormControlInput1" class="form-label">Password</label>--%>
-<%--            <input type="text" class="form-control" id="exampleFormControlInput7" name="password" placeholder="Enter your password">--%>
-<%--        </div>--%>
-
-
-<%--<input type="submit" value="signUp">--%>
-<%--</form>--%>
-<!--end of previous page-->
-
+<%--sign up form--%>
 <section class="signup">
     <div class="container2">
         <div class="row">
             <div class="col-lg-12">
+                                <c:if test="${emailExistError!=null}">
+                <div class="alert alert-danger" role="alert" id="alert-box" style="margin: 50px;">
+                                                ${emailExistError}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                                </c:if>
+
                 <div class="signup-content" style="margin-bottom:10px; margin-top: 25px">
                     <div class="signup-form">
                         <h2 class="form-title" style="color: black"><b>Register</b></h2>
@@ -306,7 +261,6 @@
                     <h6>CONTACT</h6>
                     <ul>
                         <li>No 12,</li>
-                        <li>Green view garden,</li>
                         <li>Green view garden,</li>
                         <li>Kotagedara Road,</li>
                         <li>Piliyandala.</li>

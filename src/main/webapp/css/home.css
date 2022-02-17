@@ -19,3 +19,17 @@ a.register,.signIn{
     text-decoration: underline;
     color:grey;
 }
+
+@media screen and (max-width:420px ) {
+    .categories__item{
+        width:100px;
+        height:100px;
+    }
+
+}
+
+/*@media screen and (max-width: 400px) {*/
+/*    .categories__item .categories__item__icon img{*/
+/*        width:60%;*/
+/*    }*/
+/*}*/
