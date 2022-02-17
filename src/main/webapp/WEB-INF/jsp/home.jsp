@@ -26,6 +26,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="http://patskailua.com/font-email/font/flaticon.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/home.css" type="text/css">
+    <link rel="stylesheet" href="../../css/lightslider.css" type="text/css">
 
     <link rel="stylesheet" href="../../cake-main/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="../../cake-main/css/flaticon.css" type="text/css">
@@ -37,6 +38,8 @@
     <link rel="stylesheet" href="../../cake-main/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="../../cake-main/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="../../cake-main/css/style.css" type="text/css">
+
+
 
 
 </head>
@@ -150,7 +153,7 @@
 <div class="categories">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+            <div class="col-lg-2 col-md-4 col-sm-6 col-6">
                 <div class="categories__item">
                     <div class="categories__item__icon">
                         <img style="border-radius: 50%;" src="../../img/cupcake.jpg" alt="" height="170">
@@ -158,7 +161,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+            <div class="col-lg-2 col-md-4 col-sm-6 col-6">
                 <div class="categories__item">
                     <div class="categories__item__icon">
                         <img style="border-radius: 50%;" src="../../img/birthday.jpg" alt="" height="170">
@@ -166,7 +169,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+            <div class="col-lg-2 col-md-4 col-sm-6 col-6">
                 <div class="categories__item">
                     <div class="categories__item__icon">
                         <img style="border-radius: 50%;" src="../../img/anniv.jpg" alt="" height="170">
@@ -174,7 +177,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6 col-6">
+            <div class="col-lg-2 col-md-4 col-sm-6 col-6">
                 <div class="categories__item">
                     <div class="categories__item__icon">
                         <img style="border-radius: 50%;" src="../../img/cakes.jpg" alt="" height="170">
@@ -183,34 +186,27 @@
                 </div>
             </div>
 
-<%--            <div class="col-lg-4 col-md-4 col-sm-4 col-6">--%>
-<%--                <div class="categories__item">--%>
-<%--                    <div class="categories__item__icon">--%>
-<%--                        <img style="border-radius: 50%;" src="../../img/cakes.jpg" alt="" height="170">--%>
-<%--                        <h5>Cake</h5>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
+            <div class="col-lg-2 col-md-4 col-sm-6 col-6">
+                <div class="categories__item">
+                    <div class="categories__item__icon">
+                        <img style="border-radius: 50%;" src="../../img/season.jpg" alt="" height="170">
+                        <h5>Seasonal Special</h5>
+                    </div>
+                </div>
+            </div>
 
-<%--            <div class="col-lg-4 col-md-4 col-sm-4 col-6">--%>
-<%--                <div class="categories__item">--%>
-<%--                    <div class="categories__item__icon">--%>
-<%--                        <img style="border-radius: 50%;" src="../../img/cakes.jpg" alt="" height="170">--%>
-<%--                        <h5>Cake</h5>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-
-
+            <div class="col-lg-2 col-md-4 col-sm-4 col-6">
+                <div class="categories__item">
+                    <div class="categories__item__icon">
+                        <img style="border-radius: 50%;" src="../../img/dipped.jpg" alt="" height="170">
+                        <h5>Chocolate Dipped Strawberries</h5>
+                    </div>
+                </div>
+            </div>
         </div>
             </div>
         </div>
-    </div>
-</div>
 <!-- Categories Section End -->
-
-
-
 <!-- Instagram Section Begin -->
 <section class="instagram spad">
     <div class="container">
@@ -357,8 +353,6 @@
 <script src="../../cake-main/js/owl.carousel.min.js"></script>
 <script src="../../cake-main/js/jquery.nicescroll.min.js"></script>
 <script src="../../cake-main/js/main.js"></script>
-
-
 
 </body>
 

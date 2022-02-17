@@ -141,31 +141,31 @@
         <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog4.jpeg">
+                        <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog4.jpg">
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">butter icing </a></h6>
-                            <h6><a href="#">butter icing </a></h6>
+                            <h6><a href="#">3 kg butter cake</a></h6>
+                            <h6><a href="#">covered with butter icing</a></h6>
                         </div>
                     </div>
                 </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog17.jpeg">
+                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog17.jpg">
                     </div>
                     <div class="product__item__text">
-                        <h6><a href="#">butter icing </a></h6>
-                        <h6><a href="#">butter icing </a></h6>
+                        <h6><a href="#">3 kg butter cake</a></h6>
+                        <h6><a href="#">covered with butter icing</a></h6>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog18.jpeg">
+                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog18.jpg">
                     </div>
                     <div class="product__item__text">
-                        <h6><a href="#">butter icing </a></h6>
-                        <h6><a href="#">butter icing </a></h6>
+                        <h6><a href="#">3 kg butter cake</a></h6>
+                        <h6><a href="#">covered with butter icing</a></h6>
                     </div>
                 </div>
             </div>

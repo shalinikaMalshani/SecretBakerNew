@@ -139,19 +139,9 @@
         </div>
         </center><br><br>
         <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog68.jpeg">
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">butter icing </a></h6>
-                            <h6><a href="#">butter icing </a></h6>
-                        </div>
-                    </div>
-                </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog69.jpeg">
+                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog69.jpg">
                     </div>
                     <div class="product__item__text">
                         <h6><a href="#">butter icing </a></h6>
@@ -161,7 +151,7 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog70.jpeg">
+                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog70.jpg">
                     </div>
                     <div class="product__item__text">
                         <h6><a href="#">butter icing </a></h6>
@@ -171,7 +161,7 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog71.jpeg">
+                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog71.jpg">
                     </div>
                     <div class="product__item__text">
                         <h6><a href="#">butter icing </a></h6>
@@ -181,7 +171,7 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog72.jpeg">
+                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog74.jpg">
                     </div>
                     <div class="product__item__text">
                         <h6><a href="#">butter icing </a></h6>
@@ -191,7 +181,7 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog73.jpeg">
+                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog75.jpg">
                     </div>
                     <div class="product__item__text">
                         <h6><a href="#">butter icing </a></h6>
@@ -201,7 +191,7 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog74.jpeg">
+                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog76.jpg">
                     </div>
                     <div class="product__item__text">
                         <h6><a href="#">butter icing </a></h6>
@@ -211,7 +201,7 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog75.jpeg">
+                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog80.jpg">
                     </div>
                     <div class="product__item__text">
                         <h6><a href="#">butter icing </a></h6>
@@ -221,7 +211,7 @@
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog76.jpeg">
+                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog82.jpg">
                     </div>
                     <div class="product__item__text">
                         <h6><a href="#">butter icing </a></h6>
@@ -229,59 +219,10 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog77.jpeg">
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">butter icing </a></h6>
-                        <h6><a href="#">butter icing </a></h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog78.jpeg">
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">butter icing </a></h6>
-                        <h6><a href="#">butter icing </a></h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog79.jpeg">
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">butter icing </a></h6>
-                        <h6><a href="#">butter icing </a></h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog80.jpeg">
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">butter icing </a></h6>
-                        <h6><a href="#">butter icing </a></h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog81.jpeg">
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">butter icing </a></h6>
-                        <h6><a href="#">butter icing </a></h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog82.jpeg">
+                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog83.jpg">
                     </div>
                     <div class="product__item__text">
                         <h6><a href="#">butter icing </a></h6>
