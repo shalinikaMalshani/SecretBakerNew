@@ -57,7 +57,7 @@
         </div>
     </div>
     <div class="offcanvas__logo">
-        <a href="home"><img src="../../cake-main/img/logo.png" alt=""></a>
+        <a href="home"><img src="../../cake-main/img/logonw2.png" alt=""></a>
     </div>
     <div id="mobile-menu-wrap"></div>
 </div>
@@ -72,16 +72,14 @@
                     <div class="header__top__inner">
 
                         <div class="header__logo">
-                            <a href=""><img src="../../cake-main/img/logo.png" alt=""></a>
+                            <a href=""><img src="../../cake-main/img/logonw2.png" style="height:110px; weight:60px;" alt=""></a>
                         </div>
                         <div class="header__top__right">
-                            <div class="header__top__right__links">
-                                <a href="/signUp" class="register">Register</a>
-                                <a href="/signIn" class="signIn">SignIn</a>
+                            <div class="header__top__right__links header__top__right__cart" >
+                                <a href="/signUp" class="register" style="color: black; margin-left:50px">Register</a>
+                                <a href="/signIn" class="signIn" style="color: black; margin-left:50px">SignIn</a>
+                                <a href="/shoppingCartNew" class="cart-icon" style="margin-left:50px;"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
                             </div><br>
-                            <div class="header__top__right__cart" style="float: right;margin-right:20px;">
-                                <a href="/shoppingCartNew" class="cart-icon"><img src="../../cake-main/img/icon/cart.png" alt=""> <span>0</span></a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -96,11 +94,10 @@
             <div class="col-lg-12">
                 <nav class="header__menu mobile-menu">
                     <ul>
-                        <li ><a href="/home">Home</a></li>
-                        <li><a href="../cake-main/about.html">About</a></li>
+                        <li class="active"><a href="home">Home</a></li>
+                        <li><a href="/about">About</a></li>
                         <li><a href="/shop">Shop</a></li>
-                        <li class="active"><a href="/blog">Blog</a></li>
-                        <li><a href="../cake-main/contact.html">Contact</a></li>
+                        <li><a href="/blog_cakes">Blog</a></li>
                     </ul>
                 </nav>
             </div>
@@ -144,31 +141,31 @@
         <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog4.jpeg">
+                        <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog4.jpg">
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">butter icing </a></h6>
-                            <h6><a href="#">butter icing </a></h6>
+                            <h6><a href="#">3 kg butter cake</a></h6>
+                            <h6><a href="#">covered with butter icing</a></h6>
                         </div>
                     </div>
                 </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog17.jpeg">
+                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog17.jpg">
                     </div>
                     <div class="product__item__text">
-                        <h6><a href="#">butter icing </a></h6>
-                        <h6><a href="#">butter icing </a></h6>
+                        <h6><a href="#">3 kg butter cake</a></h6>
+                        <h6><a href="#">covered with butter icing</a></h6>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog18.jpeg">
+                    <div class="product__item__pic set-bg" data-setbg="../../img/blog/blog18.jpg">
                     </div>
                     <div class="product__item__text">
-                        <h6><a href="#">butter icing </a></h6>
-                        <h6><a href="#">butter icing </a></h6>
+                        <h6><a href="#">3 kg butter cake</a></h6>
+                        <h6><a href="#">covered with butter icing</a></h6>
                     </div>
                 </div>
             </div>

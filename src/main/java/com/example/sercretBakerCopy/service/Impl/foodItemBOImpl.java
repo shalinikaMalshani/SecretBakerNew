@@ -2,6 +2,7 @@ package com.example.sercretBakerCopy.service.Impl;
 
 
 import com.example.sercretBakerCopy.Exception.CustomerNotFoundException;
+import com.example.sercretBakerCopy.Exception.EmailExist;
 import com.example.sercretBakerCopy.dao.*;
 
 import com.example.sercretBakerCopy.dto.*;
@@ -961,6 +962,16 @@ public class foodItemBOImpl implements foodItemBO {
         ClassPathResource resource = new ClassPathResource("../../img/logoSB.png");
         helper.addInline("logoSB", resource);
         javaMailSender.send(message);
+    }
+
+    @Override
+    public void checkEmailExist(String email) throws EmailExist {
+
+//        CustomerDTO existing = this.getCustomerByEmail(email);
+//        if (existing == null) {
+//            throw new EmailExist(email+" is already exist.");
+//        }
+
     }
 
 

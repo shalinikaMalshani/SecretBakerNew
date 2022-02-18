@@ -1,6 +1,7 @@
 package com.example.sercretBakerCopy.controller.signInUp;
 
 import com.example.sercretBakerCopy.Exception.CustomerNotFoundException;
+import com.example.sercretBakerCopy.Exception.EmailExist;
 import com.example.sercretBakerCopy.dto.*;
 import com.example.sercretBakerCopy.entity.Customer;
 import com.example.sercretBakerCopy.service.foodItemBO;
@@ -9,11 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.mail.MessagingException;
+import javax.persistence.NonUniqueResultException;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -87,25 +90,45 @@ public class SignInUpController {
 
     //save customer when home signup
     @PostMapping("/saveCustomerHome")
-    public String saveCustomerHome(@ModelAttribute CustomerDTO customerDTO, Model model, HttpServletRequest request){
+    public String saveCustomerHome(@ModelAttribute CustomerDTO customerDTO, Model model, HttpServletRequest request, BindingResult result) throws EmailExist {
+
         try {
-            CustomerDTO customerDTO2 = foodItemBO.findHighestCustomerId();
-            CustomerDTO customerDTO1 = null;
-            try {
-                customerDTO1 = foodItemBO.getCustomerById(customerDTO.getOnlineCustomerId());
-            }catch (NullPointerException d){
-                int maxId = (customerDTO2.getOnlineCustomerId());
-                if (customerDTO.getOnlineCustomerId()==(maxId)) {
-                    customerDTO.setOnlineCustomerId((maxId));
-                } else {
-                    maxId++;
-                    customerDTO.setOnlineCustomerId((maxId));
+                CustomerDTO customerDTO2 = foodItemBO.findHighestCustomerId();
+
+                CustomerDTO customerDTO1 = null;
+                try {
+                    customerDTO1 = foodItemBO.getCustomerById(customerDTO.getOnlineCustomerId());
+                } catch (NullPointerException d) {
+                    int maxId = (customerDTO2.getOnlineCustomerId());
+                    if (customerDTO.getOnlineCustomerId() == (maxId)) {
+                        customerDTO.setOnlineCustomerId((maxId));
+                    } else {
+                        maxId++;
+                        customerDTO.setOnlineCustomerId((maxId));
+                    }
                 }
-            }
+
         } catch (NullPointerException e){
+            System.out.println("null exception");
             customerDTO.setOnlineCustomerId(1);
         }
 
+        //check whether the provided email already exist
+       try {
+           CustomerDTO existing = foodItemBO.getCustomerByEmail(customerDTO.getEmail());
+
+           if (existing != null) {
+               String sendEmail = customerDTO.getEmail();
+               if (sendEmail.equals(existing.getEmail())) {
+
+                   model.addAttribute("emailExistError", customerDTO.getEmail() + " already exist.Please SignUp again.");
+
+                   return "HomeSignUp";
+               }
+           }
+       }catch(NullPointerException n) {
+           foodItemBO.saveCustomer(customerDTO);
+       }
         foodItemBO.saveCustomer(customerDTO);
         model.addAttribute("successSignUp","You have successfully create your account.Please login.");
         return "HomeSignIn";
@@ -132,6 +155,22 @@ public class SignInUpController {
             customerDTO.setOnlineCustomerId(1);
         }
 
+        //check whether the provided email already exist
+        try {
+            CustomerDTO existing = foodItemBO.getCustomerByEmail(customerDTO.getEmail());
+
+            if (existing != null) {
+                String sendEmail = customerDTO.getEmail();
+                if (sendEmail.equals(existing.getEmail())) {
+
+                    model.addAttribute("emailExistError", customerDTO.getEmail() + " already exist.Please SignUp again.");
+
+                    return "HomeSignUp";
+                }
+            }
+        }catch(NullPointerException n) {
+            foodItemBO.saveCustomer(customerDTO);
+        }
         foodItemBO.saveCustomer(customerDTO);
         model.addAttribute("successSignUp","You have successfully create your account.Please login.");
         return "signInCusDesign";
@@ -159,6 +198,22 @@ public class SignInUpController {
             customerDTO.setOnlineCustomerId(1);
         }
 
+        //check whether the provided email already exist
+        try {
+            CustomerDTO existing = foodItemBO.getCustomerByEmail(customerDTO.getEmail());
+
+            if (existing != null) {
+                String sendEmail = customerDTO.getEmail();
+                if (sendEmail.equals(existing.getEmail())) {
+
+                    model.addAttribute("emailExistError", customerDTO.getEmail() + " already exist.Please SignUp again.");
+
+                    return "HomeSignUp";
+                }
+            }
+        }catch(NullPointerException n) {
+            foodItemBO.saveCustomer(customerDTO);
+        }
         foodItemBO.saveCustomer(customerDTO);
         model.addAttribute("successSignUp","You have successfully create your account.Please login.");
         return "signUpLogin";
