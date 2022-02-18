@@ -229,27 +229,27 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-6">
                         <div class="instagram__pic middle__pic">
-                            <img src="../cake-main/img/instagram/instagram-2.jpg" alt="">
+                            <img src="../../cake-main/img/instagram/instagram-2.jpg" alt="">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-6">
                         <div class="instagram__pic">
-                            <img src="../cake-main/img/instagram/instagram-3.jpg" alt="">
+                            <img src="../../img/inst3.jpg" alt="">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-6">
                         <div class="instagram__pic">
-                            <img src="../cake-main/img/instagram/instagram-4.jpg" alt="">
+                            <img src="../../cake-main/img/instagram/instagram-4.jpg" alt="">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-6">
                         <div class="instagram__pic middle__pic">
-                            <img src="../cake-main/img/instagram/instagram-5.jpg" alt="">
+                            <img src="../../img/inst2.jpeg" alt="">
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4 col-6">
                         <div class="instagram__pic">
-                            <img src="../cake-main/img/instagram/instagram-3.jpg" alt="">
+                            <img src="../../img/inst1.jpg" alt="">
                         </div>
                     </div>
                 </div>
