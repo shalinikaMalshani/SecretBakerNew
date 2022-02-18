@@ -19,6 +19,7 @@
 
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="http://patskailua.com/font-email/font/flaticon.css" rel="stylesheet">
+
     <link rel="stylesheet" href="../../css/home.css" type="text/css">
 
     <link rel="stylesheet" href="../../cake-main/css/bootstrap.min.css" type="text/css">
@@ -31,55 +32,57 @@
     <link rel="stylesheet" href="../../cake-main/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="../../cake-main/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="../../cake-main/css/style.css" type="text/css">
+    <link rel="stylesheet" href="../../cake-main/css/_about.scss" type="text/css">
 
     <style>
-    /*body{*/
-    /*background:#353b45 !important;*/
-    /*font-family:'Poppins';*/
-    /*}*/
-    .flt-left1{
-    float:left;
-    }
-    .carousel3{
-    width:100%;
-    margin:auto;
-    }
-    .row4{
-    width:90%;
-    padding:0;
-    overflow:hidden;
-    margin:auto;
-    }
-    .row-container2{
-    width:2000px;
-    transition:0.5s;
-    }
-    .container4{
-    width:250px;
+<%--    /*body{*/--%>
+<%--    /*background:#353b45 !important;*/--%>
+<%--    /*font-family:'Poppins';*/--%>
+<%--    /*}*/--%>
+<%--    .flt-left1{--%>
+<%--    float:left;--%>
+<%--    }--%>
+<%--    .carousel3{--%>
+<%--    width:100%;--%>
+<%--    margin:auto;--%>
+<%--    }--%>
+<%--    .row4{--%>
+<%--    width:90%;--%>
+<%--    padding:0;--%>
+<%--    overflow:hidden;--%>
+<%--    margin:auto;--%>
+<%--    }--%>
+<%--    .row-container2{--%>
+<%--    width:2000px;--%>
+<%--    transition:0.5s;--%>
+<%--    }--%>
+<%--    .container4{--%>
+<%--    width:250px;--%>
 
-    float:left;
-    display:inline;
-    margin:0 5px;
-    }
-    .clear1{
-    clear:both;
-    }
-    .controls{
-    width:100%;
-    margin:auto;
-    }
-    button{
-    border:none;
-    padding:10px 20px;
-    color:black;
-    /*background:#21252b;*/
-    font-weight:bold;
-    outline:none;
-    border-radius:3px;
-    height:200px;
-    position: relative;
-    /*postion:relative;*/
-    }
+<%--    float:left;--%>
+<%--    display:inline;--%>
+<%--    margin:0 5px;--%>
+<%--    }--%>
+<%--    .clear1{--%>
+<%--    clear:both;--%>
+<%--    }--%>
+<%--    .controls{--%>
+<%--    width:100%;--%>
+<%--    margin:auto;--%>
+<%--    }--%>
+<%--    button{--%>
+<%--    border:none;--%>
+<%--    padding:10px 20px;--%>
+<%--    color:black;--%>
+<%--    /*background:#21252b;*/--%>
+<%--    font-weight:bold;--%>
+<%--    outline:none;--%>
+<%--    border-radius:3px;--%>
+<%--    height:200px;--%>
+<%--    position: relative;--%>
+<%--    /*postion:relative;*/--%>
+<%--    }--%>
+
 
     </style>
 
@@ -179,7 +182,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="about__video set-bg" data-setbg="../../cake-main/img/homenw222.jpg" style="margin-top:-30px;">
+                <div class="about__video set-bg" data-setbg="../../cake-main/img/about-video.jpg" style="margin-top:-30px;">
 <%--                    <a href="https://www.youtube.com/watch?v=8PJ3_p7VqHw&list=RD8PJ3_p7VqHw&start_radio=1"--%>
 <%--                       class="play-btn video-popup"><i class="fa fa-play"></i></a>--%>
                 </div>
@@ -192,7 +195,7 @@
                         <span>About Cake shop</span>
                         <h2>Cakes and bakes from the house of Queens!</h2>
                     </div>
-                    <p>The "Secret Baker" is a started as a small family business. The owner is .....
+                    <p style="text-align: justify;">The "Secret Baker" is a started as a small family business. The owner is .....
                         She passion to bring forth the rich and tasteful delights to the public drew her to start up her own shop.
                         What started in 2020 as a small shop, "Secret Baker" is now an established and well known name among everyone.
                         We strive to provide the best quality food and service always.Our menu currently consists of a diverse selection from sweets, cakes & savories to among many others.
@@ -201,23 +204,40 @@
             </div>
             <div class="col-lg-6 col-md-6" style="margin-top: 150px;">
                 <div class="about__bar">
+                    <div class="breadcrumb__text">
+                        <h5>Cake Varieties</h5>
+                    </div>
                     <div class="about__bar__item">
-                        <p>Cake design</p>
+                        <p>Cakes</p>
                         <div id="bar1" class="barfiller">
                             <div class="tipWrap"><span class="tip"></span></div>
-                            <span class="fill" data-percentage="95"></span>
+                            <span class="fill" data-percentage="70"></span>
                         </div>
                     </div>
                     <div class="about__bar__item">
-                        <p>Cake Class</p>
+                        <p>Cupcake</p>
                         <div id="bar2" class="barfiller">
                             <div class="tipWrap"><span class="tip"></span></div>
-                            <span class="fill" data-percentage="80"></span>
+                            <span class="fill" data-percentage="90"></span>
                         </div>
                     </div>
                     <div class="about__bar__item">
-                        <p>Cake Recipes</p>
-                        <div id="bar3" class="barfiller">
+                        <p>Birthday Cake</p>
+                        <div id="bar3" class="barfiller" style="position: relative;">
+                            <div class="tipWrap"><span class="tip"></span></div>
+                            <span class="fill" data-percentage="85"></span>
+                        </div>
+                    </div>
+                    <div class="about__bar__item">
+                        <p>Wedding Cake</p>
+                        <div id="bar4" class="barfiller" style="position: relative;">
+                            <div class="tipWrap"><span class="tip"></span></div>
+                            <span class="fill" data-percentage="75"></span>
+                        </div>
+                    </div>
+                    <div class="about__bar__item">
+                        <p>Custom Design</p>
+                        <div id="bar5" class="barfiller" style="position: relative;">
                             <div class="tipWrap"><span class="tip"></span></div>
                             <span class="fill" data-percentage="90"></span>
                         </div>
@@ -536,7 +556,8 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <div class="team__item set-bg" data-setbg="../../cake-main/img/shop1.jpg" style="height: 200px; width: 350px;">
+                <div class="team__item set-bg" data-setbg="../../cake-main/img/shop1.jpg"
+                     style="height: 200px; width: 200px;">
 <%--                    <div class="team__item__text">--%>
 <%--                        <h6>Randy Butler</h6>--%>
 <%--                        <span>Decorater</span>--%>
@@ -550,7 +571,8 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="team__item set-bg" data-setbg="../../cake-main/img/shop2.jpg" style="height: 200px; width: 350px;">
+                <div class="team__item set-bg" data-setbg="../../cake-main/img/shop2.jpg"
+                     style="height: 200px; width: 200px;">
 <%--                    <div class="team__item__text">--%>
 <%--                        <h6>Randy Butler</h6>--%>
 <%--                        <span>Decorater</span>--%>
@@ -564,7 +586,8 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="team__item set-bg" data-setbg="../../cake-main/img/shop3.jpg" style="height: 200px; width: 350px;">
+                <div class="team__item set-bg" data-setbg="../../cake-main/img/shop3.jpg"
+                     style="height: 200px; width:200px;">
 <%--                    <div class="team__item__text">--%>
 <%--                        <h6>Randy Butler</h6>--%>
 <%--                        <span>Decorater</span>--%>
@@ -627,7 +650,7 @@
                 </div>
             </div>
         </div>
-        <div class="map__iframe" style="background-size: cover; padding-right: 250px; padding-left: 250px;">
+        <div class="map__iframe" style="background-size: cover;">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.942207142346!2d79.92214461477212!3d6.776888895101511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd16689cd0fdbf703!2zNsKwNDYnMzYuOCJOIDc5wrA1NScyNy42IkU!5e0!3m2!1sen!2slk!4v1644470167986!5m2!1sen!2slk" width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </div>
@@ -639,53 +662,56 @@
 <br>
 <br>
 
-<!--shop image begin-->
-<section class="team spad">
-<div class="carousel3 " >
-    <button class='flt-left1 ' onclick="slideRight(this);"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
-<%--    <button class='flt-left1 col-md-4' onclick="slideRight(this);"><i class="fa fa-angle-up" aria-hidden="true"></i></button>--%>
-    <div class="row4 flt-left1 ">
+<%--<!--shop image begin-->--%>
+<%--<section class="team spad">--%>
+<%--<div class="carousel3 " >--%>
+<%--    <button class='flt-left1 ' onclick="slideRight(this);"><i class="fa fa-angle-left" aria-hidden="true"></i></button>--%>
+<%--&lt;%&ndash;    <button class='flt-left1 col-md-4' onclick="slideRight(this);"><i class="fa fa-angle-up" aria-hidden="true"></i></button>&ndash;%&gt;--%>
+<%--    <div class="row4 flt-left1 ">--%>
 
-        <div class="row-container2 ">
-            <div class="container4 col-md-4" >
-                <img src="../../cake-main/img/shop1.jpg" style="height: 200px; width: 350px;"/>
-            </div>
-            <div class="container4 col-md-4">
-                <img src="../../cake-main/img/shop2.jpg" style="height: 200px; width: 350px;"/>
-            </div>
-            <div class="container4 col-md-4">
-                <img src="../../cake-main/img/shop3.jpg" style="height: 200px; width: 350px;" />
-            </div>
-            <div class="container4 col-md-4">
-                <img src="../../cake-main/img/shop5.jpg" style="height: 200px; width: 350px;" />
-            </div>
-            <div class="container4 col-md-4">
-                <img src="../../cake-main/img/shop6.jpg" style="height: 200px; width: 350px;"/>
-            </div>
-            <div class="container4 col-md-4">
-                <img src="../../cake-main/img/shop7.jpg" style="height: 200px; width: 350px;"/>
-            </div>
-            <div class="container4 col-md-4">
-                <img src="../../cake-main/img/shop5.jpg" style="height: 200px; width: 350px;"/>
-            </div>
-            <div class="container4 col-md-4">
-                <img src="../../cake-main/img/shop6.jpg" style="height: 200px; width: 350px;"/>
-            </div>
-            <div class="clear1"></div>
-        </div>
+<%--        <div class="row-container2 ">--%>
+<%--            <div class="container4 col-md-4" >--%>
+<%--                <img src="../../cake-main/img/shop1.jpg" style="height: 200px; width: 350px;"/>--%>
+<%--            </div>--%>
+<%--            <div class="container4 col-md-4">--%>
+<%--                <img src="../../cake-main/img/shop2.jpg" style="height: 200px; width: 350px;"/>--%>
+<%--            </div>--%>
+<%--            <div class="container4 col-md-4">--%>
+<%--                <img src="../../cake-main/img/shop3.jpg" style="height: 200px; width: 350px;" />--%>
+<%--            </div>--%>
+<%--            <div class="container4 col-md-4">--%>
+<%--                <img src="../../cake-main/img/shop5.jpg" style="height: 200px; width: 350px;" />--%>
+<%--            </div>--%>
+<%--            <div class="container4 col-md-4">--%>
+<%--                <img src="../../cake-main/img/shop6.jpg" style="height: 200px; width: 350px;"/>--%>
+<%--            </div>--%>
+<%--            <div class="container4 col-md-4">--%>
+<%--                <img src="../../cake-main/img/shop7.jpg" style="height: 200px; width: 350px;"/>--%>
+<%--            </div>--%>
+<%--            <div class="container4 col-md-4">--%>
+<%--                <img src="../../cake-main/img/shop5.jpg" style="height: 200px; width: 350px;"/>--%>
+<%--            </div>--%>
+<%--            <div class="container4 col-md-4">--%>
+<%--                <img src="../../cake-main/img/shop6.jpg" style="height: 200px; width: 350px;"/>--%>
+<%--            </div>--%>
+<%--            <div class="clear1"></div>--%>
+<%--        </div>--%>
 
-    </div>
-    <button class='flt-left1'  onclick="slideLeft(this);" ><i class="fa fa-angle-right" aria-hidden="true"></i></button>
-<%--    <button class='flt-left1 col-md-4'  onclick="slideLeft(this);" style="padding-right: -20px;"><i class="fa fa-angle-down" aria-hidden="true"></i></button>--%>
-    <div class="clear1"></div>
-</div>
+<%--    </div>--%>
+<%--    <button class='flt-left1'  onclick="slideLeft(this);" ><i class="fa fa-angle-right" aria-hidden="true"></i></button>--%>
+<%--&lt;%&ndash;    <button class='flt-left1 col-md-4'  onclick="slideLeft(this);" style="padding-right: -20px;"><i class="fa fa-angle-down" aria-hidden="true"></i></button>&ndash;%&gt;--%>
+<%--    <div class="clear1"></div>--%>
+<%--</div>--%>
+
+
+<!--shop image end-->
+
 </section>
 
 <br>
 <br>
 <br>
 
-<!--shop image end-->
 
 
 <!-- Footer Section Begin -->
@@ -783,50 +809,50 @@
 <script src="../../cake-main/js/jquery.nicescroll.min.js"></script>
 <script src="../../cake-main/js/main.js"></script>
 
-<script>
-var right = 0;
-var maxMargin;
-var jumpMargin = 150;
+<%--<script>--%>
+<%--var right = 0;--%>
+<%--var maxMargin;--%>
+<%--var jumpMargin = 150;--%>
 
-function setWidth(){
-var boxwidth = document.querySelector(".container4").offsetWidth;
-var displaywidth = document.querySelector(".row4").offsetWidth;
-var displayheight = document.querySelector(".row4").offsetHeight;
-var children = document.querySelectorAll(".row-container2 > .container4").length;
-var outerboxwidth = children * boxwidth + (children*10);
-document.querySelector(".row-container2").style.width = outerboxwidth+"px";
-document.querySelectorAll("button")[0].style.height = displayheight+"px";
-document.querySelectorAll("button")[1].style.height = displayheight+"px";
-maxMargin = outerboxwidth - displaywidth;
-}
+<%--function setWidth(){--%>
+<%--var boxwidth = document.querySelector(".container4").offsetWidth;--%>
+<%--var displaywidth = document.querySelector(".row4").offsetWidth;--%>
+<%--var displayheight = document.querySelector(".row4").offsetHeight;--%>
+<%--var children = document.querySelectorAll(".row-container2 > .container4").length;--%>
+<%--var outerboxwidth = children * boxwidth + (children*10);--%>
+<%--document.querySelector(".row-container2").style.width = outerboxwidth+"px";--%>
+<%--document.querySelectorAll("button")[0].style.height = displayheight+"px";--%>
+<%--document.querySelectorAll("button")[1].style.height = displayheight+"px";--%>
+<%--maxMargin = outerboxwidth - displaywidth;--%>
+<%--}--%>
 
-function slideLeft(event){
-var rowcont = document.querySelector(".row-container2");
-if(right <= -maxMargin){
-event.preventDefault();
-}
-else{
-right -= jumpMargin;
-}
-rowcont.style.marginLeft = right+"px";
-}
+<%--function slideLeft(event){--%>
+<%--var rowcont = document.querySelector(".row-container2");--%>
+<%--if(right <= -maxMargin){--%>
+<%--event.preventDefault();--%>
+<%--}--%>
+<%--else{--%>
+<%--right -= jumpMargin;--%>
+<%--}--%>
+<%--rowcont.style.marginLeft = right+"px";--%>
+<%--}--%>
 
-function slideRight(event){
-var rowcont = document.querySelector(".row-container2");
-if(right==0){
-event.preventDefault();
-}
-else if(right >= maxMargin){
-event.preventDefault();
-}
-else{
-right += jumpMargin;
-}
-rowcont.style.marginLeft = right+"px";
-}
+<%--function slideRight(event){--%>
+<%--var rowcont = document.querySelector(".row-container2");--%>
+<%--if(right==0){--%>
+<%--event.preventDefault();--%>
+<%--}--%>
+<%--else if(right >= maxMargin){--%>
+<%--event.preventDefault();--%>
+<%--}--%>
+<%--else{--%>
+<%--right += jumpMargin;--%>
+<%--}--%>
+<%--rowcont.style.marginLeft = right+"px";--%>
+<%--}--%>
 
-window.onload=setWidth;
-</script>
+<%--window.onload=setWidth;--%>
+<%--</script>--%>
 
 </body>
 
