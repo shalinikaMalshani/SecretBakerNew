@@ -26,7 +26,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="http://patskailua.com/font-email/font/flaticon.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/home.css" type="text/css">
-
+    <link rel="stylesheet" href="../../css/home2.css" type="text/css">
     <link rel="stylesheet" href="../../cake-main/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="../../cake-main/css/flaticon.css" type="text/css">
     <link rel="stylesheet" href="../../cake-main/css/barfiller.css" type="text/css">
@@ -37,6 +37,16 @@
     <link rel="stylesheet" href="../../cake-main/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="../../cake-main/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="../../cake-main/css/style.css" type="text/css">
+
+
+    <style>
+        .set-bg-3 {
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: top center;
+            background-image: url("../../cake-main/img/footer-bg.jpg");
+        }
+    </style>
 
 
 </head>
@@ -114,33 +124,69 @@
 <!-- Header Section End -->
 
 <!-- Hero Section Begin -->
+<%--<section class="hero">--%>
+<%--    <div class="hero__slider owl-carousel">--%>
+<%--        <div class="hero__item set-bg" data-setbg="../../cake-main/img/1home.jpg">--%>
+<%--            <div class="container">--%>
+<%--                <div class="row d-flex justify-content-center">--%>
+<%--                    <div class="col-lg-8">--%>
+<%--                        <div class="hero__text">--%>
+<%--                            <h2>Making your life sweeter one bite at a time!</h2>--%>
+<%--                            <a href="#" class="primary-btn">Our cakes</a>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--        <div class="hero__item set-bg" data-setbg="../../cake-main/img/home3.jpg">--%>
+<%--            <div class="container">--%>
+<%--                <div class="row d-flex justify-content-center">--%>
+<%--                    <div class="col-lg-8">--%>
+<%--                        <div class="hero__text">--%>
+<%--                            <h2>Making your life sweeter one bite at a time!</h2>--%>
+<%--                            <a href="#" class="primary-btn">Our cakes</a>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</section>--%>
+<!-- Hero Section End -->
+
+<!-- Hero Section Begin -->
 <section class="hero">
-    <div class="hero__slider owl-carousel">
-        <div class="hero__item set-bg" data-setbg="../../cake-main/img/1home.jpg">
+<%--    <div class="owl-carousel">--%>
+        <div class="hero__item set-bg"  data-setbg="../../cake-main/img/home6.jpg">
             <div class="container">
                 <div class="row d-flex justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="hero__text">
-                            <h2>Making your life sweeter one bite at a time!</h2>
-                            <a href="#" class="primary-btn">Our cakes</a>
+                    <div class="col-lg-8" style="text-align: center;">
+                        <div class="hero__text2">
+                  <h2 style="font-size: 46px; color: #111111;line-height: 60px;font-weight: 700;font-style: italic;
+                                margin-bottom: 18px; position: relative;top: 100px; padding-top:100px;">
+                                Making your life sweeter one bite at a time!</h2>
+                  <a href="#" class="primary-btn" style="margin-top: 100px;">Our cakes</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="hero__item set-bg" data-setbg="../../cake-main/img/home3.jpg">
-            <div class="container">
-                <div class="row d-flex justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="hero__text">
-                            <h2>Making your life sweeter one bite at a time!</h2>
-                            <a href="#" class="primary-btn">Our cakes</a>
-                        </div>
-                    </div>
-                </div>
+                    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-8" style=" text-align: center;">
+                <div class="hero__text2">
+                <h2 style="  font-size: 46px; color: #111111;line-height: 60px;font-weight: 700;font-style: italic;
+                                margin-bottom: 18px; position: relative;top: 100px; padding-top:100px;">
+                    Making your life sweeter one bite at a time!</h2>
+<%--<br><br><br><br>--%>
+                <a href="#" class="primary-btn" style="margin-top:100px; ">Our cakes</a>
+                                        </div>
             </div>
         </div>
+                    </div>
     </div>
+<%--    </div>--%>
 </section>
 <!-- Hero Section End -->
 
@@ -254,7 +300,7 @@
 
 
 <!-- Footer Section Begin -->
-<footer class="footer set-bg" data-setbg="../../cake-main/img/footer-bg.jpg">
+<footer class="footer set-bg-3">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-6">
@@ -347,7 +393,22 @@
 <script src="../../cake-main/js/jquery.nicescroll.min.js"></script>
 <script src="../../cake-main/js/main.js"></script>
 
+<script>
+    var myIndex = 0;
+    carousel();
 
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("set-bg");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) {myIndex = 1}
+        x[myIndex-1].style.display = "block";
+        setTimeout(carousel,3500); // Change image every 2 seconds
+    }
+</script>
 
 </body>
 

@@ -241,7 +241,7 @@
                     <div class="form-group form-button">
                         <input   type="text"  id="payNew" name="dataValue" style="display: none">
 <%--                        <input type="submit"  onclick="getValueNew()"  name="signin" id="signin" class="form-submit" value="Log in"/>--%>
-                        <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+                        <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" disabled/>
 
                         <%
                             session.setAttribute("userId", "usffff");
@@ -249,7 +249,7 @@
                     </div>
 
                     <div class="form-group form-button">
-                        <article>Don't have an account?<a href="/signUp" style=" hover:black; ">Create an account</a></article>
+                        <article>Don't have an account?<a href="/signUp" style="color: #0b0b0b; ">Create an account</a></article>
                     </div>
                 </form>
 
@@ -360,5 +360,17 @@
 
 
 <script src="../../js/cartNew.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    $(function() {
+        var chk = $('#remember-me');
+        var btn = $('#signin');
+
+        chk.on('change', function() {
+            btn.prop("disabled", !this.checked);//true: disabled, false: enabled
+        }).trigger('change'); //page load trigger event
+    })
+
+</script>
 </body>
 </html>

@@ -246,14 +246,19 @@
 
 
                             <div class="form-group">
-                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service2">Terms of service</a></label>
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" value="1"/>
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service2" style="color: #0b0b0b;">Terms of service</a></label>
+
                             </div>
 
                             <div class="form-group form-button">
-                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register" disabled>
+                                <br>
+                                <span id='message3'></span>
+                                <span id='message4'></span>
+
                             </div>
-                            <h6>I'm already your member <a href="signUpLogin" >Sign In</a></h6>
+                            <h6>I'm already your member <a href="signUpLogin" style="color: #0b0b0b;">Sign In</a></h6>
                         </form>
                     </div>
 
@@ -381,10 +386,56 @@
             document.getElementById('message').innerHTML = 'matching';
         } else {
             document.getElementById('message').style.color = 'red';
-            document.getElementById('message').innerHTML = 'not matching';
+            document.getElementById('message').innerHTML = 'Not matching..';
+            // alert("Your confirm password is wrong..Please enter correct password..");
         }
     }
 </script>
+
+<%--<script>--%>
+<%--    var check2 = function() {--%>
+<%--        if (document.getElementById('password').value ==--%>
+<%--            document.getElementById('re_pass').value) {--%>
+
+<%--        } else {--%>
+<%--            document.getElementById('message').style.color = 'red';--%>
+<%--            document.getElementById('message').innerHTML = 'Please Enter Correct Password..';--%>
+<%--        }--%>
+<%--    }--%>
+<%--</script>--%>
+
+<%--<script>--%>
+<%--    function verifyPasswordNw() {--%>
+<%--        var pw = document.getElementById("password").value;--%>
+<%--        var re_pw = document.getElementById("re_pass").value;--%>
+<%--        if (document.getElementById("password").value ==--%>
+<%--            document.getElementById("re_pass").value) {--%>
+
+<%--            document.getElementById("message3").innerHTML = "Register Success..";--%>
+<%--            return true;--%>
+<%--        }--%>
+<%--        else{--%>
+<%--            document.getElementById("message3").innerHTML = "Re Enter correct password..";--%>
+<%--            return false;--%>
+<%--        }--%>
+
+<%--//         //minimum password length validation--%>
+<%--//         if(pw.length < 8) {--%>
+<%--//             document.getElementById('message2').style.color = 'red'--%>
+<%--//             document.getElementById("message2").innerHTML = "**Password length must be at least 8 characters";--%>
+<%--//             return false;--%>
+<%--//         }--%>
+<%--//--%>
+<%--// //maximum length of password validation--%>
+<%--//         if(pw.length > 15) {--%>
+<%--//             document.getElementById('message2').style.color = 'red'--%>
+<%--//             document.getElementById("message2").innerHTML = "**Password length must not exceed 15 characters";--%>
+<%--//             return false;--%>
+<%--//         }--%>
+<%--    }--%>
+<%--</script>--%>
+
+
 
 <script>
     function verifyPassword() {
@@ -395,10 +446,12 @@
         //     return false;
         // }
 
+
+
         //minimum password length validation
         if(pw.length < 8) {
             document.getElementById('message2').style.color = 'red'
-            document.getElementById("message2").innerHTML = "**Password length must be ateast 8 characters";
+            document.getElementById("message2").innerHTML = "**Password length must be at least 8 characters";
             return false;
         }
 
@@ -408,7 +461,53 @@
             document.getElementById("message2").innerHTML = "**Password length must not exceed 15 characters";
             return false;
         }
+
+        if (document.getElementById("password").value ==
+            document.getElementById("re_pass").value) {
+            document.getElementById('message3').style.color = "green"
+            // document.getElementById("message3").innerHTML = "Register Success..";
+            alert ("Register Success..");
+            return true;
+        }
+        else{
+            document.getElementById('message3').style.color = "red"
+            document.getElementById("message3").innerHTML = "Your password is wrong.. Please enter correct password..";
+            return false;
+        }
     }
+</script>
+
+<%--<script>--%>
+<%--    var checkboxes = $("input[type='checkbox']"),--%>
+<%--        submitButt = $("input[type='submit']");--%>
+
+<%--    checkboxes.click(function() {--%>
+
+<%--            submitButt.attr("disabled", !checkboxes.is(":checked"));--%>
+
+<%--        // submitButt.attr("enabled", !checkboxes.is(":checked"));--%>
+<%--        // if(checkboxes =! checked){--%>
+<%--        //     document.getElementById("message4").innerHTML = "Please checked..";--%>
+<%--        // }--%>
+
+
+<%--    });--%>
+<%--</script>--%>
+<script>
+    $('#agree-term').click(function(){
+        //If the checkbox is checked.
+        if($(this).is(':checked')){
+            //Enable the submit button.
+            $('#signup').attr("disabled", false);
+        }else{
+            //If it is not checked, disable the button.
+            $('#signup').attr("disabled", true);
+            document.getElementById('message4').style.color = 'red'
+            document.getElementById("message4").innerHTML = "Please checked..";
+            // alert ("Please ckecked the button..");
+            // return true;
+        }
+    });
 </script>
 
 </body>

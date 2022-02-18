@@ -247,13 +247,13 @@
 
                             <div class="form-group">
                                 <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service2">Terms of service</a></label>
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service2" style="color: #0b0b0b;">Terms of service</a></label>
                             </div>
 
                             <div class="form-group form-button">
                                 <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
                             </div>
-                            <h6>I'm already your member <a href="signUpLogin" >Sign In</a></h6>
+                            <h6>I'm already your member <a href="signUpLogin" style="color: #0b0b0b;" >Sign In</a></h6>
                          </form>
                     </div>
 

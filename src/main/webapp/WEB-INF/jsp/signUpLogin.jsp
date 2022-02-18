@@ -231,8 +231,8 @@
                             session.setAttribute("userId", "usffff");
                         %>
                     </div>
-                    <div class="form-group form-button">
-                        <article>Don't have an account?<a href="/signUpCart" style=" hover:black; ">Create an account</a></article>
+                    <div class="">
+                        <article>Don't have an account?<a href="/signUpCart" style="cursor:pointer; color: #0b0b0b;">Create an account</a></article>
                     </div>
                 </form>
 
