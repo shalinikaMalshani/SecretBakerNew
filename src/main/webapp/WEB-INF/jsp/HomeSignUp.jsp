@@ -29,7 +29,6 @@
     <link rel="stylesheet" href="../cake-main/fonts/material-icon/css/material-design-iconic-font.min.css">
 
     <link rel="stylesheet" href="../../css/home.css" type="text/css">
-    <%--    <meta charset="UTF-8">--%>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
@@ -45,6 +44,7 @@
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
           rel="stylesheet">
+
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="../cake-main/css/bootstrap.min.css" type="text/css">
@@ -138,7 +138,7 @@
                                 </c:if>
 
                 <div class="signup-content" style="margin-bottom:10px; margin-top: 25px">
-                    <div class="signup-form">
+                    <div class="signup-form ">
                         <h2 class="form-title" style="color: black"><b>Register</b></h2>
                         <form method="POST" class="register-form" id="register-form" action="saveCustomerHome" onsubmit="return verifyPassword() ">
                             <input class="form-control" name="onlineCustomerId" value="0" id="onlineCustomerId" type="hidden">
@@ -233,10 +233,10 @@
 </section>
 
 <!-- Footer Section Begin -->
-<footer class="footer set-bg" data-setbg="../cake-main/img/footer-bg.jpg">
+<footer class="footer set-bg" data-setbg="../../cake-main/img/footer-bg.jpg">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="footer__widget">
                     <h6>WORKING HOURS</h6>
                     <ul>
@@ -246,10 +246,10 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="footer__about">
                     <div class="footer__logo">
-                        <a href="#"><img src="../cake-main/img/footerlogo2.png" alt=""></a>
+                        <a href="#"><img src="../../cake-main/img/footerlogo2.png" alt=""></a>
                     </div>
                     <p>Lorem ipsum dolor amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore dolore magna aliqua.</p>
@@ -262,10 +262,11 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="footer__widget">
+                <div class="footer__widget"  style="padding-left: 15px;">
                     <h6>CONTACT</h6>
                     <ul>
                         <li>No 12,</li>
+                        <li>Green view garden,</li>
                         <li>Green view garden,</li>
                         <li>Kotagedara Road,</li>
                         <li>Piliyandala.</li>
@@ -273,12 +274,13 @@
                     <br>
                     <H6>EMAIL</H6>
                     <ul>
-                        <li>secretbaker123.com</li>
+                        <li>secretbaker123@gmail.com</li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="copyright">
         <div class="container">
             <div class="row">
@@ -301,6 +303,9 @@
         </div>
     </div>
 </footer>
+<!-- Footer Section End -->
+
+
 <!-- Search Begin -->
 <div class="search-model">
     <div class="h-100 d-flex align-items-center justify-content-center">
