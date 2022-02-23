@@ -24,3 +24,7 @@
     text-decoration: underline;
     color:#f08632 ;
 }
+
+div .product__item__text h6{
+    font-size:13px;
+}

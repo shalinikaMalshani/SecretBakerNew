@@ -299,7 +299,7 @@ public class foodItemBOImpl implements foodItemBO {
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
         helper.setTo(s.getEmail());
-        helper.setFrom("jananimadushika13@gmail.com");//mail
+        helper.setFrom("webspring404@gmail.com");//mail
         helper.setSubject("Your secret baker order has been received!!");
         boolean html = true;
 
@@ -364,7 +364,7 @@ public class foodItemBOImpl implements foodItemBO {
 
         helper.setText(content, html);
         //img set
-        ClassPathResource resource = new ClassPathResource("../../img/logoSB.png");
+        ClassPathResource resource = new ClassPathResource("../../cake-main/img/logonw2.png");
         helper.addInline("logoSB", resource);
         javaMailSender.send(message);
     }
@@ -402,8 +402,8 @@ public class foodItemBOImpl implements foodItemBO {
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
 
-        helper.setTo("jananimadushika13@gmail.com");
-        helper.setFrom("jananimadushika13@gmail.com");
+        helper.setTo("webspring404@gmail.com");
+        helper.setFrom("webspring404@gmail.com");
         helper.setSubject("Secret baker today's orders");
         boolean html = true;
 
@@ -758,8 +758,8 @@ public class foodItemBOImpl implements foodItemBO {
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
 
-        helper.setTo("jananimadushika13@gmail.com");
-        helper.setFrom("jananimadushika13@gmail.com");
+        helper.setTo("webspring404@gmail.com");
+        helper.setFrom("webspring404@gmail.com");
         helper.setSubject("Secret baker today's custom design request");
         boolean html = true;
 
@@ -767,9 +767,8 @@ public class foodItemBOImpl implements foodItemBO {
 
         // first part  (the html)
         BodyPart messageBodyPart = new MimeBodyPart();
-//        String htmlText = "<H1>Hello</H1><img src=\"cid:image\">";
         String htmlText="<h3>Custom Design Request</h3>" + "\n";
-        htmlText+="<p><b>Custom Design SB"+customDesignDTO.getCustomDesignId()+"</b>\t<b>"+customDesignDTO.getCusDesdate()+"</b></p>";
+        htmlText+="<p><b>Custom Design SB"+customDesignDTO.getCustomDesignId()+"</b>\t<b>["+customDesignDTO.getCusDesdate()+"]</b></p>";
         htmlText+="<table width='100%' align='center' border='1' style='border-collapse:collapse;'>"
                 + "<tr align='center'>"
                 + "<td><b>Cake Type <b></td>"
@@ -861,7 +860,7 @@ public class foodItemBOImpl implements foodItemBO {
     }
 
     @Override
-    public void sendEmailCD(CustomDesignDTO customDesignDTO, DeliveryDTO deliveryDTO) throws MessagingException {
+    public void sendEmailCD(CustomDesignDTO customDesignDTO, DeliveryDTO deliveryDTO) throws MessagingException, IOException {
         Customer s = customerDAO.findOne(customDesignDTO.getCusDescustomer());
 
         List<CustomDesignDTO> listCus = new ArrayList<>();
@@ -906,14 +905,19 @@ public class foodItemBOImpl implements foodItemBO {
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
         helper.setTo(s.getEmail());
-        helper.setFrom("jananimadushika13@gmail.com"); //mail
+        helper.setFrom("webspring404@gmail.com"); //mail
         helper.setSubject("Your secret baker custom design request has been received!!");
         boolean html = true;
+
+        //MimeMultipart multipart = new MimeMultipart("related");
+
+        // first part  (the html)
+        //BodyPart messageBodyPart = new MimeBodyPart();
 
         String content = "<center><img src='cid:logoSB'/></center>";
         content += "<h1>Thank you for your custom design request with Secret Baker</h1>" + "\n";
         content += "<h4>We contact you soon for the further confirmation</h4>" + "\n";
-        content += "<p><b>Custom Design SB" + customDesignDTO.getCustomDesignId() + "</b>\t<b>[" + customDesignDTO.getCusDesdes() + "]</b></p>";
+        content += "<p><b>Custom Design SB" + customDesignDTO.getCustomDesignId() + "</b>\t<b>[" + customDesignDTO.getCusDesdate() + "]</b></p>";
         content += "<table width='100%' align='center' border='1' style='border-collapse:collapse;'>"
                 + "<tr align='center'>"
                 + "<td><b>Cake Type <b></td>"
@@ -924,11 +928,12 @@ public class foodItemBOImpl implements foodItemBO {
         int total = 0;
         int sum = 0;
 
+        //String data=null;
         for (CustomDesignDTO d : listCus) {
-
+            //data=d.getCusDesimage();
             content += "<tr align='center'>" + "<td>" + d.getCusDescakeType() + "</td>"
                     + "<td>" + d.getCusDescakeSize() + "</td>"
-                    + "<td>" +d.getCusDesdes()+ "</td>"
+                    + "<td>"+d.getCusDesdes().replace("+"," ")+"</td>"
                     + "</tr>";
         }
         content += "<tr align='center'>" + "<td><b>" + "Shipping" + "</b></td>"
@@ -936,7 +941,7 @@ public class foodItemBOImpl implements foodItemBO {
                 + "<td><b>" + "Free delivery" + "</b></td>"
                 + "</tr>";
 
-        content += "<tr align='center'>" + "<td><b>" + "Payment Method" + "</b></td>"
+        content+= "<tr align='center'>" + "<td><b>" + "Payment Method" + "</b></td>"
                 + "<td>" + "" + "</td>"
                 + "<td><b>" + "Cash on delivery" + "</b></td>"
                 + "</tr>"
@@ -957,9 +962,38 @@ public class foodItemBOImpl implements foodItemBO {
                 + "<p><i>"+"<b>Time:</b>"+deliveryDTO.getDeliveryTime()+"</i></p>";
 
 
+//        assert data != null;
+//        String base64Image = data.split(",")[1];
+//        byte[] imageBytes = javax.xml.bind.DatatypeConverter.parseBase64Binary(base64Image);
+//        BufferedImage img = ImageIO.read(new ByteArrayInputStream(imageBytes));
+//        File outputfile = new File("image.jpg");
+//        ImageIO.write(img, "jpg", outputfile);
+
+        //messageBodyPart.setContent(htmlText, "text/html");
+
+        // add it
+        //multipart.addBodyPart(messageBodyPart);
+
+        // second part (the image)
+//        messageBodyPart = new MimeBodyPart();
+//        DataSource fds = new FileDataSource
+//                (outputfile.getPath());
+//        System.out.print("datasource"+fds);
+//        messageBodyPart.setDataHandler(new DataHandler(fds));
+//        messageBodyPart.setHeader("Content-ID","<image>");
+//        messageBodyPart.setHeader("Content-ID","<logoSB>");
+
+        // add it
+        //multipart.addBodyPart(messageBodyPart);
+
+        // put everything together
+        //message.setContent(multipart);
+
+
+
         helper.setText(content, html);
         //img set
-        ClassPathResource resource = new ClassPathResource("../../img/logoSB.png");
+        ClassPathResource resource = new ClassPathResource("../../cake-main/img/logonw2.png");
         helper.addInline("logoSB", resource);
         javaMailSender.send(message);
     }
