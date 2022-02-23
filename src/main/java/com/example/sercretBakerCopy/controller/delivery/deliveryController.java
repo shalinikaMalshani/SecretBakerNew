@@ -143,11 +143,25 @@ public class deliveryController {
         }
         foodItemBO.saveDelivery(deliveryDTO);
 
+<<<<<<< HEAD
         foodItemBO.sendEmailToSBCD(customDesignDTO,deliveryDTO);
+=======
+        //foodItemBO.sendEmailToSBCD(customDesignDTO,deliveryDTO);
+
+
+>>>>>>> df0d280eff7e771eb1570c4aa8a26157928be314
 
 
         foodItemBO.sendEmailCD(customDesignDTO,deliveryDTO);
 
+<<<<<<< HEAD
+=======
+         foodItemBO.sendEmailCD(customDesignDTO,deliveryDTO);
+
+
+         //foodItemBO.sendEmailCD(customDesignDTO,deliveryDTO);
+
+>>>>>>> df0d280eff7e771eb1570c4aa8a26157928be314
 
         model.addAttribute("deliveryCusDes",foodItemBO.getDeliveryById(deliveryDTO.getDeliveryId()));
 

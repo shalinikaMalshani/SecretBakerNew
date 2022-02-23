@@ -26,7 +26,15 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="http://patskailua.com/font-email/font/flaticon.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/home.css" type="text/css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="../../css/home2.css" type="text/css">
+=======
+
+    <link rel="stylesheet" href="../../css/home2.css" type="text/css">
+
+    <link rel="stylesheet" href="../../css/lightslider.css" type="text/css">
+
+>>>>>>> df0d280eff7e771eb1570c4aa8a26157928be314
     <link rel="stylesheet" href="../../cake-main/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="../../cake-main/css/flaticon.css" type="text/css">
     <link rel="stylesheet" href="../../cake-main/css/barfiller.css" type="text/css">
@@ -37,6 +45,12 @@
     <link rel="stylesheet" href="../../cake-main/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="../../cake-main/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="../../cake-main/css/style.css" type="text/css">
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> df0d280eff7e771eb1570c4aa8a26157928be314
     <style>
         .set-bg-3 {
             background-repeat: no-repeat;
@@ -45,6 +59,11 @@
             background-image: url("../../cake-main/img/footer-bg.jpg");
         }
     </style>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> df0d280eff7e771eb1570c4aa8a26157928be314
 
 </head>
 
@@ -394,7 +413,7 @@
 <script src="../../cake-main/js/jquery.nicescroll.min.js"></script>
 <script src="../../cake-main/js/main.js"></script>
 
-<<<<<<< HEAD
+
 <script>
     var myIndex = 0;
     carousel();
@@ -412,8 +431,7 @@
     }
 </script>
 
-=======
->>>>>>> 5bd8e6aeb84d6b1da076e10eefb1ce0a705cc6f7
+
 </body>
 
 

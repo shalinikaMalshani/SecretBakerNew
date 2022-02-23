@@ -266,7 +266,7 @@
                     <div class="testimonial__item">
                         <div class="testimonial__author">
                             <div class="testimonial__author__pic">
-                                <img src="../../cake-main/img/testimonial/ta-1.jpg" alt="">
+                                <img src="../../cake-main/img/girlIcon2.jpg" alt="">
                             </div>
                             <div class="testimonial__author__text">
                                 <h5>Kerry D.Silva</h5>
@@ -288,7 +288,7 @@
                     <div class="testimonial__item">
                         <div class="testimonial__author">
                             <div class="testimonial__author__pic">
-                                <img src="../../cake-main/img/testimonial/ta-2.jpg" alt="">
+                                <img src="../../cake-main/img/girlIcon2.jpg" alt="">
                             </div>
                             <div class="testimonial__author__text">
                                 <h5>Kerry D.Silva</h5>
@@ -310,7 +310,7 @@
                     <div class="testimonial__item">
                         <div class="testimonial__author">
                             <div class="testimonial__author__pic">
-                                <img src="../../cake-main/img/testimonial/ta-1.jpg" alt="">
+                                <img src="../../cake-main/img/girlIcon2.jpg" alt="">
                             </div>
                             <div class="testimonial__author__text">
                                 <h5>Ophelia Nunez</h5>
@@ -332,7 +332,7 @@
                     <div class="testimonial__item">
                         <div class="testimonial__author">
                             <div class="testimonial__author__pic">
-                                <img src="../../cake-main/img/testimonial/ta-2.jpg" alt="">
+                                <img src="../../cake-main/img/girlIcon2.jpg" alt="">
                             </div>
                             <div class="testimonial__author__text">
                                 <h5>Kerry D.Silva</h5>
@@ -354,7 +354,7 @@
                     <div class="testimonial__item">
                         <div class="testimonial__author">
                             <div class="testimonial__author__pic">
-                                <img src="../../cake-main/img/testimonial/ta-1.jpg" alt="">
+                                <img src="../../cake-main/img/girlIcon2.jpg" alt="">
                             </div>
                             <div class="testimonial__author__text">
                                 <h5>Ophelia Nunez</h5>
@@ -376,7 +376,7 @@
                     <div class="testimonial__item">
                         <div class="testimonial__author">
                             <div class="testimonial__author__pic">
-                                <img src="../../cake-main/img/testimonial/ta-2.jpg" alt="">
+                                <img src="../../cake-main/img/girlIcon2.jpg" alt="">
                             </div>
                             <div class="testimonial__author__text">
                                 <h5>Kerry D.Silva</h5>
